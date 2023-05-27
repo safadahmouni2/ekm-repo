@@ -1,0 +1,54 @@
+package vwg.vw.km.presentation.client.navigation.node;
+
+public enum StaticNodeIdEnum {
+
+	CALCULATOR_MODULE_ROOT_NODE(-1L),
+
+	USER_SEARCH_RESULT_NODE(-2L),
+
+	WORK_AREA_SEARCH_RESULT_NODE(-3L),
+
+	USER_DEFINITION_SETTINGS_NODE(-4L),
+
+	COST_MANAGEMENT_MODULE_ROOT_NODE(-5L),
+
+	COST_COMPONENT_IN_PROCESS_NODE(-6L),
+
+	COST_COMPONENT_SEARCH_FOLDER_NODE(-7L),
+
+	COST_COMPONENT_SEARCH_RESULT_NODE(-8L),
+
+	COST_COMPONENT_TO_BE_APPROVED_NODE(-9L),
+
+	COST_ELEMENT_IN_PROCESS_NODE(-10L),
+
+	COST_ELEMENT_SEARCH_FOLDER_NODE(-11L),
+
+	COST_ELEMENT_SEARCH_RESULT_NODE(-12L),
+
+	COST_ELEMENT_TO_BE_APPROVED_NODE(-13L),
+
+	WORKING_NODE(-14L),
+
+	CHANGE_HISTORY_NODE(-15L),
+
+	NEWS_ADMINISTRATION_NODE(-16L),
+
+	STATISTICS_NODE(-17L),
+
+	NEWS_SEARCH_RESULT_NODE(-19L);
+
+	void setValue(Long desc) {
+		this.desc = desc;
+	}
+
+	public Long value() {
+		return desc;
+	}
+
+	private StaticNodeIdEnum(Long desc) {
+		this.desc = desc;
+	}
+
+	private Long desc;
+};

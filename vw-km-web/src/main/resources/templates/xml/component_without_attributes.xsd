@@ -1,0 +1,401 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Data  ___________________________________________ -->
+	<xs:element name="Data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Objects">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<!-- PmResourceLibrary -->
+							<xs:element name="PmResourceLibrary" minOccurs="0" type="PmResourceLibraryType">
+							</xs:element>
+							<!-- Gun -->
+							<xs:element name="Gun" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Robot -->
+							<xs:element name="Robot" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Electric _any -->
+							<xs:element name="Electric" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- RobotEquipment -->
+							<xs:element name="RobotEquipment" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Quality -->
+							<xs:element name="Quality" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- PmToolPrototype -->
+							<xs:element name="PmToolPrototype" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Fixture -->
+							<xs:element name="Fixture" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- SteelConstruction -->
+							<xs:element name="SteelConstruction" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Conveyer -->
+							<xs:element name="Conveyer" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Turn_Table -->
+							<xs:element name="Turn_Table" minOccurs="0" type="ComponentType"> 
+							</xs:element>
+							<!-- Security_Window -->
+							<xs:element name="Security_Window" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Dock_System -->
+							<xs:element name="Dock_System" minOccurs="0" type="ComponentType"> 
+							</xs:element>
+							<!-- Container -->
+							<xs:element name="Container" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Clamp -->
+							<xs:element name="Clamp" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Device -->
+							<xs:element name="Device" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- BuildingServices -->
+							<xs:element name="BuildingServices" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Gripper -->
+							<xs:element name="Gripper" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- LightSensor -->
+							<xs:element name="LightSensor" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Work_Table -->
+							<xs:element name="Work_Table" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- PmEquipmentPrototype -->
+							<xs:element name="PmEquipmentPrototype" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- Consumable -->
+							<xs:element name="Consumable" minOccurs="0" type="ComponentType">
+							</xs:element>
+							<!-- PlcResource -->
+							<xs:element name="PlcResource" minOccurs="0" type="ComponentType">							
+							</xs:element>
+							<!-- Flange -->
+							<xs:element name="Flange" minOccurs="0" type="ComponentType">							
+							</xs:element>
+							<!-- Human -->
+							<xs:element name="Human" minOccurs="0" type="ComponentType">							
+							</xs:element>
+							<!-- PersonalEquipment -->
+							<xs:element name="PersonalEquipment" minOccurs="0" type="ComponentType">							
+							</xs:element>
+							<!-- ProximitySensor -->
+							<xs:element name="ProximitySensor" minOccurs="0" type="ComponentType">							
+							</xs:element>
+							<!-- Shelf -->
+							<xs:element name="Shelf" minOccurs="0" type="ComponentType">							
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="PpXmlVer" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<!--  GROUPS & TYPES  ___________________________________________ -->
+	<xs:group name="component_without_attributes">
+		<xs:sequence>
+			<xs:element type="STRING_150" name="AKEInhaltVLB"/>
+			<!--m Bearbeiter: -->
+			<!--b BENUTZER -->
+			<xs:element type="date_dd_mm_yyyy" name="AKEInhaltVLD"/>
+			<!--d  DATUM -->
+			<xs:element type="STRING_150" name="BeistellungenB"/>
+			<!--b BENUTZER -->
+			<xs:element type="date_dd_mm_yyyy" name="BeistellungenD"/>
+			<!--d  DATUM -->
+			<xs:element type="STRING_300" name="Hersteller"/>
+			<!--m Kalkulation:Hersteller -->
+			<!-- T_BAUSTEINVERSION:HERSTELLER / STRING(length = 300) / "" -->
+			<xs:element type="xs:string" name="Inhalt_Elek"/>
+			<!--m Leistungsinhalte:Elektrik -->
+			<!-- T_BAUSTEINVERSION:ELEKTRIK / STRING(length = 4000) / "" -->
+			<xs:element type="xs:string" name="Inhalt_Mech_Ausfuerung"/>
+			<!--m Leistungsinhalte:Mechanik AusfÃƒÂ¼hrung -->
+			<!-- T_BAUSTEINVERSION:MECHANIK_AUSFUEHRUNG / STRING (length = 4000) / "" -->
+			<xs:element type="xs:string" name="Inhalt_Mech_Konstruktion"/>
+			<!--m Leistungsinhalte:Mechanik Konstruktion -->
+			<!-- T_BAUSTEINVERSION:MECHANIK_KONSTRUKTION / STRING(length = 4000) / "" -->
+			<xs:element name="NKEKaufteileDatum" type="date_dd_mm_yyyy_hh_mm_ss"/>
+			<!--m Kalkulation:E - Kaufteile Preisstand -->
+			<!-- . T_BAUSTEINVERSION:E_PREISSTAND_DATUM / (columnDefinition = "DATE") / dd.mm.yyyy h.mm.ss -->
+			<xs:element type="STRING_150" name="NKEKaufteileDatumB"/>
+			<!--b BENUTZER -->
+			<xs:element type="date_dd_mm_yyyy" name="NKEKaufteileDatumD"/>
+			<!--d  DATUM -->
+			<xs:element type="STRING_300" name="NKEKaufteileInfo"/>
+			<!--m Kalkulation:E - Kaufteile Preisstand -->
+			<!-- T_BAUSTEINVERSION:E_PREISSTAND_BEMERKUNG / STRING (length = 300) -->
+			<xs:element type="STRING_150" name="NKEKaufteileInfoB"/>
+			<!--b BENUTZER -->
+			<xs:element type="date_dd_mm_yyyy" name="NKEKaufteileInfoD"/>
+			<!--d  DATUM -->
+			<xs:element name="NKMKaufteileDatum" type="date_dd_mm_yyyy_hh_mm_ss" />
+			<!--m Kalkulation:M - Kaufteile Preisstand -->
+			<!-- T_BAUSTEINVERSION:M_PREISSTAND_DATUM / ( length = 8, columnDefinition = "DATE") / dd.mm.yyyy h.mm.ss -->
+			<xs:element type="STRING_150" name="NKMKaufteileDatumB"/>
+			<!--b BENUTZER -->
+			<xs:element type="date_dd_mm_yyyy" name="NKMKaufteileDatumD"/>
+			<!--d  DATUM -->
+			<xs:element type="STRING_300" name="NKMKaufteileInfo"/>
+			<!--m Kalkulation:M - Kaufteile Preisstand -->
+			<!-- T_BAUSTEINVERSION:HERSTELLER / STRING (length = 300) / "" -->
+			<xs:element type="STRING_150" name="NKMKaufteileInfoB"/>
+			<!--b BENUTZER -->
+			<xs:element type="date_dd_mm_yyyy" name="NKMKaufteileInfoD"/>
+			<!--d  DATUM -->
+			<xs:element type="ENUM_BAUSTEINTYP" name="Objekttyp"/>
+			<!--m Objekttyp: -->
+			<!-- STRING =    T_ENUM_BAUSTEINTYP:BAUSTEIN_TYP (length = 256, nullable = false) 
+			     + " / " +   T_ENUM_BAUSTEINTYP:BAUSTEIN_TYP_EN (length = 256, nullable = false)
+			-->
+			<xs:element type="NonEmptyString_256" name="Pos"/>
+			<!--m Baustein-Nr -->
+			<!-- T_BAUSTEIN:BAUSTEIN_NR / STRING (length = 256, unique = true, nullable = false) -->
+			<xs:element type="xs:byte" name="VPlanrelevant" fixed="1"/>
+			<!-- HC >1<-->
+			<xs:element name="bBeistellungenValid" type="boolean_0_1"/>
+			<!-- HC ? "0" : "1" -->
+			<xs:element type="xs:string" name="catalogNumber"/>
+			<!--m Katalognummer: -->
+			<!-- KATALOG_NUMMER / STRING (length = 300) / "" -->
+			<xs:element minOccurs="0" name="children" type="ChildrenType"/>
+			<xs:element type="xs:string" name="comment"/>
+			<!--m Kommentar -->
+			<!-- T_BAUSTEINVERSION:BESCHREIBUNG / STRING (length = 2048) / "" -->
+			<xs:element type="NonEmptyString_256" name="name"/>
+			<!--m Name -->
+			<!-- T_BAUSTEIN:BEZEICHNUNG / STRING (length = 256, nullable = false, unique = true) -->
+			<xs:element type="ENUM_MARKE" name="AEKBrand"/>
+			<!--m in front of : Baustein-Nr -->
+			<!-- T_MARKE:ID / STRING / exmp: VW AU -->
+			<xs:element type="xs:string" name="PmToolPrototype.BIBVersionDate"/>
+			<!-- dd.mm.yyyy h.mm.ss -->
+			<xs:element type="xs:byte" name="bFromDetail" fixed="1"/>
+			<!-- HC >1<-->
+			<xs:element name="Hide2DLabel" type="boolean_0_1"/>
+			<!-- HC ? "0" : "1" -->
+			<xs:element name="hide2DObject" type="boolean_0_1"/>
+			<!-- HC ? "0" : "1" -->
+			<xs:element type="xs:string" name="KomponentenTyp"/>
+			<!--m (exportieren):Komponententyp -->
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="ComponentType">
+		<xs:group ref="component_without_attributes"/>
+		<xs:attribute type="xs:string" name="ExternalId" use="required"/>
+		<!--m ExternalId -->
+		<!-- T_BAUSTEIN:UUIDKB / STRING (length = 1024)   ||   T_BAUSTEIN:ID -->
+	</xs:complexType>
+	<xs:complexType name="PmResourceLibraryType">
+		<xs:choice minOccurs="1">
+			<xs:group ref="component_without_attributes"/>
+			<xs:group ref="folder"/>
+		</xs:choice>
+		<xs:attribute type="xs:string" name="ExternalId" use="required"/>
+	</xs:complexType>
+	<xs:group name="folder">
+		<xs:sequence>
+			<xs:element name="Objekttyp" type="ENUM_BAUSTEINTYP" />
+			<xs:element name="children" type="ChildrenType"/>
+			<xs:element type="NonEmptyString_256" name="name"/>
+		</xs:sequence>
+	</xs:group>
+	<!-- for empty_or_decimal -->
+	<xs:simpleType name="empty">
+		<xs:restriction base="xs:string">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- T_BAUSTEINKOSTEN:ANZAHL && T_BAUSTEINKOSTEN:BETRAG -->
+	<xs:simpleType name="empty_or_decimal">
+		<xs:union memberTypes="empty xs:decimal"/>
+	</xs:simpleType>
+	<!-- T_BAUSTEINVERSIONANDERUNG:DATUM -->
+	<xs:simpleType name="date_dd_mm_yyyy">
+		<!-- dd.mm.yyyy -->
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="(([012][0-9])|(3[01]))\.(0[1-9]|1[0-2])\.\d\d\d\d"/>
+					<xs:length value="10"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<!--  T_BAUSTEINVERSION:E_PREISSTAND_DATUM && T_BAUSTEINVERSION:M_PREISSTAND_DATUM -->
+	<xs:simpleType name="date_dd_mm_yyyy_hh_mm_ss">
+	    <!-- (dd|d)/(mm|m)/yyyy (hh|h):(mm|m):(ss|s) -->
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="([1-9]|([012][0-9])|(3[01]))\/([0]{0,1}[1-9]|1[012])\/\d\d\d\d (20|21|22|23|[0-1]?\d):[0-5]?\d:[0-5]?\d"/>
+					<xs:minLength value="14"/>
+					<xs:maxLength value="19"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="0"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<xs:simpleType name="boolean_0_1">
+		<!-- 0 | 1 -->
+		<xs:restriction base="xs:byte">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- T_MARKE:ID -->
+	<xs:simpleType name="ENUM_MARKE">
+		<!-- AU | VW | K -->
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AU"/>
+			<xs:enumeration value="VW"/>
+			<xs:enumeration value="K"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- T_ENUM_BAUSTEINTYP -->
+	<xs:simpleType name="ENUM_BAUSTEINTYP">
+		<!--
+	        BAUSTEIN_TYP                 BAUSTEIN_TYP_EN
+			
+		    Arbeitsplatzausstattung	     Workshop bay equipment
+            Clinchtechnik	             Clinching technique
+            Container	                 Container
+            Falztechnik	                 Folding technique
+            FoerderUndSpeichertechnik	 Handling and warehouse systems
+            Gebaeudetechnik	             Building services engineering
+            Klebetechnik	             Bonding technique
+            Lasertechnik	             Laser technology
+            MessUndPrueftechnik	         Measuring and test engineering
+            Niettechnik	                 Rivet technology
+            Roboter	                     Roboter
+            Roboterzubehoer	             Robotic equipment 
+            Schraubtechnik	             Threaded technology
+            Schutztechnik	             Security technology
+            SchweissUndLoettechnik	     Weldandsoldering technique
+            Sonderbetriebsmittel	     Special resources
+            Stahlbau	                 Structural steelwork
+            Standardbetriebsmittel	     Standard resources
+            Steuerungstechnik	         Control engineering
+            Trenntechnik	             Separation technique 
+            VerbindungsUndTrenntechnik	 Joining and separation technique
+            Vorrichtungstechnik	         Device technique
+	    -->
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+			<xs:enumeration value="Arbeitsplatzausstattung"/>
+			<xs:enumeration value="Clinchtechnik"/>
+			<xs:enumeration value="Container"/>
+			<xs:enumeration value="Falztechnik"/>
+			<xs:enumeration value="FoerderUndSpeichertechnik"/>
+			<xs:enumeration value="Gebaeudetechnik"/>
+			<xs:enumeration value="Klebetechnik"/>
+			<xs:enumeration value="Lasertechnik"/>
+			<xs:enumeration value="MessUndPrueftechnik"/>
+			<xs:enumeration value="Niettechnik"/>
+			<xs:enumeration value="Roboter"/>
+			<xs:enumeration value="Roboterzubehoer"/>
+			<xs:enumeration value="Schraubtechnik"/>
+			<xs:enumeration value="Schutztechnik"/>
+			<xs:enumeration value="SchweissUndLoettechnik"/>
+			<xs:enumeration value="Sonderbetriebsmittel"/>
+			<xs:enumeration value="Stahlbau"/>
+			<xs:enumeration value="Standardbetriebsmittel"/>
+			<xs:enumeration value="Steuerungstechnik"/>
+			<xs:enumeration value="Trenntechnik"/>
+			<xs:enumeration value="VerbindungsUndTrenntechnik"/>
+			<xs:enumeration value="Vorrichtungstechnik"/>
+			<xs:enumeration value="Arbeitsplatzausstattung / Workshop bay equipment"/>
+			<xs:enumeration value="Clinchtechnik / Clinching technique"/>
+			<xs:enumeration value="Container / Container"/>
+			<xs:enumeration value="Falztechnik / Folding technique"/>
+			<xs:enumeration value="FoerderUndSpeichertechnik / Handling and warehouse systems"/>
+			<xs:enumeration value="Gebaeudetechnik / Building services engineering"/>
+			<xs:enumeration value="Klebetechnik / Bonding technique"/>
+			<xs:enumeration value="Lasertechnik / Laser technology"/>
+			<xs:enumeration value="MessUndPrueftechnik / Measuring and test engineering"/>
+			<xs:enumeration value="Niettechnik / Rivet technology"/>
+			<xs:enumeration value="Roboter / Roboter"/>
+			<xs:enumeration value="Roboterzubehoer / Robotic equipment "/>
+			<xs:enumeration value="Schraubtechnik / Threaded technology"/>
+			<xs:enumeration value="Schutztechnik / Security technology"/>
+			<xs:enumeration value="SchweissUndLoettechnik / Weldandsoldering technique"/>
+			<xs:enumeration value="Sonderbetriebsmittel / Special resources"/>
+			<xs:enumeration value="Stahlbau / Structural steelwork"/>
+			<xs:enumeration value="Standardbetriebsmittel / Standard resources"/>
+			<xs:enumeration value="Steuerungstechnik / Control engineering"/>
+			<xs:enumeration value="Trenntechnik / Separation technique "/>
+			<xs:enumeration value="VerbindungsUndTrenntechnik / Joining and separation technique"/>
+			<xs:enumeration value="Vorrichtungstechnik / Device technique"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- BENUTZER -->
+	<xs:simpleType name="STRING_150">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- T_BAUSTEINVERSION:E_PREISSTAND_BEMERKUNG && HERSTELLER -->
+	<xs:simpleType name="STRING_300">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="300"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- not used -->
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[\s\S]*[^ ][\s\S]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- T_BAUSTEIN:BEZEICHNUNG && T_BAUSTEIN:BAUSTEIN_NR -->
+	<xs:simpleType name="NonEmptyString_256">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[\s\S]*[^ ][\s\S]*"/>
+			<xs:maxLength value="256"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- not used : for test any complexType -->
+	<xs:complexType name="_any">
+		<xs:sequence>
+			<xs:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute processContents="skip"/>
+	</xs:complexType>
+	<!-- not used -->
+	<xs:simpleType name="date_dd_mm_yyyy_not_null">
+	    <!-- dd.mm.yyyy -->
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(([012][0-9])|(3[01]))\.(0[1-9]|1[0-2])\.\d\d\d\d"/>
+			<xs:length value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ChildrenType">
+					<xs:sequence>
+						<xs:element type=" xs:string" name="item" maxOccurs="unbounded" minOccurs="0"/>
+					</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+<!-- DETAILS  ___________________________________________ -->
+<!-- 
+  HC ><          =>  HARD CODED >VALUE<
+  (?L)           => componentValuesMap.containsKey(?L) 
+  <@ condition @>       
+-->
+<!--b BENUTZER   =>  T_BAUSTEINVERSIONANDERUNG:BENUTZER / String (length = 150)  -->
+<!--d DATUM      =>  T_BAUSTEINVERSIONANDERUNG:DATUM / String ( DATE , nullable = false ) -->
+<!--v            => T_BAUSTEINKOSTEN:ANZAHL (length = 8) || T_BAUSTEINKOSTEN:BETRAG (length = 8) -->

@@ -1,0 +1,68 @@
+/*
+ * Copyright (c) VW All Rights Reserved.
+ *
+ * This SOURCE CODE FILE, which has been provided by VW Software as part
+ * of an VW Software product for use ONLY by licensed users of the product,
+ * includes CONFIDENTIAL and PROPRIETARY information of VW Software.
+ *
+ * USE OF THIS SOFTWARE IS GOVERNED BY THE TERMS AND CONDITIONS
+ * OF THE LICENSE STATEMENT AND LIMITED WARRANTY FURNISHED WITH
+ * THE PRODUCT.
+ *
+ * IN PARTICULAR, YOU WILL INDEMNIFY AND HOLD INPRISE, ITS RELATED
+ * COMPANIES AND ITS SUPPLIERS, HARMLESS FROM AND AGAINST ANY CLAIMS
+ * OR LIABILITIES ARISING OUT OF THE USE, REPRODUCTION, OR DISTRIBUTION
+ * OF YOUR PROGRAMS, INCLUDING ANY CLAIMS OR LIABILITIES ARISING OUT OF
+ * OR RESULTING FROM THE USE, MODIFICATION, OR DISTRIBUTION OF PROGRAMS
+ * OR FILES CREATED FROM, BASED ON, AND/OR DERIVED FROM THIS SOURCE
+ * CODE FILE.
+ */
+package vwg.vw.km.common.type;
+
+/**
+ * <p>
+ * Title: EKM
+ * <p>
+ * Description : Class description goes here
+ * </p>
+ * <p>
+ * Copyright: VW (c) 2011
+ * </p>
+ * .
+ * 
+ * @author Sebri Zouhaier changed by $Author: saidi $
+ * @version $Revision: 1.11 $ $Date: 2013/08/28 10:09:46 $
+ */
+public enum ChangeType {
+
+	COMMENT_VALUE("COMMENT_VALUE"), MECANIC_CONSTRUCTION_VALUE("MECANIC_CONSTRUCTION_VALUE"), MECANIC_EXECUTION_VALUE(
+			"MECANIC_EXECUTION_VALUE"), ELECTRIC_VALUE("ELECTRIC_VALUE"), E_DATE_VALUE("E_DATE_VALUE"), E_NOTICE_VALUE(
+					"E_NOTICE_VALUE"), M_DATE_VALUE("M_DATE_VALUE"), M_NOTICE_VALUE("M_NOTICE_VALUE"), ATTRIBUTE_VALUE(
+							"ATTRIBUTE_VALUE"), ADD_ELEMENT(
+									"ADD_ELEMENT"), REMOVE_ELEMENT("REMOVE_ELEMENT"), WITH_PROVISION(
+											"WITH_PROVISION"), USE_STAND("USE_STAND"), UNUSE_STAND(
+													"UNUSE_STAND"), ACTIVATE("ACTIVATE"), DEACTIVATE("DEACTIVATE"),
+	// 27.08.2013: ZS: PTS_Requirement-22186: Addition of new fields historicizing
+	DESCRIPTION("DESCRIPTION"), NUMBER("NUMBER"), DESIGNATION("DESIGNATION"), CATALOG_NUMBER(
+			"CATALOG_NUMBER"), ELEMENT_CATEGORY(
+					"ELEMENT_CATEGORY"), COMPONENT_CATEGORY("COMPONENT_CATEGORY"), MANUFACTURER("MANUFACTURER"),
+	//01.12.2022 add costgroup for RADIOBUTTON By SDH
+	COST_GROUP("COST_GROUP"),
+
+	IMAGE_PREVIEW("IMAGE_PREVIEW");
+
+	void setValue(String desc) {
+		this.desc = desc;
+	}
+
+	public String value() {
+		return desc;
+	}
+
+	private ChangeType(String desc) {
+		this.desc = desc;
+	}
+
+	private String desc;
+
+}

@@ -1,0 +1,11 @@
+table.sortable tr.TrHeader
+{
+	font-weight:bold;
+	cursor:pointer;
+	cursor:hand;
+}
+table.sortable tr.TrHeader a
+{
+	padding-left:0;
+	background-image:none;
+}

@@ -1,0 +1,22 @@
+.payConf .nowrap
+{
+	white-space:nowrap !important;
+}
+.payConf .dateHeader
+{
+	margin-left:0px !important;
+}
+.payConf .dateLabel
+{
+	padding-left:20px;
+	width:0;
+}
+.payConf .priceRead
+{
+	text-align: right !important;
+	border: none !important;
+}
+.payConf .priceEdit
+{
+	text-align: right !important;
+}

@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:ace="http://www.icefaces.org/icefaces/components" 
+	  xmlns:icecore="http://www.icefaces.org/icefaces/core" 
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:panelGroup layout="block" styleClass="areaTab" id="mainContent">
+	         <h:panelGroup layout="block" styleClass="btnGen" style="padding-top:15px">     
+     	
+			<h:panelGroup layout="block" styleClass="btn">
+               <!-- Aktion menu -->
+			  <h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+					<ace:submenu label="#{msgs['common.action.button']}" id="action">
+						<ace:menuItem id="print" value="#{msgs['common.print.button']}" url="javascript:friendlyPrint();" />
+						<ace:menuItem id="excel_export" value="#{msgs['statistics.database.button.excelexport']}" 
+							actionListener="#{statisticBean.showExcelExportModal}" target="_blank"/>
+					</ace:submenu>
+				</ace:menuBar>
+				<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+                <div class="space">&#160;</div> 				
+			</h:panelGroup>            
+            
+            <h:panelGroup layout="block">
+             <h2 id="contentHeadline" class="h2Mar smallerSpace">
+               <h:graphicImage value="../images/Arbeitsbereiche_Icn.jpg" class="iconObject"/>
+               <h:outputText value="#{msgs['statistics.database.title']}" styleClass="smallerFont" />
+             </h2>
+            </h:panelGroup>
+         </h:panelGroup>	
+</h:panelGroup>
+
+
+<script type="text/javascript">
+       screenResizeInit (); 
+    </script>
+</html>

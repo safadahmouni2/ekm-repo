@@ -1,0 +1,389 @@
+
+html, body, legend
+{
+  color:#000;
+}
+
+body, a, input
+{
+  color:#000000;
+}
+
+body.usp_contrast, 
+.usp_contrast textarea,
+.usp_contrast select,
+.usp_contrast a
+{
+  color:#000;
+}
+.usp_fixedContrast #areaMain
+{
+  color:#004963;
+}
+.client_ie6 #areaMain
+{
+  color:#004963;
+}
+
+.usp_fixedContrast #areaContent input.linkButton,
+.usp_fixedContrast .linkSection input,
+.usp_fixedContrast #areaMain a,
+.usp_fixedContrast textarea,
+.usp_fixedContrast select
+{
+  color:#333 !important;
+}
+
+a
+{
+  text-decoration:none;
+}
+
+body
+{
+  margin:0;
+  padding:0;
+}
+body.pageScrollMargin
+{
+  padding-bottom:1024px;
+}
+html, body {
+    height: 100%;
+}
+
+#areaContainer
+{
+  width:1000px;
+  height:100%;
+  margin:0 auto 0;
+  text-align:left;
+  padding:0px;
+  position:relative;
+  top:0;
+}
+
+
+
+/* ========== */
+/* Navigation */
+/* ========== */
+#areaNavi
+{
+  height:192px;
+  left:0;
+  width:1000px;
+  background:#345D6F url(Konzern/headerImg_026.jpg) no-repeat 0 0;
+}
+.style_NaviLeft .mainNavi 
+{
+  opacity:0.99;
+}
+
+.hoverMenu ul 
+{
+  margin:40px 0;
+  position:absolute;
+}
+
+.hoverMenu ul ul 
+{
+  background-color:#345D6F;
+  display:none;
+  border-left:4px solid red;
+}
+
+body.style_NaviLeft .hoverMenu ul li,
+body.NaviHeight .hoverMenu ul li
+{
+  position: static;
+}
+
+body.NaviHeight .hoverMenu ul ul 
+{
+  height:182px;
+}
+
+.NaviAlwaysOpen .hoverMenu li.active ul
+{
+  display:block;
+}
+
+.NaviAlwaysOpen .hoverMenu ul li.active ul                                          {display:block;}
+.NaviAlwaysOpen .hoverMenu ul li.active.hover ul                                    {display:block;}
+                                                                                              
+.NaviAlwaysOpen .hoverMenu ul li.active ul li ul                                    {display:none; }
+.NaviAlwaysOpen .hoverMenu ul li.active ul li.active ul                             {display:block;}
+.NaviAlwaysOpen .hoverMenu ul li.active ul li.active.hover ul                       {display:block;}
+                                                                                              
+.NaviAlwaysOpen .hoverMenu ul li.active ul li.active ul li ul                       {display:none; }
+.NaviAlwaysOpen .hoverMenu ul li.active ul li.active ul li.active ul                {display:block;}
+
+.NaviAlwaysOpen .hoverMenu ul li.active ul li.active ul li.active ul li ul          {display:none; }
+.NaviAlwaysOpen .hoverMenu ul li.active ul li.active ul li.active ul li.active ul   {display:block;}
+
+
+.hoverMenu ul,
+.hoverMenu ul ul
+{
+  width:188px;
+}
+
+.hoverMenu ul ul
+{
+  left: 189px;
+}
+
+.hoverMenu ul ul ul
+{
+  background-color:#345D6F;
+}
+
+.mainNavi ul li a
+{
+  display:block;
+  width:100%;
+  color:#B8C9D1;
+}
+
+.mainNavi ul li.active a,
+.mainNavi ul li.active li.active a,
+.mainNavi ul li.active li.active li.active a,
+.mainNavi ul li.active li.active li.active li.active a
+{
+  color:#fff;
+  font-weight:bold;
+}
+
+.mainNavi ul li.active li a,
+.mainNavi ul li.active li.active li a,
+.mainNavi ul li.active li.active li.active li a,
+.mainNavi ul li.active li.active li.active li.active li a
+{
+  color:#B8C9D1;
+  font-weight:normal;
+}
+
+
+.NaviAlwaysOpen.style_NaviLeft .mainNavi ul li ul,
+.style_NaviLeft .mainNavi ul li ul li
+{
+  display:none;
+}
+
+.NaviAlwaysOpen.style_NaviLeft .mainNavi ul li.active ul,
+.style_NaviLeft .mainNavi ul li.active ul li.active
+{
+  display:block;
+}
+
+.style_NaviLeft .mainNavi:hover
+{
+  background-color:#345D6F!important;
+}
+
+.style_NaviLeft .mainNavi ul li ul
+{
+  height:2em;
+  background-color:#fff;
+}
+
+.style_NaviLeft .mainNavi:hover ul li ul
+{
+  opacity:.98;
+}
+
+.style_NaviLeft .mainNavi ul li ul li a
+{
+  color:#345D6F!important;
+  border:1px solid #345D6F;
+  white-space:nowrap;
+  padding-right:12px;
+}
+
+.style_NaviLeft .mainNavi:hover ul li ul li a
+{
+  border:0px;
+  color:#B8C9D1!important;
+}
+.style_NaviLeft .mainNavi:hover ul li ul li a:hover
+{
+  color:#fff!important;
+}
+
+.style_NaviLeft .mainNavi:hover ul li ul
+{
+  width:188px!important;
+  background-color:#345D6F!important;
+}
+
+.style_NaviLeft .mainNavi:hover ul li
+{
+  background-color:#345D6F!important;
+}
+
+.style_NaviLeft .mainNavi:hover ul ul ul
+{
+  left:188px!important;
+}
+
+.style_NaviLeft.NaviHeight .mainNavi:hover ul li ul
+{
+  width:188px!important;
+  background-color:#345D6F!important;
+  height:182px;
+}
+
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active ul li.active ul li a,
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active ul li a,
+.style_NaviLeft .mainNavi:hover ul li.active ul li a,
+.style_NaviLeft .mainNavi:hover ul li ul a
+{
+  color:#B8C9D1!important;
+  white-space:normal;
+}
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active ul li.active ul li.active a,
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active ul li.active a,
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active ul li.active a:hover,
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active a,
+.style_NaviLeft .mainNavi:hover ul li.active ul li.active a:hover,
+.style_NaviLeft .mainNavi:hover ul li.active a,
+.style_NaviLeft .mainNavi:hover ul li.active a:hover
+{
+  color:#fff!important;
+}
+
+
+.style_NaviLeft .mainNavi:hover ul li.active ul
+{
+  display:none;
+}
+
+.style_NaviLeft .mainNavi:hover ul li ul li,
+.style_NaviLeft .mainNavi:hover ul li.active ul li
+{
+  display:block;
+}
+
+
+h2#contentHeadline
+{
+  font-size:2.7em;
+  color:black;
+  margin:0;
+  padding:0;
+  margin-left:12px;
+  padding-bottom:20px;
+  font-family:arial;
+  font-weight:normal;
+}
+
+.style_NaviLeft #contentHeadline
+{
+  position:relative;
+  top: -0.8em;
+}
+.style_NaviLeft.NaviAlwaysOpen #contentHeadline
+{
+  position:relative;
+  top: .3em;
+}
+
+#areaContent h3
+{
+  color:#004963;
+  margin-bottom:6px;
+  font-size:1.2em;
+}
+
+
+.NaviAlwaysOpen .hoverMenu ul li ul,
+.NaviAlwaysOpen .hoverMenu ul li ul
+{
+  display:none;
+}
+
+
+
+
+
+
+
+
+.style_NaviLeft .mainNavi:hover ul                                                   {display:block;}
+.style_NaviLeft .mainNavi:hover ul ul                                                {display:none; }
+
+
+.style_NaviLeft .mainNavi:hover ul li:hover ul                                       {display:block;}
+.style_NaviLeft .mainNavi:hover ul li.hover ul                                       {display:block;}
+
+.style_NaviLeft .mainNavi:hover ul li:hover ul li ul                                 {display:none; }
+.style_NaviLeft .mainNavi:hover ul li.hover ul li ul                                 {display:none; }
+.style_NaviLeft .mainNavi:hover ul li:hover ul li:hover ul                           {display:block;}
+.style_NaviLeft .mainNavi:hover ul li.hover ul li.hover ul                           {display:block;}
+
+.style_NaviLeft .mainNavi:hover ul li:hover ul li:hover ul li ul                     {display:none; }
+.style_NaviLeft .mainNavi:hover ul li.hover ul li.hover ul li ul                     {display:none; }
+.style_NaviLeft .mainNavi:hover ul li:hover ul li:hover ul li:hover ul               {display:block;}
+.style_NaviLeft .mainNavi:hover ul li.hover ul li.hover ul li.hover ul               {display:block;}
+
+.style_NaviLeft .mainNavi:hover ul li:hover ul li:hover ul li:hover ul li ul         {display:none; }
+.style_NaviLeft .mainNavi:hover ul li.hover ul li.hover ul li.hover ul li ul         {display:none; }
+.style_NaviLeft .mainNavi:hover ul li:hover ul li:hover ul li:hover ul li:hover ul   {display:block;}
+.style_NaviLeft .mainNavi:hover ul li.hover ul li.hover ul li.hover ul li.hover ul   {display:block;}
+
+
+
+fieldset ul
+{
+  list-style:none;
+}
+
+#areaContent
+{
+  font-size:1em;
+  margin:0;
+  padding:0;
+  padding-bottom:4em;
+  position:absolute;
+  left:188px;
+  width: 812px;
+}
+
+.client_ie6 #areaContent
+{
+  width: 788px;
+}
+
+
+fieldset ul li
+{
+  padding-left: .1em;
+}
+
+hr
+{
+  display:none;
+}
+.usp_showHR hr
+{
+  display:block;
+}
+
+
+#areaContent h1
+{
+  padding-bottom:20px;
+}
+
+.centerText,
+.newadaWebGoodBye
+{
+  text-align:center;
+}
+
+.usp_usrDataReleaseNotes
+{
+  height:100px;
+  clear:both;
+}

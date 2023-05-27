@@ -1,0 +1,320 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	  xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions">
+	  
+	<h:panelGroup layout="block" styleClass="areaTabContent" id="mainContent">
+		<div class="Des">&#160;</div>
+		<div class="Des">&#160;</div>
+		<h:panelGroup layout="block" styleClass="btn">
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTC">
+				<h:commandLink value="#{msgs['costelement.back']}"
+					actionListener="#{changeHistoryBean.back}">
+					<f:ajax render="@all" execute="@all" />
+				</h:commandLink>	
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			 
+		</h:panelGroup>
+
+	    <table width="100%" border="0">
+		  <tr class="cost_element_header11">
+		    <td>
+				<h2 id="contentHeadline" class="h2Mar">
+                	<h:outputText value="#{msgs['changehistory.search.showDetails']}" rendered="#{! changeHistoryBean.dto.fromLastChangesPage}" />
+                    <h:outputText value="#{msgs['changehistory.search.showDetails.lastChanges']}" rendered="#{changeHistoryBean.dto.fromLastChangesPage}" />
+				</h2>
+			</td>
+		  </tr>
+		 </table>
+		
+		<h:panelGroup layout="block" styleClass="mc">
+		<table cellspacing="0" cellpadding="0" border="0" >
+			<tbody>
+				<tr>
+					<td class="likeH3">#{msgs['changehistory.search.criteres']}</td>
+				</tr>
+	            <tr>
+		          <td>
+                          <h:panelGroup layout="block" styleClass="mc" >
+                           
+                          <table width="100%" border="1" cellpadding="0" cellspacing="0">
+                          <tbody><tr>
+                          			
+                                <td width="152" height="18" align="center" nowrap="nowrap" class="tabIce_left">&#160;</td>                                
+                                <td width="158" align="center" nowrap="nowrap" class="tabIce">
+									<h:outputText style="white-space: nowrap;" rendered="#{changeHistoryBean.objectType == 1}"
+											value="#{msgs['changehistory.search.elementNumber']}" />
+									<h:outputText style="white-space: nowrap;" rendered="#{changeHistoryBean.objectType == 2}"
+												value="#{msgs['changehistory.search.componentNumber']}" />
+								</td>                                
+                                <td width="82" align="center" nowrap="nowrap" class="tabIce">
+								<h:outputText value="#{msgs['costelement.owner']}" />
+								</td>
+                                
+                                <td width="108" align="center" nowrap="nowrap" class="tabIce">
+								<h:outputText value="#{msgs['costelement.users']}" />
+								</td>
+                                
+                                <td width="130" align="center" nowrap="nowrap" class="tabIce">
+								<h:outputText value="#{msgs['changehistory.search.period']}" />
+								</td>
+                                
+                                <td width="300" align="center" class="tabIce">
+								<h:outputText value="#{msgs['changehistory.search.changeType']}" />
+								</td>
+                             </tr>
+                              <tr >                            	
+                                <td height="20" align="center" >
+									<h:outputText value="#{msgs['changehistory.search.changesTo']}" />&#160;
+									<h:outputText rendered="#{changeHistoryBean.objectType == 1}"
+											value="#{msgs['changehistory.search.element']}" />
+									<h:outputText rendered="#{changeHistoryBean.objectType == 2}"
+											value="#{msgs['changehistory.search.component']}" />
+							    </td>
+								 <td align="center" class="PaFont">
+									<h:outputText rendered="#{changeHistoryBean.objectType == 1}"
+										value="#{changeHistoryBean.dto.searchObject.numElement}" />
+									<h:outputText rendered="#{changeHistoryBean.objectType == 2}"
+										value="#{changeHistoryBean.dto.searchObject.numComponent}" />
+								</td>
+
+								<td height="20" align="center" class="PaFont">
+									<h:outputText value="#{changeHistoryBean.dto.searchObject.owner}" />
+								</td>
+								<td align="center" class="PaFont">
+									<h:outputText value="#{changeHistoryBean.dto.searchObject.user}"  />
+								</td>
+								<td align="center" class="PaFont">
+									<h:outputText value="#{changeHistoryBean.dto.searchObject.fromDate}">
+											<f:convertDateTime pattern="dd.MM.yyyy" type="date" timeZone="#{changeHistoryBean.timeZome}"/>
+									</h:outputText>-
+									<h:outputText value="#{changeHistoryBean.dto.searchObject.toDate}">
+										<f:convertDateTime pattern="dd.MM.yyyy" type="date" timeZone="#{changeHistoryBean.timeZome}"/>
+									</h:outputText>
+								</td>
+								<td align="center" class="PaFont">
+									<ui:repeat
+										value="#{changeHistoryBean.dto.searchObject.changeTypes}" var="changeType">
+										<h:outputText value="#{changeType}" />,&#160;
+									</ui:repeat>
+								</td>
+							</tr>
+            
+                          </tbody></table>
+                          
+                          </h:panelGroup>
+		          </td>
+	            </tr>
+	            <tr>
+		          <td>&#160;</td>
+	            </tr>
+	            <tr>
+		          <td>
+					<h:panelGroup layout="block" styleClass="listlink" rendered="#{changeHistoryBean.objectType == 2}">
+						<h:commandLink value="#{changeHistoryBean.dto.objectName}" styleClass="ForceLien" actionListener="#{changeHistoryBean.showComponent}"
+								title="#{msgs['costcomponent.edit.alt']}">
+							<f:param name="component_id" value="#{changeHistoryBean.dto.objectId}"></f:param>
+							<f:param name="folder_id" value="#{changeHistoryBean.dto.objectFolderId}"></f:param>
+							<f:ajax render="@all" execute="@all" />
+						</h:commandLink>
+					</h:panelGroup>
+					<h:panelGroup layout="block" styleClass="listlink" rendered="#{changeHistoryBean.objectType == 1}">
+						<h:commandLink value="#{changeHistoryBean.dto.objectName}" styleClass="ForceLien" actionListener="#{changeHistoryBean.showElement}"
+								title="#{msgs['costcomponent.edit.alt']}">
+							<f:param name="element_id" value="#{changeHistoryBean.dto.objectId}"></f:param>
+							<f:param name="folder_id" value="#{changeHistoryBean.dto.objectFolderId}"></f:param>
+							<f:ajax render="@all" execute="@all" />
+						</h:commandLink>
+					</h:panelGroup>			          
+		          </td>
+	            </tr>
+	            <tr>
+		          <td>&#160;</td>
+	            </tr>	            
+	            <tr>
+		          <td><span class="likeH3"></span></td>
+	            </tr>
+	            <tr>
+		          <td>
+		          <!-- element -->
+					<h:panelGroup layout="block" styleClass="mc" rendered="#{!empty changeHistoryBean.dto.elementChangesDetails}">
+						<h:dataTable width="100%"
+                        value="#{changeHistoryBean.dto.elementChangesDetails}" 
+						var="versionChange"
+						styleClass="iceDatTbl element_cost_attribute"
+						rowClasses="iceDatTblRow1,iceDatTblRow2"
+						columnClasses="iceDatTblCol1 ECDetailDatTbCol1,iceDatTblCol2 ECDetailDatTbCol2,iceDatTblCol1 ECDetailDatTbCol3,iceDatTblCol2 ECDetailDatTbCol4,iceDatTblCol1 ECDetailDatTbCol5,iceDatTblCol2 ECDetailDatTbCol6,iceDatTblCol1 ECDetailDatTbCol7,iceDatTblCol2 ECDetailDatTbCol8,iceDatTblCol1 ECDetailDatTbCol9,iceDatTblCol2 ECDetailDatTbCol10">				
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+                                      <h:outputText value="#{msgs['changehistory.search.changeType']}" />
+							</f:facet>
+								<h:outputText value="#{versionChange.changeType}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+                                    <h:outputText value="#{msgs['costelement.versionChanges.attribute']}"/>
+							</f:facet>
+							<h:outputText value="#{versionChange.change}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['changehistory.search.componentAndElementStand']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.elementVersion.number}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costcomponent.versionChanges.oldValue']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.oldValue}" />&#160;<h:outputText rendered="#{versionChange.oldValue != null}" value="#{versionChange.unit}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costcomponent.versionChanges.newValue']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.newValue}" escape="false" />&#160;<h:outputText rendered="#{versionChange.newValue != null}" value="#{versionChange.unit}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costelement.versionChanges.oldComment']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.oldComment}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costelement.versionChanges.newComment']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.newComment}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+                                 <h:outputText value="#{msgs['costelement.versionChanges.date']}"/>
+							</f:facet>
+							<h:outputText value="#{versionChange.date.dateSeparatedPt}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['changehistory.search.componentAndElementUser']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.userFullName}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costcomponent.versioning.list.remark']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.remark}" escape="false"/>
+						</h:column>
+					</h:dataTable>	
+				</h:panelGroup>
+				<!-- Component -->
+					<h:panelGroup layout="block" styleClass="mc" rendered="#{!empty changeHistoryBean.dto.componentChangesDetails}">
+						<h:dataTable width="100%" border="0"
+                        value="#{changeHistoryBean.dto.componentChangesDetails}" 
+						var="versionChange"
+						styleClass="iceDatTbl element_cost_attribute" 
+						rowClasses="iceDatTblRow1,iceDatTblRow2"
+						columnClasses="iceDatTblCol1 CCDetailDatTbCol1,iceDatTblCol2 CCDetailDatTbCol2,iceDatTblCol1 CCDetailDatTbCol3,iceDatTblCol2 CCDetailDatTbCol4,iceDatTblCol1 CCDetailDatTbCol5,iceDatTblCol2 CCDetailDatTbCol6,iceDatTblCol1 CCDetailDatTbCol7,iceDatTblCol2 CCDetailDatTbCol8,iceDatTblCol1 CCDetailDatTbCol9,iceDatTblCol2 CCDetailDatTbCol10,iceDatTblCol1 CCDetailDatTbCol11">
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+                                  <h:outputText style="white-space: nowrap;"  value="#{msgs['changehistory.search.changeType']}" />
+						    </f:facet>
+							<h:outputText value="#{versionChange.changeType}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+                                   <h:outputText value="#{msgs['costcomponent.versionChanges.attribute']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.change}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costcomponent.version']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.componentStand.componentVersion.number}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['changehistory.search.componentAndElementStand']}" />
+							</f:facet>
+    						<h:outputText value="#{versionChange.componentStand.number}" rendered="#{versionChange.componentStand.componentVersion.number != null}"/>&#160;
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costcomponent.versionChanges.oldValue']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.oldValue}" />&#160;<h:outputText rendered="#{versionChange.oldValue != null}" value="#{versionChange.unit}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costcomponent.versionChanges.newValue']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.newValue}" escape="false" />&#160;<h:outputText rendered="#{versionChange.newValue != null}" value="#{versionChange.unit}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costelement.versionChanges.oldComment']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.oldComment}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costelement.versionChanges.newComment']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.newComment}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+                                      <h:outputText value="#{msgs['costelement.versionChanges.date']}"/>
+							</f:facet>
+							<h:outputText value="#{versionChange.date.dateSeparatedPt}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['changehistory.search.componentAndElementUser']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.userFullName}"/>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costcomponent.versioning.list.remark']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.remark}" escape="false"/>
+						</h:column>
+					</h:dataTable>	
+				</h:panelGroup>
+                  </td>
+	            </tr>
+	             <tr>
+		          <td>&#160;</td>
+	            </tr>
+	            <tr>
+	            <td>
+	            	<h:commandLink value="#{msgs['changehistory.search.previous']}"
+					actionListener="#{changeHistoryBean.navigateIntoDetails}" 
+					rendered="#{changeHistoryBean.currentIndex gt 0}">
+					<f:param name="direction" value="P"></f:param>
+					<f:ajax render="@all" execute="@all" />
+					</h:commandLink>
+					&#160;&#160;
+					<h:commandLink value="#{msgs['changehistory.search.next']}"
+					actionListener="#{changeHistoryBean.navigateIntoDetails}" 
+					rendered="#{changeHistoryBean.currentIndex lt (changeHistoryBean.maxRange-1)}">
+					<f:param name="direction" value="N"></f:param>
+					<f:ajax render="@all" execute="@all" />
+					</h:commandLink>
+	            </td>
+	            </tr>
+			</tbody>
+		</table>
+		</h:panelGroup>
+	</h:panelGroup>
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

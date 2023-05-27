@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<f:loadBundle basename="resources.messages" var="msgs" />
+	
+	<h:head>
+    </h:head>
+	
+	
+	<h:body class="htmlMockup usp_showMenuOnHover usp_contrast lang_de usp_ExtentContentFull ExtentContentFull usp_ExtendSubnav ExtendSubnav usp_headClosed">
+	<h:outputScript name="scripts/head_login_extension.js" target="head" />
+	<h:outputScript name="scripts/browser-detect.js" />
+    <h:outputScript name="scripts/wo_waiting_page.js" />
+	
+	<h:panelGroup layout="block" id="areaContainer">
+
+		<h:panelGroup layout="block" id="areaHeader" styleClass="MarBot readyToDrop">
+			<h1><span>VOLKSWAGEN</span></h1>
+			<h2>AKTIENGESELLSCHAFT</h2>
+		</h:panelGroup>
+		<div class="ANMELDATEN"></div>
+		<h:form id="loginForm">
+		<f:attribute name="DISABLE_CAPTURE_SUBMIT" value="true" /> 
+			<h:panelGroup layout="block" styleClass="login" id="areaContent">
+			<div  style="height: 20px">
+			<h:inputHidden id="loginError"/>
+			 <h:message style="color: red;" for="loginError" />
+			</div>
+				<div class="compo1 StyLog"><h:outputText value="#{msgs['login.username']}"/></div>
+				<div class="compo2"></div>
+				<div class="compo3"><h:inputText value="#{loginBean.login}" 
+				styleClass="tabmePrime"
+				onkeypress="if (event.keyCode == 13) { document.getElementById('loginForm:lg_btn').click(); return false; }"/></div>
+				<div class="esplo"></div>
+				<div class="compo1 StyLog"><h:outputText value="#{msgs['login.password']}" /></div>
+				<div class="compo2"></div>
+				<div class="compo3"><h:inputSecret value="#{loginBean.password}" styleClass="tabmePrime" onkeypress="if (event.keyCode == 13) { document.getElementById('loginForm:lg_btn').click(); return false; }"/></div>
+				<div class="esplo"></div>
+				<div class="compo1 StyLog"><h:outputText value="#{msgs['login.lang']}" /></div>
+				<div class="compo2"></div>
+				<div class="compo3"><select name="select"	class="tabmeOp2Prime">
+					<option selected="selected">Deutsch</option>
+				</select>
+				</div>
+				<div class="esplo"></div>
+				<div class="BGL">
+				<div class="btn">
+				<div class="bgrBTL"></div>
+				<div class="bgrBTC" align="center">
+				<h:commandLink id="lg_btn" value="#{msgs['login.ok.button']}" action="#{loginBean.doLogin}" style="text-align:center" > 
+				</h:commandLink></div>
+				<div class="bgrBTR"></div>
+				</div>
+				</div>
+			</h:panelGroup>
+		</h:form>
+	</h:panelGroup>
+	<h:panelGroup layout="block" id="areaFooter" styleClass="HoverBehaviour">
+		<ul>
+			<li>&#160;</li>
+		</ul>
+	</h:panelGroup>
+	
+	<script type="text/javascript" src="../scripts/__nowSciptLoader.js">
+	screenResizeInit ();
+	</script>
+	</h:body>
+	</html>

@@ -1,0 +1,42 @@
+/* ======== */
+/* Headline */
+/* ======== */
+#areaHeader
+{
+  width:100%;
+  border-bottom:1px solid #bbbcbe;
+  height:70px;
+  background-color:#fff;
+  background-position:-999px -999px;
+
+}
+
+.usp_headClosed #areaHeader:hover
+{
+  background:#c4dce8 url(../images/comboArrow-trans.gif) no-repeat 50% 100%;
+}
+
+#areaHeader h1 span
+{
+  display: none;
+}
+
+#areaHeader h1
+{
+  background:#fff url(../images/now_iconSet.gif) no-repeat -1033px -296px;
+  display:block;
+  height:40px;
+  margin:0 auto;
+  position:relative;
+  top:5px;
+
+  width:180px;
+
+}
+
+#areaHeader.readyToDrop h1
+{
+ background:#fff url(../images/header_logo.gif) no-repeat 50% -5px;
+
+
+}

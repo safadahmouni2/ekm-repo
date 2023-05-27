@@ -1,0 +1,278 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<table>
+		<tr>
+			<td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="DimTab">
+				<tr>
+					<td height="20" colspan="3"><strong><h:outputText escape="false"
+						value="#{msgs['costelement.general.title']}" /></strong></td>
+				</tr>
+				<tr>
+					<td width="100" height="20"><h:outputText escape="false"
+						value="#{msgs['costelement.general.displayFilter']}:" /></td>
+					<td width="10">&#160;</td>
+					<td align="left"><h:selectOneMenu  value="#{costElementBean.dto.userLogged.displayFilter}"
+						valueChangeListener="#{costElementBean.doChangeDisplayFilter}"
+						styleClass="tabmeOp2">
+						<f:selectItems value="#{costElementBean.displayFilterItems}" />
+						<f:ajax execute="@this" render="@all"/>
+					</h:selectOneMenu ></td>
+				</tr>
+				<tr>
+					<td height="8"></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+
+			<h:panelGroup layout="block" styleClass="costAttribut" style="height: 100%">
+				<h:dataTable id="costAttributValues" width="100%"
+					value="#{costElementBean.dto.filteredElementValues}" 
+					var="elemenValue" 
+                    binding="#{costElementBean.costElementAttributeTable}"
+					styleClass="iceDatTbl element_cost_attribute"
+					rowClasses="iceDatTblRow1,iceDatTblRow2"
+					columnClasses="iceDatTblCol1 element_cost_attribute1,iceDatTblCol2 element_cost_attribute2,iceDatTblCol1 element_cost_attribute3,iceDatTblCol2 element_cost_attribute4,iceDatTblCol1 element_cost_attribute5,iceDatTblCol2 element_cost_attribute6,iceDatTblCol1 element_cost_attribute7 cellEdit"
+					>
+					<h:column headerClass="iceDatTblColHdr element_cost_header1 tabIce">
+						<f:facet name="header">
+                              <h:outputText id="ce_at_h1" value="#{msgs['costelement.costAttribute.number']}" />							
+						</f:facet>
+						<h:outputText id="ce_at_c1" value="#{elemenValue.costAttribute.orderNumber}" />
+					</h:column>
+					<h:column headerClass="iceDatTblColHdr element_cost_header2 tabIce">
+						<f:facet name="header">
+                                <h:outputText id="ce_at_h2" value="#{msgs['costelement.costAttribute.designation']}" title="#{msgs['costelement.costAttribute.ME.title']}"/>
+						</f:facet>
+						<h:outputText id="ce_at_c2_1" value="#{elemenValue.costAttribute.designation}" title="#{msgs['costelement.costAttribute.M.title']}" rendered="#{elemenValue.costAttribute.costAttributeCategory.enumInvestmentPart.category=='Mechanik'}"/>
+						<h:outputText id="ce_at_c2_2" value="#{elemenValue.costAttribute.designation}" title="#{msgs['costelement.costAttribute.E.title']}" rendered="#{elemenValue.costAttribute.costAttributeCategory.enumInvestmentPart.category=='Elektrik'}"/>
+					</h:column>
+					<h:column headerClass="iceDatTblColHdr element_cost_header3 tabIce">
+						<f:facet name="header">
+							<h:outputText id="ce_at_h3" value="#{msgs['costelement.costAttribute.pricePerUnit']}" />
+						</f:facet>
+						<h:inputText id="number" onblur="javascript:validateTableField(this,9);" value="#{elemenValue.number}"
+							styleClass="tabmeSmal" maxlength="12"
+							rendered="#{elemenValue.costAttribute.pricePerUnit and (!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess)}"
+							valueChangeListener="#{costElementBean.inputElementValueChanged}" immediate="true" tabindex="#{costElementBean.costElementAttributeTable.rowIndex + 10}">
+						   <f:ajax execute="@this" render="@all"/>
+						</h:inputText>
+						
+						<h:outputText id="ce_at_c3_1" styleClass="spanTabmeSmal" value="#{elemenValue.number}" rendered="#{elemenValue.costAttribute.pricePerUnit and (costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess)}"/>
+						<h:inputText id="amount" onblur="javascript:validateTableField(this,9);" value="#{elemenValue.amount}"
+							styleClass="tabmeSmal" maxlength="12"
+							rendered="#{!elemenValue.costAttribute.pricePerUnit and (!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess)}"
+							valueChangeListener="#{costElementBean.inputElementValueChanged}" immediate="true"	tabindex="#{costElementBean.costElementAttributeTable.rowIndex + 10}">
+							<f:ajax execute="@this" render="@all"/>
+						</h:inputText>
+						<h:outputText id="ce_at_c3_2" styleClass="spanTabmeSmal" value="#{elemenValue.amount}" rendered="#{!elemenValue.costAttribute.pricePerUnit and (costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess)}"/>
+					</h:column>
+					<h:column headerClass="iceDatTblColHdr element_cost_header4 tabIce">
+						<f:facet name="header">
+							<h:outputText id="ce_at_h4" value="#{msgs['costelement.costAttribute.unit']}" />
+						</f:facet>
+						<h:outputText value="#{elemenValue.costAttribute.unit}" />
+					</h:column>
+					<h:column headerClass="iceDatTblColHdr element_cost_header5 tabIce">
+						<f:facet name="header">
+                             <h:outputText id="ce_at_h5" escape="false" value="#{msgs['costelement.general.totalAmount']} [&#8364;]" />
+						</f:facet>
+						<h:outputText id="ce_at_c5" value="#{elemenValue.totalAmount.stringFormatted}" />
+					</h:column>
+					<h:column headerClass="iceDatTblColHdr element_cost_header6 tabIce">
+						<f:facet name="header">
+                                <h:outputText  id="ce_at_h6" value="#{msgs['costelement.costAttribute.investment']}" />
+						</f:facet>
+						<h:outputText id="ce_at_c6" value="#{elemenValue.costAttribute.costAttributeCategory.enumInvestmentPart.investmentPart}" />
+					</h:column>
+
+					<h:column headerClass="iceDatTblColHdr element_cost_header7 tabIce">
+						<f:facet name="header">
+							<h:outputText id="ce_at_h7" value="#{msgs['costelement.costAttribute.description']}" />
+						</f:facet>
+						<h:outputText id="ce_at_c7" value="#{elemenValue.shortDescription}" />
+						<h:commandLink id="toggleModal" actionListener="#{costElementBean.openElementValueDescriptionModal}" immediate="true">
+							<img src="../images/fleche_2.gif" />
+							<f:ajax execute="@form" render="@all" />
+						</h:commandLink>	
+					</h:column>
+
+				</h:dataTable>
+			</h:panelGroup></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;</td>
+		</tr>
+		<tr>
+			<td>
+			<h:panelGroup layout="block">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="25%" height="20"><h:outputText value="#{msgs['costelement.general.m.purchasedPartPriceLevel']}:" /></td>
+					<td width="21%">
+					<ace:dateTimeEntry id="mecanic_purchased_date"
+                                       value="#{costElementBean.dto.elementVersion.mecanicPurchasedPartPriceLevelDateForView}"
+                                       styleClass="TBS_New"
+                                       timeZone="#{costElementBean.timeZome}"
+                                       rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}"
+                                       valueChangeListener="#{costElementBean.checkChanged}"
+                                       pattern="dd.MM.yyyy"
+                                       renderAsPopup="true"
+                                       showOn="button"
+                                       showButtonPanel="true"
+                                       locale="de"
+                                       style="width: 90px"
+                                       popupIcon="/images/img_onglet/cal_button.gif"/>  															
+					<h:outputText value="#{costElementBean.dto.elementVersion.mecanicPurchasedPartPriceLevelDateForView}" styleClass="spanTBS_New" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+					<f:convertDateTime pattern="dd.MM.yyyy" type="date" timeZone="#{costElementBean.timeZome}"/>
+					</h:outputText>
+					</td>
+					<td width="54%">
+					<h:outputText value="#{costElementBean.dto.elementVersion.mecanicPurchasedPartPriceLevelNotice}" styleClass="spanTLS_New" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}"/>
+					<h:inputText maxlength="256" 
+					value="#{costElementBean.dto.elementVersion.mecanicPurchasedPartPriceLevelNotice}" 
+					rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}" 
+					styleClass="TLS_New" 
+					valueChangeListener="#{costElementBean.checkChanged}">
+					   <f:ajax execute="@this" render="@all"/>
+					</h:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td height="20"><h:outputText value="#{msgs['costelement.general.e.purchasedPartPriceLevel']}:" /></td>
+					<td>
+					<ace:dateTimeEntry id="electric_purchased_date"
+                                       value="#{costElementBean.dto.elementVersion.electricPurchasedPartPriceLevelDateForView}"
+                                       styleClass="TBS_New"
+                                       timeZone="#{costElementBean.timeZome}"
+                                       rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}"
+                                       valueChangeListener="#{costElementBean.checkChanged}"
+                                       pattern="dd.MM.yyyy"
+                                       renderAsPopup="true"
+                                       showOn="button"
+                                       showButtonPanel="true"
+                                       locale="de"
+                                       style="width: 90px"
+                                       popupIcon="/images/img_onglet/cal_button.gif"/>						
+					
+					<h:outputText value="#{costElementBean.dto.elementVersion.electricPurchasedPartPriceLevelDateForView}" styleClass="spanTBS_New" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+					<f:convertDateTime pattern="dd.MM.yyyy" type="date" timeZone="#{costElementBean.timeZome}"/>
+					</h:outputText>
+					</td>
+					<td>
+					<h:outputText value="#{costElementBean.dto.elementVersion.electricPurchasedPartPriceLevelNotice}" styleClass="spanTLS_New"  rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}"/>
+					<h:inputText maxlength="256" 
+					value="#{costElementBean.dto.elementVersion.electricPurchasedPartPriceLevelNotice}" 
+					styleClass="TLS_New" 
+					valueChangeListener="#{costElementBean.checkChanged}"  
+					rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}">
+						<f:ajax execute="@this" render="@all"/>
+				    </h:inputText>
+					</td>
+				</tr>
+				<tr>
+					<td height="20"><h:outputText value="#{msgs['costelement.general.catalogNumber']}:" /></td>
+					<td>
+					<h:outputText value="#{costElementBean.dto.elementVersion.catalogNumber}" styleClass="spanTTS_New"  rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}"/>
+					<h:inputText maxlength="256" 
+					value="#{costElementBean.dto.elementVersion.catalogNumber}" 
+					styleClass="TTS_New" 
+					partialSubmit="true" 
+					valueChangeListener="#{costElementBean.checkChanged}" 
+					rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}">
+						<f:ajax execute="@this" render="@all"/>
+				    </h:inputText>
+					</td>
+					<td>&#160;</td>
+				</tr>
+				<tr>
+					<td height="20"><h:outputText value="#{msgs['costelement.general.manufacturer']}:" /></td>
+					<td colspan="2">
+					<h:outputText value="#{costElementBean.dto.elementVersion.manufacturer}" styleClass="spanTLS_New"  rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}"/>
+					<h:inputText 
+					maxlength="256" 
+					value="#{costElementBean.dto.elementVersion.manufacturer}" 
+					styleClass="TLS_New" 
+					valueChangeListener="#{costElementBean.checkChanged}" 
+					rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}">
+						<f:ajax execute="@this" render="@all"/>
+				    </h:inputText>
+				    </td>
+				</tr>
+			</table>
+			</h:panelGroup>
+			</td>
+		</tr>
+		<tr>
+			<td height="15">
+			<div class="hr"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td height="17" colspan="3"><strong><h:outputText
+						value="#{msgs['costelement.general.processingInformation']}" /></strong></td>
+					<td width="13%"><h:outputText value="#{msgs['costelement.general.processingInformation.validLabel']}" />&#160;
+					<h:outputText value="#{msgs['costelement.general.processingInformation.validFrom']}:" /></td>
+					<td width="1%"></td>
+					<td width="18%"><h:outputText value="#{costElementBean.dto.elementVersion.validFrom}" /></td>
+					<td width="1%"></td>
+					<td width="20%"><h:outputText value="#{msgs['costelement.general.processingInformation.validTo']}" /> <h:outputText
+						value="#{costElementBean.dto.elementVersion.validTo}" /></td>
+				</tr>
+				<tr>
+					<td width="14%" height="20"><h:outputText
+						value="#{msgs['costelement.general.processingInformation.creationLabel']}" />&#160; <h:outputText
+						value="#{msgs['costelement.general.processingInformation.creator']}:" /></td>
+					<td width="1%"></td>
+					<td width="32%"><h:outputText value="#{costElementBean.dto.elementVersion.creator.sigFullName}" /></td>
+					<td><h:outputText value="Erstellt" />&#160; <h:outputText
+						value="#{msgs['costelement.general.processingInformation.editorDate']}:" /></td>
+					<td></td>
+					<td align="left"><h:outputText value="#{costElementBean.dto.elementVersion.creationDate}" /></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+				<tr>
+					<td height="20"><h:outputText value="#{msgs['costelement.general.processingInformation.editionLabel']}" />&#160;
+					<h:outputText value="#{msgs['costelement.general.processingInformation.creator']}:" /></td>
+					<td></td>
+					<td><h:outputText value="#{costElementBean.dto.elementVersion.modifier.sigFullName}" /></td>
+					<td><h:outputText value="Ge&#228;ndert" />&#160; <h:outputText
+						value="#{msgs['costelement.general.processingInformation.editorDate']}:" /></td>
+					<td></td>
+					<td align="left"><h:outputText value="#{costElementBean.dto.elementVersion.modificationDate}" /></td>
+					<td align="left"></td>
+					<td align="left"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+
+	</table>
+ <style type="text/css">
+.ui-inputfield {
+  width: 92px !important;
+}	
+ </style>	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

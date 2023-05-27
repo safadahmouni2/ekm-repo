@@ -1,0 +1,193 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      	
+	<ace:dialog id="exportXMLPopup" rendered="#{costComponentListBean.dto.showXmlExportPopup}"
+		visible="#{costComponentListBean.dto.showXmlExportPopup}" 
+		draggable="false" showHeader="false" resizable="false"
+		modal="true">
+		<h:panelGroup layout="block" id="exportXMLd" style="width: 385px; overflow-y:auto; overflow-x:hidden">
+		<h:form id="expForm" styleClass="icePnlPop" >
+	
+			<h:panelGroup layout="block" styleClass="icePnlPopHdr popupHeaderNoWidth" style="width: 360px">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.title']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink  id="modalPnlCloseBtn" action="#{costComponentListBean.cancelExport}"
+					styleClass="popupHeaderImage">
+				 <img src="../images/popupclose.gif" height="18" width="18" />
+                  <f:ajax execute="@this" render="@all" />
+				</h:commandLink>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="icePnlPopBody popupContentText popupBody2">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.info']} :" styleClass="iceOutTxt popupHeaderText" style="margin-left: 20px"/>
+				<br />
+				<br />
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="xml_compo1 StyLog">
+				
+			   <div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.date.help']}" />
+				 </span>
+				</div>
+				
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.date']}" /></div>
+				<div class="compo2">
+				 <div style="width: 182px;">
+			    <ace:dateTimeEntry id="date_export"
+                           value="#{costComponentListBean.dto.exportDate}"
+                           styleClass="TPE"
+                           pattern="dd.MM.yyyy"
+                           renderAsPopup="true"
+                           showOn="button"
+                           showButtonPanel="true"
+                           locale="de"
+                           popupIcon="/images/img_onglet/cal_button.gif"/>				
+				  </div>
+				 </div>			
+				</div>
+			
+				</div>
+				<div style="margin-left: 15px">
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.approvedComponent.help']}" />
+				 </span>
+				</div>				
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.approvedComponent.info']} :" />
+				</div>
+				
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="compo3 StyLog" style="width: 280px !important;"><h:selectBooleanCheckbox id="with_approved_component"
+					value="#{costComponentListBean.dto.exportApprovedComponent}" styleClass="WBS1" style="vertical-align: middle;"/><h:outputText
+					value="#{msgs['costcomponent.exportPopup.xml.approvedComponent']}" style="vertical-align: middle;"/></div>
+				<div class="Des"></div>
+				</div>
+				</div>				
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.withoutCostAttributes.info']} :" style="margin-left: 15px"/>
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="compo3 StyLog"><h:selectBooleanCheckbox id="without_cost_attributes"
+					value="#{costComponentListBean.dto.exportWithoutAttributes}" styleClass="WBS1" style="vertical-align: middle;"/><h:outputText
+					value="#{msgs['costcomponent.exportPopup.xml.withoutCostAttributes']}" style="vertical-align: middle;"/></div>
+				
+				</div>
+				</div>
+				<!-- Add here -->
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.libraries']} :" style="margin-left: 15px"/>
+				<div class="Xml_pop"><div class="benu">
+				<div class="xml_compo1 StyLog"><h:outputText value="#{msgs['costcomponent.exportPopup.xml.owner']}" /></div>
+				<div class="compo2">
+				<h:selectManyMenu id="libraries"
+					value="#{costComponentListBean.dto.selectedLibraryIds}"
+					styleClass="nCCLA"  >
+					<f:selectItems value="#{costComponentListBean.ownerItems}" />
+				</h:selectManyMenu>
+				</div>
+				</div></div>
+				<br style="clear: both"/>
+				<div class="Xml_pop" style="padding-top: 15px !important"><div class="benu">
+				<div class="xml_compo1 StyLog">
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.primaryLibrary.help']}" />
+				 </span>
+				</div>
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.primaryLibrary']}" />
+				</div>
+				
+				<div class="compo2">
+				<h:selectOneMenu id="owner_brandId"
+						value="#{costComponentListBean.dto.selectedPrimaryLibraryAsString}"
+						styleClass="min_6 validate tabme">
+					<f:selectItem  itemLabel="#{msgs['common.message.select']}" itemValue=""/>
+					<f:selectItems value="#{costComponentListBean.libraryItems}" />
+				</h:selectOneMenu>
+				</div>
+				</div></div>
+        		<div class="Des"></div>
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.userIdExport']} :" styleClass="iceOutTxt popupHeaderText" style="margin-left: 15px"/>
+				<br />
+				<br />
+				<div class="Xml_pop"><div class="benu">
+				<div class="xml_compo1 StyLog"><h:outputText value="#{msgs['costelement.users']}" /></div>
+				<div class="compo2" >
+				<h:selectManyMenu id="users"
+					value="#{costComponentListBean.dto.selectedUsersIds}"
+					styleClass="nCCLA"  >
+					<f:selectItems value="#{costComponentListBean.userItems}" />
+				</h:selectManyMenu>
+				</div>
+				</div></div>
+				<br style="clear: both"/>
+				<table width="791" cellspacing="0" cellpadding="0" border="0">                      
+                      <tbody><tr>
+                        <td height="17">&#160;</td>
+                      </tr>
+                      <tr>
+                        <td height="8">
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.componentType.help']}" />
+				 </span>
+				</div>                        
+                        <h:outputText value="#{msgs['costcomponent.exportPopup.xml.componentType']}:" />
+						&#160;<h:inputText value="#{costComponentListBean.dto.componentType}"
+								   maxlength="50" styleClass="tabme"/>
+						</td>
+					  </tr>
+            </tbody></table>
+				<!-- End -->
+				<br />
+				<h:panelGrid columns="2" style="text-align: center;"
+					class="save-changes-popup-footer">
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn"
+						value="#{msgs['costcomponent.exportPopup.xmlPD']}"
+						id="btn_export_pd"
+						onclick="disableButton(this.id);disableButton('expForm:btn_export_connect');"
+						actionListener="#{costComponentListBean.xmlExport}"
+						disabled="#{(costComponentListBean.showXmlViewFile)}">
+						<f:param name="export_target" value="pd"></f:param>
+						<f:ajax render="@all" execute="@form" />
+					</h:commandButton>
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn"
+					id="btn_export_connect"
+						value="#{msgs['costcomponent.exportPopup.xml']}"
+						onclick="disableButton(this.id);disableButton('expForm:btn_export_pd');"
+						actionListener="#{costComponentListBean.xmlExport}"
+						disabled="#{costComponentListBean.showXmlViewFile}">
+						<f:param name="export_target" value="connect"></f:param>
+						<f:ajax execute="@form" render="@all" />
+					</h:commandButton>
+					<ace:dynamicResource styleClass="iceCmdBtn saveChangesPopupBtn"
+						id="xml_export_hidden" type="button" attachment="true"
+						fileName="#{costComponentListBean.xmlResource.resourceName}"
+						label="#{msgs['costcomponent.exportPopup.view']}"
+						mimeType="application/xml" shared="false"
+						resource="#{costComponentListBean.xmlResource}"
+						rendered="#{costComponentListBean.showXmlViewFile}">
+					</ace:dynamicResource>
+
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn"
+						value="#{msgs['costcomponent.back']}"
+						action="#{costComponentListBean.cancelExport}">
+						<f:ajax render="@all" execute="@form" />
+					</h:commandButton>
+				</h:panelGrid>
+			</h:panelGroup>		
+		</h:form>
+		</h:panelGroup>
+	</ace:dialog>	
+	<script type="text/javascript">
+	   xmlExportModelResize();
+	</script>
+</html>

@@ -1,0 +1,168 @@
+#errReportWin
+{
+  position:fixed;
+  width:640px;
+  color:#9A0C39;
+}
+
+.usp_ErrorWin
+{
+  top:272px;
+  left:-1px;
+}
+
+#errReportWin .foot
+{
+  color:#ddd;
+}
+
+#errReportWin .foot .destApp
+{
+  display:block;
+  float:left;
+  text-align:right;
+}
+
+
+#errReportWin.noValidFields .foot label[for=errFieldPreview],
+#errReportWin.noValidFields .foot #errFieldPreview
+{
+  display:none;
+}
+
+
+#errReportWin .body
+{
+  width:620px;
+}
+
+#errReportWin .body ul
+{
+  list-style:none;
+}
+#errReportWin .body ul li
+{
+  margin-left:8px;
+  clear:left;
+  height:14px;
+  border:1px solid #fff;
+
+}
+#errReportWin .body em,
+#errReportWin .body span,
+#errReportWin .body strong
+{
+  cursor:default;
+  display:block;
+  float:left;
+  width:4.8em;
+}
+#errReportWin .body em
+{
+  width:6em;
+  display:none;
+}
+#errReportWin .body span
+{
+  width:auto;
+}
+#errReportWin .body label
+{
+  background:transparent url(../images/comboArrows-sw-trans.gif) no-repeat scroll 0 2px;
+  padding-left:12px;
+  float:left;
+  color:#9A0C39;
+}
+#errReportWin .body strong
+{
+  padding-left:12px;
+}
+#errReportWin .body label strong
+{
+  padding-left:0;
+  text-decoration:underline;
+}
+#errReportWin .body label:hover span
+{
+  text-decoration:underline;
+  cursor:pointer;
+}
+#errReportWin .body label.missingId *
+{
+  text-decoration:none!important;
+}
+
+#errReportWin .body li.valid label span,
+#errReportWin .body li.valid label strong
+{
+  padding-left:0;
+  text-decoration:none;
+  color:#999;
+}
+
+#errReportWin .body li.valid label
+{
+  background:transparent url(../images/ok.gif) no-repeat scroll -3px -2px;
+  background-position:-99px -99px;
+}
+
+#errReportWin .body li.valid label strong
+{
+  background:transparent url(../images/ok.gif) no-repeat scroll 28px -2px;
+  text-indent:-999px;
+}
+
+#errReportWin .body
+{
+  padding:0;
+}
+#errReportWin .content ul
+{
+  margin:0;
+}
+#errReportWin .body label.missingId,
+#errReportWin .body label.missingId *
+{
+  cursor:help !important;
+}
+#errReportWin .body label.missingId strong
+{
+  cursor:no-drop !important;
+}
+
+#errReportWin .body ul li.hasFocus
+{
+  border:1px solid #800;
+}
+#errReportWin .body ul li.valid.hasFocus
+{
+  border:1px solid #007000;
+}
+
+#errReportWin .foot a[href^='#ref']
+{
+  float:right;
+  width:2px;
+  height:8px;
+  margin-top:3px;
+  text-indent:-9999em;
+  width:2px;  
+  background:url(../images/now_iconSet.gif) no-repeat scroll -1235px -4px transparent;
+  border:1px solid transparent;
+}
+
+#errReportWin .foot a[href='#refBottom']
+{
+  background-position:-1220px -4px;  
+}
+#errReportWin .foot .dayTime
+{
+  right:32px;
+  margin-top:3px;
+}
+
+#errReportWin .foot a.scroll
+{
+  display:none;
+}
+

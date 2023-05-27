@@ -1,0 +1,23 @@
+
+* xhtml .hoverMenu 
+{
+  position:relative !important; 
+}
+
+* xhtml .hoverMenu ul li
+{
+  position:static !important; 
+}
+
+
+iframe.ie6IFrameFix
+{
+  position:absolute;
+  left:-10px;
+  top:-10px;
+  z-index:2999;
+  width:1px;
+  height:1px;
+  border:none;
+  overflow:hidden;
+}

@@ -1,0 +1,203 @@
+/* ======== */
+/* Headline */
+/* ======== */
+.usp_style_Isa #areaHeader
+{
+  width:100%;
+  height:auto;
+  margin-bottom:0;
+}
+
+
+.usp_style_Isa #areaHeader h1
+{
+  background:#fff url(../images/VWFSAG.gif) no-repeat 0% 17px;
+  height:51px;
+  width:1000px;
+  display:block;
+  border-bottom:20px solid #012350;
+}
+
+.usp_style_Isa #areaMarginal fieldset.logo 
+{
+  background:transparent url(../images/isa-logo.gif) no-repeat 100% 0;
+  border:medium none;
+  height:60px;
+  margin:0px;
+  position:absolute;
+  top:0px;
+  width:188px;
+}
+
+/* ========== */
+/* Navigation */
+/* ========== */
+.usp_style_Isa .nowMenu
+{
+  background:#012350 url(../images/isa-bg-blue.gif);
+  height:20px;
+  border:none;
+}
+
+.usp_style_Isa .nowMenu .head
+{
+  background:#012350 url(../images/isa-bg-blue.gif);
+  height:20px;
+  opacity:1;
+}
+
+.usp_style_Isa .nowMenu ul li.active li a
+{
+  background-color:#012350;
+  color:#fff;
+}
+
+.usp_style_Isa .nowMenu li.active li.active>a
+{
+  background:#012350 url(../images/blank.gif) no-repeat -1px -1px !important;
+}
+
+.usp_style_Isa .nowMenu ul
+{
+  background-color:#012350;
+  height:auto !important;
+  padding:4px 0 0;
+  border:none !important;
+}
+
+.usp_style_Isa .nowMenu ul li
+{
+  white-space:nowrap;
+  position:relative;
+  display:inline;
+}
+.usp_style_Isa .nowMenu ul li ul
+{
+  top:12px;
+  left:1px;
+  margin-top:0px;
+  background-color:#012350;
+  width:auto;
+  position: relative; 
+  width:9.8em; 
+  width:10em; 
+}
+.usp_style_Isa .nowMenu ul ul li
+{
+  width:18em;
+}
+.usp_style_Isa .nowMenu ul li a
+{
+  display:inline;
+}
+.usp_style_Isa .nowMenu ul ul li a
+{
+  line-height:12px;
+  padding:0 12px 3px;
+  text-decoration:none;
+  display:block;
+  /* width:18em; */
+}
+
+.usp_style_Isa .nowMenu ul li:hover ul li:hover ul ul,
+.usp_style_Isa .nowMenu ul li:hover ul li:hover ul li:hover ul ul
+{
+  display: none;
+}
+
+.usp_style_Isa .nowMenu ul,
+.usp_style_Isa .nowMenu ul li:hover ul,
+.usp_style_Isa .nowMenu ul li:hover ul li:hover ul,
+.usp_style_Isa .nowMenu ul li:hover ul li:hover ul li:hover ul,
+.usp_style_Isa .nowMenu ul li:hover ul li:hover ul li:hover ul li:hover ul
+{
+}
+
+
+/* ========== */
+/* Marginal   */
+/* ========== */
+
+.usp_style_Isa #areaMarginal
+{
+  background-color:#EBEFF2;
+}
+
+.usp_style_Isa #areaMarginal .linkSection a
+{
+  background-color:#CCD3DD;
+  border-bottom:1px solid #FFFFFF;
+  color:#00234F;
+  display:block;
+  height:22px;
+  margin:0;
+  padding:0 0 1px 8px;
+  position:relative;
+  text-decoration:none;
+  top:0;
+  width:165px;
+}
+
+/* ========== */
+/* Breadcrumb */
+/* ========== */
+.usp_style_Isa #areaBreadcrumb
+{
+  display: block;
+}
+
+.usp_style_Isa #areaBreadcrumb #bct ul li a
+{
+  color:#B8C9D1 !important;
+}
+
+/* ========== */
+/* Footer     */
+/* ========== */
+
+.usp_style_Isa #areaFooter
+{
+  background-color:#012350;
+  border-top:1px solid #B8C9D1;
+}
+
+.usp_style_Isa #areaFooter ul li.pullup ul
+{
+  background-color:#012350;
+}
+
+.usp_style_Isa #areaFooter ul li 
+{
+  background-color:#012350;
+  border:none;
+}
+
+/* =========== */
+/* head closed */
+/* =========== */
+
+html > body.usp_style_Isa.usp_headClosed #areaHeader
+{
+  margin-top:-52px;
+}
+
+html > body.usp_style_Isa.usp_headClosed.usp_collapseMenu #areaHeader
+{
+  margin-top:-71px;
+}
+
+
+/* ============ */
+/* collase Menu */
+/* not 4 isa    */
+/* ============ */
+
+.usp_style_Isa.usp_collapseMenu .nowMenu
+{
+  overflow:visible;
+}
+
+body.usp_style_Isa.usp_collapseMenu .nowMenu ul li.active
+{
+  display:inline;
+}

@@ -1,0 +1,12 @@
+.FlipSubNav #areaMarginal
+{
+  float:left;
+  width:188px;
+}
+
+.FlipSubNav #areaSubnav
+{
+  float:right;
+  width:188px;
+}
+

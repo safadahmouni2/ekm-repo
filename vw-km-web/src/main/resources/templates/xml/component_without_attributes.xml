@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<component>
+	<AKEInhaltVLB></AKEInhaltVLB>
+	<AKEInhaltVLD></AKEInhaltVLD>
+	<BeistellungenB></BeistellungenB>
+	<BeistellungenD></BeistellungenD>
+	<Hersteller/>
+	<Inhalt_Elek></Inhalt_Elek>
+	<Inhalt_Mech_Ausfuerung></Inhalt_Mech_Ausfuerung>
+	<Inhalt_Mech_Konstruktion> </Inhalt_Mech_Konstruktion>
+	<NKEKaufteileDatum></NKEKaufteileDatum>
+	<NKEKaufteileDatumB/>
+	<NKEKaufteileDatumD/>
+	<NKEKaufteileInfo/>
+	<NKEKaufteileInfoB/>
+	<NKEKaufteileInfoD/>
+	<NKMKaufteileDatum></NKMKaufteileDatum>
+	<NKMKaufteileDatumB></NKMKaufteileDatumB>
+	<NKMKaufteileDatumD></NKMKaufteileDatumD>
+	<NKMKaufteileInfo/>
+	<NKMKaufteileInfoB/>
+	<NKMKaufteileInfoD/>
+	<Objekttyp></Objekttyp>
+	<Pos>0</Pos>
+	<VPlanrelevant>1</VPlanrelevant>
+	<bBeistellungenValid>1</bBeistellungenValid>
+	<catalogNumber></catalogNumber>
+	<children/>
+	<comment></comment>
+	<name></name>
+	<AEKBrand></AEKBrand>
+	<PmToolPrototype.BIBVersionDate></PmToolPrototype.BIBVersionDate>
+	<bFromDetail>1</bFromDetail>
+	<Hide2DLabel>1</Hide2DLabel>
+	<hide2DObject>1</hide2DObject>
+	<KomponentenTyp>KAL</KomponentenTyp>
+</component>

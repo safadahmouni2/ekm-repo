@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+	<h:panelGroup layout="block" styleClass="areaTabContent" rendered="#{userDefSettings.loadDTO}">
+    
+	<h:panelGroup layout="block" style="padding-top:15px">
+		<h:panelGroup layout="block"  styleClass="btn">
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTC">
+						<h:commandLink value="#{msgs['costelement.save']}" actionListener="#{userDefSettings.save}">
+						  <f:ajax render="@all" execute="@all" />
+						</h:commandLink>
+					</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+
+			<h:panelGroup layout="block" styleClass="btn" >
+				<h:panelGroup layout="block" styleClass="bgrBTL">
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTC">
+					<h:commandLink value="#{msgs['costelement.back']}" actionListener="#{userDefSettings.listFromObjectClicked}" immediate="true">
+					 <f:ajax render="@all" execute="@all" />
+					</h:commandLink>
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTR">
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+			
+     </h:panelGroup>
+    <h:panelGroup layout="block">
+      <h2 id="contentHeadline" class="h2Mar smallerSpace">
+         <h:graphicImage value="../images/setting.gif" class="iconObject"/>
+         <h:outputText value="#{msgs['user.settings']}" styleClass="smallerFont"/>
+      </h2>
+     </h:panelGroup>
+     
+    <h:panelGroup columns="1" width="100%" border="0" >
+               <h:outputText style="color: red;;#{(! empty facesContext.maximumSeverity) ? 'display:block;':'display:none;'}" value="#{msgs['common.message.fixError']}" />
+    </h:panelGroup>
+   
+   <table width="100%" border="0">
+	  <tr><td class="cost_element_header11"></td>
+	  <td class="cost_element_header12">	
+		<table border="0">
+		 <tr>
+		 <td class="header_search1">
+			<h:panelGroup layout="block">&#160;</h:panelGroup>
+		 </td>	
+		 <td class="header_search2">
+           <h:panelGroup layout="block">&#160;</h:panelGroup>	
+		 </td>
+		</tr>	
+		</table>
+		</td></tr>
+	</table>
+	<br />
+ 	<ace:tabSet selectedIndex="0" id="user_settings_tab_set" partialSubmit="false">
+		<ace:tabPane  id="overview" label="#{msgs['user.settings.definition']}">
+			<ui:include src="userSettingsDefinition.xhtml" />
+		</ace:tabPane>
+		<ace:tabPane id="user_workspaces" label="#{msgs['user.settings.filter']}">
+			<ui:include src="userSettingsFilter.xhtml" />
+		</ace:tabPane>
+		<ace:tabPane id="user_emppty_folder" label="#{msgs['user.settings.empty.folder']}">
+			<ui:include src="userSettingsEmptyFolder.xhtml" />
+		</ace:tabPane>		
+        <ace:tabPane id="user_changes_notifications" label="#{msgs['user.settings.changes.notifications']}">
+            <ui:include src="userSettingsChangesNotifications.xhtml" />
+        </ace:tabPane>     
+	</ace:tabSet>
+	<br />
+	</h:panelGroup>
+
+<style type="text/css">
+.ui-panel .ui-widget-content {
+  background: none !important;
+  border: 0px; 
+}	
+</style>		
+</html>

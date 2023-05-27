@@ -1,0 +1,205 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:panelGroup layout="block" styleClass="areaTab"
+	rendered="#{newsListBean.loadDTO}" id="mainContent">
+	<h:panelGroup layout="block" style="padding-top:15px">
+
+		<h:panelGroup layout="block" styleClass="btn" rendered="#{!newsListBean.dto.searchMode}">
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTC" >
+				<h:commandLink value="#{msgs['userAdministration.add.newUser']}"
+					actionListener="#{newsListBean.createClicked}" immediate="true">
+					<f:ajax render="@all" execute="@all" />
+				</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+		</h:panelGroup>
+
+	</h:panelGroup>
+
+	<h:panelGroup layout="block">
+		<h2 id="contentHeadline" class="h2Mar smallerSpace">
+			<h:graphicImage value="../images/Arbeitsbereiche_Icn.jpg"
+				class="iconObjectLeftSpace" />
+			<h:outputText value="#{msgs['newsAdministration.common.title']}"
+				styleClass="smallerFont" />
+		</h2>
+	</h:panelGroup>
+	<br />
+	<table width="100%">
+		<tbody>
+			<tr>
+				<td rowspan="2"></td>
+				<td align="right" height="8"></td>
+			</tr>
+			<tr>
+				<td align="right"><h:panelGroup layout="block"
+						rendered="#{!newsListBean.dto.searchMode or (newsListBean.dto.searchMode and newsListBean.dto.noSearchResult)}">
+						<h:inputText
+							styleClass="min_6 validate revalidate valid iptRight searchinpt"
+							value="#{newsListBean.dto.searchString}" onfocus="this.value='';"
+							onkeydown="if (event.keyCode == 13) {document.getElementById('f:contInc:srch_btn').click();return false;}" />
+						<h:panelGroup layout="block" style="float: right;">
+							<div class="bgrBTL">
+								<a href="#"></a>
+							</div>
+							<div class="bgrBTC">
+								<h:commandLink id="srch_btn"
+									actionListener="#{newsListBean.search}"
+									value="#{msgs['newsAdministration.common.search.label']}">
+									<f:ajax render="@all" execute="@all" />
+								</h:commandLink>
+							</div>
+							<div class="bgrBTR">
+								<a href="#"></a>
+							</div>
+						</h:panelGroup>
+					</h:panelGroup></td>
+			</tr>
+		</tbody>
+	</table>
+	<h:panelGroup layout="block" rendered="#{!newsListBean.dto.searchMode}">
+		<h:outputText value="#{msgs['newsAdministration.actualfolder']}:" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif"
+			align="absmiddle" />
+			&#160;<h:outputText
+			value="#{navigationTree.selectedNodeObject.menuDisplayText}" />
+	</h:panelGroup>
+
+	<!-- if the search was executed and have result -->
+	<h:panelGroup layout="block" rendered="#{newsListBean.dto.searchMode}">
+		<h:outputText
+			value="#{msgs['newsAdministration.searchResult.searchFolder']}" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif"
+			align="absmiddle" />
+			&#160;<h:outputText value="#{newsListBean.dto.searchFolder}" />
+		<br />
+		<strong><h:outputText
+				value="#{msgs['newsAdministration.searchResult.searchString']}" />
+			&#160;&#34;<h:outputText nospan="true"
+				value="#{newsListBean.dto.searchStringResult}" />&#34;</strong>
+	</h:panelGroup>
+	<div class="Des"></div>
+	<!-- END search display mode -->
+
+	<h:panelGroup layout="block" rendered="#{newsListBean.dto.noNews}">
+		<center>
+			<strong><h:outputText
+					value="#{msgs['newsAdministration.list.empty']}" /></strong>
+		</center>
+	</h:panelGroup>
+	<!-- Data table of news  -->
+	<h:panelGroup layout="block" styleClass="mc"
+		rendered="#{!newsListBean.dto.noNews}">
+		<h:dataTable width="100%" border="0" cellpadding="0" cellspacing="0"
+			var="newsElement" value="#{newsListBean.dto.newsList}"
+			style="margin: 0px;" id="us_lst" styleClass="iceDatTbl"
+			rowClasses="iceDatTblRow1,iceDatTblRow2"
+			columnClasses="iceDatTblColTitle userDatTbCol1,iceDatTblColTitle userDatTbColDes,iceDatTblCol3 userDatTbCol1,iceDatTblCol3 userDatTbCol1,iceDatTblCol3 userDatTbColAktiv,iceDatTblCol3 userDatTbColAktiv">
+
+			<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+				<f:facet name="header">
+				            &#160;<h:outputText 
+				       value="#{msgs['newsAdministration.list.title']}" />
+				</f:facet>
+				<h:commandLink value="#{newsElement.title}"
+					actionListener="#{newsListBean.editClicked}"
+					title="#{msgs['newsAdministration.edit.alt']}">
+					<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+			</h:column>
+
+			<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+				<f:facet name="header">
+                               &#160;<h:outputText
+						value="#{msgs['newsAdministration.list.description']}" />
+				</f:facet>
+				<h:commandLink value="#{newsElement.description}"
+					actionListener="#{newsListBean.editClicked}"
+					title="#{msgs['newsAdministration.edit.alt']}">
+					<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+			</h:column>
+
+			<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+				<f:facet name="header">
+                               &#160;<h:outputText
+						value="#{msgs['newsAdministration.list.validFrom']}" />
+				</f:facet>
+				<h:commandLink 
+					actionListener="#{newsListBean.editClicked}"
+					title="#{msgs['newsAdministration.edit.alt']}">
+					<h:outputText style="cursor: pointer;" value="#{newsElement.validFrom}" >
+					<f:convertDateTime pattern="dd.MM.yyyy" type="date" />
+					</h:outputText>					
+					<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+			</h:column>
+
+			<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+				<f:facet name="header">
+                               &#160;<h:outputText
+						value="#{msgs['newsAdministration.list.dateOfExpiry']}" />
+				</f:facet>
+				<h:commandLink 
+					actionListener="#{newsListBean.editClicked}"
+					title="#{msgs['newsAdministration.edit.alt']}">
+					<h:outputText style="cursor: pointer;" value="#{newsElement.dateOfExpiry}" >
+					<f:convertDateTime pattern="dd.MM.yyyy" type="date" />
+					</h:outputText>
+					<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+			</h:column>
+			<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+				<f:facet name="header">
+                               &#160;<h:outputText
+						value="#{msgs['newsAdministration.list.active']}" />
+				</f:facet>
+				<h:commandLink value="#{newsElement.active ? 'Ja' : 'Nein'}"
+					actionListener="#{newsListBean.editClicked}"
+					title="#{msgs['newsAdministration.edit.alt']}">
+					<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+		
+
+			</h:column>
+
+			<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+					<span class="downTab">
+				     <h:commandLink id="edit"
+						actionListener="#{newsListBean.editClicked}"
+						title="#{msgs['newsAdministration.edit.alt']}">
+						<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+						<img src="../images/edit_icone.gif"></img>
+						<f:ajax execute="@form" render="@all" />
+					</h:commandLink> <h:commandLink id="delete"
+						actionListener="#{newsListBean.deleteClicked}"
+						title="#{msgs['newsAdministration.delete.alt']}">
+						<f:param name="object_id" value="#{newsElement.newsId}"></f:param>
+						<img src="../images/delete_icone.gif"></img>
+						<f:ajax execute="@form" render="@all" />
+					</h:commandLink>	
+					</span>	
+			</h:column>
+
+
+		</h:dataTable>
+	</h:panelGroup>
+
+</h:panelGroup>
+
+
+<script type="text/javascript">
+	screenResizeInit();
+</script>
+</html>

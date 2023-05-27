@@ -1,0 +1,3 @@
+update T_ELEMENTVERSIONANDERUNG set ANDERUNG_ART=(select case when VERSION_NUMMER is null then 'in Bearbeitung' when  VERSION_NUMMER=1 then 'Neu' else 'Neuer Stand' end from T_ELEMENTVERSION where UUIDKEVERSION=ELEM_VER_REF_ID) where ANDERUNG_ART is null;
+update T_BAUSTEINVERSIONANDERUNG set ANDERUNG_ART=(select case when STAND_NUMMER is null then 'in Bearbeitung' when  STAND_NUMMER=1 then 'Neu' else 'Neuer Stand' end from T_BAUSTEINSTAND where ID=KB_STAND_REF_ID) where ANDERUNG_ART is null;
+commit;

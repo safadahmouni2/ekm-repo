@@ -1,0 +1,295 @@
+body .tabControlBody .formular 
+{
+  border:1px solid #fff;
+}
+
+body.DlgBgrnd .tabControlBody .tabBlock .body
+{
+  padding-left: .8em !important;
+  padding-right: .8em !important;
+  border:1px solid #ddd !important;
+  background-color: #f0f0f0 !important;
+  margin:0px !important;
+}
+
+
+.usp_collapseMenu .nowMenu .head
+{
+  height: 22px;
+}
+
+html > body.usp_menuFixed #nowHead
+{
+  position:fixed;
+  top:0;
+  border:none;
+  z-index:9000;
+}
+
+html > body.usp_menuFixed #areaMain
+{
+  margin-top:320px;
+}
+
+html > body.usp_menuFixed.usp_collapseMenu #areaMain
+{
+  margin-top:136px;
+}
+html > body.usp_menuFixed.usp_collapseMenu.usp_headClosed #areaHeader
+{
+  top:0;
+}
+
+html > body.usp_menuFixed.usp_collapseMenu.usp_headClosed fieldset.logoTop
+{
+  top:25px;
+}
+
+html > body.usp_menuFixed.usp_headClosed .nowMenu
+{
+  top:0;
+}
+
+html body.usp_headClosed #areaContainer
+{
+  
+}
+
+* html body.usp_headClosed #areaContainer
+{
+  
+}
+
+.usp_collapseMenu fieldset.logoTop
+{
+  height:8px;
+}
+
+.usp_collapseMenu .nowMenu .head:hover h3.legend:hover
+{
+  background-color:transparent;
+}
+
+.usp_collapseMenu #areaSubnav fieldset.mpb_0
+{
+  background-color:#fff !important;
+  border:1px solid #fff;
+  left:822px;
+  padding-left:6px;
+  top:-34px;
+  width:148px;
+}
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover
+{
+  border:1px solid #345D6F;
+  background-color:#345D6F !important;
+}
+.mqDestApp_TEST.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover
+{
+  background-color:#070 !important;
+}
+
+.mqDestApp_TEST .clientCtrl.hover .comboHandle
+{
+  background:#070 url(../images/collabsible-arrow-down.gif) no-repeat -1px 0px;
+}
+
+.mqDestApp_TEST #areaContent h3.head,
+.mqDestApp_TEST #areaContent h4.head
+{
+  border:1px solid #006000;
+  color:#006000;
+}
+
+.mqDestApp_TEST h2#contentHeadline
+{
+  color:#006000;
+}
+
+.mqDestApp_QS input.collapsibleHead,
+.mqDestApp_TEST input.collapsibleHead
+{
+  border:1px solid #006000;
+  color:#006000;
+}
+
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover a,
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover span,
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover legend
+{
+  color:#B8C9D1;
+}
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover a:hover
+{
+  color:#fff;
+}
+.usp_collapseMenu #areaSubnav fieldset.mpb_0 legend
+{
+  display:table-row;
+  padding-top:27px;
+  text-align:right;
+  background-position:99.5% 29px !important;
+  background-image:url(../images/comboArrows-sw-trans.gif);
+}
+
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover legend
+{
+  background-image:url(../images/comboArrowUp-trans.gif);
+}
+
+.usp_collapseMenu #areaSubnav fieldset.mpb_0 legend.closed
+{
+  background-image:url(../images/comboArrow-trans.gif);
+}
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover legend.closed
+{
+  background-image:url(../images/comboArrow-trans.gif);
+}
+
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover legend
+{
+  text-align:left;
+}
+
+.usp_collapseMenu fieldset.linkSection ul li a,
+.usp_collapseMenu fieldset.linkSection ul li span
+{
+  width:auto;
+}
+
+.usp_collapseMenu #areaSubnav fieldset.mpb_0 ul
+{
+  display:none;
+}
+.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover ul
+{
+  display:block;
+}
+
+.usp_collapseMenu #areaHeader
+{
+  border:none;
+  margin-bottom:0;
+}
+
+body.usp_collapseMenu .nowMenu .head h3.legend
+{
+  background-position:99% 5px;
+  top:0;
+  padding:5px 0;
+  background-color: transparent;
+  text-indent:-600em;
+}
+
+.usp_collapseMenu.usp_showMenuOnHover fieldset.logoTop
+{
+  z-index:4100;
+  background-color:transparent;
+}
+
+.usp_collapseMenu fieldset.logoTop h4
+{
+  background:#FFFFFF url(../images/now_iconSet.gif) no-repeat -1033px -189px;
+  border-right:1px solid #B8C9D1;
+  height:22px;
+  right:-1px;
+  text-indent:-444em;
+  top:-14px;
+  width:188px;
+}
+
+.usp_headClosed #areaHeader
+{
+  top:0px;
+  position:relative;
+  text-align:left;
+  height:1em;
+}
+.usp_headClosed #areaHeader h2
+{
+  border:none;
+}
+
+#areaHeader h2
+{
+  border-top:1px solid #fff;
+  border-bottom:1px solid #BBBCBE;
+  background-color:#fff;
+  display:block;
+  position:absolute;
+  text-indent:-444em;
+  top:61px;
+  width:100%;
+  height:8px !important;
+}
+
+#areaHeader.hover h2,
+#areaHeader:hover h2
+{
+  color:#004963;
+  background: #fff url(../images/comboArrowUp-trans.gif) 50% -2px no-repeat !important;
+}
+
+.usp_headClosed #areaHeader h1 span,
+.usp_headClosed #areaHeader h2
+{
+  font-size:9px !important;
+  display:block;
+  padding-right:.8em;
+  font-weight:normal;
+  background-color: #C4DCE8;
+  height:1em;
+}
+
+.usp_headClosed #areaHeader h1
+{
+  display:none;
+}
+.usp_headClosed #areaHeader h2
+{
+  color:#004963;
+  background: #fff url(../images/comboArrow-trans.gif) 50% -2px no-repeat !important;
+  top:-1px;
+  padding-right:0;
+}
+.usp_headClosed #areaHeader:hover h2
+{
+  color:#004963;
+  background: #C4DCE8 url(../images/comboArrow-trans.gif) 50% -1px no-repeat !important;
+}
+
+.usp_LabelAlignRight #areaContent .formular li label,
+.usp_LabelAlignRight #areaContent .TdLabelTop,
+.usp_LabelAlignRight #areaContent .TdLabel,
+.usp_LabelAlignRight #areaContent label
+{
+  text-align:right;
+  padding:0 12px 0 0 !important;
+}
+
+.usp_collapseMenu .client_ie6 fieldset.logoTop
+{
+  top:114px!important;
+}
+
+.usp_mainGridBackground #areaContent
+{
+  background:transparent url(../images/grid-konzernstyle.gif) repeat -190px 0;
+}
+
+.mqDestApp_TEST span.clientCtrl,
+.mqDestApp_TEST input,
+.mqDestApp_TEST textarea,
+.mqDestApp_TEST select
+{
+  border-color:#7F8789!important;
+}
+ 
+.usp_contrast.mqDestApp_TEST span.clientCtrl,
+.usp_contrast.mqDestApp_TEST input,
+.usp_contrast.mqDestApp_TEST textarea,
+.usp_contrast.mqDestApp_TEST select
+{
+  border-color:#006000!important;
+}
+

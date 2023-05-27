@@ -1,0 +1,22 @@
+.btn {
+ display:none;
+}
+
+textarea {
+   overflow: visible;
+}
+.TMG-dis-div  {
+   overflow: visible;
+}
+.tabmeSmal {
+	height: 16px !important;
+}
+.TBS_NewInput {
+	height: 16px !important;
+}
+.TTS_New {
+	height: 16px !important;
+}
+.TLS_New {
+	height: 16px !important;
+}

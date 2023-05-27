@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans SYSTEM "file:///@prop.build.process.location@/build/pre-dist/WEB-INF/spring-beans.dtd">
+
+<beans>
+	<bean id="lobHandler"
+		class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
+
+	<!-- Hibernate SessionFactory -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource"
+			ref="${prop.application.db.connectionpool.dataSource}" />
+
+		<!-- TODO: check for hibernqte5 <property name="lobHandler" ref="lobHandler" 
+			/> -->
+		<property name="annotatedClasses">
+			<list>
+				<value>vwg.vw.km.integration.persistence.model.BrandModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentElementModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentStandChangeModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentStandModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentStandUsersModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentValueModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ComponentVersionModel</value>
+				<value>vwg.vw.km.integration.persistence.model.CostAttributeCategoryModel</value>
+				<value>vwg.vw.km.integration.persistence.model.CostAttributeModel</value>
+				<value>vwg.vw.km.integration.persistence.model.DocumentPoolModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EffortContentModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ElementCategoryModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ElementModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ElementValueModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ElementVersionChangeModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ElementVersionModel</value>
+				<value>vwg.vw.km.integration.persistence.model.ElementVersionUsersModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EnumComponentClassModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EnumComponentTypeModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EnumInvestmentPartModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EnumObjectTypeModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EnumStatusModel</value>
+				<value>vwg.vw.km.integration.persistence.model.EnumTransitionModel</value>
+				<value>vwg.vw.km.integration.persistence.model.FolderModel</value>
+				<value>vwg.vw.km.integration.persistence.model.HourlyRateCatalogModel</value>
+				<value>vwg.vw.km.integration.persistence.model.HourlyRateModel</value>
+				<value>vwg.vw.km.integration.persistence.model.LibraryModel</value>
+				<value>vwg.vw.km.integration.persistence.model.NewsModel</value>
+				<value>vwg.vw.km.integration.persistence.model.RightModel</value>
+				<value>vwg.vw.km.integration.persistence.model.RoleModel</value>
+				<value>vwg.vw.km.integration.persistence.model.UserModel</value>
+				<value>vwg.vw.km.integration.persistence.model.WorkAreaModel</value>
+			</list>
+		</property>
+
+	
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</prop>
+				<prop key="hibernate.query.substitutions">true 1, false 0</prop>
+
+				<prop key="hibernate.show_sql">${prop.application.db.hibernate.show_sql}</prop>
+				<!-- <prop key="hibernate.format_sql">true</prop> -->
+				
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				
+				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.SingletonEhcacheRegionFactory</prop>
+				
+				<prop key="net.sf.ehcache.configurationResourceName">/conf/ehcache.xml</prop> 
+				
+				<prop key="hibernate.cache.ehcache.missing_cache_strategy">create-warn</prop>
+				
+			</props>
+		</property>
+	</bean>
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative 
+		to JTA) -->
+	<!-- gestionnaire vwg transaction -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="xmlImportPath" class="java.lang.String">
+		<constructor-arg type="java.lang.String"
+			value="${prop.application.xml.xml_path}" />
+	</bean>
+	<bean id="elementCronExpression" class="java.lang.String">
+		<constructor-arg type="java.lang.String"
+			value="${prop.application.batch.element}" />
+	</bean>
+	<bean id="componentCronExpression" class="java.lang.String">
+		<constructor-arg type="java.lang.String"
+			value="${prop.application.batch.component}" />
+	</bean>
+	<bean id="userCronExpression" class="java.lang.String">
+		<constructor-arg type="java.lang.String"
+			value="${prop.application.batch.user}" />
+	</bean>
+	<bean id="deactivUserCronExpression" class="java.lang.String">
+		<constructor-arg type="java.lang.String"
+			value="${prop.application.batch.deactivUser}" />
+	</bean>
+	<!-- PTS requirement 22205: Statistic page: Get Tablespaces name from properties -->
+	<bean id="tableSpaces"
+		class="org.springframework.beans.factory.config.MapFactoryBean">
+		<property name="targetMapClass">
+			<value>java.util.HashMap</value>
+		</property>
+		<property name="sourceMap">
+			<map>
+				<entry key="TAB"
+					value="${prop.application.db.tablespace.table}" />
+				<entry key="IND"
+					value="${prop.application.db.tablespace.index}" />
+				<entry key="LOB" value="${prop.application.db.tablespace.lob}" />
+			</map>
+		</property>
+	</bean>
+</beans>

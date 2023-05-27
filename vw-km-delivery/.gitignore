@@ -1,0 +1,15 @@
+/.metadata/*
+/.settings/
+*/.settings/*
+*/.settings/**
+/.idea/
+/.target/
+*/.target/*
+*/.target/**
+/.project
+/tomcat/
+*.iml
+.temp*
+*/bin/*
+target
+tomcat

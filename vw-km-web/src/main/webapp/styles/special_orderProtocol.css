@@ -1,0 +1,117 @@
+.orderProtocol table.data th,
+.orderProtocol table.data td
+{
+	overflow:hidden;
+	border:1px solid #FFF;
+	padding-left:3px;
+}
+
+.orderProtocol table.data th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+}
+
+
+.orderProtocol table.data th input
+{
+	width:55px;
+}
+
+.orderProtocol table.data th input.calendar,
+.orderProtocol table.data th select
+{
+	width:80px;
+}
+
+.orderProtocol table.data th.col_transReason1 input,
+.orderProtocol table.data th.col_transReason2 input
+{
+	width:125px;
+}
+
+
+.orderProtocol table.data
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+
+.orderProtocol table.data a
+{
+	background-image:none !important;
+	padding-left:0 !important;
+	text-decoration:underline;
+}
+
+.orderProtocol table.subTable
+{
+	border:none;
+}
+
+.orderProtocol table.subTable tr
+{
+	background-color:#C0C0C0 !important;
+}
+
+.orderProtocol table .tblRadioButton td
+{
+	border:0;
+}
+
+.orderProtocol table.data .tblRadioButton tr
+{
+	background-color:transparent;
+}
+
+
+.orderProtocol table.subTable tbody tr:first-child td {
+	padding-top:0;
+}
+
+
+/* column widths */
+.orderProtocol table.data thead tr th.col_radioButton,
+.orderProtocol table.data thead tr th.col_orderSerialNo,
+.orderProtocol table.subTable tbody tr td.col_orderSerialNo
+{
+	width:25px;
+}
+
+.orderProtocol table.subTable tbody tr td.col_radioButton
+{
+	width:22px;
+}
+
+.orderProtocol table.data thead tr th.col_dealerCommissionNo,
+.orderProtocol table.data thead tr th.col_commissionNo,
+.orderProtocol table.data thead tr th.col_modelKey,
+.orderProtocol table.subTable tbody tr td.col_dealerCommissionNo,
+.orderProtocol table.subTable tbody tr td.col_commissionNo,
+.orderProtocol table.subTable tbody tr td.col_modelKey
+{
+	width:60px;
+}
+
+.orderProtocol table.data thead tr th.col_orderLogDate,
+.orderProtocol table.data thead tr th.col_dealerNo,
+.orderProtocol table.subTable tbody tr td.col_orderLogDate,
+.orderProtocol table.subTable tbody tr td.col_dealerNo
+{
+	width:85px;
+}
+
+.orderProtocol table.data thead tr th.col_transReason1,
+.orderProtocol table.data thead tr th.col_transReason2,
+.orderProtocol table.subTable tbody tr td.col_transReason1,
+.orderProtocol table.subTable tbody tr td.col_transReason2
+{
+	width:130px;
+}
+
+.orderProtocol table.data thead tr th.col_firstCreated,
+.orderProtocol table.subTable tbody tr td.col_firstCreated
+{
+	width:auto;
+}

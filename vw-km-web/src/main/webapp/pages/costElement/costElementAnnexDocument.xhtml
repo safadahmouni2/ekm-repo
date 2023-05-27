@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+		<h:panelGroup layout="block">
+			<strong><h:outputText value="#{msgs['costelement.annexDocument.title']}" /></strong>
+		</h:panelGroup>
+		
+			<h:panelGroup layout="block" rendered="#{costElementBean.dto.noDocuments}">
+					<center><strong><h:outputText value="#{msgs['costelement.annexDocument.empty']}" /></strong></center>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="mc" rendered="#{!costElementBean.dto.noDocuments}">
+					<h:dataTable id="doc_lst" 
+						resizable="false" clientOnly="true"
+                        value="#{costElementBean.uploadedFiles}"
+                        styleClass="iceDatTbl element_cost_attribute"
+                        columnClasses="iceDatTblCol1,iceDatTblCol2,iceDatTblCol1"
+						var="uploadedFile" binding="#{costElementBean.costElementDocumentsTable}">
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+								<h:outputText value=" " />
+							</f:facet>
+							<h:commandLink style="float: left;" actionListener="#{costElementBean.showDeleteFileConfirmation}" disabled="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+								<f:param name="fileName" value="#{uploadedFile.documentPool.description}" />
+								<img src="../images/delete_icone.gif" />
+								<f:ajax render="@all" execute="@form" />
+							</h:commandLink>
+							<h:panelGroup layout="block" style="float: left;">
+							&#160;
+							</h:panelGroup>
+							<h:panelGroup layout="block" style="float: left; margin-right:-100px"> 
+                    <ace:dynamicResource
+                        resource="#{uploadedFile.myResource}" 
+                        label="Download resource" 
+                        attachment="true"
+                        fileName="#{uploadedFile.myResource.resourceName}" 
+                        target="_blank" 
+                        image="images/loupe.gif" 
+                        type="image" />
+						</h:panelGroup>
+						</h:column>						
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left PFF">
+							<f:facet name="header">
+                                <h:outputText value="#{msgs['costelement.annexDocument.list.designation']}"/>
+                            </f:facet>
+							<u><h:outputText value="#{uploadedFile.documentPool.description}" /></u>
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left PFF">
+							<f:facet name="header">
+                                      <h:outputText value="#{msgs['costelement.annexDocument.list.type']}" />
+							</f:facet>
+							<h:outputText value="#{uploadedFile.documentPool.fileType}" />
+						</h:column>
+
+					</h:dataTable>
+				</h:panelGroup>
+
+				<h:panelGroup layout="block" style="height:12px"></h:panelGroup>
+				
+				<h:panelGrid columns="3" 
+				    columnClasses="file-entry-col1,file-entry-col2,file-entry-col3"
+					rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userIsOwner and costElementBean.dto.userHasWriteAccess}">
+					<ace:column>
+						<div class="drag-drop-container" id="dropzone">
+                            <div><img src="../images/drag_drop_icon.png" /></div>
+                            <div class="padding-icon-dd">#{msgs['costelement.annexDocument.dragndrop']}</div>
+                        </div>
+					</ace:column>
+					<ace:column>
+						&#160;&#160;oder
+					</ace:column>
+					<ace:column>
+					<ace:fileEntry id="inputFileName"
+							fileEntryListener="#{costElementBean.uploadFile}"
+							relativePath="#{costElementBean.documentUploadDirectory}" 
+							autoUpload="true"
+							immediate="true"/>
+					<h:commandButton id="submit" type="submit" 
+					 	styleClass="uploadFileFormBtn"
+						value="#{msgs['costelement.annexDocument.newDocument']}" style="display: none"/>
+				    </ace:column>
+				</h:panelGrid>
+<script type="text/javascript" language="javascript">
+    // Block the "dragover" event
+	$('f').addEventListener('dragover', function(e) {
+ 		e = e || event;
+		e.stopPropagation();
+		e.preventDefault();
+	}, false);	  
+
+	$('dropzone').addEventListener('dragover', function(e) {
+		e = e || event;
+		e.preventDefault();
+		e.target.addClassName("dropped");
+		e.stopPropagation();
+	}, false);	
+	// Handle the "drop" event
+	$('dropzone').addEventListener('drop', function(e) {
+		e = e || event;
+		e.preventDefault();
+		var firstFile = e.dataTransfer.files[0];
+		var formData = new FormData();    
+		formData.append("drop_file", firstFile);
+		var request = new XMLHttpRequest();
+		request.open("POST", "../uploadFile?target=EL");
+		request.send(formData);
+		$('f:contInc:submit').click();
+		e.target.removeClassName("dropped");
+	}, false);
+
+	$('dropzone').addEventListener("dragleave", function(e) {
+		e.target.removeClassName("dropped");
+	}, false);
+</script>			
+<script type="text/javascript">
+	   screenResizeInit ();	
+</script>
+</html>

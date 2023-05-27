@@ -1,0 +1,186 @@
+.tabBlock
+{
+  zoom:1; /* IE6: must set to hasLayout */
+}
+
+.tabControlBody
+{
+  overflow:hidden;
+}
+
+.tabControl
+{
+  border-bottom:1px solid transparent;
+}
+
+* html body .tabControl
+{
+  border:none;
+}
+
+.tabControl li
+{
+  display:inline;
+  margin:0px;
+  padding:0px;
+  top:0px;
+  line-height:1.8em;
+}
+
+.tabControl li a
+{
+  border-left:1px solid #fff;
+  border-right:1px solid #fff;
+  text-decoration:none;
+  background-color:#fff;
+  text-decoration:none;
+  padding: 3px 12px;
+  color: #7F8789;
+}
+
+.tabControl li a:focus,
+.tabControl li a:hover
+{
+  border:1px solid #345D6F;
+}
+
+.tabControl li.active a
+{
+  color:#fff !important;
+  background-color:#345D6F;
+  border-color:#fff #fff #345D6F;
+  border-style:solid;
+  border-width:1px 2px;
+  font-weight:bold;
+  padding-top:7px;
+}
+
+.tabControl li.active a:hover
+{
+  border-top:1px solid #bbb;
+}
+
+
+.tabControl li.disabled a
+{
+  border:1px solid #fff !important;
+  text-decoration:none !important;
+  cursor:default !important;
+  color:#7F8789 !important;
+}
+
+
+.tabControl li.hidden
+{
+  display:none !important;
+}
+
+
+.tabBlock h3,
+.tabBlock.active h3
+{
+  color:#fff;
+}
+#areaContent .tabBlock.active.selected h3
+{
+  color:#345D6F;
+}
+#areaContent .tabBlock h3.head
+{
+  background-color:#fff;
+}
+.tabCtrlHead h3.head
+{
+  display:none;
+}
+.tabCtrlHead,
+.tabCtrlBody
+{
+  margin-left: 12px;
+}
+
+#areaContent .tabCtrlBody h3.head
+{
+	margin-left: 0 !important;
+}
+
+#areaContent .tabCtrlHead ul
+{
+  padding-bottom:0;
+}
+
+#areaContent .tabCtrlHead a
+{
+  padding:3px 12px;
+  background-color:#fff;
+  background-image:none !important;
+}
+.mqDestApp_PRODUCTION #areaContent .tabCtrlHead li.active a,
+.mqDestApp_QS #areaContent .tabCtrlHead li.active a
+{
+  color:#fff !important;
+  background-color:#345D6F;
+}
+.mqDestApp_TEST #areaContent .tabCtrlHead li.toggle.active a,
+.mqDestApp_TEST #areaContent .tabCtrlHead .allOpen li.toggle.active a,
+.mqDestApp_TEST #areaContent h3.legend,
+.mqDestApp_TEST #areaContent .tabCtrlHead li.active a,
+.mqDestApp_TEST .tabBlock h3
+{
+  background-color: #070;
+}
+
+.mqDestApp_TEST .tabControl li.active a
+{
+	border-color:#FFFFFF #FFFFFF #070;
+}
+.mqDestApp_PRODUCTION #areaContent .tabCtrlHead li.active a,
+.mqDestApp_QS #areaContent .tabCtrlHead li.active a
+{
+	border-color:#FFFFFF #FFFFFF #345D6F;
+}
+
+#areaContent .tabBlock h3
+{
+  background-color:#fff;
+	border:1px solid #345D6F;
+  margin-bottom:1px;
+  color:#e7f3f3;
+  color:#345D6F;	
+  font-size:1em;
+}
+.mqDestApp_QS #areaContent .tabBlock h3
+{
+  background-color:#fff;
+	border:1px solid #007700;
+  color:#007700;
+}
+
+#areaContent .tabCtrlHead li.toggle:hover a
+{
+  padding:3px 12px;
+  background:#fff url(../images/comboArrow-trans.gif) no-repeat 99.5% 4px;
+}
+
+#areaContent .tabCtrlHead .allOpen li.toggle:hover a
+{
+  padding:3px 12px;
+  background:#fff url(../images/comboArrowUp-trans.gif) no-repeat 99.5% 4px;
+}
+
+#areaContent .tabCtrlHead li.toggle.active a
+{
+  padding:3px 12px;
+  background:#345D6F url(../images/collabsible-arrow-down.gif) no-repeat 99.5% 3px;
+  background:transparent url(../images/comboArrows-sw-trans.gif) no-repeat 99.5% 5px;
+}
+
+#areaContent .tabCtrlHead .allOpen li.toggle.active a
+{
+  background:#345D6F url(../images/collabsible-arrow-up.gif) no-repeat 99.5% 3px;
+}
+
+.loading .tabCtrlBody .tabBlock
+{
+  display:none !important;
+}

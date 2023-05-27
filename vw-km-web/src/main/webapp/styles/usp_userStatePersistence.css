@@ -1,0 +1,254 @@
+
+/* collapsible persistence */
+
+/* mpb-Bereich */
+.usp_mpb_0 .usp_mpb_0 .body,
+.usp_mpb_1 .usp_mpb_1 .body,
+.usp_mpb_2 .usp_mpb_2 .body,
+.usp_mpb_3 .usp_mpb_3 .body,
+.usp_mpb_4 .usp_mpb_4 .body,
+.usp_mpb_5 .usp_mpb_5 .body,
+.usp_mpb_6 .usp_mpb_6 .body,
+
+.usp_clipBoard .usp_clipBoard .body,
+
+/* Orderentry */
+.usp_FleetOrderControl .usp_FleetOrderControl .body,
+
+/* locating */
+.usp_locating .usp_locating .body,
+.usp_locSeOptCtrl .usp_locSeOptCtrl .body,
+.usp_locSe4Fact .usp_locSe4Fact .body,
+.usp_locResList .usp_locResList .body,
+.usp_locVSC .usp_locVSC .body,
+.usp_locFIAB .usp_locFIAB .body,
+
+/* locating-Reservations */
+.usp_resResLst .usp_resResLst .body,
+.usp_resResFltr .usp_resResFltr .body,
+.usp_resTransMode .usp_resTransMode .body,
+
+/* startseite */
+.usp_StartNews .usp_StartNews .body,
+.usp_StartTeaser .usp_StartTeaser .body,
+.usp_StartFilter .usp_StartFilter .body,
+
+/* Kontakt */
+.usp_ContactTeaser .usp_ContactTeaser .body,
+.usp_ContactUsr .usp_ContactUsr .body,
+
+/* MIS */
+.usp_MisSelect .usp_MisSelect .body,
+.usp_MisAusw1 .usp_MisAusw1 .body,
+.usp_MisAusw2 .usp_MisAusw2 .body,
+.usp_MisHd .usp_MisHd .body,
+.usp_MisStdEdit .usp_MisStdEdit .body,
+
+/* user-data */
+.usp_usrDataAwd .usp_usrDataAwd .body,
+.usp_usrDataOrd .usp_usrDataOrd .body,
+.usp_usrDataCom .usp_usrDataCom .body,
+.usp_usrDataBrands .usp_usrDataBrands .body,
+.usp_usrDataMaster .usp_usrDataMaster .body,
+.usp_usrDataRelNotes .usp_usrDataRelNotes .body,
+
+/* Abholerfreigabe */
+.usp_divOrder .usp_divOrder .body,
+.usp_divVehicle .usp_divVehicle .body,
+.usp_divCustomer .usp_divCustomer .body,
+.usp_divDriver .usp_divDriver .body,
+.usp_divCollector .usp_divCollector .body,
+
+/* VehicleAlignment */
+.usp_vaSearch .usp_vaSearch .body,
+.usp_vaFavasStat .usp_vaFavasStat .body,
+.usp_vaOrderStat .usp_vaOrderStat .body,
+.usp_vaOrderData .usp_vaOrderData .body,
+.usp_vaVecicleData .usp_vaVecicleData .body,
+.usp_vaDeliveryData .usp_vaDeliveryData .body,
+.usp_vaVecicleDescr .usp_vaVecicleDescr .body,
+
+/* VehicleAllocateIt */
+.usp_vAlOrderSearch .usp_vAlOrderSearch .body,
+.usp_vAlOrderStat .usp_vAlOrderStat .body,
+.usp_vAlVecDescr .usp_vAlVecDescr .body,
+.usp_vAlAllocData .usp_vAlAllocData .body,
+
+/* CDM: CustomerDataManagement */
+.usp_cdmAdrDetails .usp_cdmAdrDetails .body,
+.usp_cdmNewCust .usp_cdmNewCust .body,
+.usp_cdmNameData .usp_cdmNameData .body,
+.usp_cdmAdrData .usp_cdmAdrData .body,
+.usp_cdmPhoneData .usp_cdmPhoneData .body,
+.usp_cdmStatisticData .usp_cdmStatisticData .body,
+.usp_cdmCarHist .usp_cdmCarHist .body,
+.usp_cdmCustHist .usp_cdmCustHist .body,
+.usp_cdmSelection .usp_cdmSelection .body,
+.usp_cdmResult .usp_cdmResult .body,
+.usp_cdmWflMaster .usp_cdmWflMaster .body,
+
+/* CDM: Tabellenspalten Ergebnisliste Kundensuche */
+.usp_cdmBP_0 .cdmBP_0,
+.usp_cdmBP_1 .cdmBP_1,
+.usp_cdmBP_2 .cdmBP_2,
+.usp_cdmBP_3 .cdmBP_3,
+.usp_cdmBP_4 .cdmBP_4,
+.usp_cdmBP_5 .cdmBP_5,
+.usp_cdmBP_6 .cdmBP_6,
+.usp_cdmBP_7 .cdmBP_7,
+.usp_cdmBP_8 .cdmBP_8,
+.usp_cdmBP_9 .cdmBP_9,
+.usp_cdmBP_10 .cdmBP_10,
+.usp_cdmBP_11 .cdmBP_11,
+.usp_cdmBP_12 .cdmBP_12,
+
+.usp_cdmKH_0 .cdmKH_0,
+.usp_cdmKH_1 .cdmKH_1,
+.usp_cdmKH_2 .cdmKH_2,
+.usp_cdmKH_3 .cdmKH_3,
+.usp_cdmKH_4 .cdmKH_4,
+.usp_cdmKH_5 .cdmKH_5,
+.usp_cdmKH_6 .cdmKH_6,
+.usp_cdmKH_7 .cdmKH_7,
+.usp_cdmKH_8 .cdmKH_8,
+.usp_cdmKH_9 .cdmKH_9,
+.usp_cdmKH_10 .cdmKH_10,
+.usp_cdmKH_11 .cdmKH_11,
+.usp_cdmKH_12 .cdmKH_12,
+
+.usp_cdmAL_0 .cdmAL_0,
+.usp_cdmAL_1 .cdmAL_1,
+.usp_cdmAL_2 .cdmAL_2,
+.usp_cdmAL_3 .cdmAL_3,
+.usp_cdmAL_4 .cdmAL_4,
+.usp_cdmAL_5 .cdmAL_5,
+.usp_cdmAL_6 .cdmAL_6,
+.usp_cdmAL_7 .cdmAL_7,
+.usp_cdmAL_8 .cdmAL_8,
+.usp_cdmAL_9 .cdmAL_9,
+
+/* Tabellenspalten Ergebnisliste Auftragssuche */
+.usp_osR_0 .osR_0,
+.usp_osR_1 .osR_1,
+.usp_osR_2 .osR_2,
+.usp_osR_3 .osR_3,
+.usp_osR_4 .osR_4,
+.usp_osR_5 .osR_5,
+.usp_osR_6 .osR_6,
+.usp_osR_7 .osR_7,
+.usp_osR_8 .osR_8,
+.usp_osR_9 .osR_9,
+.usp_osR_10 .osR_10,
+.usp_osR_11 .osR_11,
+.usp_osR_12 .osR_12,
+.usp_osR_13 .osR_13,
+.usp_osR_14 .osR_14,
+
+
+/* Tabellenspalten Ergebnisliste Locating Reservierung */
+.usp_lrR_0 .lrR_0,
+.usp_lrR_1 .lrR_1,
+.usp_lrR_2 .lrR_2,
+.usp_lrR_3 .lrR_3,
+.usp_lrR_4 .lrR_4,
+.usp_lrR_5 .lrR_5,
+.usp_lrR_6 .lrR_6,
+.usp_lrR_7 .lrR_7,
+.usp_lrR_8 .lrR_8,
+.usp_lrR_9 .lrR_9,
+
+
+/* Standzeiten: Tabellenspalten Ergebnisliste Kundensuche */
+.usp_szTable_0 .szTable_0,
+.usp_szTable_1 .szTable_1,
+.usp_szTable_2 .szTable_2,
+.usp_szTable_3 .szTable_3,
+.usp_szTable_4 .szTable_4,
+.usp_szTable_5 .szTable_5,
+.usp_szTable_6 .szTable_6,
+.usp_szTable_7 .szTable_7,
+.usp_szTable_8 .szTable_8,
+.usp_szTable_9 .szTable_9,
+.usp_szTable_10 .szTable_10,
+.usp_szTable_11 .szTable_11,
+.usp_szTable_12 .szTable_12,
+.usp_szTable_13 .szTable_13,
+
+/* Invoice */
+.usp_invStamm .usp_invStamm .body,
+.usp_invBeleg .usp_invBeleg .body,
+.usp_invOverview .usp_invOverview .body,
+
+/* NewadaDirect / DocumentList */
+.usp_dlstList .usp_dlstList .body,
+.usp_dlstFilter .usp_dlstFilter .body,
+.usp_invOverview .usp_invOverview .body,
+
+/* OrderStatusCtrl */
+.usp_osFavas .usp_osFavas .body,
+.usp_osOrderStat .usp_osOrderStat .body,
+.usp_osOrderData .usp_osOrderData .body,
+.usp_osVehicleData .usp_osVehicleData .body,
+.usp_osVehicleDescr .usp_osVehicleDescr .body,
+.usp_osInvoiceStat .usp_osInvoiceStat .body,
+
+/* ContactPerson */
+.usp_ContctPersCtrl .usp_ContctPersCtrl .body,
+
+/* CarConfigCtrl */
+.usp_CarCfgCtrl .usp_CarCfgCtrl .body,
+
+/* Filter.ascx */
+.usp_FilterCtrl .usp_FilterCtrl .body,
+
+/* Rechnungsdaten.ascx */
+.usp_RechData .usp_RechData .body,
+
+/* ZahlungsBestaetigung.ascx */
+.usp_ZahlBest .usp_ZahlBest .body,
+.usp_ZahlBestKauf .usp_ZahlBestKauf .body,
+
+/* SimilarVehicleCtrl.ascx */
+.usp_simiVehCtrl .usp_simiVehCtrl .body,
+
+/* TransportCtrl.ascx */
+.usp_transportCtrl .usp_transportCtrl .body,
+
+/* DealerCustomerSearch.ascx */
+.usp_DealerCustSrch .usp_DealerCustSrch .body,
+
+/* OrderDataSearch.ascx */
+.usp_OrderDtaSrch .usp_OrderDtaSrch .body,
+
+/* VehicleDataSearch.ascx */
+.usp_VehDtaSrch .usp_VehDtaSrch .body,
+
+/* Send / Receive */
+.usp_sr_filterFields .usp_sr_filterFields .body,
+.usp_sr_actions .usp_sr_actions .body,
+.usp_sr_content .usp_sr_content .body,
+
+/* Tabellenspalten Tabelle 1 */
+.usp_setCol_A0 .setCol_A0,
+.usp_setCol_A1 .setCol_A1,
+.usp_setCol_A2 .setCol_A2,
+.usp_setCol_A3 .setCol_A3,
+.usp_setCol_A4 .setCol_A4,
+.usp_setCol_A5 .setCol_A5,
+.usp_setCol_A6 .setCol_A6,
+.usp_setCol_A7 .setCol_A7,
+.usp_setCol_A8 .setCol_A8,
+.usp_setCol_A9 .setCol_A9,
+.usp_setCol_A10 .setCol_A10,
+.usp_setCol_A11 .setCol_A11,
+.usp_setCol_A12 .setCol_A12,
+
+/* InitialOutfitter (EA) */
+/*.usp_tabIoBrandSelect .usp_tabIoBrandSelect .body,*/
+
+
+.usp_developDbgWnd .usp_developDbgWnd .body
+{
+  display:none;
+}
+

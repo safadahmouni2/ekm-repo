@@ -1,0 +1,109 @@
+.universysWeb .errorText
+{
+	color: #9A0C39;
+}
+
+.universysWeb .chooser
+{
+	width: 3em;
+	float: left;
+	padding-left: 6px;
+}
+
+.universysWeb .chooser input
+{
+	display: block;
+	text-indent: -1000px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: 6px 3px;
+	border: none;
+}
+
+.universysWeb .chooser input.next
+{
+	background-image: url(../images/arrow_next.gif);
+}
+
+.universysWeb .chooser input.prev
+{
+	background-image: url(../images/arrow_prev.gif);
+}
+
+.universysWeb .defaultReasons
+{
+	width: 300px;
+	float: left;
+}
+
+.universysWeb .paymentReasons
+{
+	width: 300px;
+	float: left;
+}
+
+.universysWeb #tabOverviewDiv table a
+{
+	background-image: none !important;
+	padding-left: 0 !important;
+}
+
+.universysWeb .paymentInfos
+{
+	margin-bottom: 10px;
+	display: block;
+}
+
+.universysWeb .tblVehicleInfos span
+{
+	margin: 2px 15px 2px 5px;
+}
+
+.universysWeb h2
+{
+	margin: 20px 0px 10px 0px;
+}
+
+.universysWeb .divButtons input
+{
+	margin: 15px 10px 30px 0px;
+}
+
+
+.universysWeb .areaError fieldset span.error
+{
+  padding:0;
+  color:#9A0C39;
+  border:none;
+}
+
+.universysWeb .areaError fieldset span.info
+{
+  padding:0;
+  color:#000;
+  border:none;
+}
+
+
+.universysWeb .pager
+{
+	width: auto;
+	margin-top: 20px;
+}
+
+.universysWeb .pager a
+{
+	background-image: none !important;
+	padding-left: 0 !important;
+}
+
+.universysWeb .txtPager
+{
+	margin-top: 20px;
+	display: block;
+}
+
+.universysWeb .tblStandard
+{
+	width: auto;
+}

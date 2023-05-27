@@ -1,0 +1,53 @@
+.usp_style_3D #areaContent h3.head
+{
+  text-shadow:0 0 1px #888;
+  -moz-box-shadow:1px 1px 3px #666;
+}
+.usp_style_3D h2#contentHeadline {
+  text-shadow:0 0 1px #888;
+}
+
+
+.usp_style_3D .nowMenu {
+  -moz-box-shadow:1px 2px 8px #444;
+}
+
+.usp_style_3D #areaContent .tabBlock h3
+{
+  -moz-box-shadow:1px 1px 3px #666;
+}
+
+
+x.usp_style_3D fieldset.linkSection  {
+  -moz-box-shadow:1px 1px 8px #555;
+}
+
+.usp_style_3D fieldset.linkSection ul {
+  -moz-box-shadow:0 1px 4px #888;
+}
+
+.usp_style_3D fieldset.usp_mpb_0 ul {
+  -moz-box-shadow:none;
+}
+
+#clone_devDbgWin
+{
+ -moz-box-shadow:2px 2px 8px #444;
+}
+
+.usp_style_3D.usp_contrast #areaContent select.invalid:focus,
+.usp_style_3D.usp_contrast #areaContent input.invalid:focus,
+.usp_style_3D select.invalid:focus,
+.usp_style_3D input.invalid:focus,
+.usp_style_3D .required.invalid:focus,
+.usp_style_3D .required input.invalid:focus
+{
+  -moz-box-shadow:2px 2px 9px #333;
+  border:1px solid #9A0C39 !important;
+  position:relative;
+  top:0px;
+  left:0px;
+}
+
+
+

@@ -1,0 +1,14 @@
+﻿.loading .tableSettings
+{
+	visibility:hidden;	
+}
+
+.tableSettings .settings
+{
+	background: transparent url(../images/settings.gif) no-repeat 50% 0;
+}
+
+ul.tableSettings
+{
+	list-style-type:none;
+}

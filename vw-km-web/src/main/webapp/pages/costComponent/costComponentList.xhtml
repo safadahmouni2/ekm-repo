@@ -1,0 +1,228 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<h:panelGroup layout="block" styleClass="areaTab" rendered="#{costComponentListBean.loadDTO}" id="mainContent">
+
+		<h:panelGroup layout="block" styleClass="btnGen" style="padding-top:15px">
+			<h:panelGroup layout="block" styleClass="btn" rendered="#{costComponentListBean.dto.newMode}">
+				<div class="bgrBTL"><a href="#"></a></div>
+				<div class="bgrBTC"><h:commandLink actionListener="#{costComponentListBean.createClicked}"
+					value="#{msgs['costcomponent.add.newcomponent']}">
+					<f:ajax execute="@form" render="@all"/>
+					</h:commandLink></div>
+				<div class="bgrBTR"><a href="#"></a></div>
+				<div class="space">&#160;</div>
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="btn">
+								<!-- Aktion menu -->
+				<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+					<ace:submenu label="#{msgs['common.action.button']}" id="action">
+						<ace:menuItem id="print" value="#{msgs['common.print.button']}" url="javascript:friendlyPrint();" />
+						<ace:menuItem id="export_root" value="#{msgs['costcomponent.export.xml']}"
+							action="#{costComponentListBean.showXmlExportModal}" target="_blank" immediate="true">
+						<f:param name="object_type" value="R"/>
+						</ace:menuItem>
+						<ace:menuItem id="export_folder" value="#{msgs['costcomponent.export.xml.folder']}"
+							action="#{costComponentListBean.showXmlExportModal}" target="_blank" immediate="true" 
+							rendered="#{navigationTree.selectedNodeObject.nodeId > 7}">
+						<f:param name="object_type" value="C"/>
+						</ace:menuItem>
+					</ace:submenu>
+				</ace:menuBar>
+				<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+                <div class="space">&#160;</div>
+			</h:panelGroup>
+            
+             <h:panelGroup layout="block">
+                    <h2 id="contentHeadline" class="h2Mar smallerSpace noBottom"  >
+                    <h:graphicImage value="../images/b.gif" class="iconObject"/>
+                    <h:outputText value="#{msgs['costcomponent.common.title']}"  styleClass="smallerFont" />
+                    </h2>
+              </h:panelGroup>
+		</h:panelGroup>
+		<table width="100%">
+			<tbody>
+				<tr>
+					<td rowspan="2"></td>
+					<td align="right" height="8"></td>
+				</tr>
+				<tr>
+				<td align="right">
+					<h:panelGroup layout="block">
+						<h:inputText
+							styleClass="revalidate valid iptRight searchinpt search-input-constcomponent"
+							value="#{costComponentListBean.dto.searchString}" onfocus="this.value='';" onkeypress="if (event.keyCode == 13) { document.getElementById('f:contInc:srch_btn').click(); return false; }"/>
+							
+						<h:panelGroup layout="block" style="float: right;">
+							<div class="bgrBTL"><a href="#"></a></div>
+							<div class="bgrBTC"><h:commandLink  id="srch_btn"
+							    actionListener="#{costComponentListBean.search}"
+								value="#{msgs['costcomponent.common.search.label']}">
+								 <f:ajax render="@form" execute="@form" />
+								</h:commandLink></div>
+							<div class="bgrBTR"><a href="#"></a></div>
+						</h:panelGroup>
+													
+					</h:panelGroup>
+				 </td>
+				</tr>
+			</tbody>
+		</table>
+		<h:panelGroup layout="block" rendered="#{!costComponentListBean.dto.searchMode}">
+			<h:outputText value="#{msgs['costcomponent.actualfolder']}:" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="middle" />
+			&#160;<h:outputText value="#{navigationTree.selectedNodeObject.menuDisplayText}" />
+		</h:panelGroup>
+		<h:panelGroup layout="block" rendered="#{costComponentListBean.dto.searchMode}">
+			<h:panelGroup layout="block" rendered="#{costComponentListBean.dto.searchTitel}">
+				<h:outputText value="#{msgs['costcomponent.searchResult.searchFolder']}" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="middle" />
+			&#160;<h:outputText value="#{costComponentListBean.dto.searchFolder}" />
+				<br />
+				<strong><h:outputText value="#{msgs['costcomponent.searchResult.searchString']}" /> &#160;&#34;<h:outputText
+					nospan="true" value="#{costComponentListBean.dto.searchStringResult}" />&#34;</strong>
+			</h:panelGroup>
+			<h:panelGroup layout="block" rendered="#{!costComponentListBean.dto.searchTitel}">
+				<h:outputText value="#{msgs['costcomponent.actualfolder']}:" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="middle" />
+			&#160;<h:outputText value="#{navigationTree.selectedNodeObject.menuDisplayText}" />
+			</h:panelGroup>
+		</h:panelGroup>
+		<div class="Des"></div>
+		
+		<h:panelGroup layout="block" styleClass="mc" rendered="#{!costComponentListBean.dto.noFoldersSearchResult}">		
+			<h:dataTable id="compF_lst" width="100%" border="0" cellpadding="0" cellspacing="0" 
+				value="#{costComponentListBean.dto.folders}" 
+				styleClass="iceDatTbl"
+				rowClasses="iceDatTblRow1,iceDatTblRow2"
+				columnClasses="iceDatTblCol1 FolderComponentDatTbCol1,iceDatTblCol2 FolderComponentDatTbCol2"
+				 var="folderObj" style="margin: 0px;"
+				 binding="#{folderComponentTbl}">				
+				 <h:column headerClass="iceDatTblColHdr tabIce_left PFF tabIce_noborder_lr">
+					 <h:panelGroup layout="block" styleClass="listlink">
+						<img src="../images/img_onglet/tree_folder_close.gif" align="middle" />&#160;					 
+					 	<h:commandLink  value="#{folderObj.designation}"
+							actionListener="#{costComponentListBean.showFolder}" title="Ordner anzeigen">
+							<f:param name="folder_id" value="#{folderObj.folderId}"></f:param>
+							<f:param name="creator_id" value="#{folderObj.creatorRefId}"></f:param>
+							<f:ajax render="@all" execute="@form" />
+			       		</h:commandLink>
+			       	</h:panelGroup>
+					<f:facet name="header">
+             <h:panelGroup layout="block">
+							<h:outputText value="Ordnerbezeichnung"/>
+             </h:panelGroup>
+					</f:facet>
+				</h:column>
+				<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+					<span class="downTab"> 
+						<h:commandLink id="compF_ed"
+							actionListener="#{costComponentListBean.showFolder}" title="#{msgs['costcomponent.edit.alt']}">
+							<f:param name="folder_id" value="#{folderObj.folderId}"></f:param>
+							<f:param name="creator_id" value="#{folderObj.creatorRefId}"></f:param>
+							<img src="../images/edit_icone.gif" />
+							<f:ajax render="@all" execute="@form" />
+						</h:commandLink>
+					</span>
+				</h:column>
+			</h:dataTable>
+		 <div class="Des"></div>
+		</h:panelGroup>
+				
+		<h:panelGroup layout="block" rendered="#{costComponentListBean.dto.noComponents}">
+			<center><strong><h:outputText value="#{msgs['costcomponent.list.empty']}" /></strong></center>
+		</h:panelGroup>
+		<h:panelGroup layout="block" styleClass="mc" rendered="#{!costComponentListBean.dto.noComponents}">
+		
+		
+			<h:dataTable id="comp_lst" width="100%" border="0" cellpadding="0" cellspacing="0" 
+				value="#{costComponentListBean.dto.components}" 
+				headerClasses=",,,"
+				 var="componentObj" style="margin: 0px;"
+				binding="#{componentTbl}"
+				styleClass="iceDatTbl"
+				rowClasses="iceDatTblRow1,iceDatTblRow2"
+				columnClasses="iceDatTblCol1 ComponentDatTbCol1,iceDatTblCol2 ComponentDatTbCol2,iceDatTblCol1 ComponentDatTbCol3,iceDatTblCol2 ComponentDatTbCol4">
+				<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+					<h:outputText value="#{componentObj.componentNumber}" />
+					<f:facet name="header">
+             <h:panelGroup layout="block">
+						    <h:outputText value="#{msgs['costcomponent.list.number']}" styleClass="" />
+             </h:panelGroup>
+					</f:facet>
+				</h:column>
+				<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+					<h:graphicImage value="../images/#{componentObj.ownerImg}" style="border: 0px; align:top" rendered="#{componentObj.ownerImg!=null}"/>&#160;
+					<ui:repeat value="#{componentObj.usersImg}" var="user">
+						<h:graphicImage value="../images/#{user}" />&#160;
+					</ui:repeat>
+					<f:facet name="header">
+						<h:outputText value="#{msgs['costcomponent.list.marke']}" styleClass="" />
+					</f:facet>
+				</h:column>				
+				<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+					<f:facet name="header">
+						  &#160;<h:outputText value="#{msgs['costcomponent.list.designation']}"/>
+					</f:facet>
+					<h:panelGroup layout="block" styleClass="listlink" rendered="#{!costComponentListBean.dto.searchMode}">
+						<h:commandLink value="#{componentObj.designation}" actionListener="#{costComponentListBean.editClicked}"
+							title="#{msgs['costcomponent.edit.alt']}">
+							<f:param name="object_id" value="#{componentObj.componentId}"></f:param>
+							<f:ajax render="@all" execute="@form" />
+						</h:commandLink>
+					</h:panelGroup>
+					
+					<h:panelGroup layout="block" styleClass="listlink" rendered="#{costComponentListBean.dto.searchMode}">
+						<h:commandLink value="#{componentObj.designation}" actionListener="#{costComponentListBean.showComponent}"
+							title="#{msgs['costcomponent.edit.alt']}">
+							<f:param name="inactive" value="#{componentObj.inactive}"></f:param>
+							<f:param name="component_id" value="#{componentObj.componentId}"></f:param>
+							<f:param name="folder_id" value="#{componentObj.folder.folderId}"></f:param>
+							<f:ajax render="@all" execute="@form" />
+						</h:commandLink>
+					</h:panelGroup>
+					
+				</h:column>
+				<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+					<span class="downTab"> 
+						<h:commandLink id="edit_link1"
+							actionListener="#{costComponentListBean.editClicked}" title="#{msgs['costcomponent.edit.alt']}" 
+							rendered="#{!costComponentListBean.dto.searchMode}">
+							<f:param name="object_id" value="#{componentObj.componentId}"></f:param>
+							 <img src="../images/edit_icone.gif" />	
+							 <f:ajax render="@all" execute="@form" />	
+						</h:commandLink> 
+						<h:commandLink id="edit_link2"
+							actionListener="#{costComponentListBean.showComponent}" title="#{msgs['costcomponent.edit.alt']}" 
+							rendered="#{costComponentListBean.dto.searchMode}">
+							<f:param name="inactive" value="#{componentObj.inactive}"></f:param>
+							<f:param name="component_id" value="#{componentObj.componentId}"></f:param>
+							<f:param name="folder_id" value="#{componentObj.folder.folderId}"></f:param>
+							 <img src="../images/edit_icone.gif" />
+							 <f:ajax render="@all" execute="@form" />	
+						</h:commandLink>
+			
+					</span>
+				</h:column>
+			</h:dataTable>
+		</h:panelGroup>
+
+		<div class="arbeit"></div>
+		<div class="Des"></div>
+	</h:panelGroup>
+
+ <style type="text/css">
+.ui-inputfield {
+  width: 92px !important;
+}	
+ </style>	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

@@ -1,0 +1,132 @@
+
+.QuRsection
+{
+  border:0px solid #004963;
+  width:100%;
+  padding:0px;
+}
+
+.QuRsection div
+{
+  width:100%;
+  margin-bottom:6px;
+  clear:left;
+}
+
+.QuRsection .sectionCtrl
+{
+  text-align:center;
+  padding: 12px 0px;
+} 
+
+.QuRsection .sectionCtrl a
+{
+  color:#87173D;
+  padding-bottom:0;
+  padding-right:5em;
+  padding-top:0;
+} 
+
+.QuRsection div .innerGrid
+{
+  margin:0;
+}
+
+.QuRsection div .innerGrid div
+{
+  margin:0;
+}
+
+.QuRsection .innerGrid div span,
+.QuRsection .innerGrid div strong
+{
+  background:#ccffcc;
+  border-left:1px solid #fff;
+  border-bottom:1px solid #fff;
+  width:20px;
+  width:4%;
+  display:block;
+  float:left;
+  font-weight:normal;
+  padding:3px 3px;
+  height:100%;
+}
+
+.QuRsection .innerGrid div span
+{
+  text-align:center;
+}
+
+.QuRsection .innerGrid div.odd span,
+.QuRsection .innerGrid div.odd strong
+{
+  font-weight:normal;
+  background:#99CC99;
+}
+
+.QuRsection .innerGrid div strong
+{
+  padding-left:4px;
+}
+
+.QuRsection .innerGrid div.odd strong
+{
+  padding-left:4px;
+}
+
+.QuRsection .innerGrid div.choise input
+{
+  float:left;
+  margin:0;
+  padding:0;
+  margin-right:5px;
+}
+.QuRsection .innerGrid div.choise
+{
+  height:20px;
+}
+.QuRsection .innerGrid div.choise *
+{
+  margin-top:3px;
+  background-color:#EAEAEA;
+}
+
+
+.QuRsection .innerGrid div strong
+{
+  width:200px;
+  width:36%;
+}
+
+.QuRsection .legend
+{
+  text-align:center;
+}
+
+.QuRsection ul.sectionCtrl li
+{
+  display:inline;
+}
+
+
+.QuRsection td.tdGreenLeftCell
+{
+  background-color: #99CC99;
+  padding-left:5px;
+}
+.QuRsection td.tdGreenCell
+{
+  background-color: #99CC99;
+  text-align: center;
+}
+
+.QuRsection td.tdLightGreenCell
+{
+  background-color: #ccffcc;
+  text-align: center;
+}
+.QuRsection td.tdLightGreenLeftCell
+{
+  background-color: #ccffcc;
+  padding-left:5px;
+}

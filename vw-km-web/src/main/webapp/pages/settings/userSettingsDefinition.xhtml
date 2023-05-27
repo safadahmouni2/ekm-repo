@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr>
+								<td height="8"></td>
+							</tr>
+							<tr>
+								<td>
+								<table border="0" cellpadding="0" cellspacing="0" width="771">
+									<tbody>
+										<tr>
+											<td height="17" width="25%"><h:outputText value="#{msgs['user.settings.standard.catalogue']}" /></td>
+											<td><h:selectOneMenu id="user_defaultStdSatzKatRefId"
+												value="#{userDefSettings.dto.defaultStdSatzKatRefId}"
+												styleClass="tabmeOp2Prime" required="true"
+												valueChangeListener="#{userDefSettings.checkChanged}">
+												<f:selectItems value="#{userDefSettings.hourlyRateCatalogs}" />
+												<f:ajax render="@all" execute="@this" />
+											</h:selectOneMenu> &#160;<ace:message style="color: red;" id="user_defaultStdSatzKatRefId_error"
+												for="user_defaultStdSatzKatRefId" /></td>
+										</tr>
+										<tr>
+											<td colspan="2" height="16"></td>
+										</tr>
+									</tbody>
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="17">
+								<table border="0" cellpadding="0" cellspacing="0" width="100">
+									<tbody>
+										<tr>
+											<td width="3%"><h:selectBooleanCheckbox styleClass="IB"
+												value="#{userDefSettings.dto.statusElementPublish}"
+												valueChangeListener="#{userDefSettings.checkChanged}" >
+												<f:ajax render="@all" execute="@this" />
+												</h:selectBooleanCheckbox>
+												</td>
+											<td width="97%"><h:outputText value="#{msgs['user.settings.include.released.costelement']}" /></td>
+										</tr>
+									</tbody>
+								</table>
+								</td>
+							</tr>
+
+							<tr>
+								<td height="40" style="padding-top: 15px;"><br />
+								<strong> <h:outputText value="#{msgs['user.settings.brandandlibray']}" /> </strong></td>
+							</tr>
+							<tr>
+								<td>
+								<table width="771" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="25%" height="25"><h:outputText value="#{msgs['user.settings.brand']}" /></td>
+										<td height="25"><h:selectOneMenu id="user_defaultBrand" value="#{userDefSettings.dto.defaultBrand}"
+											styleClass=" validate tabmeOp2Prime" required="false"
+											valueChangeListener="#{userDefSettings.loadDefaultImgPath}">
+											<f:selectItems value="#{userDefSettings.brandsItems}" />
+											<f:ajax render="@all" execute="@this" />
+										</h:selectOneMenu></td>
+									</tr>
+									<tr>
+										<td height="8" colspan="2"></td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							<!--  
+							<tr>
+								<td>
+								<table width="771" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="25%" height="25"><ice:outputText value="#{msgs['user.settings.img_path']}" /></td>
+										<td height="25"><ice:inputText id="user_img_path" label="#{msgs['user.settings.img_path']}"
+											value="#{userDefSettings.dto.imagesRootPath}" maxlength="100"
+											styleClass=" tabme" 
+											partialSubmit="true"
+											valueChangeListener="#{userDefSettings.checkChanged}" /></td>
+									</tr>
+									<tr>
+										<td height="8" colspan="2"></td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							-->							
+						</tbody>
+					</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<script type="text/javascript">
+		screenResizeInit ();
+	</script>			
+</html>

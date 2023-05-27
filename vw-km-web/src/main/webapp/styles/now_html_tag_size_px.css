@@ -1,0 +1,578 @@
+.xxxxlSize
+{
+  width:688px !important;
+}
+.xxxlSize
+{
+  width:588px !important;
+  
+}
+.xxlSize
+{
+  width:388px !important;  
+}
+.xlSize
+{
+  width:388px !important;  
+}
+.lSize
+{
+  width:288px !important;  
+}
+.standardSize,
+.defaultSize
+{
+  width:188px !important;
+}
+.client_ie6 .standardSize,
+.client_ie6 .defaultSize,
+.client_ie7 .standardSize,
+.client_ie7 .defaultSize
+{
+  width:185px !important;
+}
+.xxmSize
+{
+  width:86px !important;
+}
+
+.sxxmSize
+{
+  width:9.3em !important;
+}
+.xmSize
+{
+  width:84px !important;   
+}
+.mSize
+{
+  width:88px !important;  
+}
+.smSize
+{
+  width:70px !important;  
+}
+.sSize
+{
+  width:6.1em !important;
+}
+.msSize
+{
+  width:5.1em !important;
+}
+* html .msSize
+{
+  width:4.2em !important;
+}
+
+.xsSize
+{
+  width:50px !important;
+}
+.xssSize
+{
+  width:40px !important;
+}
+.xxsSize
+{
+  width:2.8em !important;
+}
+.xxxsSize
+{
+  width:2.0em !important;
+}
+
+.widthAuto
+{
+  width:auto!important;
+}
+
+.client_ie6 .xxxxlSize,
+.client_ie7 .xxxxlSize
+{
+  width:685px !important;
+}
+.client_ie6 .xxxlSize,
+.client_ie7 .xxxlSize
+{
+  width:585px !important;
+  
+}
+.client_ie6 .xxlSize,
+.client_ie7 .xxlSize
+{
+  width:385px !important;  
+}
+.client_ie6 .xlSize,
+.client_ie7 .xlSize
+{
+  width:385px !important;  
+}
+.client_ie6 .lSize,
+.client_ie7 .lSize
+{
+  width:285px !important;  
+}
+.client_ie6 .standardSize,
+.client_ie6 .defaultSize,
+.client_ie7 .standardSize,
+.client_ie7 .defaultSize
+{
+  width:185px !important;
+}
+.client_ie6 .xxmSize,
+.client_ie7 .xxmSize
+{
+  width:83px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tdSize1,
+.tdSize1 td
+{
+  width:100px !important;
+}
+
+.tdSize1 input
+{
+  width:88px !important;
+}
+
+#areaContent .buttonSize1 button,
+#areaContent .buttonSize1 input.button
+{
+  display:block;
+  float:left;
+  margin-right:12px;
+  width:88px !important;  
+  
+}
+#areaContent .buttonSize1 button.innerSize2,
+#areaContent .buttonSize1 input.innerSize2
+{
+  width:188px !important;  
+  
+}
+.colSize1,
+.colSize1 input
+{
+  width:100px !important;
+}
+.colSize2
+{
+  width:200px !important;
+}
+.colSize3
+{
+  width:300px !important;
+}
+.colSize4
+{
+  width:400px !important;
+}
+.colSize5
+{
+  width:500px !important;
+}
+.colSize6
+{
+  width:600px !important;
+}
+.colSize7
+{
+  width:700px !important;
+}
+.colSize8
+{
+  width:800px !important;
+}
+
+.innerSize1
+{
+  width:88px !important;
+}
+.innerSize2
+{
+  width:188px !important;
+  width:186px !important;
+}
+.client_ie6 .innerSize2,
+.client_ie7 .innerSize2
+{
+  width:185px !important;
+}
+.innerSize3
+{
+  width:288px !important;
+}
+.innerSize4
+{
+  width:388px !important;
+}
+.client_ie6 .innerSize4,
+.client_ie7 .innerSize4
+{
+  width:385px !important;
+}
+.innerSize5
+{
+  width:488px !important;
+}
+.innerSize6
+{
+  width:588px !important;
+}
+.innerSize7
+{
+  width:688px !important;
+}
+.innerSize8
+{
+  width:788px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fullContentSize
+{
+  width:782px;
+}
+
+.sizeQuarter,
+.labelSizeQuarter
+{
+  width: 25px !important;
+}
+
+.sizeHalf,
+.labelSizeHalf
+{
+  width: 50px !important;
+}
+
+.client_ie6 .sizeHalf,
+.client_ie6 .labelSizeHalf,
+.client_ie7 .sizeHalf,
+.client_ie7 .labelSizeHalf
+{
+  width: 48px !important;
+}
+
+
+.tdLabelSize1,
+.tdColSize1
+{
+  width:9.4em !important;
+  width:88px !important;
+  padding-left:12px !important;
+}
+
+.tdLabelSize2,
+.tdColSize2
+{
+  width:188px !important;
+  padding-left:12px !important;
+}
+.client_ie6 .leftSize2,
+.client_ie6 .colSize2,
+.client_ie7 .leftSize2,
+.client_ie7 .colSize2
+{
+  width:185px !important;
+}
+
+.tdLabelSize3,
+.tdColSize3
+{
+  width:30.2em !important;
+  width:288px !important;
+  padding-left:12px !important;
+}
+
+.tdLabelSize4,
+.tdColSize4
+{
+  width:40.7em !important;
+  width:388px !important;
+  padding-left:12px !important;
+}
+
+.tdLabelSize5,
+.tdColSize5
+{
+  width:51.2em !important;
+  width:488px !important;
+  padding-left:12px !important;
+}
+
+.tdLabelSize6,
+.tdColSize6
+{
+  width:61.7em !important;
+  width:588px !important;
+  padding-left:12px !important;
+}
+
+.tdLabelSize1,
+.tdLabelSize2,
+.tdLabelSize3,
+.tdLabelSize4,
+.tdLabelSize5,
+.tdLabelSize6,
+.tdColSize1 input,
+.tdColSize1 select,
+.tdColSize2 input,
+.tdColSize2 select,
+.tdColSize3 input,
+.tdColSize3 select,
+.tdColSize4 input,
+.tdColSize4 select,
+.tdColSize5 input,
+.tdColSize5 select,
+.tdColSize6 input,
+.tdColSize6 select
+{
+  margin-left:0 !important;
+  padding-left:0 !important;
+}
+
+
+
+input.comboBox,
+textarea.xxxlSize,
+select.xxxlSize,
+input.xxxlSize,
+textarea.xxlSize,
+select.xxlSize,
+input.xxlSize,
+textarea.xlSize,
+select.xlSize,
+input.xlSize,
+textarea.lSize,
+select.lSize,
+input.lSize,
+select.longSize,
+input.longSize,
+select.defaultSize,
+input.defaultSize,
+textarea.mSize,
+select.mSize,
+input.mSize,
+select.halfSize,
+input.halfSize,
+select.sSize,
+input.sSize,
+select.shortSize,
+input.shortSize,
+select.xxsSize,
+input.xxsSize,
+select.xxxsSize,
+input.xxxsSize,
+select.xssSize,
+input.xssSize,
+select.xsSize,
+input.xsSize
+{
+  border:1px solid #809EBA;
+  background-color:#fff;
+}
+
+.tdColSize2 .lSize,
+.classicLayout .sectionSize
+{
+  width:188px !important;
+}
+
+.client_ie6 .tdColSize2 .lSize,
+.client_ie6 .classicLayout .sectionSize
+{
+  width:185px !important;
+}
+
+/* =================== */
+/* scaling definitions */
+/* =================== */
+
+.tdColSize2 .lSize
+{
+  width:188px !important;
+}
+
+.classicLayout .sectionSize
+{
+  width:188px;
+}
+
+.client_ie6 .tdColSize2 .lSize
+{
+  width:185px !important;
+}
+
+.client_ie6 .classicLayout .sectionSize
+{
+  width:185px;
+}
+
+.areaError
+{
+  font-size:0.9em;
+}
+
+h2#contentHeadline
+{
+  font-size:2.6em;
+}
+
+/* ================ */
+/* special settings */
+/* ================ */
+input.phoneCountry
+{
+  width:25px !important;
+}
+input.phoneCity
+{
+  width:40px !important;
+}
+input.phoneMain
+{
+  width:80px !important;
+}
+input.phoneComment
+{
+  width:323px !important;
+}
+
+input.emailSize
+{
+  width:583px !important;
+  margin-left:8px;
+}
+
+input.commentSize
+{
+  width:484px !important;
+}
+
+* html .doubleGroup input
+{
+  width:74px !important;
+}
+
+
+/* ============= */
+/* Tools	 */
+/* ============= */
+
+.suTextfield
+{
+  width:776px !important;
+}
+
+.smHeight
+{
+	height:5em !important;
+}
+
+/* DE - Control */
+
+.deCb table
+{
+	width:800px;
+}
+
+.deCb label.checkBoxLabel {
+  position:relative;
+}
+
+.deCb label.checkBoxLabel span
+{
+  display:block;
+  float:left;
+  overflow: hidden;
+  width:76px;
+  background-color:#fff;
+  text-align:center;
+}
+
+xxx.deCb label.checkBoxLabel span:hover
+{
+  width:auto;
+  position:absolute;
+  float:none;
+}
+.deCb input
+{
+  display:block;
+  float:left;
+  overflow: hidden;
+  margin:6px 32px 0!important;
+}
+
+.client_ie6 .deCb input
+{
+  width:76px!important;
+  margin:1px 0 8px!important;
+}
+
+.client_ie7 .deCb input,
+.client_ie8 .deCb input
+{
+  margin:6px 28px 0!important;
+}
+
+
+.deCb div {
+  width: 188px !important;
+}
+
+.deCb div.input,
+.deCb div.label
+{
+  clear:left;
+  width: 388px !important;
+}
+
+.deCb td.DE-old span,
+.deCb td.DE-old label
+{
+  display:block;
+  width: 188px !important;
+  margin-right:11px;
+}
+.deCb td.DE-choose{
+  width: 420px !important;
+}
+.wSpan3Right{
+	width:2em;
+	display:block;
+	float:left;
+	margin-right:4px;
+	text-align:right;
+	}
+

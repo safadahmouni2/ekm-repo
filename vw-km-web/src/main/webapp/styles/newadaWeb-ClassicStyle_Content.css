@@ -1,0 +1,1210 @@
+
+.InputPr,
+.InputField,
+.InputFieldReadOnly,
+.InputFieldMedium,
+.InputFieldShort,
+.InputFieldMediumRequired,
+.InputFieldShortRequired,
+.InputFieldRequired,
+.InputFieldReadOnlyGreen,
+.InputFieldShortReadOnly,
+.InputFieldVeryLongReadOnly,
+.InputFieldVeryLong,
+.InputFieldMediumReadOnly,
+.SmallInputField
+{
+  border:1px solid #809EBA !important;
+}
+
+.InputFieldRequired
+{
+  background-color: #F6E5BC;
+}
+
+.InputFieldShortRequired
+{
+	width : 96px;
+  background-color: #F6E5BC;
+}
+
+.InputFieldMediumRequired
+{
+	width : 125px;
+  background-color: #F6E5BC;
+}
+
+.InputFieldShort
+{
+	width : 96px;
+}
+
+.InputFieldMedium
+{
+}
+
+.InputFieldReadOnly
+{
+  border-style:none;
+  background-color : transparent;
+  vertical-align:middle;
+}
+
+
+.InputFieldReadOnlyGreen
+{
+  background-color: #CCFFCC;
+}
+
+.InputFieldShortReadOnly
+{
+	width: 96px;
+  border-style:none;
+  background-color : transparent;
+}
+
+.InputFieldVeryLongReadOnly
+{
+	width : 500px;
+  border-style:none;
+  background-color : transparent;
+}
+
+.InputFieldVeryLong
+{
+	width : 500px;
+}
+
+.InputFieldMediumReadOnly
+{
+	width: 125px;
+  border-style:none;
+  background-color : transparent;
+}
+
+.SmallInputField
+{
+	width: 42px;
+}
+
+.ComboBoxShort
+{
+	width : 96px;
+}
+
+.ComboBoxShortRequired
+{
+	width: 96px;
+	background-color: #F6E5BC;
+}
+.CheckBox
+{
+	width: 197px;
+	font-weight: bold; 
+}
+
+.DivInputSeparator
+{
+	display: none;
+}
+
+.ButtonLink 
+{
+  font-weight: bold; 
+  text-decoration: underline;
+  padding: 0;
+  background-color : transparent;
+  text-align : left;
+  border:none;
+  color:#7F8789;
+  font-size:1.1em;
+  cursor: hand;
+}
+
+.ButtonMove
+{
+  border: none;
+  margin: 0;
+  font-weight:bold;
+  background: #EFEFEF;
+  text-align: right;
+  height:14px;
+}
+
+
+.ButtonClear
+{
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent url(../images/arrow_setback.gif) left 50% no-repeat !important;
+  text-align:center;
+  vertical-align:text-top;
+  width:20px;
+  height:17px;
+}
+
+.ButtonBlockOpen
+{
+	margin: 0;
+	padding: 0;
+  border: none;
+  background: transparent url(../images/popuplm.gif) no-repeat !important;
+  text-align:center;
+  vertical-align:sub;
+  width:60px;
+	height:12px;
+}
+
+.ButtonBlockClose
+{
+	margin: 0;
+	padding: 0;
+  border: none;
+  background: transparent url(../images/popupc.gif) no-repeat !important;
+  text-align:center;
+  vertical-align:sub;
+  width:60px;
+	height:12px;
+}
+
+.TdMoreButton
+{
+	text-align:right;
+}
+.client_ie6 .TdMoreButton,
+.client_ie7 .TdMoreButton
+{
+	width:284px;
+}
+
+.TdBlockButton
+{
+	padding: 0;
+	margin:0px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.TdContentButton
+{
+	text-align:left;
+}
+
+.LabelWildcard
+{
+	width : 24px;
+  text-align:center;
+  vertical-align:top;   
+  font-weight:bold;
+}
+
+.CheckWildcard
+{
+	width : 22px;
+  margin: 0;
+  padding: 0;
+  text-align:left;
+  vertical-align:top; 
+}
+
+/* --------------------------- */
+/* Table Outer                 */
+/* --------------------------- */
+.TableOuter
+{
+  table-layout: fixed;
+	border: none;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+.TableOuter tr
+{
+  cursor: default;
+}
+
+.TableOuter .TrBlankRow
+{
+  font-size: 1px; 
+  height: 5px;
+}
+
+.TableOuter .TrBlankRowOdd
+{
+  background: #dcdcdc;
+  font-size: 1px; 
+  height: 5px;
+}
+
+.TableOuter .TrBlankRowBody
+{
+  font-size: 1px; 
+  height: 5px;
+}
+
+.TableOuter .TrSubHeadline
+{
+  background-color:#345D6F;
+  margin-bottom:1px;
+  color:#e7f3f3;
+  font-size:1em;
+  padding:0.3em 0.5em;
+  width:578px !important;
+}
+
+.TableOuter .TdInput
+{
+	width : 210px;  
+  margin: 0;
+  vertical-align:top; 
+	text-align:left;
+}
+
+
+.vehicleFix .TdInput,
+.classicLayout .TableOuter .TdInput
+{
+	width: auto;
+}
+
+.TdMainButton,
+.TdLabel
+{
+  padding:0 0 0 12px;
+}
+
+.TableOuter .TdLabel
+{
+  padding:0 0 0 12px;
+  vertical-align:middle; 
+	text-align:left;
+}
+.vehicleFix .TdLabel
+{
+	width:200px;
+}
+.TableOuter .TdTextMiddle
+{
+  vertical-align:middle; 
+  overflow:visible;
+	text-align:left;
+  font-weight:normal;
+}
+
+.TableOuter .TdLabelDouble
+{
+  padding:0 0 0 12px;
+  vertical-align:middle; 
+  height:27px;
+  line-height:12px;
+	text-align:left;
+}
+
+.TableOuter .TdLabelTriple
+{
+  padding:0 0 0 12px;
+  vertical-align:middle; 
+  height:36px;
+  line-height:11px;
+	text-align:left;
+}
+.TableOuter .TdInputMiddle
+{
+	width : 70px;
+  margin: 0;
+  vertical-align:middle; 
+	text-align:left;
+}
+
+.TableOuter .InputFieldTiny
+{
+	width : 55px;
+  margin: 0 15px 0 0;
+  vertical-align:middle;
+}
+
+.TableOuter .InputFieldTinyRequired
+{
+  border : 1px solid #809EBA;
+	width : 55px;
+  margin: 0 15px 0 0;
+  vertical-align:middle;
+  background-color: #F6E5BC;
+}
+
+.TableOuter .TdLabelTop
+{
+  padding:0 0 0 12px;
+  vertical-align:top;
+  padding-left:12px;
+}
+
+.TableOuter .TdFull
+{
+  padding: 0;
+  font-weight: bold;
+  vertical-align:top; 
+}
+
+.TableOuter .TdLabelNotVisible
+{
+  padding:0 0 0 12px;
+  font-weight: bold;
+  vertical-align:top; 
+  color: #efefef;
+  visibility:hidden;
+}
+
+.TableOuter .TrSubHeadline td
+{
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.TableOuter .TrSubHeadlineButton td
+{
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+.TableOuter .TrNewContent
+{
+  margin-top: 5px;
+}
+
+.TableOuter .TdText
+{
+  margin: 0;
+  vertical-align:top; 
+}
+
+.TableOuter .TdTextRed
+{
+  background:#FFCCCC;
+}
+
+.TableOuter .TdTextMiddle
+{
+  margin: 0;
+  vertical-align:middle; 
+}
+
+
+.TableOuter .TdLabelExt
+{
+  padding:0 0 0 12px;
+  font-weight: bold;
+  vertical-align:top; 
+}
+
+.TableOuter .TdButtonMoves
+{
+  font-weight: bold;
+  vertical-align:top; 
+}
+
+.TableOuter .TdDeepContent
+{
+  margin: 0;
+  vertical-align:top;
+  width:100%;  
+}
+
+/* --------------------------- */
+/*   Table Inner               */
+/* --------------------------- */
+.TableInner
+{
+  padding: 0;
+  margin: 0;
+  text-align:left;
+  width:100%;
+  border-width: 0;
+  vertical-align:top;
+  cursor:default;
+}
+
+.TdDeepContent .TableInner .TdInnerContentPrice
+{
+  vertical-align:top;
+  text-align: right;
+}
+
+.TdDeepContent .TableInner .TdTextInner
+{
+  margin: 0;
+  text-align: right;
+  line-height:15px;
+}
+
+.TableInner .TdLabelClrFirst
+{
+  padding:0 0 0 12px;
+  vertical-align:top;
+}
+.TableInner .TdLabelClr
+{
+  padding:0 0 0 12px;
+  vertical-align:top;
+  margin: 0;  
+}
+.TableInner  .TdRadioVert
+{
+  padding: 0 4px 0 0;
+}
+
+
+/* --------------------------- */
+/* Table Grid                  */
+/* --------------------------- */
+.TableGrid
+{
+  table-layout: fixed;
+	width: 100%;
+	border: none;
+	padding: 0;
+	border-collapse: collapse;
+	overflow: hidden;
+  font-size:1em;
+}
+
+.TableGrid tr td
+{
+	border: solid 1px white;
+	overflow: hidden;
+	padding-left: 5px;
+}
+
+.TableGrid .TrOddNotValid
+{
+  background: #f6f6f6;
+  font-style:italic;
+}
+
+
+.TableGrid .TrSelectedNotValid
+{
+  background: #cccccc;
+  cursor: default;
+  font-style:italic;
+}
+
+.TableGrid .TrEvenNotValid
+{
+  background: #efefef;
+  font-style:italic;
+}
+
+.TableGrid .TrHeader td
+{
+  background-color:#E7F3F3;
+  border:1px solid #B8C9D1;
+  font-weight:bold;
+  color:#345D6F;
+  height:16px;
+}
+
+.TableGrid .TrFooter td
+{
+  font-weight: bold;
+  border: none;
+}
+
+.TableGrid .TrSelected
+{
+  background: #cccccc;
+  cursor: default;
+}
+
+.DivMainButton
+{
+	width: 100%;
+	border: none;
+	padding: 5px 10px 5px 15px;
+}
+.DivContentButton
+{
+	width: 100%;
+	border: none;
+	padding: 5px 10px 5px 15px;
+}
+
+.TableFull
+{
+  table-layout:fixed;
+  padding: 0;
+  margin: 0;
+	border-width:1px;
+}
+
+.TableFull .TdLabelInner
+{
+  margin: 0;
+  padding:0 0 0 12px;
+  vertical-align:middle; 
+}
+
+.TableFull .InputFieldTinyPr
+{
+	width : 55px;
+  margin: 0 10px 0 5px;
+  vertical-align:top;
+}
+
+.TableFull .TdFull
+{
+  padding: 0;
+  margin: 0;
+  vertical-align:middle; 
+}
+
+.TableFull .TdPrice
+{
+  padding: 0 15px 0 5px;
+  margin: 0;
+  text-align:right;
+  vertical-align:middle; 
+}
+
+.TableFull .TdInputMiddlePr
+{
+	width : 70px;
+  padding: 0 10px 0 0;
+  margin: 0;
+  vertical-align:top; 
+	text-align:left;
+}
+
+.TableFull .TdTextDesc
+{
+  padding: 0 10px 0 1px;
+  vertical-align:middle;
+}
+
+.TableFull .TdTextPrice
+{
+  margin: 0;
+  padding: 0 10px 0 0;
+  vertical-align:middle;
+  text-align:right;
+  border-width:0px;
+}
+
+.TableFull .TdTextInvisible
+{
+  margin: 0;
+  padding: 0 5px 0 0;
+  vertical-align:middle;
+  text-align:right;
+  display:none;
+}
+
+.TableOuter .TdTextInvisible
+{
+  margin: 0;
+  padding: 0 5px 0 0;
+  vertical-align:middle;
+  text-align:right;
+  display:none;
+}
+
+.TableOuter .InputRadio, .InputCheck
+{
+  cursor: hand;
+}
+
+.TableFull .ComboWeekType
+{
+	width : 125px;
+  padding: 0;
+  margin: 0;
+	text-align:right;
+  background-color: #FFEBCC;
+}
+
+.DisableIFrame
+{
+  position : absolute;
+}
+
+/* ==================================================================== */
+/* ===== start of old NewadaOnWeb/Common/css/ContentAlternate.css ===== */
+/* ==================================================================== */
+.SpanButtonMoves
+{
+  font-weight: bold;
+  vertical-align:top; 
+}
+
+.SpanLabelClrFirst
+{
+  padding: 0 10px 0 0;
+  font-weight: bold;
+  vertical-align:top;
+}
+.SpanClrBlock
+{
+  background:#D6E0F5;
+	text-align:left;
+	width:30px;
+	border:solid 1px #FFFFFF;
+}
+.SpanLabelClrFirst
+{
+  padding: 0 10px 0 0;
+  font-weight: bold;
+  vertical-align:top;
+}
+.SpanLabelClr
+{
+  padding: 0 30px 0 15px;
+  font-weight: bold;
+  vertical-align:top;
+  margin: 0;  
+}
+.SpanClrReserv
+{
+  padding: 0 0 0 10px;
+  background:#FFCCCC;
+	text-align:left;	
+	width:30px;
+	border:solid 1px #FFFFFF;
+}
+.DivBlankRowBody
+{
+  FONT-SIZE: 1px; 
+  height: 5px;
+	width:100%;
+}
+.DivSubHeadline
+{
+  padding: 3px 0 3px 10px;
+  font-weight : bold;
+  font-size : 11px;
+  color : White;
+  background-color : #B9B9B9;
+}
+.DivBlankRow
+{
+  FONT-SIZE: 1px; 
+  height: 5px;
+}
+.DivRawContent
+{
+	width: 100%;
+	border: none;
+  
+}
+.DivContent
+{
+	width: 100%;
+	border: none;
+  margin: 0;
+	padding-top: 12px;
+}
+
+.DivButtonText
+{
+  text-align:left;
+  margin:0px;
+  padding:0px;
+  float:none;
+}
+
+.DivButtonNavi
+{
+  text-align:right;
+  margin:0px;
+  padding:0px;
+  float:none;
+  
+}
+
+.LabelToolWnd
+{
+	position:absolute;
+	display:none;
+	padding:1px 2px;
+	background-color:#ffffe1;
+	border-width:1px;
+	border-style:solid;
+	white-space:nowrap;
+}
+
+.IFrameToolWnd
+{
+	position:absolute;
+	display:none;
+  background-color:white;
+}
+
+
+
+/* ================================================================= */
+/* ===== start of old NewadaOnWeb/Common/css/ClipboardMenu.css ===== */
+/* ================================================================= */
+
+.clpTdMenuEntry 
+{	
+  height: 20px;
+  padding-left: 10px;
+  text-decoration : underline;
+}
+.clpTdMenuGroup
+{
+  background-color: #D3D3D3;
+  
+  height: 20px;
+  padding-left: 5px;
+}
+
+.clpFrame
+{
+  left:300px;
+  width:400px;
+  position:absolute;
+  top:200px;
+  height:400px;
+  background-color:white;
+}
+
+.clpDiv
+{
+  border:black 1px solid; 
+  font-size:1em; 
+  left:300px; 
+  width:600px; 
+  position:absolute; 
+  top:200px; 
+  height:auto; 
+  background-color:white;
+}
+
+.clpDivBody
+{
+  padding:0;
+  margin:0;
+  overflow: auto; 
+  vertical-align:top;
+}
+
+.clpTdButton
+{
+  background-color:#FFFFFF; 
+  width:100%
+}
+
+.clpTablePreview
+{
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  width: 100%;
+  height:100%;
+  padding: 0;
+	border: none;
+	border-collapse: collapse;
+  background-color:#EFEFEF; 
+}
+
+.clpButtonHeaderExit
+{
+  background-color: #b9b9b9;
+	background-image : url(../gif/close.gif);
+	background-repeat : no-repeat;
+  border: 0 none;
+  border-collapse: collapse;
+	width : 12px;
+}
+
+.clpTdHeaderExit
+{
+  background-color: #b9b9b9;
+	width : 12px;
+	text-align : right;
+}
+
+.clpTdHeadlineText
+{
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  padding: 0 0 0 10px;
+  margin: 0;
+  color: #ffffff;
+  font-weight:bold;
+  width:638px;
+  background-color: #b9b9b9;
+}
+
+.clpTrBody
+{
+  background-color:#EFEFEF; 
+}
+
+.clpTableContent
+{
+  table-layout: fixed;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+	border: none;
+	border-collapse: collapse;
+}
+
+.clpTrBlankRow
+{
+  background-color:#EFEFEF; 
+  font-size: 1px; 
+  height: 5px;
+}
+
+.clpDesc
+{
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+}
+
+.clpHeadline
+{
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  background-color: #b9b9b9;
+  border-top: solid 5px #EFEFEF;
+  border-bottom: solid 5px #EFEFEF;
+  vertical-align: top;
+  color: #FFFFFF;
+  font-weight:bold;
+  padding: 0 0 0 10px;
+}
+
+.clpLabel
+{
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  vertical-align: top;
+  font-weight:bold;
+  padding: 0 0 0 10px;
+  margin: 0;
+  width: 150px;
+  line-height:10px;
+}
+
+.clpLabelMiddle
+{
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  vertical-align: middle;
+  font-weight:bold;
+  padding: 0 0 0 10px;
+  margin: 0;
+  width: 150px;
+  line-height:10px;
+}
+
+.clpTableContent
+{
+  table-layout: fixed;
+  vertical-align: top;
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+	border-collapse: collapse;
+}
+
+.clpTableContent td
+{
+  vertical-align: top;
+  padding: 0 0 0 10px;
+  margin: 0;
+  line-height:14px;
+}
+
+.clpTableDesc td
+{
+  padding: 0;
+  margin: 0;
+  line-height:14px;
+}
+
+.clpTableContent .clpLabelDouble
+{
+  vertical-align: top;
+  font-weight:bold;
+  padding: 3px 0 3px 10px;
+  margin: 0;
+  width: 150px;
+  line-height:10px;
+}
+
+.clpPr
+{
+	width:40px;
+  line-height:14px;
+}
+
+.clpDesc
+{
+  line-height:14px;
+}
+
+.clpTableDesc
+{
+	height:auto;
+  vertical-align: top;
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  padding: 0;
+	margin: 0;
+  text-align: left;
+	border-collapse: collapse;
+}
+
+.clpTableList
+{
+  width:100%;
+  font: 11px Arial, univers, Helvetica, Verdana, sans-serif;
+  padding: 0;
+	margin: 0;
+  vertical-align: top;
+	border: none;
+	border-collapse: collapse;
+}
+
+.clpTdListHeader
+{
+  width:auto;
+	padding: 0;
+	margin: 0;
+  font-weight:bold;
+}
+
+.clpTrList
+{
+}
+
+.clpTdListHeaderSmall
+{
+  width:40px;
+	padding: 0;
+	margin: 0;
+  font-weight:bold;
+ 	cursor:default;
+}
+
+.clpTdListHeader
+{
+  width:125px;
+	padding: 0;
+	margin: 0;
+  font-weight:bold;
+ 	cursor:default;
+}
+
+.clpTdListRadio
+{
+  width:25px;
+  padding: 0;
+	margin: 0;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.clpTdListSmall
+{
+	padding: 0;
+	margin: 0;
+	vertical-align:middle;
+}
+
+.clpTdList
+{
+	padding: 0;
+	margin: 0;
+	vertical-align:middle;
+}
+
+.clpAddrType
+{
+  width:25px;
+  padding: 0;
+	margin: 0;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.clpDivScroll
+{
+  margin-right: 5px;
+	overflow:scroll;
+	width:100%;
+  height: 130px;
+  vertical-align:top;  	
+}
+
+
+.classicLayout table td.TdLabel,
+.classicLayout table.TableOuter td.TdLabel
+{
+  padding:0 0 0 12px;
+  width:188px;
+}
+
+.client_ie6 table td.TdLabel,
+.client_ie6 .classicLayout table.TableOuter td.TdLabel,
+.client_ie7 table td.TdLabel,
+.client_ie7 .classicLayout table.TableOuter td.TdLabel
+{
+  width:185px;
+}
+
+.classicLayout table td input,
+.classicLayout table td select
+{
+  width:186px;
+  margin-left:12px;
+}
+
+.classicLayout table td select
+{
+  width:188px;
+}
+
+
+* html .classicLayout table td input,
+* html .classicLayout table td select
+{
+  width:184px;
+}
+
+* html .classicLayout table td input.InputPr
+{
+  width:40px;
+}
+
+
+.classicLayout table td .clientCtrl
+{
+  margin-left:12px;
+  height:16px;
+}
+.classicLayout table td.tdColSize2 .clientCtrl,
+.classicLayout table.layout td .clientCtrl,
+.classicLayout table td .clientCtrl input
+{
+  margin-left:0;
+	overflow:hidden;
+}
+table td.TdLabel input,
+table tdTdLabel select
+{
+  margin-left:0;
+}
+table td input.InputPr
+{
+  width:40px;
+	margin-left:0;
+}
+
+
+td.checkboxGroup
+{
+  padding-left:8px;
+}
+
+td.checkboxGroup label
+{
+  display:block;
+  float:left;
+  position:relative;
+  top:3px;
+  width:100px;
+  white-space:nowrap;
+}
+
+table.konzernLayout8 td.checkboxGroup label span
+{
+  display:block;
+  float:left;
+  white-space:nowrap;
+  overflow:hidden;
+	position:relative;
+	top:2px;
+	
+  width:78px !important;
+
+	background-color:#fff;
+
+	padding-bottom:1px;	
+	text-overflow:ellipsis;
+}
+
+.client_netscape5 table.konzernLayout8 td.checkboxGroup label span
+{
+	width:72px !important;
+}
+
+table.konzernLayout8 td.checkboxGroup label span:hover
+{
+	padding-right:8px;
+  width:auto !important;
+  overflow:visible;
+	position:absolute;
+	left:17px;
+	z-index:1000;
+}
+
+td.checkboxGroup input
+{
+  float:left;
+  margin-left:1px!important;
+}
+
+#areaContent td.trippleGroup,
+#areaContent td.doubleGroup,
+.trippleGroup,
+.doubleGroup
+{
+  white-space:nowrap;
+  padding-left:12px !important;
+}
+
+.doubleGroup input,
+.trippleGroup input
+{
+  margin-left:0;
+	float:left;
+}
+
+.trippleGroup input
+{
+  width: 50px!important;
+}
+
+.to,
+.plus
+{
+  border:1px solid #fff;
+  margin:0 0 0 4px;
+  padding:0;
+	float:left;
+  width: 22px!important;
+}
+
+.trippleGroup span.plus
+{
+  width: 9px!important;
+	margin:0;
+}
+
+.TdInput input,
+.TdInput select
+{
+  margin-left:0;
+}
+
+input.prNumber
+{
+  display:block;
+}
+.osPrNumber
+{
+  width:43px!important;
+}

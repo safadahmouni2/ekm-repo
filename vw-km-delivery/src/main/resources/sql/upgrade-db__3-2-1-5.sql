@@ -1,0 +1,3 @@
+-- Adding column on Table 'T_BAUSTEINVERSION'
+ALTER TABLE T_BAUSTEINVERSION add (VORSCHAUBILD_INHALT blob)
+	LOB (VORSCHAUBILD_INHALT) STORE AS (TABLESPACE  ${prop.application.db.tablespace.lob});

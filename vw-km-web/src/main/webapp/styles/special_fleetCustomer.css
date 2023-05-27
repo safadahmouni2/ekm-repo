@@ -1,0 +1,26 @@
+.fleetCustomer .nowrap
+{
+	white-space:nowrap !important;
+}
+.fleetCustomer .chassisNumber
+{
+	width: 184px !important;
+}
+.fleetCustomer .comboCompany
+{
+	width: 100px !important;
+}
+.fleetCustomer table tbody tr td input.fleetCustomerNo
+{
+	width: 98px !important;
+}
+.fleetCustomer table tbody tr td input.companyField
+{
+	width: 98px !important;
+}
+.fleetCustomer .nowrap {
+	white-space: nowrap !important;
+}
+.fleetCustomer .specSpace {
+	padding: 2px;
+}

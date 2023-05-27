@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<view-handler>vwg.vw.km.presentation.client.listener.ReverseProxyViewHandler</view-handler>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>de</default-locale>
+		</locale-config>
+		<message-bundle>resources.messages</message-bundle>
+	</application>
+
+	<managed-bean>
+		<description>
+			Manages render calls to Tree.
+        </description>
+		<managed-bean-name>navigationTree</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.navigation.NavigationBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>navigationService</property-name>
+			<value>#{navigationTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>costElementService</property-name>
+			<value>#{costElementTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>workAreaService</property-name>
+			<value>#{workAreaTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userService</property-name>
+			<value>#{userTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>hourlyRateCatalogService</property-name>
+			<value>#{hourlyRateCatalogTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>costComponentService</property-name>
+			<value>#{costComponentTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userSettingsService</property-name>
+			<value>#{userSettingsTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationElementBean</property-name>
+			<value>#{navigationElementBean}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>changeHistoryService</property-name>
+			<value>#{changeHistoryTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>newsService</property-name>
+			<value>#{newsTxService}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Manages render calls to Tree.
+        </description>
+		<managed-bean-name>navigationElementBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.costcomponent.NavigationElementBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>navigationService</property-name>
+			<value>#{navigationTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>costElementService</property-name>
+			<value>#{costElementTxService}</value>
+		</managed-property>
+
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Manages render calls to CostElementBean.
+        </description>
+		<managed-bean-name>costElementBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.costelement.CostElementBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{costElementTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to CostElementListBean.
+        </description>
+		<managed-bean-name>costElementListBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.costelement.CostElementListBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{costElementTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to CostComponentBean.
+        </description>
+		<managed-bean-name>costComponentBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.costcomponent.CostComponentBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{costComponentTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationElementBean</property-name>
+			<value>#{navigationElementBean}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>imagesServer</property-name>
+			<value>#{imagesServer}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>imagesServerUrl</property-name>
+			<value>#{imagesServerUrl}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to CostComponentListBean.
+        </description>
+		<managed-bean-name>costComponentListBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.costcomponent.CostComponentListBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{costComponentTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to ChangeHistoryBean.
+        </description>
+		<managed-bean-name>changeHistoryBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.changehistory.ChangeHistoryBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{changeHistoryTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to list work area.
+        </description>
+		<managed-bean-name>workAreaListBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.administration.workarea.WorkAreaListBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{workAreaTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to edit work area.
+        </description>
+		<managed-bean-name>workAreaDetailBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.administration.workarea.WorkAreaDetailBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{workAreaTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Manages render calls to edit user list.
+        </description>
+		<managed-bean-name>userListBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.administration.user.UserListBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{userTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to edit user.
+        </description>
+		<managed-bean-name>userDetailBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.administration.user.UserDetailBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{userTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>workAreaService</property-name>
+			<value>#{workAreaTxService}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to list hourlyRate catalogs.
+     </description>
+		<managed-bean-name>hourlyRateCatalogListBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.calculationsettings.HourlyRateCatalogListBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{hourlyRateCatalogTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to edit hourlyRate catalog.
+        </description>
+		<managed-bean-name>hourlyRateCatalogBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.calculationsettings.HourlyRateCatalogDetailBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{hourlyRateCatalogTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.login.UserLoginBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>userService</property-name>
+			<value>#{userTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>externalLogoutUrl</property-name>
+			<value>#{logoutUrl}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>userDefSettings</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.settings.UserDefinitionSettingsBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{userSettingsTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Manages render calls to ChangeHistoryBean.
+        </description>
+		<managed-bean-name>importXMLBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.importer.ImportXMLBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{xmlImportTxService}</value>
+		</managed-property>
+	</managed-bean>
+
+	<managed-bean>
+		<description>
+			Manages render calls to ImportImageXMLBean.
+        </description>
+		<managed-bean-name>importImageXMLBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.importer.ImportImageXMLBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{xmlImportTxService}</value>
+		</managed-property>
+	</managed-bean>
+	<!--PTS-ticket-id: 22205: Statistic page -->
+
+	<managed-bean>
+		<description>
+			Used To get Server Start Time,Activ users statistic, TablesSpace Statistic
+        </description>
+		<managed-bean-name>statisticBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.statistic.StatisticBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>userService</property-name>
+			<value>#{userTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>tsService</property-name>
+			<value>#{statisticTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>tableSpacesMap</property-name>
+			<value>#{tableSpaces}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to edit news list.
+        </description>
+		<managed-bean-name>newsListBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.administration.news.NewsListBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{newsTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Manages render calls to edit news detail.
+        </description>
+		<managed-bean-name>newsDetailBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.administration.news.NewsDetailBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>service</property-name>
+			<value>#{newsTxService}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>navigationTree</property-name>
+			<value>#{navigationTree}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>
+			Used To reactivate user account if the validationCode is valid
+        </description>
+		<managed-bean-name>userReactivationBean</managed-bean-name>
+		<managed-bean-class>vwg.vw.km.presentation.client.reactivation.UserReactivationBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>userService</property-name>
+			<value>#{userTxService}</value>
+		</managed-property>
+
+	</managed-bean>
+
+	<converter>
+		<converter-for-class>vwg.vw.km.common.type.BaseBigDecimal</converter-for-class>
+		<converter-class>vwg.vw.km.presentation.client.util.converter.BaseBigDecimalConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-for-class>java.lang.String</converter-for-class>
+		<converter-class>vwg.vw.km.presentation.client.util.converter.EmptyToNullConverter</converter-class>
+	</converter>
+	<validator>
+		<validator-id>emailValidator</validator-id>
+		<validator-class>vwg.vw.km.presentation.client.util.validator.EmailValidator</validator-class>
+	</validator>
+	<validator>
+		<validator-id>dateValidator</validator-id>
+		<validator-class>vwg.vw.km.presentation.client.util.validator.DateValidator</validator-class>
+	</validator>
+	<lifecycle>
+		<phase-listener>vwg.vw.km.presentation.client.listener.ValidationStylePhaseListener</phase-listener>
+	</lifecycle>
+	<lifecycle>
+		<phase-listener>vwg.vw.km.presentation.client.listener.ResetNavigationTreeListener</phase-listener>
+	</lifecycle>
+
+	<!--PTS-ticket-id: 10757 Responsible ABA: Comment: Without redirect browser 
+		window shows old link in address bar even if actually navigation has reached 
+		already to new page. When adding redirect it's made able to see home in address 
+		bar instead of index and design problem did not happen anymore. -->
+
+	<!-- Login succes -->
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>loginSuccess</from-outcome>
+			<to-view-id>/pages/home.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<!-- Login failure -->
+		<navigation-case>
+			<from-outcome>loginFailure</from-outcome>
+			<to-view-id>/pages/login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<!-- JSF 2.2 always renders the HTML5 doctype <!DOCTYPE html> regardless 
+		of what is set in the source xhtml file. If you need the old JSF 2.1 behavior 
+		(passing through the doctype from the source) you have to change the way 
+		xhtml files are processed in the faces-config.xml like this (the complete 
+		list of processing modes can be found in the spec) -->
+	<faces-config-extension>
+		<facelets-processing>
+			<file-extension>.xhtml</file-extension>
+			<process-as>xhtml</process-as>
+		</facelets-processing>
+	</faces-config-extension>
+</faces-config>

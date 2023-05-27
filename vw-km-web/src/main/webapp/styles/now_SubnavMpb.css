@@ -1,0 +1,171 @@
+#areaContent ul.linkList li
+{
+  padding-left:0px;
+}
+
+#areaContent ul.linkList
+{
+  list-style-type:none;
+  margin-left:1em;
+}
+
+/* ========== */
+/* Marginal   */
+/* ========== */
+#areaMarginal
+{
+  position:absolute;
+  right:0;
+  width:188px;
+}
+
+fieldset.linkSection
+{
+  border: none;
+  overflow:hidden;
+}
+fieldset.linkSection legend
+{
+  color: #4C5356;
+  font-weight:bold;
+  padding-left:12px;
+  margin-bottom: 6px;
+}
+
+fieldset.linkSection ul li
+{
+  padding-left: 12px;
+  padding-left: 9px;
+}
+
+fieldset.mpb_0 legend,
+fieldset.mpb_0 ul li,
+* html fieldset.linkSection legend
+{
+  padding-left:0;
+  padding-right:0;
+  width:130px;
+}
+
+fieldset.linkSection ul
+{
+  border: 1px solid #E4E4E5;
+  padding-top: 3px;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
+}
+
+fieldset.linkSection ul li a,
+fieldset.linkSection ul li span,
+fieldset.linkSection ul li input
+{
+  margin-bottom:3px;
+  display:block;
+  width:177px;
+}
+fieldset.linkSection ul li a:hover
+{
+  text-decoration:underline;
+}
+
+fieldset.linkSection ul li .dateTime
+{
+  padding-top:30px;
+  background: transparent url(../images/now-loader.gif) no-repeat -100px -100px;
+}
+
+.sys_submit #areaSubnav fieldset.linkSection ul li span.dateTime,
+.loading #areaSubnav fieldset.linkSection ul li span.dateTime,
+.ajaxLoading #areaSubnav fieldset.linkSection ul li span.dateTime
+{
+  background-position: 100px 0;
+}
+
+#areaSubnav
+{
+  position:absolute;
+  width:188px;
+  top:8px;
+}
+
+html > body #areaSubnav
+{
+  left:0px;
+}
+
+#areaSubnav fieldset .label
+{
+  float:left;
+  width:auto;
+  margin-right:12px;
+}
+
+#areaSubnav fieldset.mpb_0
+{
+  background-color:#FFFFFF;
+  border-right:1px solid #B8C9D1;
+  display:block !important;
+  left:807px;
+  padding-left:41px;
+  position:absolute;
+  top:-160px;
+  width:151px;
+  padding-top:8px;
+  font-size:10px;
+}
+
+.usp_headClosed #areaSubnav fieldset.mpb_0
+{
+  top:-166px;
+}
+
+
+.usp_ExtentContentFull #areaSubnav
+{
+  left:auto;
+  right:0;
+  top:-140px;
+}
+
+.usp_ExtentContentFull #areaSubnav fieldset.mpb_0
+{
+  left:auto;
+  right:0;
+  top:0;
+  width:auto;
+}
+
+.usp_ExtentContentFull fieldset.linkSection ul li a,
+.usp_ExtentContentFull fieldset.linkSection ul li span
+{
+  width:147px;
+}
+
+#areaSubnav fieldset.mpb_0 ul li a,
+#areaSubnav fieldset.mpb_0 ul li span
+{
+  width:140px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+#areaSubnav fieldset.mpb_0 ul
+{
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+* html #areaSubnav fieldset.mpb_0 li
+{
+  padding-left:9px;
+}
+
+* html #areaSubnav fieldset.mpb_0 legend
+{
+  padding-left:0;
+}
+
+
+
+

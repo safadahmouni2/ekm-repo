@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:loadBundle basename="resources.messages" var="msgs" />
+
+<h:head>
+</h:head>
+
+
+<h:body
+	class="htmlMockup usp_showMenuOnHover usp_contrast lang_de usp_ExtentContentFull ExtentContentFull usp_ExtendSubnav ExtendSubnav usp_headClosed">
+	<h:outputScript name="scripts/head_login_extension.js" target="head" />
+	<h:outputScript name="scripts/browser-detect.js" />
+	<h:outputScript name="scripts/wo_waiting_page.js" />
+
+	<h:panelGroup layout="block" id="areaContainer">
+
+		<h:panelGroup layout="block" id="areaHeader"
+			styleClass="MarBot readyToDrop">
+			<h1>
+				<span>VOLKSWAGEN</span>
+			</h1>
+			<h2>AKTIENGESELLSCHAFT</h2>
+		</h:panelGroup>
+		<div class="ANMELDATEN"></div>
+		<h:form id="reactivationForm">
+
+			<h:panelGroup layout="block"  id="areaContent">
+				<div style="height: 20px"></div>
+
+				<f:subview id="contMsg"
+					rendered="#{userReactivationBean.message=='reactivationSuccess'}">
+					<div class="MsgReactiv">
+						<div class="benu">
+							<div class="StyLog"><h:outputText value="Ihr Account ist wieder aktiv" /></div>
+						</div>
+					</div>
+				</f:subview>
+				<f:subview id="contMsg2"
+					rendered="#{userReactivationBean.message=='reactivationFailure'}">
+					<div class="MsgReactivEr" >
+						<div class="benu">
+							<div class="StyLog">
+					<h:outputText
+						value="Reaktivierung nicht möglich, der Aktivierungscode ist unbekannt." /></div>
+						<br />
+						<div class="StyLog">
+					<h:outputText
+						value="Bitte prüfen Sie, ob Ihr Account bereits aktiviert wurde." />													
+							</div>
+						</div>
+					</div>					
+				</f:subview>
+				<f:subview id="contMsg3"
+					rendered="#{userReactivationBean.message=='reactivationFailureAnonymized'}">
+					<div class="MsgReactivAnony">
+						<div class="benu">
+							<div class="StyLog"><h:outputText value="Ihr Account existiert nicht mehr" /></div>
+						</div>
+					</div>
+				</f:subview>		
+
+
+			</h:panelGroup>
+		</h:form>
+	</h:panelGroup>
+	<h:panelGroup layout="block" id="areaFooter"
+		styleClass="HoverBehaviour">
+		<ul>
+			<li>&#160;</li>
+		</ul>
+	</h:panelGroup>
+
+	<script type="text/javascript" src="../scripts/__nowSciptLoader.js">
+		screenResizeInit();
+	</script>
+</h:body>
+</html>

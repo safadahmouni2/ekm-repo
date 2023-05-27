@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components" xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:panelGroup layout="block" styleClass="areaTab" rendered="#{hourlyRateCatalogListBean.loadDTO}">
+
+	<h:panelGroup layout="block" styleClass="btnGen" style="padding-top:15px">
+		<h:panelGroup layout="block" styleClass="btn" rendered="#{hourlyRateCatalogListBean.dto.userHasWriteAccess}">
+			<div class="bgrBTL"><a href="#"></a></div>
+			<div class="bgrBTC"><h:commandLink 
+				actionListener="#{hourlyRateCatalogListBean.createClicked}" value="#{msgs['hourlyRateCatalog.add.newHRCataloh']}">
+				<f:ajax render="@all" execute="@all" />
+				</h:commandLink></div>
+			<div class="bgrBTR"><a href="#"></a></div>
+			<div class="space">&#160;</div>
+		</h:panelGroup>
+		<h:panelGroup layout="block" styleClass="btn" rendered="#{!hourlyRateCatalogListBean.dto.noHourlyRateCatalogs}">
+
+				<!-- Aktion menu -->
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+				<ace:submenu label="#{msgs['hourlyRateCatalog.action']}" id="action">
+					<ace:menuItem id="print" value="#{msgs['common.print.button']}" url="javascript:friendlyPrint();" />
+				</ace:submenu>
+			</ace:menuBar>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			<div class="space">&#160;</div>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block">
+			<h2 id="contentHeadline" class="h2Mar smallerSpace"><h:graphicImage value="../images/setting.gif"
+				class="iconObject" /> <h:outputText value="#{msgs['hourlyRateCatalog.common.title']}" styleClass="smallerFont" /></h2>
+		</h:panelGroup>
+	</h:panelGroup>
+	<table width="100%">
+		<tr>
+			<td rowspan="2"></td>
+			<td align="right" height="8"></td>
+		</tr>
+		<tr>
+			<td align="right"><br />
+			</td>
+		</tr>
+	</table>
+	<h:outputText value="#{msgs['hourlyRateCatalog.actualfolder']}:" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="absmiddle" />
+			&#160;<h:outputText value="#{navigationTree.selectedNodeObject.menuDisplayText}" />
+	<div class="Des"></div>
+	<h:panelGroup layout="block" rendered="#{hourlyRateCatalogListBean.dto.noHourlyRateCatalogs}">
+		<center><strong><h:outputText value="#{msgs['hourlyRateCatalog.list.empty']}" /></strong></center>
+	</h:panelGroup>
+	<h:panelGroup layout="block" styleClass="mc" rendered="#{!hourlyRateCatalogListBean.dto.noHourlyRateCatalogs}">
+		<h:dataTable width="100%" border="0" cellpadding="0" cellspacing="0"
+			value="#{hourlyRateCatalogListBean.dto.hourlyRateCatalogs}" 
+			var="horlyRateCatElement" 
+			style="margin: 0px;"
+			id="hrce_lst"
+			styleClass="iceDatTbl" 
+			rowClasses="iceDatTblRow1,iceDatTblRow2"
+			columnClasses="iceDatTblCol1 HRCDatTbCol1,iceDatTblCol2 HRCDatTbCol2">
+			<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+				<f:facet name="header">
+					<h:panelGroup layout="block">
+                                      &#160; <h:outputText value="#{msgs['hourlyRateCatalog.list.designation']}" />
+					</h:panelGroup>
+				</f:facet>
+
+				<h:commandLink  value="#{horlyRateCatElement.designation}"
+					actionListener="#{workAreaListBean.editClicked}" title="#{msgs['hourlyRateCatalog.edit.alt']}">
+					<f:param name="object_id" value="#{horlyRateCatElement.hourlyRateCatalogId}"></f:param>
+					<f:ajax execute="@form" render="@all"/>
+				</h:commandLink >
+			</h:column>
+			<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+				<span class="downTab"> <h:commandLink id="edit"
+					actionListener="#{hourlyRateCatalogListBean.editClicked}" title="#{msgs['hourlyRateCatalog.edit.alt']}">
+					<f:param name="object_id" value="#{horlyRateCatElement.hourlyRateCatalogId}"></f:param>
+					<img src="../images/edit_icone.gif"></img>
+					<f:ajax execute="@form" render="@all"/>
+				</h:commandLink>
+				<h:commandLink id="delete" actionListener="#{hourlyRateCatalogListBean.deleteClicked}"
+					title="#{msgs['hourlyRateCatalog.delete.alt']}" rendered="#{hourlyRateCatalogListBean.dto.userHasWriteAccess}">
+					<f:param name="object_id" value="#{horlyRateCatElement.hourlyRateCatalogId}"></f:param>
+					<img src="../images/delete_icone.gif"></img>
+					<f:ajax execute="@form" render="@all"/>
+				</h:commandLink>
+			</span>
+			</h:column>
+		</h:dataTable>
+	</h:panelGroup>
+	<div class="arbeit"></div>
+	<div class="Des"></div>
+</h:panelGroup>
+
+<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

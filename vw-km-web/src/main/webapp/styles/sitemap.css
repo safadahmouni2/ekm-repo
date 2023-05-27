@@ -1,0 +1,67 @@
+.siteMap .nowMenu
+{
+  top:0!important;
+  background-image:none!important;
+  border:none;
+  width:auto;
+  height:320px;
+}
+.siteMap .body
+{
+  min-width:inherit;
+}
+.siteMap .nowMenu .head
+{
+  opacity:1;
+  height:auto;
+  width:auto;
+}
+.siteMap h4 a
+{
+  padding-left:0!important;
+}
+.siteMap h4 span.dragHandle
+{
+  text-align:center;
+}
+.siteMap .nowMenu ul
+{
+  background-color:#fff!important;
+  display:block!important;
+  float:none!important;
+  position:static!important;
+  height:auto!important;
+  width:auto!important;
+  padding:0!important;
+}
+
+.siteMap .nowMenu a[href]
+{
+  background-position:-999px -999px!important;
+  padding-bottom:4px;
+}
+.siteMap .nowMenu a[href]:hover
+{
+  background:url("../images/arrow_single_right.gif") no-repeat scroll 0 4px transparent!important;
+  text-decoration:underline;
+  color:#87173D!important;
+    background-position:-999px -999px!important;
+}
+
+.siteMap .nowMenu h3.legend
+{
+  background-color:#fff!important;
+  display:none;
+}
+
+.siteMap .nowMenu ul.body
+{
+  margin-bottom:2em;
+}
+.siteMap .nowMenu ul.body>li>a
+{
+  background-image:none !important;
+  font-size:1.4em;
+  font-weight:bold;
+  padding:8px 0;
+}

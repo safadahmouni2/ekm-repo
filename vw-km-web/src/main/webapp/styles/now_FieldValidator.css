@@ -1,0 +1,50 @@
+
+.required.once
+{
+  background-color: transparent !important;
+}
+
+body.DlgBgrnd .required.once input
+{
+  background-color: #F6E5BC !important;
+}
+
+select.invalid,
+input.invalid,
+.required.invalid,
+.required input.invalid,
+.validate input.invalid
+{
+  border-color:#9A0C39 !important;
+}
+
+p.legend.required
+{
+  background-color: transparent !important;
+  margin:0px;
+}
+
+* html p.legend.required
+{
+  background-color: #fff !important;
+}
+
+label.invalid
+{
+  border:none !important;
+}
+
+span.exclamation
+{
+  background:transparent url(../images/now-exclamation.gif) no-repeat center bottom !important;
+  position:absolute;
+  height:16px!important;
+  width:16px!important;
+  text-indent:-9999px;
+  cursor:help;
+  border:none;
+}
+span.exclamation span
+{
+  display:none!important;
+}

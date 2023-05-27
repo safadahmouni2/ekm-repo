@@ -1,0 +1,629 @@
+.InteriorTable
+{
+	LINE-HEIGHT:16px;
+}	
+
+.ListGrid
+{
+	LINE-HEIGHT: 16px;
+	cursor:pointer;
+	border:0px;
+}
+
+.ListGridColPr
+{
+	padding-right: 5px;
+	font-family : Arial, univers, Helvetica, Verdana, sans-serif;
+	font-size : 9pt;
+}
+
+.ListGridColDesc
+{
+	padding-right: 200px;
+	white-space: nowrap;
+	font-family : Arial, univers, Helvetica, Verdana, sans-serif;
+	font-size : 9pt;
+}
+
+.TableGridDiv
+{
+	background:#FFFFFF;
+	HEIGHT:100%;
+	width:270px;
+	OVERFLOW:scroll;
+	BORDER-STYLE:inset;
+	BORDER-width:2;
+	PADDING:3;
+}
+.SectionHeadLine
+{
+	background: #cccccc; 
+	COLOR: #FFFFFF;
+/*PADDING-LEFT: 4px; */
+	font-weight: bold;
+	FONT-SIZE: 100%;
+	padding-top: 12px;
+	padding-bottom: 10px;
+	vertical-align: baseline;
+	text-align: left;
+}
+
+.WarningHeadline
+{
+  background-color: #FFDB86;
+  border-right: #FFFFFF solid 3px;
+  padding-left: 5px;
+  color: #000000;
+  font-weight: bold;
+  height: 20;
+  font-size: 80%;
+}
+.ContentHeadline
+{
+  background-color: #5f7792;
+  border-right: #FFFFFF solid 3px;
+  padding-left: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  height: 20;
+  font-size: 80%;
+}
+.ContentText
+{
+	background: #ebebeb; 
+	COLOR: #000000;
+	FONT-SIZE: 80%;
+}
+.ContentTextLeft
+{
+	background: #ebebeb; 
+	COLOR: #000000;
+	FONT-SIZE: 80%;
+	padding-left:15px;
+	padding-right:5px;
+	vertical-align:top;
+}
+.EntryHeadline
+{
+	background: #ebebeb; 
+	COLOR: #000000;
+	FONT-SIZE: 80%;
+	padding-left:10;
+	padding-top:10;
+  vertical-align:middle;	
+}
+.InputFieldRequired
+{
+	background-color:#99ccff;
+}
+
+.cellbox
+{
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 8pt; 
+	FONT-FAMILY: Arial, univers, Helvetica, Verdana, sans-serif
+}
+
+.cellboxBorder
+{
+	BORDER-RIGHT: #374646 1px solid; 
+	BORDER-TOP: #374646 1px solid; 
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 8pt; 
+	BORDER-LEFT: #374646 1px solid; 
+	BORDER-BOTTOM: #374646 1px solid; 
+	FONT-FAMILY: Arial, univers, Helvetica, Verdana, sans-serif
+}
+
+.AppAll
+{
+    background:     #ffffff;
+    COLOR:          #000000;
+    FONT: 68% Arial, univers, Helvetica, Verdana, sans-serif
+}
+
+.AppMain
+{
+    background:     #ffffff;
+    padding-bottom: 0pt;
+    PADDING-LEFT:   0pt;
+    padding-right:  0pt;
+    padding-top:    0pt;
+}
+
+.AppContent
+{
+    font-family: Arial, univers, Helvetica, Verdana, sans-serif;
+    font-size: 13px;
+    color: #000000;
+}
+
+.NaviBgrnd
+{
+    background:     #9b9b9b;
+    padding-bottom: 0pt;
+    PADDING-LEFT:   0pt;
+    padding-right:  0pt;
+    padding-top:    0pt;
+}
+
+.NaviLink
+{
+  	font-size: 12px;
+    color: #000000;
+    text-decoration:none;
+}
+
+.MpbLink
+{
+  	font-size: 11px;
+  	PADDING-LEFT: 4px;
+}
+
+.AppMpb
+{
+    background:     #EBEBEB;
+    padding-bottom: 0pt;
+    PADDING-LEFT:   0pt;
+    padding-right:  0pt;
+    padding-top:    0pt;
+}
+
+.DatagridHead
+{
+    background:     #E8E8E8;
+    COLOR:          #000000;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT:    bold;
+}
+
+.DatagridEven
+{ 
+    FONT-SIZE: 8pt;
+    background:     #DEDFDE;
+    COLOR:          #000000;
+}
+
+.DatagridOdd
+{
+    FONT-SIZE: 8pt;
+    background:     #FFFBFF;
+    COLOR:          #000000;
+}
+
+.FormEven
+{
+    background:     #D0D0D0;
+    COLOR:          #000000;
+}
+
+.FormOdd
+{
+    background:     #D0E0F0;
+    COLOR:          #000000;
+}
+
+.FormEven TD
+{
+    FONT-SIZE:      9pt;
+}
+
+.FormOdd TD
+{
+    FONT-SIZE:      9pt;
+}
+
+td.inputLeft
+{
+	table-layout : fixed;
+	text-align : left;
+	text-decoration : none;
+	width : 200;
+	font-family : Arial, univers, Helvetica, Verdana, sans-serif;
+	font-size : 9pt;
+}
+
+input
+{
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, univers, Helvetica, Verdana, sans-serif
+}
+
+textarea
+{
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, univers, Helvetica, Verdana, sans-serif
+}
+
+form
+{
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, univers, Helvetica, Verdana, sans-serif
+}
+select
+{
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, univers, Helvetica, Verdana, sans-serif
+}
+
+.ErrMsgHead
+{
+    background:     #ff8080;
+    COLOR:          #660000;
+    FONT: 80% Arial, univers, Helvetica, Verdana, sans-serif
+}
+.ErrMsgOdd
+{
+    background:     #ffCCCC;
+    COLOR:          #000000;
+    FONT: 66% Arial, univers, Helvetica, Verdana, sans-serif
+}
+.ErrMsgEven
+{
+    background:     #ffDEE7;
+    COLOR:          #000000;
+    FONT: 66% Arial, univers, Helvetica, Verdana, sans-serif
+}
+.McMsgHead
+{
+    background:     #80ff80;
+    COLOR:          #006600;
+    FONT: 80% Arial, univers, Helvetica, Verdana, sans-serif
+}
+.McMsgOdd
+{
+    background:     #CCffCC;
+    COLOR:          #000000;
+    FONT: 66% Arial, univers, Helvetica, Verdana, sans-serif
+}
+.McMsgEven
+{
+    background:     #DEffE7;
+    COLOR:          #000000;
+    FONT: 66% Arial, univers, Helvetica, Verdana, sans-serif
+}
+.NewadaHeadline
+{
+    COLOR: #000000;
+    FONT-SIZE: 120%;
+    FONT-WEIGHT: bold;
+    padding-right: 20px;
+    TEXT-ALIGN: right
+}
+.FirstSubHeadline
+{
+	background-COLOR: #CCCCCC;
+    COLOR: #FFFFFF;
+    FONT-SIZE: 80%;
+    FONT-WEIGHT: bold;
+    HEIGHT: 40px;
+    PADDING-LEFT: 5px	
+}
+.SubHeadlineOdd
+{
+    background: #DCDCDC;
+    COLOR: #000000;
+    CURSOR: default;
+    FONT-SIZE: 80%;
+    HEIGHT: 20px;
+    padding-bottom: 5px;
+    PADDING-LEFT: 10px;
+    padding-right: 5px;
+    padding-top: 5px
+}
+.SubHeadlineGray
+{
+    background: #EBEBEB;
+    COLOR: #000000;
+    CURSOR: default;
+    FONT-SIZE: 80%;
+    HEIGHT: 20px;
+    padding-bottom: 5px;
+    PADDING-LEFT: 10px;
+    padding-right: 5px;
+    padding-top: 5px
+}
+.SubHeadlineWarning
+{
+    background: #FFCC99;
+    COLOR: #FFCC99;
+    CURSOR: default;
+    FONT-SIZE: 80%;
+    HEIGHT: 20px;
+    padding-bottom: 5px;
+    PADDING-LEFT: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+.SubHeadlineError
+{
+    background: #FF8585;
+    COLOR: #FFCC99;
+    CURSOR: default;
+    FONT-SIZE: 80%;
+    HEIGHT: 20px;
+    padding-bottom: 5px;
+    PADDING-LEFT: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+.SubHeadlineLink
+{
+	background: none transparent repeat 0 0; 
+	font-family: Arial, univers, Helvetica, Verdana, sans-serif; 
+	text-decoration: underline;
+  color: #000000;
+  font-size: 12px;
+}
+
+.ContentGray
+{
+	background: #EBEBEB;
+	COLOR: #000000;
+	padding-bottom: 3px;
+	PADDING-LEFT: 15px;
+	padding-right: 3px;
+	CURSOR: default;
+	FONT-SIZE: 80%;
+}
+.ContentOdd
+{
+	background: #DCDCDC;
+	COLOR: #000000;
+	padding-bottom: 3px;
+	PADDING-LEFT: 15px;
+	padding-right: 3px;
+	CURSOR: default;
+	FONT-SIZE: 80%;
+}
+.ContentEven
+{
+	background: #F5F5F5;
+	COLOR: #000000;
+	padding-bottom: 3px;
+	PADDING-LEFT: 15px;
+	padding-right: 3px;
+	CURSOR: default;
+	FONT-SIZE: 80%;
+}
+.NewadaLinkLeft
+{
+  COLOR: #CCCCCC;
+  FONT-SIZE: 14;
+  FONT-WEIGHT: bold;
+  MARGIN-LEFT: 10px;
+  TEXT-DECORATION: none;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkLeft:link 
+{
+    COLOR: #CCCCCC;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: none;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkLeft:active 
+{
+    COLOR: #CCCCCC;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: none;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkLeft:visited 
+{
+    COLOR: #CCCCCC;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: none;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkLeft:hover 
+{
+    COLOR: #000000;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: none;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkWarning
+{
+    COLOR: #000000;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: underline;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkWarning:link 
+{
+    COLOR: #000000;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: underline;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkWarning:active 
+{
+    COLOR: #000000;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: underline;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkWarning:visited 
+{
+    COLOR: #000000;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: underline;
+  FONT-FAMILY: Arial;
+}
+.NewadaLinkWarning:hover 
+{
+    COLOR: #000000;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    MARGIN-LEFT: 10px;
+    TEXT-DECORATION: underline;
+  FONT-FAMILY: Arial;
+}
+
+.NewadaWarningHeadline
+{
+    COLOR: #000000;
+    CURSOR: default;
+    FONT-SIZE: 14;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none;
+    FONT-FAMILY: Arial;
+}
+.NewadaError
+{
+    background: #FF8585;
+    COLOR: #000000;
+    CURSOR: default;
+    FONT-SIZE: 80%;
+    HEIGHT: 15px;
+    padding-bottom: 5px;
+    PADDING-LEFT: 10px;
+    padding-right: 5px;
+    padding-top: 5px
+}
+.NewadaWarning
+{
+    background: #FFDAB9;
+    COLOR: #000000;
+    CURSOR: default;
+    FONT-SIZE: 80%;
+    HEIGHT: 15px;
+    padding-bottom: 5px;
+    PADDING-LEFT: 10px;
+    padding-right: 5px;
+    padding-top: 5px
+}
+.Headline
+{
+    COLOR: #000000;
+    FONT-SIZE: 120%;
+    FONT-WEIGHT: bold;
+    padding-right: 20px;
+    TEXT-ALIGN: right
+}
+.GroupSeparator
+{
+    background: #ffffff;
+    HEIGHT: 10px
+}
+.GroupEnlarge
+{
+    background: #ebebeb;
+    HEIGHT: 10px
+}
+.button
+{
+  border-right: 0px;
+  padding-right: 0px;
+  background-position: left 50%;
+  border-top: 0px;
+  padding-left: 15px;
+  font-size: 12px;
+  background-image: url(../gif/BPic.gif);
+  padding-bottom: 0px;
+  border-left: 0px;
+  color: #000000;
+  padding-top: 0px;
+  border-bottom: 0px;
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+  background-color: transparent;
+  text-align: left;
+}
+
+.InnerContent
+{
+  padding: 0 0 0 0;
+  text-align:left;
+  width:100%;
+  border: 0;
+  background:#ebebeb;
+  vertical-align:top;
+}
+.InnerContent .InnerContentText
+{
+  padding: 0 5 0 0; 
+  vertical-align:top;
+  border:0;
+  background:#ebebeb;  
+}
+.InnerContent .InnerContentDirect
+{
+  padding: 0 5 0 0; 
+  vertical-align:top;
+  border:0;
+  background:#ebebeb;  
+}
+.InnerContent .InnerContentPrice
+{
+  padding: 0 10 0 0; 
+  vertical-align:top;
+  text-align: right;
+}
+
+.ContentTable
+{
+  table-layout:fixed; 
+  padding: 7 0 0 6;
+  text-align:left;
+  border:none 0;
+  background:#ebebeb;
+}
+.ContentTable .SeparatorLine
+{
+	background: #ffffff; 
+	height:5px;
+}
+.ContentTable .ContentSmallLabel
+{
+  padding: 4 0 0 15;
+  vertical-align:top;   
+  background: #ebebeb; 
+	color: #000000;
+	font-size: 80%;
+}
+.ContentTable .ContentSmall
+{
+  padding: 4 0 0 5;
+  vertical-align:top;   
+	background: #ebebeb; 
+	color: #000000;
+	font-size: 80%;
+}
+.ContentTable .ContentSmallLabelBottom
+{
+  padding: 4 0 4 15;
+  vertical-align:top;   
+  background: #ebebeb; 
+	color: #000000;
+	font-size: 80%;
+}
+.ContentTable .ContentSmallBottom
+{
+  padding: 4 0 4 5;
+  vertical-align:top;   
+	background: #ebebeb; 
+	color: #000000;
+	font-size: 80%;
+}
+.ContentTable .ContentDirect
+{
+  padding: 7 0 0 0;
+	background: #ebebeb; 
+	color: #000000;
+	font-size: 80%;
+  vertical-align:top;   
+}

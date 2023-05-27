@@ -1,0 +1,79 @@
+@import url(../styles/newadaWeb-ClassicStyle_Content.css);
+@import url(../styles/newadaWeb-ClassicStyle_CarConfig.css);
+@import url(../styles/now_uniform.css);
+@import url(../styles/now_base.css);
+@import url(../styles/now_areaMain.css);
+@import url(../styles/now_Menu.css);
+@import url(../styles/now_content_base.css);
+@import url(../styles/now_Header.css);
+@import url(../styles/now_Footer.css);
+@import url(../styles/now_html_tag_size_px.css);
+@import url(../styles/now_clientControls.css);
+@import url(../styles/now_FieldValidator.css);
+@import url(../styles/now_errorMessages.css);
+@import url(../styles/calendar_date_select_default.css);
+@import url(../styles/now_calendar_modifications.css);
+@import url(../styles/now_konzern_tabControl.css);
+@import url(../styles/konzernTableLayout_px.css);
+@import url(../styles/now_collapsible.css);
+@import url(../styles/now_konzern.css);
+@import url(../styles/now_SubnavMpb.css);
+@import url(../styles/now_Formular_px.css);
+@import url(../styles/now_vehicleData.css);
+@import url(../styles/now_userSettings.css);
+@import url(../styles/now_contentExpand.css);
+@import url(../styles/now_dataTable.css);
+@import url(../styles/now_TableSort.css);
+@import url(../styles/now_TableSettings.css);
+@import url(../styles/now_memberGroup.css);
+@import url(../styles/now_dragWindow.css);
+@import url(../styles/now_Error.css);
+@import url(../styles/autoCompletion.css);
+@import url(../styles/now_buttons.css);
+@import url(../styles/now_flipSubNav.css);
+@import url(../styles/now_develop.css);
+@import url(../styles/now_Breadcrumb.css);
+@import url(../styles/now_Classic2KonzernMapper.css);
+@import url(../styles/style_NewadaWebClassic.css);
+@import url(../styles/clearFix.css);
+
+/* ***************** */
+/* special css-Files */
+/* ***************** */
+@import url(../styles/special_OrderCheckPool.css);
+@import url(../styles/special_QuRsection.css);
+@import url(../styles/special_newadaOnline.css);
+@import url(../styles/special_mis.css);
+@import url(../styles/special_locating.css);
+@import url(../styles/special_start.css);
+@import url(../styles/special_newadaJ.css);
+@import url(../styles/legacy_dot_net_background_colors.css);
+@import url(../styles/special_generics.css);
+
+/* ***************** */
+/* layout css-Files  */
+/* ***************** */
+@import url(../styles/style_Audi.css);
+@import url(../styles/style_iPhone.css);
+@import url(../styles/style_Advanced.css);
+@import url(../styles/browserFixes.css);
+@import url(../styles/autoCompletion.css);
+
+/* ***************** */
+/* layout css-Files  */
+/* ***************** */
+@import url(../styles/now_final_adjust.css);
+@import url(../styles/__temporary_bugfixes.css);
+
+/* ********************************************************** */
+/* Pruefen der HTML-Cde Qualitaet                             */
+/* zeigt z.B. Eingabefelder, Listboxen, Textareas             */
+/* die ein style-attribut verwenden                           */
+/*   statt <input style="..                                   */
+/*   soll <input class="..                                    */
+/*   verwendet werden                                         */
+/*   Benoetigt im Footer die Punkte                           */
+/*     Code-Qualitaet/usp_showStyleAttributes                 */
+/*     Code-Qualitaet/usp_showOnClick                         */
+/* ********************************************************** */
+@import url(../styles/coding_check_styles.css);

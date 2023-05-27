@@ -1,0 +1,38 @@
+.Content table .TdInput
+{
+  width: 208px;
+  padding: 0px 0px 0px 5px;
+}
+
+.Content table .TdLabel
+{
+  width: 107px;
+  padding: 0px 0px 0px 10px;
+  font-weight: bold;
+}
+
+div.userdata span.label
+{
+  display:block;
+  float:left;
+  width:203px;
+  font-weight:bold; 
+}
+
+div.userdata div span.value { 
+  width:300px;
+}
+
+
+div.userdata pre
+{
+  font-family:"Courier New";
+  font-size:1.3em;
+  width:782px;
+  overflow:hidden;
+}
+
+div.userdata div.body
+{
+  margin:4px 0 2em;
+}

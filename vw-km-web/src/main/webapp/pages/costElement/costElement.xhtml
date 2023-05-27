@@ -1,0 +1,261 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+ 
+<h:panelGroup layout="block" style="width:1050px;overflow:auto;" styleClass="areaTabContent" rendered="#{costElementBean.loadDTO}" id="mainTabContent">      
+	         <table width="100%">
+	            <ui:fragment rendered="#{costElementBean.dto.userIsOwner and costElementBean.dto.editIsLockedByUser}">
+	             <tr>
+                <td  colspan="3"> 
+                  <h:outputFormat  style="color: red;" escape="false" value="#{msgs['costelement.writeAccessNotAllowed']}">
+				    <f:param value="#{costElementBean.dto.elementVersion.processor.fullName}"/>
+				  </h:outputFormat>
+                </td>
+                </tr>
+                </ui:fragment>
+	            <ui:fragment rendered="#{costElementBean.dto.userIsOwner and costElementBean.dto.editIsLockedByComponent}">
+	             <tr>
+                <td  colspan="3"> 
+                  <h:outputFormat  style="color: red;" escape="false" value="#{msgs['costelement.writeAccessNotAllowed2']}">
+				  </h:outputFormat>
+                </td>
+                </tr>
+                </ui:fragment>	                	            
+              <tr>
+                <td  width="15%" rowspan="2"> 
+                <div class="zur smallerSpace" >
+                	<div class="Des">&#160;</div>
+                	<div class="Des">&#160;</div>
+							<h:panelGroup layout="block"  id="svb" styleClass="btn" rendered="#{costElementBean.dto.userIsOwner and costElementBean.dto.userHasWriteAccess}">
+								<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+									<h:panelGroup layout="block" styleClass="bgrBTC">
+										<h:commandLink value="#{msgs['costelement.save']}" actionListener="#{costElementBean.save}">
+										 <f:ajax render="@all" execute="@all" />
+										</h:commandLink>
+									</h:panelGroup>
+								<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+								<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+								</h:panelGroup>	
+								<h:panelGroup layout="block" styleClass="btn" value="#{costElementBean.dto.allowedTransitions}">
+								<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+									<ace:menuBar id="menuBar" model="${costElementBean.allowedTransitionsAsMenu}">
+			                         </ace:menuBar>
+									<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+								</h:panelGroup>
+
+								<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+									<h:panelGroup layout="block" styleClass="btn" rendered="#{costElementBean.dto.elementVersion.enumStatus.backAllowed}">
+										<h:panelGroup layout="block" styleClass="bgrBTL">
+										</h:panelGroup>
+										<h:panelGroup layout="block" styleClass="bgrBTC">
+											<h:commandLink value="#{msgs['costelement.back']}"
+												actionListener="#{costElementBean.listFromObjectClicked}" immediate="true" >
+												<f:ajax render="@all" execute="@all" />
+											</h:commandLink>		
+										</h:panelGroup>
+										<h:panelGroup layout="block" styleClass="bgrBTR">
+										</h:panelGroup>
+								</h:panelGroup>
+			
+       					</div> 
+       				 </td>
+                <td width="31%" rowspan="2" > 
+                	<h2 id="contentHeadline" class="h2Mar noBottom" style="margin-top: 1px !important;" >
+                    <h:graphicImage value="../images/context_menu/edit.gif" class="iconObject" 
+                                    rendered="#{costElementBean.dto.isInWorkingFolder}"/>
+                    <h:graphicImage value="../images/e.gif" class="iconObject"/>
+                    <h:outputText value="#{msgs['costelement.common.title']}"  styleClass="smallerFont"/></h2>
+				</td>
+                <td width="20%" height="4" align="right"></td>
+              </tr>
+              <tr>
+                <td align="right" valign="bottom">
+					<h:panelGroup layout="block" rendered="#{!costElementBean.dto.searchMode}" id="contSearch">
+						<h:panelGroup layout="block" >
+							<div class="bgrBTL"><a href="#"></a></div>
+							<div class="bgrBTC">
+							<h:commandLink id="srch_btn" 
+							    actionListener="#{costElementBean.search}"
+								value="#{msgs['costelement.common.search.label']}">
+							  <f:ajax render="@all" execute="@all" />
+							</h:commandLink>
+                            </div>
+							<div class="bgrBTR"><a href="#"></a></div>							
+						</h:panelGroup>						
+						<h:inputText styleClass="validate revalidate valid iptRight searchinpt2"
+							value="#{costElementBean.dto.searchString}" onfocus="this.value='';" onkeypress="if (event.keyCode == 13) { document.getElementById('f:contInc:srch_btn').click(); return false; }" />
+					</h:panelGroup>
+				</td>
+              </tr>
+            </table>
+		   
+			<h:panelGroup columns="1" width="100%" border="0" >
+				<h:outputText style="#{facesContext.maximumSeverity.ordinal == 2 ? 'color: red;display:block;':'color: red;display:none;'}"
+				value="#{msgs['common.message.fixError']}" /> 				
+			</h:panelGroup>	   
+				<table>				
+					<tr>
+						<td width="1%"></td>
+						<td width="14%"></td>
+						<td width="25%">
+						<div class="Glob">
+						 <div class="Jar" ></div>						
+						</div>
+						</td>						
+						<td>
+						&#160;<strong><h:outputText value="#{msgs['costelement.status']}:" id="st" /></strong>
+						&#160;<h:outputText value="#{costElementBean.status}" id="stv" /></td>
+						
+						<td colspan="2">
+						&#160;<strong><h:outputText value="#{msgs['costelement.editor']}:" id="ed" /></strong> 
+						&#160;<h:outputText value="#{costElementBean.dto.elementVersion.processor.sigFullName}" id="edv" />
+						</td>
+						
+						<td align="right">
+						<h:selectBooleanCheckbox id="in" style="margin-top: -5px !important;"
+							value="#{costElementBean.dto.elementVersion.element.inactive}" 
+							styleClass="WithBor"
+							disabled="#{!costElementBean.dto.userCanChangeActivation or !costElementBean.dto.userHasWriteAccess}" 
+							valueChangeListener="#{costElementBean.checkChanged}" >
+			                <f:ajax render="@all" execute="@this" />
+			            </h:selectBooleanCheckbox> <h:outputText value="#{msgs['costelement.inaktiv']}" styleClass="Ina" /></td>
+					</tr>
+								
+					<tr class="smallerSpace">
+						<td width="1%"></td>
+						<td width="14%"><strong>
+						<h:outputText value="#{msgs['costelement.number']}:" id="eln"/></strong></td>
+						<td width="25%"  nowrap="nowrap">
+							<h:inputText id="elnv" label="#{msgs['costelement.number']}"
+								value="#{costElementBean.dto.elementVersion.element.elementNumber}"
+								styleClass=" tabme" maxlength="256" required="true"
+								rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}" 
+								valueChangeListener="#{costElementBean.checkChanged}" style="vertical-align: top;">
+								<f:ajax execute="@this" render="@all"/>
+								<f:validateLength maximum="256" />
+							</h:inputText>
+							<h:outputText id="elnd" styleClass="spanTabme" value="#{costElementBean.dto.elementVersion.element.elementNumber}" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}" style="vertical-align: top;"/>
+							<h:graphicImage value="../images/#{costElementBean.dto.elementVersion.element.ownerImg}" style="padding-left:5px;border: 0px; align:top" rendered="#{costElementBean.dto.elementVersion.element.ownerImg!=null}" />
+						</td>
+						<td width="25%" >&#160;<strong><h:outputText value="#{msgs['costelement.level']}:" id="elv"/></strong>						
+						&#160;<h:outputText id="elvv" value="#{costElementBean.dto.elementVersion.number}/#{costElementBean.dto.versionsCount}" rendered="#{costElementBean.dto.elementVersion.number !=null}"/>
+					
+						&#160; <h:outputText id="elvd" value="#{costElementBean.dto.elementVersion.validFrom.dateSeparatedPt}" rendered="#{costElementBean.dto.elementVersion.number !=null}" />  
+						
+						</td>
+						<td colspan="2">
+						<div class="Glob"> 
+							<div class="G3"> 
+								<div class="NoeufDiv">
+									&#160;<strong><h:outputText value="#{msgs['costelement.users']}:" id="elu"/></strong>&#160;
+								</div>
+								<div class="NoeufDiv">
+								<ui:repeat value="#{costElementBean.dto.elementVersion.usersImg}" var="users" id="u">
+								   <h:graphicImage value="../images/#{users}" />&#160;
+								</ui:repeat>
+								</div>
+							</div>
+							</div>
+						</td>						
+					</tr>					
+					<tr>
+						<td width="1%"></td>
+						<td><strong><h:outputText value="#{msgs['costelement.name']}:" id="eld"/></strong></td>
+						<td colspan="5"><h:inputText id="eldv" label="#{msgs['costelement.name']}"
+							maxlength="255" value="#{costElementBean.dto.elementVersion.element.designation}"
+							styleClass=" tabmeLong" required="true"
+							rendered="#{!costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}" 
+							valueChangeListener="#{costElementBean.checkChanged}">
+							<f:validateLength maximum="255" />
+							<f:ajax execute="@this" render="@all"/>
+						</h:inputText>
+						<h:outputText id="eldd" styleClass="spanTabmeLong" value="#{costElementBean.dto.elementVersion.element.designation}" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}"/>
+						</td>
+					</tr>					
+					<tr>
+						<td width="1%"></td>
+						<td><strong><h:outputText value="#{msgs['costelement.general.commentar']}:" id="elk" /></strong></td>
+						<td colspan="5"><h:inputTextarea id="elkv" styleClass="txtareaMeComt" onblur="javascript:validateTextArea(this,1000);"
+							onkeyup="javascript:validateTextArea(this,1000);" onkeypress="javascript:validateTextArea(this,1000);"
+							value="#{costElementBean.dto.elementVersion.description}"
+							rendered="#{! costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}"
+							valueChangeListener="#{costElementBean.checkChanged}" >
+							  <f:ajax execute="@this" render="@all"/>
+							</h:inputTextarea> 
+							<h:panelGroup layout="block" styleClass="txtareaMeComt-dis-div"
+							rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+							<h:outputText id="elkd" value="#{costElementBean.dto.elementVersion.description}" escape="false" />
+						</h:panelGroup></td>
+					</tr>
+					<tr>
+						<td width="1%"></td>
+						<td><strong><h:outputText id="elt" value="#{msgs['costelement.objectType']}:" /></strong></td>
+						<td><h:selectOneMenu id="eltv" value="#{costElementBean.dto.elementCategoryIdAsString}" styleClass="tabmeOp2Prime"
+							readonly="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}"
+							valueChangeListener="#{costElementBean.checkChanged}">
+							<f:selectItems value="#{costElementBean.elementCategoryItems}" />
+							<f:ajax execute="@this" render="@all"/>
+						</h:selectOneMenu></td>
+						<td colspan="2"></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr><td height="2px" colspan="7"></td></tr>
+					<tr>
+						<td width="1%"></td>
+						<td  width="14%"><h:outputText escape="false" value="#{msgs['costelement.totalAmount']}:" /></td>
+						<td  width="8%"><h:outputText  styleClass="spanSRM" value="#{costElementBean.dto.elementVersion.total.stringFormatted}"/> 
+						<span class="spanCurrency">&#8364;</span>
+						</td>
+						
+						<td width="30%" align="left" colspan="2"><strong><h:outputText value="#{msgs['costelement.mechanicSum']}:" /></strong>
+						<span style="padding-right: 1px"></span>&#160;<h:outputText styleClass="spanSRM" value="#{costElementBean.dto.elementVersion.mecanicsSum.stringFormatted}"/> 
+						<span class="spanCurrency">&#8364;</span>
+						</td>
+						
+						<td colspan="2"  align="left"><strong><h:outputText value="#{msgs['costelement.electricSum']}:" /></strong>
+						<span style="padding-right: 1px"></span>&#160;&#160;<h:outputText styleClass="spanSRM" value="#{costElementBean.dto.elementVersion.electricalSum.stringFormatted}"/> 
+						<span class="spanCurrency">&#8364;</span></td>
+					</tr>
+					<tr><td height="2px" colspan="7"></td></tr>
+					<tr>
+						<td width="1%"></td>
+						<td width="14%"><h:outputText escape="false" value="#{msgs['costelement.totalAmountWithProvision']}:" /></td>
+						<td  width="8%"><h:outputText  styleClass="spanSRM" value="#{costElementBean.dto.elementVersion.sumTotalAndTotalProvision.stringFormatted}"/><span class="spanCurrency">&#160;&#8364;</span></td>
+						
+						<td  width="30%" align="left" colspan="2"><strong><h:outputText value="#{msgs['costelement.mechanicSumWithProvision']}:" /></strong>
+						&#160;&#160;&#160;<h:outputText styleClass="spanSRM" value="#{costElementBean.dto.elementVersion.mecanicsProvisionSum.stringFormatted}"/> <span class="spanCurrency">&#8364;</span></td>
+						
+						<td  colspan="2" align="left"><strong><h:outputText value="#{msgs['costelement.electricSumWithProvision']}:" /></strong>
+						&#160;<h:outputText styleClass="spanSRM" value="#{costElementBean.dto.elementVersion.electricalProvisionSum.stringFormatted}"/><span class="spanCurrency">&#160;&#8364;</span></td>
+					</tr>
+				</table>
+                 <br />
+		        <ace:tabSet selectedIndex="#{costElementBean.dto.userLogged.selectedTabIndex}" id="ts">
+		            <ace:tabPane id="ov" label="#{msgs['costelement.tab.overview']}">
+		                <ui:include src="./costElementOverview.xhtml" />
+		            </ace:tabPane>
+		            <ace:tabPane id="ge" label="#{msgs['costelement.tab.general']}">
+		                <ui:include src="./costElementGeneral.xhtml" />
+		            </ace:tabPane>
+		            <ace:tabPane id="ser" label="#{msgs['costelement.tab.serviceContent']}">
+		                <ui:include src="./costElementServiceContent.xhtml" />
+		            </ace:tabPane>
+		            <ace:tabPane id="dep" label="#{msgs['costelement.tab.dependentDevice']}">
+		                <ui:include src="./costElementDependentDevices.xhtml" />
+		            </ace:tabPane>
+		            <ace:tabPane id="ann" label="#{msgs['costelement.tab.annexDocument']}">
+		                <ui:include src="./costElementAnnexDocument.xhtml" />
+		            </ace:tabPane>
+		            <ace:tabPane id="his" label="#{msgs['costelement.tab.versioning']}">
+		                <ui:include src="./costElementVersionHistory.xhtml" />
+		            </ace:tabPane>
+		        </ace:tabSet>
+        <br />
+	</h:panelGroup>
+
+</html>

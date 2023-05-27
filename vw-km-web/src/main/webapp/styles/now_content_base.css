@@ -1,0 +1,42 @@
+
+h4.subHead
+{
+  background-color:#fff;
+  border:1px solid #7F8789;
+  color:#7F8789;
+  font-size:1em;
+  margin-bottom:6px;
+  margin-left:12px;
+  margin-top:12px;
+  padding:0.3em 0.5em;
+  width:96%;
+  padding-right:14px;
+}
+
+* html h4.subHead
+{
+  width:100%;
+}
+
+.hideContentHeadline h2#contentHeadline
+{
+  display:none;
+}
+
+.hideContentHeadline h2.newHeadline
+{
+  font-size:2.7em;
+  font-size:2.6em;
+  color:#004963;
+  margin:0;
+  padding:0;
+  margin-left:12px;
+  padding-bottom:20px;
+  font-family:arial;
+  font-weight:normal;
+}
+
+h3.noMarginLeft
+{
+  width:auto !important;
+}

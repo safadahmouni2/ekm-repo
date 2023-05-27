@@ -1,0 +1,383 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ace="http://www.icefaces.org/icefaces/components">
+
+	<!--
+				The construction of the tree navigation.
+		-->
+	<ace:tree 
+	    rendered="${!navigationTree.emptyModel}"
+		id="nt"
+		value="#{navigationTree.model}" 
+		var="node" 
+		expansion="true" 
+		stateCreationCallback="#{navigationTree.contractProvinceInit}" 
+		stateMap="#{navigationTree.stateMap}" 
+		stateVar="nState">
+    <ace:ajax event="expand" listener="#{navigationTree.expandCollapse}" render="@all" execute="@this"/>
+    <ace:ajax event="contract" listener="#{navigationTree.expandCollapse}" render="@all" execute="@this"/>
+		<ace:node>
+			<h:panelGroup
+				layout="block" 
+				styleClass="treeNode markedNode#{node.markedNode}">
+				<h:panelGroup
+					rendered="#{!(node eq navigationTree.folderNodeToBeEdited)}"
+					layout="block" 
+					styleClass="treeNode image_part" 
+					hoverclass="nodeDropTarget">
+					<h:graphicImage 
+						value="../#{node.icon}" 
+						style="border: 0px" />
+					<h:outputText 
+						value="&#160;" 
+						escape="false"/>	
+				</h:panelGroup>
+				<ace:draggable 
+					revert="true" 
+					opacity="0.5" 
+					rendered="#{node.contextMenu.cutActive and node.hasUpdateFolderRight}"
+					scope="xyz"
+					handle=".image_part"
+					helper="original">
+				</ace:draggable>
+				<ace:droppable
+					rendered="#{node.contextMenu.pasteActive and node.hasUpdateFolderRight}"
+					tolerance="pointer"
+					dropListener="#{navigationTree.dragPanelListener}"
+					scope="xyz"
+					hoverStyleClass="nodeDropTarget">
+					<ace:ajax event="drop" render="@all" execute="f:nv" />
+				</ace:droppable>
+				<h:panelGroup 
+					rendered="#{!(node eq navigationTree.folderNodeToBeEdited) and node eq navigationTree.rightClickedNodeObject}"
+					layout="block" 
+					id="rightClickedNode"
+					styleClass="treeNode">
+					<span>
+						<h:graphicImage
+							value="../images/#{node.library}"
+							rendered="#{node.displayLibrary}" />
+						<h:outputText 
+							value="&#160;" 
+							escape="false" 
+							rendered="#{node.displayLibrary}" />
+						<ace:linkButton
+							id="nl"
+							styleClass="iceCmdLnk selectedNode#{node eq navigationTree.selectedNodeObject} nodeText #{node.inactif?'iceOutTxtGray':''}"
+							actionListener="#{node.nodeClicked}"
+							value="#{node.menuDisplayText}"
+							title="#{node.menuContentTitle}"
+							escape="false">
+							<ace:ajax execute="f:nv" render="@all" />
+						</ace:linkButton>
+						<h:outputText 
+							value="&#160;" 
+							escape="false"
+							rendered="#{node.activeFilter}" />
+						<h:graphicImage 
+							value="../images/filter.gif"
+							rendered="#{node.activeFilter}" />
+						<h:outputText 
+							value="&#160;" 
+							escape="false"
+							rendered="#{node.displayOwner}" />
+						<h:graphicImage 
+							value="../images/#{node.ownerImg}"
+							rendered="#{node.displayOwner}" />
+						<ui:fragment rendered="#{node.displayUsers}">
+							<ui:repeat 
+								value="#{node.users}" 
+								var="users">
+								<h:outputText 
+									value="&#160;" 
+									escape="false"/>	
+								<h:graphicImage value="../images/#{users}" />
+							</ui:repeat>
+						</ui:fragment>
+					</span>
+				</h:panelGroup>
+				<h:panelGroup 
+					layout="block"
+					rendered="#{!(node eq navigationTree.folderNodeToBeEdited) and !(node eq navigationTree.rightClickedNodeObject) }"
+					styleClass="treeNode">
+					<span oncontextmenu="this.getElementsByTagName('a')[0].click();return false;">
+						<h:commandLink
+							actionListener="#{node.rightMouseClicked}"
+							value="" style="display: none">
+							<f:ajax execute=":f:nv" render="@all" />
+						</h:commandLink>
+						<h:graphicImage
+							value="../images/#{node.library}"
+							rendered="#{node.displayLibrary}" />
+						<h:outputText 
+							value="&#160;" 
+							escape="false"
+							rendered="#{node.displayLibrary}" />
+						<ace:linkButton
+							id="nl1"
+							styleClass="iceCmdLnk selectedNode#{node eq navigationTree.selectedNodeObject} nodeText #{node.inactif?'iceOutTxtGray':''}"
+							actionListener="#{node.nodeClicked}"
+							value="#{node.menuDisplayText}"
+							title="#{node.menuContentTitle}">
+							<ace:ajax execute="f:nv" render="@all" />
+						</ace:linkButton>
+						<h:outputText 
+							value="&#160;" 
+							escape="false"
+							rendered="#{node.activeFilter}" />
+						<h:graphicImage 
+							value="../images/filter.gif"
+							rendered="#{node.activeFilter}" />
+						<h:outputText 
+							value="&#160;" 
+							escape="false"
+							rendered="#{node.displayOwner}" />
+						<h:graphicImage 
+							value="../images/#{node.ownerImg}"
+							rendered="#{node.displayOwner}" />
+						<ui:fragment rendered="#{node.displayUsers}">
+							<ui:repeat value="#{node.users}" var="users">
+								<h:outputText 
+									value="&#160;" 
+									escape="false"/>	
+								<h:graphicImage value="../images/#{users}" />
+							</ui:repeat>
+						</ui:fragment>
+					</span>
+				</h:panelGroup>				
+				<h:panelGroup 
+					layout="block"
+					rendered="#{node eq navigationTree.folderNodeToBeEdited}"
+					styleClass="treeNode">
+					<h:graphicImage 
+						value="../#{node.icon}"
+						style="border: 0px" />
+					<h:outputText 
+						value="&#160;" 
+						escape="false"/>	
+					<h:inputText 
+						onfocus="this.select();"
+						onblur="setFocusToEditableFolderName(); return false;"
+						id="editedNodeId" 
+						value="#{node.menuDisplayText}"
+						maxlength="100"
+						onkeydown="if (event.keyCode == 13) {document.getElementById(this.id.replace('editedNodeId','ren_folder_btn')).click();return false;}">
+					</h:inputText>
+					<h:commandLink id="ren_folder_btn" actionListener="#{node.renameFolder}" value="" style="display: none;">
+						<f:ajax execute=":f:nv" render="@all"/>
+					</h:commandLink>
+				</h:panelGroup>
+				<ace:contextMenu id="menuPopupActions" zindex="5000" for="rightClickedNode"
+					style="background-color: #EFEFEF; position: fixed; width: 195px; top: 10px;left: -50px;"
+					rendered="#{node eq navigationTree.rightClickedNodeObject and node.displayContextMenu and 
+					!(node eq navigationTree.folderNodeToBeEdited) and 
+					(node.hasUpdateFolderRight)}">
+					
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-select" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.select']}" 
+						actionListener="#{node.markClicked}"
+						rendered="#{node.contextMenu.selectActive and node.hasUpdateFolderRight and !node.markedNode}"/>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-select-all" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.selectAll']}" 
+						actionListener="#{node.markClicked}"
+						rendered="#{node.contextMenu.selectActive	and node.hasUpdateFolderRight and !node.allMarkedNode}">
+						<f:param name="mark_parameter" value="ALL" />
+					</ace:menuItem>			
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-deselect" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.deselect']}" 
+						actionListener="#{node.unmarkClicked}"
+						rendered="#{node.contextMenu.selectActive and node.markedNode}"/>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-deselect-all" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.deselectAll']}" 
+						actionListener="#{node.unmarkClicked}"
+						rendered="#{node.contextMenu.selectActive and node.moreMarkedNode}">	
+						<f:param name="mark_parameter" value="ALL" />
+					</ace:menuItem>
+					<ui:fragment rendered="#{node.contextMenu.selectActive and node.hasUpdateFolderRight}">
+					 -
+					</ui:fragment>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="new_ordner"
+						icon="c-m-size c-m-add-folder"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.addFolder']}"
+						actionListener="#{node.addFolderClicked}"
+						rendered="#{node.contextMenu.addFolderActive	and node.hasUpdateFolderRight}" />
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="new_object"
+						icon="c-m-size c-m-#{node.addObjectIcon}"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.newObject']}"
+						actionListener="#{node.addNewObjectClicked}"
+						rendered="#{node.contextMenu.addActive and node.hasUpdateFolderRight}" />
+					<ui:fragment rendered="#{(node.contextMenu.addActive or node.contextMenu.addFolderActive) and (((node.contextMenu.editActive or node.contextMenu.copyActive) and node.hasUpdateFolderRight) or (node.contextMenu.pasteActive and node.hasSomethingToPaste))}">
+					 -
+					</ui:fragment>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="edit"
+						icon="c-m-size c-m-edit"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.editObject']}"
+						actionListener="#{node.editClicked}"
+						rendered="#{node.contextMenu.editActive and node.hasUpdateFolderRight and !node.markedNode}" />
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="copy"
+						icon="c-m-size c-m-copy"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.copyObject']}"
+						actionListener="#{node.copyClicked}"
+						rendered="#{node.contextMenu.copyActive and !node.markedNode}" />
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="cut"
+						icon="c-m-size c-m-cut"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.cutObject']}"
+						actionListener="#{node.cutClicked}"
+						rendered="#{node.contextMenu.cutActive and node.hasUpdateFolderRight and !node.markedNode}" />
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="paste"
+						icon="c-m-size c-m-paste"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.pasteObject']}"
+						actionListener="#{node.pasteClicked}"
+						rendered="#{node.contextMenu.pasteActive and node.hasSomethingToPaste}" />
+					<!--multi select paste-->		
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="paste_selected"
+						icon="c-m-size c-m-paste"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.pasteObject']}"
+						actionListener="#{node.pasteMarkedClicked}"
+						rendered="#{node.contextMenu.pasteActive and node.hasSomethingMarkedToPaste}" />	
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="pastecopy_selected"
+						icon="c-m-size c-m-paste"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.pasteObject']}"
+						actionListener="#{node.pasteCopyMarkedClicked}"
+						rendered="#{node.contextMenu.pasteActive and node.hasSomethingMarkedToCopy}" />
+						
+					<!--multi select paste-->		
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="pastecopy"
+						icon="c-m-size c-m-paste"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.pasteObject']}"
+						actionListener="#{node.pasteCopyClicked}"
+						rendered="#{node.contextMenu.pasteActive and node.hasSomethingToCopy}" />
+						
+					<!--multi select functions start-->	
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-copy" 
+						value="Kopieren" 
+						actionListener="#{node.copyMarkedClicked}"
+						rendered="#{node.contextMenu.selectActive and node.markedNode}"/>			
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-cut" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.cutObject']}" 
+						actionListener="#{node.cutMarkedClicked}"
+						rendered="#{node.contextMenu.selectActive and node.contextMenu.cutActive and node.hasUpdateFolderRight	and node.markedNode}"/>	
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-edit" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.toInProgress']}" 
+						actionListener="#{node.changeStatusClicked}"
+						rendered="#{node.contextMenu.selectActive and node.markedNode}">
+						<f:param name="to_status_parameter" value="IN_PROGRESS" />
+					</ace:menuItem>		
+	 					<!--multi select functions end-->	
+					<ui:fragment rendered="#{node.contextMenu.deleteActive and node.hasUpdateFolderRight and !node.markedNode}">
+					 -
+					</ui:fragment>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						id="delete"
+						icon="c-m-size c-m-delete"
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.deleteObject']}"
+						actionListener="#{node.deleteClicked}"
+						rendered="#{node.contextMenu.deleteActive and node.hasUpdateFolderRight and !node.markedNode}" />
+					<ui:fragment rendered="#{node.contextMenu.sortActive and node.hasUpdateFolderRight and !node.markedNode}">
+					 -
+					</ui:fragment>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-sort-top" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortTop']}" 
+						actionListener="#{node.sortClicked}" 
+						rendered="#{node.contextMenu.sortActive and node.hasUpdateFolderRight and !node.markedNode}">
+					 	<f:param name="sort_parameter" value="TOP" />
+					</ace:menuItem>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-sort-up" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortUp']}" 
+						actionListener="#{node.sortClicked}" 
+						rendered="#{node.contextMenu.sortActive and node.hasUpdateFolderRight and !node.markedNode}">
+						<f:param name="sort_parameter" value="UP" />
+					</ace:menuItem>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-sort-down" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortDown']}" 
+						actionListener="#{node.sortClicked}" 
+						rendered="#{node.contextMenu.sortActive and node.hasUpdateFolderRight and !node.markedNode}">
+						<f:param name="sort_parameter" value="DOWN" />
+					</ace:menuItem>
+					<ace:menuItem 
+						styleClass="ctxItem" 
+						icon="c-m-size c-m-sort-bottom" 
+						value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortBottom']}" 
+						actionListener="#{node.sortClicked}" 
+						rendered="#{node.contextMenu.sortActive and node.hasUpdateFolderRight and !node.markedNode}">
+						<f:param name="sort_parameter" value="BOTTOM" />
+					</ace:menuItem>	
+				</ace:contextMenu>
+				<h:panelGroup 
+					layout="block"	
+					id="jsloadcontext" 
+					rendered="#{!(node eq navigationTree.folderNodeToBeEdited) and node eq navigationTree.rightClickedNodeObject}">
+					<script type="text/javascript">
+						var t = idContainsText("rightClickedNode", "div", document.getElementById('f:nv:nt'));
+						function getPosition(element) {
+							var xPosition = 0;
+							var yPosition = 0;							
+							while(element) {
+								xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+								yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+								element = element.offsetParent;
+							}
+							return { x: xPosition, y: yPosition };
+						}						
+						function fireEventJS(element,event){
+							// dispatch for firefox + others
+								var evt = document.createEvent("MouseEvents");
+								evt.initMouseEvent("contextmenu", true, true, window, 1, getPosition(element).x , getPosition(element).y, 
+										getPosition(element).x, getPosition(element).y, false, false, true, false, 0, null);
+								return !element.dispatchEvent(evt);
+						}
+
+						function fireContext(element){
+						}
+						//alert(t[0].innerHTML);
+	 					setTimeout(function(){fireEventJS(t[0],'contextmenu')},100);
+					</script>
+				</h:panelGroup>
+			</h:panelGroup>
+		</ace:node>
+	</ace:tree>
+	
+<!-- DIV added to have a blank in bottom of tree cause of context menu position-->
+<div style="height: 170px"></div>
+</html>

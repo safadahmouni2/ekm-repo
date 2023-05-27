@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="userDao" class="vwg.vw.km.integration.persistence.dao.impl.UserDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="roleDao" class="vwg.vw.km.integration.persistence.dao.impl.RoleDAOImpl" autowire="byName" />
+	<bean id="elementDao" class="vwg.vw.km.integration.persistence.dao.impl.ElementDAOImpl" autowire="byName" />
+	<bean id="elementVersionDao" class="vwg.vw.km.integration.persistence.dao.impl.ElementVersionDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="costAttributeDao" class="vwg.vw.km.integration.persistence.dao.impl.CostAttributeDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+ 	<bean id="workAreaDao" class="vwg.vw.km.integration.persistence.dao.impl.WorkAreaDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+ 	<bean id="elementValueDao" class="vwg.vw.km.integration.persistence.dao.impl.ElementValueDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+ 	<bean id="folderDao" class="vwg.vw.km.integration.persistence.dao.impl.FolderDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+ 	<bean id="enumStatusDao" class="vwg.vw.km.integration.persistence.dao.impl.EnumStatusDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="enumObjectTypeDao" class="vwg.vw.km.integration.persistence.dao.impl.EnumObjectTypeDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>  	
+	<bean id="elementCategoryDAO" class="vwg.vw.km.integration.persistence.dao.impl.ElementCategoryDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="documentPoolDAO" class="vwg.vw.km.integration.persistence.dao.impl.DocumentPoolDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="costAttributeCategoryDAO" class="vwg.vw.km.integration.persistence.dao.impl.CostAttributeCategoryDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="hourlyRateDAO" class="vwg.vw.km.integration.persistence.dao.impl.HourlyRateDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentElementDAO" class="vwg.vw.km.integration.persistence.dao.impl.ComponentElementDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentDAO" class="vwg.vw.km.integration.persistence.dao.impl.ComponentDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentValueDAO" class="vwg.vw.km.integration.persistence.dao.impl.ComponentValueDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="effortContentDAO" class="vwg.vw.km.integration.persistence.dao.impl.EffortContentDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="enumComponentTypeDAO" class="vwg.vw.km.integration.persistence.dao.impl.EnumComponentTypeDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="hourlyRateCatalogDAO" class="vwg.vw.km.integration.persistence.dao.impl.HourlyRateCatalogDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentVersionDAO" class="vwg.vw.km.integration.persistence.dao.impl.ComponentVersionDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="enumComponentClassDAO" class="vwg.vw.km.integration.persistence.dao.impl.EnumComponentClassDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="elementVersionChangeDao" class="vwg.vw.km.integration.persistence.dao.impl.ElementVersionChangeDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentStandChangeDao" class="vwg.vw.km.integration.persistence.dao.impl.ComponentStandChangeDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="brandDao" class="vwg.vw.km.integration.persistence.dao.impl.BrandDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="libraryDao" class="vwg.vw.km.integration.persistence.dao.impl.LibraryDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="elementVersionUsersDao" class="vwg.vw.km.integration.persistence.dao.impl.ElementVersionUsersDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentVersionUsersDao" class="vwg.vw.km.integration.persistence.dao.impl.ComponentVersionUsersDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="componentVersionStandDao" class="vwg.vw.km.integration.persistence.dao.impl.ComponentVersionStandDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+    <bean id="tablesSpaceStatisticDao" class="vwg.vw.km.integration.persistence.dao.impl.TableSpaceStatisticDAOImpl" autowire="byName" >
+    	<property name="tableSpacesMap" ref="tableSpaces" />
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="newsDao" class="vwg.vw.km.integration.persistence.dao.impl.NewsDAOImpl" autowire="byName">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+</beans>
+
+

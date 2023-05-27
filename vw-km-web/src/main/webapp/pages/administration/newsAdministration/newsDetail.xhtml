@@ -1,0 +1,135 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<h:panelGroup layout="block" styleClass="areaTabContent" rendered="#{newsDetailBean.loadDTO}" id="mainTabContent">
+	<f:event listener="#{newsDetailBean.validateDateComparator}" type="postValidate" />
+		<h:panelGroup layout="block" style="padding-top:15px">
+
+			<h:panelGroup layout="block" styleClass="btn">
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTC">
+					<h:commandLink value="#{msgs['workArea.edit.button.save']}" actionListener="#{newsDetailBean.save}">
+					  <f:ajax render="@all" execute="@all" />
+					</h:commandLink>
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="btn">
+				<h:panelGroup layout="block" styleClass="bgrBTL">
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTC">
+					<h:commandLink value="#{msgs['workArea.edit.button.cancel']}" actionListener="#{newsDetailBean.listFromObjectClicked}" immediate="true">
+					  <f:ajax render="@all" execute="@all" />
+					</h:commandLink>
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTR">
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+        
+         <h:panelGroup layout="block">
+             <h2 id="contentHeadline" class="h2Mar smallerSpace">
+                <h:graphicImage value="../images/Arbeitsbereiche_Icn.jpg" class="iconObjectLeftSpace"/>
+                <h:outputText value="#{msgs['newsAdministration.edit.alt']}" styleClass="smallerFont" />
+             </h2>
+        </h:panelGroup>
+		<br />		
+
+		<table cellpadding="0" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="icePnlTbSetSpcr">&#160;</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="tabDesc">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td></td>
+			</tr>
+			<tr>
+				<td><h:panelGrid columns="2" border="0" columnClasses="user_general1,user_general2">
+					
+					<h:outputText value="#{msgs['newsAdministration.edit.title']}:" />
+					<h:panelGroup layout="block">
+						<h:inputText id="news_title" label="#{msgs['newsAdministration.edit.title']}"
+							value="#{newsDetailBean.dto.news.title}" maxlength="50"
+							styleClass="tabmeNews" required="true"
+							valueChangeListener="#{newsDetailBean.checkChanged}">
+							<f:ajax render="@all" execute="@this" />
+						</h:inputText>	
+					&#160;<ace:message style="color: red;" id="news_title_error" for="news_title" />				
+					</h:panelGroup>
+					
+					
+					<h:outputText value="#{msgs['newsAdministration.edit.description']}:" />
+					<h:panelGroup layout="block">
+					<h:inputTextarea id="news_description" value="#{newsDetailBean.dto.news.description}" styleClass="txtareaMeNews" label="#{msgs['newsAdministration.edit.title']}"
+						onblur="javascript:validateTextArea(this,3000);" 
+						onkeyup="javascript:validateTextArea(this,3000);" 
+						onkeypress="javascript:validateTextArea(this,3000);"  
+						maxlength="500" valueChangeListener="#{newsDetailBean.checkChanged}" required="true">
+						<f:ajax render="@all" execute="@this" />
+                   						
+					</h:inputTextarea>	
+					 &#160;<ace:message style="color: red;" id="news_description_error" for="news_description" />	
+					</h:panelGroup>
+
+					<h:outputText value="#{msgs['newsAdministration.edit.validFrom']}:" />
+                   <h:panelGroup layout="block" styleClass="date-picker-container">
+		       	<ace:dateTimeEntry id="news_date_from"
+				value="#{newsDetailBean.dto.news.validFrom}"
+				timeZone="#{statisticBean.startTime}" pattern="dd.MM.yyyy"
+				renderAsPopup="true" showOn="button" showButtonPanel="true" required="true" timeOnly="true"
+				locale="de" popupIcon="/images/img_onglet/cal_button.gif" valueChangeListener="#{newsDetailBean.checkChanged}">
+<!-- 				<f:validator validatorId="dateValidator" /> -->
+				<f:ajax render="@all" execute="@this" />
+				</ace:dateTimeEntry>
+				&#160;<ace:message style="color: red;" id="news_date_from_error" for="news_date_from" />
+		         </h:panelGroup>	
+
+		<h:outputText value="#{msgs['newsAdministration.edit.dateOfExpiry']}:" />
+		<h:panelGroup layout="block" class="date-picker-container">
+			<ace:dateTimeEntry id="news_date_of_expiry"
+				value="#{newsDetailBean.dto.news.dateOfExpiry}" timeOnly="true"
+				timeZone="#{statisticBean.startTime}" pattern="dd.MM.yyyy"
+				renderAsPopup="true" showOn="button" showButtonPanel="true"
+				locale="de" popupIcon="/images/img_onglet/cal_button.gif" >
+				<f:ajax render="@all" execute="@this" />
+<!-- 				<f:validator validatorId="dateValidator" /> -->
+				</ace:dateTimeEntry>
+				&#160;<ace:message style="color: red;" id="news_date_of_expiry_error" for="news_date_of_expiry" />			
+		</h:panelGroup>				 
+
+		<h:outputText value="#{msgs['newsAdministration.edit.active']}:" />
+		<h:panelGroup layout="block">
+			<h:selectBooleanCheckbox id="news_flag" value="#{newsDetailBean.dto.news.active}" style="margin-left: 0"
+				valueChangeListener="#{newsDetailBean.checkChanged}" required="true">
+				<f:ajax render="@all" execute="@this" />
+			</h:selectBooleanCheckbox>
+		</h:panelGroup>
+		
+				</h:panelGrid>			
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		</div>
+	</h:panelGroup>
+	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>	
+</html>

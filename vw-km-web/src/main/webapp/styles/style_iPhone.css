@@ -1,0 +1,495 @@
+.usp_style_iPhone html
+{
+  margin:0 auto 0;
+}
+
+body.usp_style_iPhone
+{
+  padding:2em;
+}
+
+
+.usp_style_iPhone form 
+{
+  position:relative;
+  background:transparent url(../images/iNewada/iPhoneChassis4Newada.gif) no-repeat 0 0;
+  color:#324F85;
+  font-family:sans-serif,"Arial";
+  height:745px;
+  width:395px;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+.usp_style_iPhone #formWrap
+{
+  background-color:#C5C5C5;
+  background-image:url(../images/iNewada/bg_iPhone.png);
+  left:35px;
+  max-height:440px;
+  max-width:320px;
+  min-height:440px;
+  overflow:hidden;
+  position:absolute;
+  top:148px;
+  width:395px;
+}
+
+
+html body.usp_style_iPhone #areaContainer
+{
+background:#CCCCCC url(../images/iNewada/pinstripes.png);
+position:absolute;
+top:148px;
+left:34px;
+width:321px;
+height:465px;
+}
+html body.usp_style_iPhone #areaContent
+{
+left:175px!important;
+left:0px!important;
+margin:0;
+padding:0;
+top:0 !important;
+width:320px !important;
+}
+
+html body.usp_style_iPhone #contentHeadline
+{
+  font-size:1.8em;
+  color:#111;
+  padding:6px 0;
+}
+
+html body.usp_style_iPhone #contentBody img 
+{
+  max-width:320px !important;
+}
+
+/* ======== */
+/* Headline */
+/* ======== */
+.usp_style_iPhone #areaHeader
+{
+  display:none;
+}
+
+/* ========== */
+/* Navigation */
+/* ========== */
+
+.usp_style_iPhone .nowMenu .head h3.legend
+{
+background:url("../images/iNewada/toolbar.png") repeat-x scroll 0 0 #6D84A2 !important;
+border-width:0 12px;
+color:#FFFFFF;
+display:block;
+font-size:14px;
+font-weight:bold;
+left:-4px !important;
+padding:4px 0 !important;
+position:absolute;
+text-align:center;
+text-indent:0 !important;
+top:-26px !important;
+width:321px;
+z-index:1010;
+}
+
+html body.usp_style_iPhone table tr,
+html body.usp_style_iPhone table th,
+html body.usp_style_iPhone table td
+{
+  display:block;
+  width:297px;
+  padding:0;
+}
+html body.usp_style_iPhone table tr
+{
+  margin-bottom:4px;
+  clear:left;
+}
+
+
+html body.usp_style_iPhone .nowMenu
+{
+background-color:transparent;
+background-image:none;
+border:medium none;
+height:20px;
+left:4px !important;
+top:26px !important;
+width:320px;
+z-index:9000;
+}
+
+.usp_collapseMenu.usp_showMenuOnHover.usp_style_iPhone .nowMenu:hover ul
+{
+  overflow:hidden!important;
+  height:20px !important;
+  display:none !important;
+}
+
+html body.usp_style_iPhone .nowMenu ul
+{
+  position:absolute;
+  width:302px;
+  background-color:#111 !important;
+  height:auto !important;
+  padding:0;
+  border:none !important;
+  top:0;
+  left:-4px;
+}
+
+html body.usp_style_iPhone.usp_collapseMenu .nowMenu ul,
+html body.usp_style_iPhone #errReportWin
+{
+  display:none;
+}
+
+.usp_style_iPhone fieldset.logoTop
+{
+  display:none!important;
+}
+
+html body.usp_style_iPhone .nowMenu .head
+{
+  background-image:none;
+  height:0;
+  opacity:1;
+  width:320px;
+}
+
+html body.usp_style_iPhone .nowMenu ul li
+{
+  display:inline;
+  position:relative;
+  margin:0;
+}
+
+html body.usp_style_iPhone .nowMenu ul ul li
+{
+  display:inline;
+  white-space:nowrap;
+  position:relative;
+}
+
+html body.usp_style_iPhone .nowMenu ul a
+{
+  border:none;
+  display:inline;
+  color:#000000;
+  background:#FFFFFF url(../images/iNewada/gt.png) no-repeat scroll 98% 50%;
+  border-top:1px solid #ACAEB0;
+  cursor:pointer;
+  display:block;
+  padding:4px 0 4px 4px;
+  text-decoration:none;
+  width:315px;
+}
+
+html body.usp_style_iPhone .nowMenu ul li a:hover
+{
+  color:#600 !important;
+}
+
+html body.usp_style_iPhone .nowMenu ul li ul
+{
+  position:absolute;
+  width:320px;
+  height:40px;
+}
+
+.usp_style_iPhone .nowMenu li.active ul,
+.usp_style_iPhone .nowMenu li.active li.active ul,
+.usp_style_iPhone .nowMenu li.active li.active li.active ul,
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active ul,
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active li.active ul,
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active li.active li.active ul
+{
+  display:none;
+}
+
+.usp_style_iPhone .nowMenu li ul
+{
+  display:none;
+}
+
+html body.usp_style_iPhone .nowMenu ul li.active a
+{
+  background-color:#f0f0f0;
+  color:#000000 !important;
+}
+html body.usp_style_iPhone .nowMenu ul li.active li a
+{
+  background-color:#111;
+  color:#fff !important;
+}
+html body.usp_style_iPhone .nowMenu ul li:hover
+{
+  white-space:nowrap;
+}
+html body.usp_style_iPhone .nowMenu ul li:hover ul
+{
+  top:12px;
+  left:1px;
+  display:block;
+  margin-top:0px;
+  background-color:#111;
+  width:auto;
+
+  display:none;
+}
+html body.usp_style_iPhone .nowMenu ul li:hover ul li
+{
+  display:block;
+  width:18em;
+}
+html body.usp_style_iPhone .nowMenu ul li:hover ul li a
+{
+  line-height:12px;
+  padding:0 12px 3px;
+  text-decoration:none;
+  display:block;
+  /* width:18em; */
+}
+
+.usp_style_iPhone .nowMenu li.active li.active a, 
+.usp_style_iPhone .nowMenu li.active li.active li.active a, 
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active a, 
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active li.active a, 
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active li.active li.active a, 
+.usp_style_iPhone .nowMenu li.active li.active li.active li.active li.active li.active li.active a 
+{
+  background:#111 url(../images/blank.gif) no-repeat -1px -1px !important;
+}
+
+/* ========== */
+/* SubNav     */
+/* ========== */
+
+.usp_style_iPhone #areaSubnav
+{
+  display:none;
+}
+
+/* ========== */
+/* Marginal   */
+/* ========== */
+
+.usp_style_iPhone #areaMarginal
+{
+  background-color:#EBEFF2;
+  display:none;
+}
+
+.usp_style_iPhone #areaMarginal .linkSection a
+{
+  background-color:#CCD3DD;
+  border-bottom:1px solid #FFFFFF;
+  color:#00234F;
+  display:block;
+  height:22px;
+  margin:0;
+  padding:0 0 1px 8px;
+  position:relative;
+  text-decoration:none;
+  top:0;
+  width:165px;
+}
+
+/* ========== */
+/* Breadcrumb */
+/* ========== */
+.usp_style_iPhone #areaBreadcrumb
+{
+  display: none;
+}
+
+.usp_style_iPhone #areaBreadcrumb #bct ul li a
+{
+  color:#B8C9D1 !important;
+}
+
+/* ========== */
+/* Footer     */
+/* ========== */
+
+.usp_style_iPhone #areaFooter
+{
+  background-color:#111!important;
+  border-top:1px solid #B8C9D1;
+}
+
+.usp_style_iPhone #areaFooter ul li.pullup ul
+{
+  background-color:#111!important;
+}
+
+.usp_style_iPhone #areaFooter ul li 
+{
+  background-color:#111!important;
+  border:none;
+}
+
+
+/* ========== */
+/* areaMain   */
+/* ========== */
+.usp_style_iPhone #areaMain
+{
+  position:absolute;
+  height:383px;
+  left:1px;
+  margin-top:0 !important;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  top:25px;
+  width:343px;
+}
+
+.usp_style_iPhone #areaMain:hover
+{
+  overflow-y:auto;
+  width:343px;
+}
+
+.usp_style_iPhone #areaContent .collapsible {
+  width:296px;
+}
+
+/* =========== */
+/* head closed */
+/* =========== */
+
+html body.usp_headClosed.usp_style_iPhone #areaContainer
+{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+
+/* ============ */
+/* collase Menu */
+/* not 4 isa    */
+/* ============ */
+
+.usp_collapseMenu.usp_style_iPhone .nowMenu
+{
+  overflow:visible;
+  height:0 !important;
+}
+
+body.usp_collapseMenu.usp_style_iPhone .nowMenu ul li.active
+{
+  display:inline;
+}
+
+/* ============ */
+/* content      */
+/* ============ */
+body.usp_style_iPhone #areaContent span.clientCtrl,
+body.usp_contrast.usp_style_iPhone #areaContent input,
+body.usp_style_iPhone #areaContent input,
+body.usp_style_iPhone #areaContent textarea,
+body.usp_style_iPhone #areaContent select
+{
+  border-color:#111 !important;
+  margin-left:12px;
+  width:297px !important;
+  background-color:#fff;
+}
+
+body.usp_style_iPhone #areaContent h3.head,
+body.usp_style_iPhone #areaContent h4.head
+{
+  background-color:#FFFFFF!important;
+  border:1px solid #000!important;
+  color:#000!important;
+}
+
+body.usp_style_iPhone #areaContent input[readonly]
+{
+  background-color:transparent;
+}
+body.usp_style_iPhone fieldset ul li,
+body.usp_style_iPhone .areaError
+{
+width:299px;
+}
+
+body.usp_style_iPhone #areaContent input[type=radio],
+body.usp_style_iPhone #areaContent input[type=checkbox]
+{
+float:left;
+margin:3px 0 2px;
+position:relative;
+top:-2px;
+width:22px !important;
+}
+
+body.usp_style_iPhone #areaContent input[type=image]
+{
+  width:auto!important;
+  float:left;
+}
+
+
+body.usp_style_iPhone #areaContent .buttons,
+body.usp_style_iPhone #areaContent input.button
+{
+  background-color:transparent !important;
+}
+
+body.usp_style_iPhone #areaContent .contentBody td select,
+body.usp_style_iPhone #areaContent .contentBody td input,
+
+body.usp_style_iPhone #areaContent .buttons input,
+body.usp_style_iPhone #areaContent .buttons input,
+body.usp_style_iPhone #areaContent table table td select,
+body.usp_style_iPhone #areaContent table table td input,
+body.usp_style_iPhone #areaContent table table td textarea
+{
+    margin-left:0 !important;
+}
+.usp_style_iPhone #areaContent .collapsible .body
+{
+  width:311px;
+  margin-bottom:6px;
+}
+
+.usp_style_iPhone .tabCtrlHead,
+.usp_style_iPhone .tabCtrlBody
+{
+  margin-left:0!important;
+}
+
+.usp_style_iPhone #areaContent .tabBlock h3
+{
+background-color:#FFFFFF !important;
+border-color:#000000;
+color:#000000;
+width:287px !important;
+}
+
+.usp_style_iPhone #areaContent .tabCtrlHead li.toggle.active a,
+.usp_style_iPhone #areaContent .tabCtrlHead .allOpen li.toggle.active a,
+.usp_style_iPhone #areaContent h3.legend,
+.usp_style_iPhone #areaContent .tabCtrlHead li.active a,
+.usp_style_iPhone .tabBlock h3 {
+  background-color:#111!important;
+  border-color:#ccc #ccc #111;
+}
+
+body.usp_style_iPhone table.konzernLayout8 td span
+{
+  width:280px !important;
+  display:block;
+}
+
+body.usp_style_iPhone table.konzernLayout8
+{
+    width:320px;
+}
+

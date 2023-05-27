@@ -1,0 +1,380 @@
+
+ul.form
+{
+  list-style:none;
+}
+
+#areaContent .tabCtrlBody .tabBlock .formular li:last-child
+{
+  margin-bottom: 3em;
+}
+
+#areaContent h3.legend,
+.tabBlock h3
+{
+  padding:0.3em 0.5em;
+  margin-bottom: .1em;
+  margin-left: 12px;
+  color: #e7f3f3;
+  background-color: #345D6F;
+  font-size:1em;
+  height:1.2em;
+}
+
+#areaContent .contentBody h3.legend,
+.tabBlock .contentBody h3
+{
+  margin-left: 0;
+  margin-top:12px;
+}
+.collapsible h3.head
+{
+  background: url("../images/collapsible-arrows.gif") no-repeat 99.5% 3px transparent;
+}
+.collapsible h3.closed
+{
+  background: url("../images/collapsible-arrows.gif") no-repeat 99.5% -82px transparent;
+}
+.tabBlock .body
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+#areaContent .formular li
+{
+  clear:left;
+  list-style:none;
+  margin-bottom: .3em;
+}
+
+#areaContent .formular li.table
+{
+  width:100%;
+}
+
+#areaContent .formular li p
+{
+  font-size:1.1em;
+  display:inline;
+}
+
+
+#areaContent .formular ul.group
+{
+  position:relative;
+}
+
+#areaContent .formular ul.group li
+{
+  border-bottom:0px solid #ddd;
+  height:2.3em;
+}
+
+#areaContent .documentList .formular ul.group li
+{
+  height:auto;
+}
+
+#areaContent .formular ul.group li.textarea
+{
+  width:62.8em;
+  height:20em;
+  position:relative;
+}
+#areaContent .formular ul.group li textarea
+{
+  width:28.9em;
+  height:13.6em;
+  border:1px solid #809EBA;
+  font-size:1.4em;
+}
+#areaContent .formular ul.group li input.upload
+{
+  width:20em;
+  border:1px solid #809EBA;
+}
+#areaContent .formular ul.group li.btnList
+{
+  margin-left:10.8em;
+  margin-top:1em;
+}
+.usp_OneColumn #areaContent .formular ul.group li.btnList
+{
+  margin-left:19.6em;
+}
+.usp_OneColumn #areaContent .formular ul.group li
+{
+  width:62.8em;
+  height:auto;
+}
+
+
+#areaContent .formular ul.group li li
+{
+  width:31em;
+  width:40.7em;
+  border:none;
+  position:relative;
+}
+
+#areaContent .formular ul.group li li.xxlSize
+{
+  width:100%;
+}
+
+
+#areaContent .formular ul.group li ul li.level2
+{
+  left:30.2em;
+  left:40.7em;
+  margin-left:11px;
+  position:absolute;
+  z-index:100;
+  top:0;
+}
+
+#areaContent .formular ul.group li label
+{
+  width:9.8em;
+  clear:left;
+}
+
+.usp_OneColumn #areaContent .formular ul.group li ul li.level2
+{
+  left:0em;
+  margin-left:0px;
+  position:static;
+  top:0;
+}
+.usp_OneColumn #areaContent .formular ul.group li li
+{
+  width:100%;
+}
+
+.usp_OneColumn #areaContent .formular ul.group li ul li.inline
+{
+  margin-left:42.03em;
+  position:absolute;
+}
+.usp_OneColumn #areaContent .formular ul.group li label
+{
+  width:17.8em;
+}
+
+.usp_OneColumn #areaContent .formular ul.group li .clientCtrl
+{
+  left:14px;
+}
+
+.usp_OneColumn #areaContent .formular ul.group li input,
+.usp_OneColumn #areaContent .formular ul.group li .text,
+.usp_OneColumn #areaContent .formular ul.group li textarea
+{
+  margin-left:15px;
+}
+
+.usp_OneColumn #areaContent .formular ul.group li .clientCtrl input
+{
+  margin-left:0px;
+}
+
+.usp_OneColumn #areaContent .formular ul.group li .comboBox.leftSpinner input,
+.usp_OneColumn #areaContent .formular ul.group li .calendar.leftSpinner input
+{
+  margin-left:-15px;
+  padding-right:14px;
+}
+
+#areaContent .formular ul.group li label.invalid
+{
+  color:#9A0C39;
+}
+
+#areaContent .formular
+{
+  background-color: transparent;
+  padding: 0.6em 0;
+  margin-bottom:1em;
+}
+
+#areaContent .formular table,
+#areaContent table.formular
+{
+  width:100%;
+  border-collapse:collapse;
+}
+
+
+body.DlgBgrnd #areaContent ul.formular
+{
+  border:none;
+}
+
+#areaContent .formular p.legend
+{
+  margin-top: 0.3em;
+  margin-left: 20.5em;
+}
+#areaContent .formular li label
+{
+  width:20em;
+  text-align:right;
+  text-align:left;
+  display:block;
+  float:left;
+  font-size:1.1em;
+}
+
+.formular input.countryPhonePrefix
+{
+  border:1px solid #809EBA;
+  width:2em !important;
+}
+.formular input.cityPhonePrefix
+{
+  width:4.7em !important;
+  border:1px solid #809EBA;
+}
+.formular select.half,
+.formular input.half
+{
+  border:1px solid #809EBA;
+  width:6.7em !important;
+}
+.formular select.short,
+.formular input.short
+{
+  border:1px solid #809EBA;
+  width:6.1em !important;
+}
+.formular select.xsSize,
+.formular input.xsSize
+{
+  border:1px solid #809EBA;
+  width:4.1em !important;
+}
+.formular select.xxsSize,
+.formular input.xxsSize
+{
+  border:1px solid #809EBA;
+  width:2.8em !important;
+}
+.formular input.short.calendar
+{
+  width:5.1em !important;
+}
+.formular select.longSize,
+.formular input.longSize
+{
+  border:1px solid #809EBA;
+  width:21.6em !important;
+}
+.formular select.xlSize,
+.formular input.xlSize
+{
+  width:29.1em !important;
+}
+.formular select.xxlSize,
+.formular input.xxlSize
+{
+  border:1px solid #809EBA;
+  width:36.4em !important;
+}
+.formular .phonePlus
+{
+  margin-left:-0.8em;
+}
+
+#areaContent .formular select
+{
+  border:1px solid #809EBA;
+  width:14em;
+}
+
+#areaContent .formular input,
+.formular input.alpha,
+.formular input.numeric,
+.formular input.phone,
+.formular input.fax,
+.formular input.mobil,
+.formular input.email,
+.formular input.street,
+.formular input.alphaNumeric,
+.formular input.comboBox,
+.formular input.calendar,
+.formular input.spinnerCtrl,
+.formular input.prNumber
+{
+  border:1px solid #809EBA;
+  font-size:1em;
+}
+
+#areaContent .formular ul li.multiLine input.min_4
+{
+  width:3em !important;
+}
+
+#areaContent .formular ul li.multiLine
+{
+  white-space:nowrap;
+
+}
+#areaContent .formular ul li.multiLine input.min_4
+{
+  margin:0px;
+  padding:0px;
+  margin-right:3px;
+}
+
+#areaContent .formular li input.invalid
+{
+  border:1px solid #EBCED7;
+}
+
+#areaContent .formular li input.radio
+{
+  width:auto;
+  border:none;
+}
+
+#areaContent .formular li h2
+{
+  color:#004963;
+  margin-bottom:1em;
+}
+
+fieldset.formular legend
+{
+  background-color: transparent;
+  position: absolute;
+  right:1em;
+  top:-.8em;
+}
+
+body.DlgBgrnd fieldset.formular legend
+{
+  background-color: #ddd;
+}
+
+body.DlgBgrnd fieldset.formular,
+body.DlgBgrnd fieldset.formular ul
+{
+  background-color: #eed !important;
+}
+
+ul.linkList
+{
+  margin-left:2em;
+}
+
+/* ============= special ============= */
+#areaContent .formular li .quota label
+{
+  display:inline;
+  float:none;
+}
+#areaContent .formular li .quota label span
+{
+  white-space:nowrap;
+}

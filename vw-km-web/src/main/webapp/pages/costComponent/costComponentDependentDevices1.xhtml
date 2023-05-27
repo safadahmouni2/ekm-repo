@@ -1,0 +1,153 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+			<td>
+			<table width="771" border="0" cellspacing="0" cellpadding="0">
+				<h:panelGroup layout="block" rendered="#{costComponentBean.dto.noComponentElements}">
+					<tr>
+						<td height="17" colspan="3">
+						<center><strong><h:outputText value="#{msgs['costcomponent.componentElement.empty']}" /></strong></center>
+						</td>
+					</tr>
+				</h:panelGroup>
+				<h:panelGroup layout="block" rendered="#{!costComponentBean.dto.noComponentElements}">
+					<tr>
+						<td width="49%" height="17"><strong><h:outputText
+							value="#{msgs['costcomponent.componentElement.associateCostElement.msge']}" /></strong></td>
+						<td width="2%"></td>
+						<td width="49%"></td>
+					</tr>
+					<tr>
+						<td height="17" colspan="3"><h:panelGroup layout="block" styleClass="mc">
+							<h:dataTable width="100%" border="0" cellpadding="0" cellspacing="0"
+								value="#{costComponentBean.dto.componentVersion.availableComponentElementList}" var="componentElement"
+								style="margin: 0px;" binding="#{costComponentBean.componentElementTable1}"
+								styleClass="iceDatTbl"
+				                rowClasses="iceDatTblRow1,iceDatTblRow2"
+				                columnClasses="iceDatTblCol1 cc-componentElementDatTbCol1,iceDatTblCol2,iceDatTblCol1 cc-componentElementDatTbCol3,iceDatTblCol2 cc-componentElementDatTbCol4,iceDatTblCol1 cc-componentElementDatTbCol5"
+								>
+								<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+								 <h:panelGroup layout="block"  id="cntx1">
+									<h:outputText value="#{componentElement.elementVersion.element.elementNumber}" 
+									rendered="#{!componentElement.elementVersion.element.inactive}"/>
+									<h:outputText value="#{componentElement.elementVersion.element.elementNumber}" styleClass="iceOutTxtGray"
+									rendered="#{componentElement.elementVersion.element.inactive}"/>
+								</h:panelGroup>										
+									<f:facet name="header">
+										 <h:outputText value="#{msgs['costcomponent.componentElement.list.elementNumber']}" />
+                                     </f:facet>
+ 								<ace:contextMenu id="reorderComponentElement" for="cntx1"
+									style="z-index: 5000;position:fixed; top: 10px;left: -50px;" 
+									rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-TOP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortTop']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+				                     	<f:param name="sort_parameter" value="TOP" />
+				                    </ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-UP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortUp']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+										<f:param name="sort_parameter" value="UP" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-DOWN" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortDown']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+										<f:param name="sort_parameter" value="DOWN" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-BOTTOM" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortBottom']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+										<f:param name="sort_parameter" value="BOTTOM" />
+									</ace:menuItem>	
+								</ace:contextMenu>   
+								</h:column>
+                                <h:column headerClass="iceDatTblColHdr tabIce_left">
+                                      <f:facet name="header">
+                                        <h:outputText value="#{msgs['costcomponent.componentElement.list.designation']}" />
+                                    </f:facet>
+                                    <h:panelGroup layout="block"  id="cntx2">
+                                    <h:outputText value="#{componentElement.elementVersion.element.designation}" rendered="#{!componentElement.elementVersion.element.inactive}"/>
+                                    </h:panelGroup>
+                                    <h:outputText value="#{componentElement.elementVersion.element.designation}" styleClass="iceOutTxtGray"
+                                    rendered="#{componentElement.elementVersion.element.inactive}"/>
+                                    
+                                <ace:contextMenu id="reorderComponentElement2" for="cntx2"
+									style="z-index: 5000;position:fixed; top: 10px;left: -50px;" 
+									rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-TOP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortTop']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+				                     	<f:param name="sort_parameter" value="TOP" />
+				                    </ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-UP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortUp']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+										<f:param name="sort_parameter" value="UP" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-DOWN" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortDown']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+										<f:param name="sort_parameter" value="DOWN" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-BOTTOM" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortBottom']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab1}">
+										<f:param name="sort_parameter" value="BOTTOM" />
+									</ace:menuItem>	
+								</ace:contextMenu>   
+                                </h:column>
+                            <h:column headerClass="iceDatTblColHdr tabIce_left">
+									<f:facet name="header">
+										<center><h:outputText value="#{msgs['costcomponent.componentElement.list.number']}"
+											styleClass="arbeit" /></center>
+									</f:facet>
+									<center><h:inputText onblur="javascript:validateAnzahlField(this);"
+										value="#{componentElement.number}"
+										valueChangeListener="#{costComponentBean.changedComponentElementNumberValueFromTab1}"
+										styleClass="  RRM" maxlength="4"
+										immediate="true" rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess and !componentElement.elementVersion.element.inactive}">
+									    <f:ajax execute="@this" render="@all"/>
+									</h:inputText>
+									<h:outputText styleClass="spanRRM" value="#{componentElement.number}" rendered="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess or componentElement.elementVersion.element.inactive}"/>
+									</center>
+								</h:column>
+								<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+									<f:facet name="header">
+                                        <h:outputText value="#{msgs['costcomponent.componentElement.list.sum']} [&#8364;]" />
+                                    </f:facet>
+									<h:outputText value="#{componentElement.totalAmount.stringFormatted}" rendered="#{!componentElement.elementVersion.element.inactive}"/>
+                                    <h:outputText value="#{componentElement.totalAmount.stringFormatted}" styleClass="iceOutTxtGray"
+                                    rendered="#{componentElement.elementVersion.element.inactive}"/>									
+								</h:column>
+
+								<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+									<span class="tabInter downTab"> 
+									<h:commandLink
+										actionListener="#{costComponentBean.showElement}"
+										rendered="#{!(componentElement.componentElementId==null)}">
+										<f:param name="element_id" value="#{componentElement.elementVersion.element.elementId}"></f:param>
+										<f:param name="folder_id" value="#{componentElement.elementVersion.element.folder.folderId}"></f:param>
+										<f:param name="element_version_id" value="#{componentElement.elementVersion.elementVersionId}"></f:param>
+										 <f:ajax execute="@this" render="@all" />
+										 <img src="../images/loupe.gif" />
+									</h:commandLink> </span>
+								</h:column>
+							</h:dataTable>
+						</h:panelGroup></td>
+					</tr>
+
+				</h:panelGroup>
+				<tr>
+					<td height="8" colspan="3"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td height="2">
+
+			</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+	  screenResizeInit ();		
+	</script>
+
+</html>

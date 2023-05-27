@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="userManager" class="vwg.vw.km.application.implementation.impl.UserManagerImpl"  factory-method="get">
+		<property name="dao" ref="userDao" />
+	</bean>
+	<bean id="roleManager" class="vwg.vw.km.application.implementation.impl.RoleManagerImpl">
+		<property name="dao" ref="roleDao" />
+	</bean>
+
+	<bean id="elementManager" class="vwg.vw.km.application.implementation.impl.ElementManagerImpl">
+		<property name="dao" ref="elementDao" />
+		<property name="folderManager" ref="folderManager" />
+		<property name="elementVersionManager" ref="elementVersionManager" />
+	</bean>
+	<bean id="elementVersionManager" class="vwg.vw.km.application.implementation.impl.ElementVersionManagerImpl">
+		<property name="dao" ref="elementVersionDao" />
+    <property name="costAttributeManager" ref="costAttributeManager" />
+    <property name="elementValueManager" ref="elementValueManager" />
+		<property name="costAttributeCategoryManager" ref="costAttributeCategoryManager" />
+	</bean>
+	<bean id="costAttributeManager" class="vwg.vw.km.application.implementation.impl.CostAttributeManagerImpl">
+		<property name="dao" ref="costAttributeDao" />
+	</bean>
+	<bean id="workAreaManager" class="vwg.vw.km.application.implementation.impl.WorkAreaManagerImpl">
+		<property name="dao" ref="workAreaDao" />
+	</bean>
+	<bean id="elementValueManager" class="vwg.vw.km.application.implementation.impl.ElementValueManagerImpl">
+		<property name="dao" ref="elementValueDao" />
+	</bean>
+	<bean id="folderManager" class="vwg.vw.km.application.implementation.impl.FolderManagerImpl">
+		<property name="dao" ref="folderDao" />
+	</bean>
+	<bean id="enumStatusManager" class="vwg.vw.km.application.implementation.impl.EnumStatusManagerImpl">
+		<property name="dao" ref="enumStatusDao" />
+	</bean>
+	<bean id="enumObjectTypeManager" class="vwg.vw.km.application.implementation.impl.EnumObjectTypeManagerImpl">
+		<property name="dao" ref="enumObjectTypeDao" />
+	</bean>
+	
+	<bean id="elementCategoryManager" class="vwg.vw.km.application.implementation.impl.ElementCategoryManagerImpl">
+		<property name="dao" ref="elementCategoryDAO" />
+	</bean>
+
+	<bean id="documentPoolManager" class="vwg.vw.km.application.implementation.impl.DocumentPoolManagerImpl">
+		<property name="dao" ref="documentPoolDAO" />
+	</bean>
+
+	<bean id="costAttributeCategoryManager" class="vwg.vw.km.application.implementation.impl.CostAttributeCategoryManagerImpl">
+		<property name="dao" ref="costAttributeCategoryDAO" />
+	</bean>
+	<bean id="hourlyRateManager" class="vwg.vw.km.application.implementation.impl.HourlyRateManagerImpl">
+		<property name="dao" ref="hourlyRateDAO" />
+	</bean>
+	<bean id="componentElementManager" class="vwg.vw.km.application.implementation.impl.ComponentElementManagerImpl">
+		<property name="dao" ref="componentElementDAO" />
+	</bean>
+	
+	<bean id="componentManager" class="vwg.vw.km.application.implementation.impl.ComponentManagerImpl">
+		<property name="dao" ref="componentDAO" />
+		<property name="folderManager" ref="folderManager" />
+		<property name="componentVersionUsersManager" ref="componentVersionUsersManager" />
+		<property name="componentVersionManager" ref="componentVersionManager" />
+	</bean>
+	<bean id="componentValueManager" class="vwg.vw.km.application.implementation.impl.ComponentValueManagerImpl">
+		<property name="dao" ref="componentValueDAO" />
+	</bean>
+	<bean id="componentVersionManager" class="vwg.vw.km.application.implementation.impl.ComponentVersionManagerImpl">
+		<property name="dao" ref="componentVersionDAO" />
+	  	<property name="costAttributeManager" ref="costAttributeManager" />
+	  	<property name="componentValueManager" ref="componentValueManager" />
+		<property name="costAttributeCategoryManager" ref="costAttributeCategoryManager" />
+		<property name="componentElementManager" ref="componentElementManager" />
+		<property name="elementVersionManager" ref="elementVersionManager" />
+		<property name="elementVersionUsersManager" ref="elementVersionUsersManager" />
+	</bean>
+	<bean id="effortContentManager" class="vwg.vw.km.application.implementation.impl.EffortContentManagerImpl">
+		<property name="dao" ref="effortContentDAO" />
+	</bean>
+	<bean id="enumComponentTypeManager" class="vwg.vw.km.application.implementation.impl.EnumComponentTypeManagerImpl">
+		<property name="dao" ref="enumComponentTypeDAO" />
+	</bean>
+	<bean id="hourlyRateCatalogManager" class="vwg.vw.km.application.implementation.impl.HourlyRateCatalogManagerImpl">
+		<property name="dao" ref="hourlyRateCatalogDAO" />
+		<property name="folderManager" ref="folderManager" />
+	</bean>
+	<bean id="enumComponentClassManager" class="vwg.vw.km.application.implementation.impl.EnumComponentClassManagerImpl">
+		<property name="dao" ref="enumComponentClassDAO" />
+	</bean>
+	<bean id="elementVersionChangeManager" class="vwg.vw.km.application.implementation.impl.ElementVersionChangeManagerImpl" factory-method="get">
+		<property name="dao" ref="elementVersionChangeDao" />
+	</bean>
+	<bean id="componentStandChangeManager" class="vwg.vw.km.application.implementation.impl.ComponentStandChangeManagerImpl" factory-method="get">
+		<property name="dao" ref="componentStandChangeDao" />
+		<property name="componentVersionStandManager" ref="componentVersionStandManager" />
+		<property name="componentElementManager" ref="componentElementManager" />
+	</bean>
+	<bean id="brandManager" class="vwg.vw.km.application.implementation.impl.BrandManagerImpl">
+		<property name="dao" ref="brandDao" />
+	</bean>
+	<bean id="libraryManager" class="vwg.vw.km.application.implementation.impl.LibraryManagerImpl">
+		<property name="dao" ref="libraryDao" />
+	</bean>
+	<bean id="elementVersionUsersManager" class="vwg.vw.km.application.implementation.impl.ElementVersionUsersManagerImpl">
+		<property name="dao" ref="elementVersionUsersDao" />
+	</bean>
+	<bean id="componentVersionUsersManager" class="vwg.vw.km.application.implementation.impl.ComponentVersionUsersManagerImpl">
+		<property name="dao" ref="componentVersionUsersDao" />
+	</bean>	
+	<bean id="componentVersionStandManager" class="vwg.vw.km.application.implementation.impl.ComponentVersionStandManagerImpl">
+		<property name="dao" ref="componentVersionStandDao" />
+	</bean>	
+	<bean id="tablesSpaceStatisticManager" class="vwg.vw.km.application.implementation.impl.TablesSpaceStatisticManagerImpl">
+		<property name="dao" ref="tablesSpaceStatisticDao" />
+	</bean>	
+    <bean id="newsManager" class="vwg.vw.km.application.implementation.impl.NewsManagerImpl"  factory-method="get">
+		<property name="dao" ref="newsDao" />
+	</bean>				
+</beans>

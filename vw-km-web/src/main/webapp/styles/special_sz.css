@@ -1,0 +1,255 @@
+.szData table.szTable
+{
+  width:100%;
+  border:1px solid #e4e4e5;
+}
+
+.szData table.szTable td
+{
+	overflow:hidden;
+	border:1px solid #FFF;
+	padding-left: 2px;
+}
+
+.szData table.szTable th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+	padding-left: 2px;
+}
+
+.szData table.szTable thead tr th.col_number {
+	width:25px !important;
+	/*background:green !important;*/
+}
+.szData table.szTable tbody tr td.col_number {
+	width:22px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_number {
+	width:20px !important;
+	visibility: hidden;
+}
+
+.szData table.szTable thead tr th.col_company {
+	width:45px !important;
+}
+.szData table.szTable tbody tr td.col_company {
+	width:44px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_company{
+	width:40px !important;
+}
+
+.szData table.szTable thead tr th.col_orderType {
+	width:30px !important;
+}
+.szData table.szTable tbody tr td.col_orderType {
+	width:30px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_orderType{
+	width:20px !important;
+}
+
+.szData table.szTable thead tr th.col_modelRow {
+	width:95px !important;
+}
+.szData table.szTable tbody tr td.col_modelRow {
+	width:90px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_modelRow{
+	width:85px !important;
+}
+
+.szData table.szTable thead tr th.col_modelYear {
+	width:40px !important;
+}
+.szData table.szTable tbody tr td.col_modelYear {
+	width:40px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_modelYear{
+	width:30px !important;
+}
+
+.szData table.szTable thead tr th.col_commNo {
+	width:50px !important;
+}
+.szData table.szTable tbody tr td.col_commNo {
+	width:50px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_commNo{
+	width:45px !important;
+}
+
+.szData table.szTable thead tr th.col_cp8Days {
+	width:25px !important;
+}
+.szData table.szTable tbody tr td.col_cp8Days {
+	width:25px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_cp8Days{
+	width:20px !important;
+}
+
+.szData table.szTable thead tr th.col_cp8Date {
+	width:65px !important;
+}
+.szData table.szTable tbody tr td.col_cp8Date {
+	width:65px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_cp8Date{
+	width:60px !important;
+}
+
+.szData table.szTable thead tr th.col_statusADays {
+	width:25px !important;
+}
+.szData table.szTable tbody tr td.col_statusADays {
+	width:25px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_statusADays{
+	width:20px !important;
+}
+
+.szData table.szTable thead tr th.col_statusADate {
+	width:65px !important;
+}
+.szData table.szTable tbody tr td.col_statusADate {
+	width:65px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_statusADate{
+	width:60px !important;
+}
+
+.szData table.szTable thead tr th.col_source {
+	width:45px !important;
+}
+.szData table.szTable tbody tr td.col_source {
+	width:45px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_source{
+	width:40px !important;
+}
+
+.szData table.szTable thead tr th.col_vehiclePrice {
+	width:80px !important;
+}
+.szData table.szTable tbody tr td.col_vehiclePrice {
+	width:80px !important;
+	text-align: right !important;
+	padding-right: 10px;
+}
+.szData table.szTable thead tr th input.sz_filter_vehiclePrice{
+	width:70px !important;
+}
+
+.szData table.szTable thead tr th.col_valuta {
+	width:65px !important;
+}
+.szData table.szTable tbody tr td.col_valuta {
+	width:65px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_valuta{
+	width:60px !important;
+}
+
+.szData table.szTable thead tr th.col_inkasso {
+	width:65px !important;
+}
+.szData table.szTable tbody tr td.col_inkasso {
+	width:65px !important;
+}
+.szData table.szTable thead tr th input.sz_filter_inkasso{
+	width:60px !important;
+}
+
+.szData .szBackground_cp8_warning
+{
+  background-color:#f6e5bc; 
+}
+
+.szData .szBackground_cp8_critical
+{
+  background-color:#e0b6c3;
+}
+
+.szData .szBackground_vfw_cp8_warning
+{
+  background-color:#f6e5bc; 
+}
+
+.szData .szBackground_vfw_cp8_critical
+{
+  background-color:#e0b6c3;
+}
+
+.szData .szBackground_statusA_warning
+{
+  background-color:#f6e5bc; 
+}
+
+.szData .szBackground_statusA_critical
+{
+  background-color:#e0b6c3;
+}
+
+.szData .szBackground_vfw_statusA_warning
+{
+  background-color:#f6e5bc; 
+}
+
+.szData .szBackground_vfw_statusA_critical
+{
+  background-color:#e0b6c3;
+}
+
+.szData .szBackground_inkasso
+{
+  background-color:#999999;
+}
+
+.szData a
+{
+	color: #004963 !important;
+	background:transparent url(../images/blank.gif) no-repeat 0 0px !important;
+	padding-left: 0px !important;    
+}
+
+.szData a:hover
+{
+	color: #004963 !important;
+	background:transparent url(../images/blank.gif) no-repeat 0 0px !important;
+	padding-left: 0px !important;  
+}
+
+.szData .error
+{
+	padding:0;
+	color:#9A0C39;
+	border:none;
+}
+
+.szData .tableSzSelection
+{
+	width: 90% !important;
+}
+
+.szData .companyField
+{
+	width: 98px !important;
+	margin-left: 8px;	
+}
+.szData .comboCompany
+{
+	width: 100px !important;
+	margin-left: 8px;	
+}
+.szData .comboRowCount
+{
+	width: 100px !important;
+	margin-left: 8px;		
+}
+
+.szData .scrollX {
+	overflow-x: scroll;
+}

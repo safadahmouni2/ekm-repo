@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<h:head>
+	</h:head>
+	<h:body
+		class="htmlMockup usp_showMenuOnHover usp_contrast lang_de usp_ExtentContentFull ExtentContentFull usp_ExtendSubnav ExtendSubnav usp_headClosed">
+      <h:outputScript name="scripts/head_import_extension.js" target="head" />
+	<h:panelGroup layout="block" id="areaContainer">
+		<h:panelGroup layout="block" id="areaHeader" styleClass="MarBot readyToDrop">
+			<h1><span>VOLKSWAGEN</span></h1>
+			<h2>AKTIENGESELLSCHAFT</h2>
+		</h:panelGroup>
+		<div class="ANMELDATEN"></div>
+		<h:form id="f">
+			<h:panelGroup layout="block" styleClass="login" id="areaContent">
+
+				<div class="esplo"></div>
+				<div class="BGL">
+				<div class="btn">
+				<div class="bgrBTL"></div>
+				<div class="bgrBTC"><h:commandLink action="#{importImageXMLBean.lunchImporter}" >
+					<h:outputText value="Start Import" />
+				</h:commandLink></div>
+				<div class="bgrBTR"></div>
+				</div>
+				</div>
+			</h:panelGroup>
+		</h:form>
+	</h:panelGroup>
+	<h:panelGroup layout="block" id="areaFooter" styleClass="HoverBehaviour">
+		<ul>
+			<li>&#160;</li>
+		</ul>
+	</h:panelGroup>
+		<h:panelGroup id="submitMonitorGroup">
+         <ace:submitMonitor id="submitMonitor"
+              for="f:areaContent" 
+              blockUI="@all"/>
+    </h:panelGroup>
+	<script type="text/javascript" src="scripts/__nowSciptLoader.js"></script>
+	</h:body>
+
+</html>

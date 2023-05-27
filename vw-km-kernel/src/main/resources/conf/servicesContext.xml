@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<!-- transaction interceptor -->
+	<bean id="myTransactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="search*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="copy*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="exportXml">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="assign*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- autoproxy -->
+	<bean id="transactionBeanNameProxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>*TxService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>myTransactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	<!-- transactional service -->
+	<bean id="navigationTxService" class="vwg.vw.km.application.service.logic.NavigationService">
+		<property name="folderManager" ref="folderManager" />
+		<property name="enumObjectTypeManager" ref="enumObjectTypeManager" />
+		<property name="elementService" ref="costElementTxService" />
+		<property name="componentService" ref="costComponentTxService" />
+		<property name="hourlyRateCatalogService" ref="hourlyRateCatalogTxService" />
+	</bean>
+	<bean id="costElementTxService" class="vwg.vw.km.application.service.logic.CostElementService">
+		<property name="elementVersionManager" ref="elementVersionManager" />
+		<property name="elementValueManager" ref="elementValueManager" />
+		<property name="elementManager" ref="elementManager" />
+		<property name="enumStatusManager" ref="enumStatusManager" />
+		<property name="elementCategoryManager" ref="elementCategoryManager" />
+		<property name="documentPoolManager" ref="documentPoolManager" />
+		<property name="folderManager" ref="folderManager" />
+    	<property name="hourlyRateCatalogManager" ref="hourlyRateCatalogManager" />
+    	<property name="componentElementManager" ref="componentElementManager" />
+    	<property name="brandManager" ref="brandManager" />
+    	<property name="elementVersionUsersManager" ref="elementVersionUsersManager" />
+    	<property name="componentVersionManager" ref="componentVersionManager" />
+	</bean>
+
+	<bean id="workAreaTxService" class="vwg.vw.km.application.service.logic.WorkAreaService">
+		<property name="workAreaManager" ref="workAreaManager" />
+		<property name="userManager" ref="userManager" />
+		<property name="hourlyRateCatalogManager" ref="hourlyRateCatalogManager" />
+		<property name="brandManager" ref="brandManager" />
+	</bean>
+	<bean id="userTxService" class="vwg.vw.km.application.service.logic.UserService">
+		<property name="userManager" ref="userManager" />
+		<property name="folderManager" ref="folderManager" />
+		<property name="enumObjectTypeManager" ref="enumObjectTypeManager" />
+		<property name="mailService" ref="mailService" />
+	</bean>
+
+	<bean id="hourlyRateCatalogTxService" class="vwg.vw.km.application.service.logic.HourlyRateCatalogService">
+		<property name="hourlyRateCatalogManager" ref="hourlyRateCatalogManager" />
+		<property name="folderManager" ref="folderManager" />
+		<property name="hourlyRateManager" ref="hourlyRateManager" />
+		<property name="costAttributeManager" ref="costAttributeManager" />
+		<property name="workAreaManager" ref="workAreaManager" />
+		<property name="userManager" ref="userManager" />
+	</bean>
+	<bean id="costComponentTxService" class="vwg.vw.km.application.service.logic.CostComponentService">
+		<property name="componentVersionManager" ref="componentVersionManager" />
+		<property name="componentValueManager" ref="componentValueManager" />
+		<property name="componentManager" ref="componentManager" />
+		<property name="enumStatusManager" ref="enumStatusManager" />
+		<property name="enumComponentTypeManager" ref="enumComponentTypeManager" />
+		<property name="enumComponentClassManager" ref="enumComponentClassManager" />
+		<property name="componentElementManager" ref="componentElementManager" />
+		<property name="documentPoolManager" ref="documentPoolManager" />
+		<property name="folderManager" ref="folderManager" />
+		<property name="elementManager" ref="elementManager" />
+    	<property name="hourlyRateCatalogManager" ref="hourlyRateCatalogManager" />
+    	<property name="brandManager" ref="brandManager" />
+    	<property name="libraryManager" ref="libraryManager" />
+    	<property name="elementVersionUsersManager" ref="elementVersionUsersManager" />
+    	<property name="componentVersionStandManager" ref="componentVersionStandManager" />
+    	<property name="componentVersionUsersManager" ref="componentVersionUsersManager" />
+    	<property name="elementVersionManager" ref="elementVersionManager" />
+    	<property name="workAreaManager" ref="workAreaManager" />
+	</bean>
+	<bean id="userSettingsTxService" class="vwg.vw.km.application.service.logic.UserSettingsService">
+		<property name="userManager" ref="userManager" />
+		<property name="hourlyRateCatalogManager" ref="hourlyRateCatalogManager" />
+		<property name="brandManager" ref="brandManager" />
+		<property name="workAreaManager" ref="workAreaManager" />
+	</bean>
+	<bean id="changeHistoryTxService" class="vwg.vw.km.application.service.logic.ChangeHistoryService">
+		<property name="componentStandChangeManager" ref="componentStandChangeManager" />
+		<property name="elementVersionChangeManager" ref="elementVersionChangeManager" />
+		<property name="elementManager" ref="elementManager"/>
+		<property name="componentManager" ref="componentManager"/>
+		<property name="brandManager" ref="brandManager" />
+		<property name="folderManager" ref="folderManager" />
+	</bean>
+	<bean id="xmlImportTxService" class="vwg.vw.km.application.service.logic.XMLImportService">
+		<property name="folderManager" ref="folderManager" />
+		<property name="enumObjectTypeManager" ref="enumObjectTypeManager" />
+		<property name="componentManager" ref="componentManager" />
+		<property name="costAttributeManager" ref="costAttributeManager" />
+		<property name="enumComponentClassManager" ref="enumComponentClassManager" />
+		<property name="enumComponentTypeManager" ref="enumComponentTypeManager" />
+		<property name="libraryManager" ref="libraryManager" />
+		<property name="brandManager" ref="brandManager" />
+		<property name="componentStandChangeManager" ref="componentStandChangeManager" />
+		<property name="componentVersionManager" ref="componentVersionManager" />
+		<property name="componentValueManager" ref="componentValueManager" />
+		<property name="enumStatusManager" ref="enumStatusManager" />
+		<property name="componentVersionStandManager" ref="componentVersionStandManager" />
+
+	</bean>	
+	
+	<bean id="statisticTxService" class="vwg.vw.km.application.service.logic.StatisticService">
+		<property name="tablesSpaceStatisticManager" ref="tablesSpaceStatisticManager" />
+		<property name="elementManager" ref="elementManager" />
+		<property name="componentManager" ref="componentManager" />
+		<property name="elementVersionManager" ref="elementVersionManager" />
+		<property name="componentVersionManager" ref="componentVersionManager" />
+		<property name="componentElementManager" ref="componentElementManager" />
+	</bean>
+	<!-- not transactional service -->
+	
+	<bean id="newsTxService" class="vwg.vw.km.application.service.logic.NewsService">
+		<property name="newsManager" ref="newsManager" />
+	</bean>
+
+	<!-- Email to Notify that the user has been deactivate -->
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!--Namen vom SMTP Server -->
+		<property name="host" value="${prop.application.mail.server}" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="username" value="${prop.application.mail.user}" />
+		<property name="password" value="${prop.application.mail.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">${prop.application.mail.authentification}</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.ssl.trust">${prop.application.mail.server}</prop>
+				<prop key="mail.debug">${prop.application.mail.debug}</prop>
+			</props>
+		</property>
+	</bean>	
+	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
+	     <property name="from" value="${prop.application.mail.from}" />
+	</bean>
+    <bean id="mailService" class="vwg.vw.km.application.service.logic.MailServiceImpl">
+		<property name="mailSender" ref="mailSender" />
+		<property name="templateMessage" ref="templateMessage"/>
+		<property name="reactivationURL" value="${prop.application.mail.reactivationURL}"/>
+		<property name="loginURL" value="${prop.application.mail.loginURL}"/>
+	</bean>
+
+</beans>

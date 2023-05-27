@@ -1,0 +1,5 @@
+INSERT INTO T_MARKE( ID, NUTZUNG_IMG,BESITZUNG_IMG,NUTZUNG_INAKTIV_IMG) VALUES ('K','kn.jpg','kb.jpg','nutzer_inactiv_k.jpg');
+
+INSERT INTO T_BIBLIOTHEK (ID,NAME, COLOR, MARKE_REF_ID) VALUES (3,'Komponenten_KAL K','kk.gif','K'); 
+
+COMMIT;

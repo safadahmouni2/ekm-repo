@@ -1,0 +1,15 @@
+#devDbgWin h4 span.counter
+{
+  color:#ff0;
+  font-weight:bold;
+
+}
+
+/* ========== */
+/* Audi-Style */
+/* ========== */
+.usp_style_Audi #devDbgWin h4
+{
+  background-color:#B5BBAD;
+  border-bottom:1px solid #000;
+}

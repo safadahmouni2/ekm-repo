@@ -1,0 +1,73 @@
+body.usp_adminEditLanguageText div.usp_DealerControl
+{
+  background-color:#eec;
+}
+
+body.usp_adminEditLanguageText div.usp_DealerControl label
+{
+  cursor:text;
+}
+body.usp_adminEditLanguageText div.usp_DealerControl label:hover
+{
+  text-decoration:underline;
+}
+
+form.inplaceeditor-form
+{
+  position:absolute;
+}
+
+.positionRelative
+{
+  position:relative;
+}
+
+div.usp_InplaceWindow
+{
+  position:absolute!important;
+  border:none;
+  width:auto;
+  background-color:transparent;
+}
+div.usp_InplaceWindow .body
+{
+  width:auto;
+  padding:4px;
+  position:relative;
+  top:-5px;
+  left:-5px;
+}
+
+div.usp_InplaceWindow .body .content a.button,
+div.usp_InplaceWindow .body .content input
+{
+  background-color:#fff;
+}
+div.usp_InplaceWindow .body a.abort
+{
+  text-decoration:underline;
+  margin-left:12px;
+}
+div.usp_InplaceWindow .body span.buttons
+{
+  background-color:#fff;
+  margin-left:12px;
+  padding:4px;
+}
+div.usp_InplaceWindow .body a.button
+{
+  margin-left:4px;
+  background-image:none;
+  padding:0 4px!important;
+  border:1px solid #000!important;
+}
+div.usp_InplaceWindow h4
+{
+  display:none;
+}
+
+div.usp_InplaceWindow .body .content label,
+div.usp_InplaceWindow .foot
+{
+  display:none;
+}

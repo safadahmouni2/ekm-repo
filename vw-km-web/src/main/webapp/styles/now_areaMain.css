@@ -1,0 +1,15 @@
+#areaMain
+{
+  margin-top:18px;
+  position:relative;
+}
+
+.usp_collapseMenu #areaMain
+{
+  margin-top:3em;
+}
+.usp_headClosed #areaMain
+{
+  margin-top:112px;
+}
+

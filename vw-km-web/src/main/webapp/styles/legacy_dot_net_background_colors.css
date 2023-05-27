@@ -1,0 +1,98 @@
+
+.CLR_ODD 
+{
+  background-color:#F6F6F6;
+}
+.CLR_EVEN 
+{
+  background-color:#EFEFEF;
+}
+.CLR_HILITE,
+.COLSELECTED
+{
+  background-color:#CCCCCC;
+}
+.COLNOREQ 
+{
+  background-color:#FFFFFF;
+}
+.COLREQU
+{
+  background-color:#FFEBCC;
+}
+.CLR_READONLY
+{
+  background-color:#EFEFEF;
+}
+
+.COLEVEN
+{
+  background-color:#F6F6F6;
+}
+.COLODD
+{
+  background-color:#EFEFEF;
+}
+
+.COLHEAD,
+.COLPRODD
+{
+  background-color:#EFEFEF;
+}
+
+.COLPREVEN
+{
+  background-color:#F6F6F6;
+}
+
+.CLR_NOCOLOR
+{
+  background-color:#FFFFFF;
+}
+
+.CLR_EVA_EXCLUDE_SELECTED
+{
+  background-color:#BC8C8C;
+}
+.CLR_EVA_EXCLUDE
+{
+  background-color:#DCACAC;
+}
+.CLR_EVA_INCLUDE_SELECTED
+{
+  background-color:#ADC2EB;
+}
+.CLR_EVA_INCLUDE
+{
+  background-color:#D6E0F5;
+}
+.CLR_INT_INCLUDE_SELECTED
+{
+  background-color:#FFADAD;
+}
+.CLR_INT_INCLUDE
+{
+  background-color:#FFCCCC;
+}
+.CLR_SELECTED
+{
+  background-color:#CCCCCC;
+}
+
+.Color_Selected
+{
+  background-color:#CCCCCC;
+}
+.Color_Even
+{
+  background-color:#F6F6F6;
+}
+.Color_Odd
+{
+  background-color:#EFEFEF;
+}
+
+.colorZebraBlue
+{
+	background-color:#C4DCE8;
+}

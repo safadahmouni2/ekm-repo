@@ -1,0 +1,56 @@
+
+#areaContent .formular ul.group li.htmlSource li
+{
+  width:auto !important;
+}
+
+.htmlSource li
+{
+  background-color:#111;
+  border:1px solid #666;
+  overflow:auto;
+  padding-left:12px;
+}
+
+pre
+{
+  background-color:#111;
+}
+
+
+.usp_contrast .htmlSource code
+{
+  color:#bbb;
+}
+#areaContent .formular ul.group .htmlSource ul li,
+#areaContent .formular ul.group .htmlSource,
+.htmlSource
+{
+  height:auto;
+}
+
+.htmlSource code strong
+{
+  color:#ee0;
+}
+.htmlSource code em
+{
+  color:#0f0;
+}
+.htmlSource code span
+{
+  color:#fff;
+}
+.htmlSource code em strong
+{
+  color:#f00;
+}
+.htmlSource code strong em
+{
+  color:#e0e;
+}
+
+#areaContent .formular ul li.section
+{
+  margin-top:2em;
+}

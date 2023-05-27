@@ -1,0 +1,49 @@
+<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+
+	<id>zipball</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+
+	<fileSets>
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<outputDirectory></outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<filtered>true</filtered>
+			<includes>
+				<include>*.txt</include>
+			</includes>
+		</fileSet>
+
+		<fileSet>
+			<directory>src/main/resources/sql</directory>
+			<outputDirectory>src/database</outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<filtered>true</filtered>
+		</fileSet>
+		<fileSet>
+			<directory>./../vw-km-kernel/src/main/resources/templates/excel</directory>
+			<outputDirectory>templates/excel</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>./../vw-km-kernel/src/main/resources/templates/xml</directory>
+			<outputDirectory>templates/xml</outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<filtered>true</filtered>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<includes>
+				<include>*:ear</include>
+			</includes>
+			<outputFileNameMapping>${artifact.build.finalName}.${artifact.extension}</outputFileNameMapping>
+			<outputDirectory>application/build/dist</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+
+</assembly>

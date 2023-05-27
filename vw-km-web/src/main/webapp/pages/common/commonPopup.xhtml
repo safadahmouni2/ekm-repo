@@ -1,0 +1,234 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ace="http://www.icefaces.org/icefaces/components" 
+	xmlns:icecore="http://www.icefaces.org/icefaces/core" 
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ace:dialog id="confirmDeletePopUp" rendered="#{navigationTree.showDeleteConfirm}"
+	visible="#{navigationTree.showDeleteConfirm}" draggable="false" showHeader="false" resizable="false" modal="true"
+	onShow="SetFocus($('cdltForm:accept_delete_button'))">
+	<h:form id="cdltForm">
+		<div class="popup">
+		<div class="top">
+		<div class="TopLeft"><img src="../images/popup/popup_01.gif" width="17" height="40" /></div>
+		<div class="TopCenter">
+		<div class="PopTit">#{msgs['common.popup.title.confirmDelete']}</div>
+		<div class="Popclose">
+		<h:commandLink  id="cdlt_close" actionListener="#{navigationTree.closeConfirmDeletePopup}">
+		   <img src="../images/popup/close.gif" width="49" height="20" />
+			 <f:ajax execute="@this" render="@all" />
+		</h:commandLink></div>
+		</div>
+		<div class="TopRight"><img src="../images/popup/popup_03.gif" width="20" height="40" /></div>
+		</div>
+		<div class="middle">
+		<div class="MiddleLeft">
+		<div class="ML_Top"><img src="../images/popup/popup_04.gif" width="17" height="37" /></div>
+		<div class="ML_Bottom"></div>
+		</div>
+		<div class="MiddleCenter">
+		<div class="MC_Left"><img src="../images/popup/icone_help.gif" /></div>
+		<div class="MC_Center"></div>
+		<div class="MC_Right">
+		<div class="MCR_Para"><h:outputText value="#{navigationTree.deleteMessage}" /></div>
+		<div class="MCR_Espace"></div>
+		<div class="MCR_Titre">&#160;</div>
+		<div class="MCR_Espace"></div>
+		<div class="N_MCR_Btn">
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink  actionListener="#{navigationTree.closeConfirmDeletePopup}"
+			id="cancel_delete_button" 
+			tabindex="2" 
+			value="#{msgs['common.message.saveChanges.cancel']}" 
+			onblur=";document.getElementById('cdltForm:accept_delete_button').focus();">
+			</h:commandLink ></div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		&#160;</div>
+		<div class="SRight">&#160;</div>
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink id="accept_delete_button"
+			actionListener="#{navigationTree.acceptDeleteClicked}" tabindex="1" value="#{msgs['common.message.saveChanges.yes']}">
+			<f:ajax render="@all" execute="@all" />
+			</h:commandLink>
+        </div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		</div>
+		<div class="SRight">&#160;</div>
+		</div>
+		</div>
+		</div>
+		<div class="MiddleRight">
+		<div class="MR_Top"><img src="../images/popup/popup_06.gif" width="20" height="37" /></div>
+		<div class="MR_Bottom"></div>
+		</div>
+		</div>
+		<div class="bottom">
+		<div class="BottomLeft"><img src="../images/popup/popup_10.gif" width="17" height="16" /></div>
+		<div class="BottomCenter"><img src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+		<div class="BottomRight"><img src="../images/popup/popup_12.gif" width="20" height="16" /></div>
+		</div>
+		</div>
+	</h:form>
+</ace:dialog>
+
+<ace:dialog id="errorPopUp" visible="#{navigationTree.showError}"
+	draggable="false" showHeader="false" resizable="false" modal="true"
+	onShow="SetFocus($('errForm:accept_error_button'))">
+	<h:form id="errForm">
+		<div class="popup">
+		<div class="top">
+		<div class="TopLeft"><img src="../images/popup/popup_01.gif" width="17" height="40" /></div>
+		<div class="TopCenter">
+		<div class="PopTit">#{msgs['common.popup.title.error']}</div>
+		<div class="Popclose">
+		<h:commandLink  id="err_close" actionListener="#{navigationTree.closeErrorPopup}">
+		  <f:ajax execute="@this" render="@all" />
+		  <img src="../images/popup/close.gif" width="49" height="20"/>
+		</h:commandLink ></div>
+		</div>
+		<div class="TopRight"><img src="../images/popup/popup_03.gif" width="20" height="40" /></div>
+		</div>
+		<div class="middle">
+		<div class="MiddleLeft">
+		<div class="ML_Top"><img src="../images/popup/popup_04.gif" width="17" height="37" /></div>
+		<div class="ML_Bottom"></div>
+		</div>
+		<div class="MiddleCenter">
+		<div class="MC_Left"><img src="../images/popup/erreur_icone.gif" width="32" height="32" /></div>
+
+		<div class="MC_Right">
+		<div class="MCR_Para_Err"><h:outputText value="#{navigationTree.errorMessage}" escape="false" /></div>
+	
+		<div class="N_MCR_Btn">
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC">
+		<h:commandLink id="accept_error_button" actionListener="#{navigationTree.closeErrorPopup}">
+			<div class="fontBtne">#{msgs['common.ok.button']}</div>
+			<f:ajax render="@all" execute="@all" />
+		</h:commandLink>
+		</div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		&#160;</div>
+		<div class="SRight">&#160;</div>
+		</div>	
+		
+		
+		</div>
+		</div>
+		<div class="MiddleRight">
+		<div class="MR_Top"><img src="../images/popup/popup_06.gif" width="20" height="37" /></div>
+		<div class="MR_Bottom"></div>
+		</div>
+		</div>
+		<div class="bottom">
+		<div class="BottomLeft"><img src="../images/popup/popup_10.gif" width="17" height="16" /></div>
+		<div class="BottomCenter"><img src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+		<div class="BottomRight"><img src="../images/popup/popup_12.gif" width="20" height="16" /></div>
+		</div>
+		</div>
+	</h:form>
+</ace:dialog>
+
+<ace:dialog id="confirmAddFolderPopUp" rendered="#{navigationTree.showAddFolderConfirm}"
+	visible="#{navigationTree.showAddFolderConfirm}" draggable="false" showHeader="false" resizable="false" modal="true"
+	onShow="SetFocus($('cnfAddFForm:accept_add_button'))">
+	<h:form id="cnfAddFForm">
+		<div class="popup">
+		<div class="top">
+		<div class="TopLeft"><img src="../images/popup/popup_01.gif" width="17" height="40" /></div>
+		<div class="TopCenter">
+		<div class="PopTit">Achtung</div>
+		<div class="Popclose">
+		 
+		<h:commandLink  id="conf_close"
+			actionListener="#{navigationTree.closeConfirmAddFolderPopup}">
+			<f:ajax execute="@this" render="@all" />
+			<img src="../images/popup/close.gif" width="49" height="20"/>
+		</h:commandLink></div>
+		</div>
+		<div class="TopRight"><img src="../images/popup/popup_03.gif" width="20" height="40" /></div>
+		</div>
+		<div class="middle">
+		<div class="MiddleLeft">
+		<div class="ML_Top"><img src="../images/popup/popup_04.gif" width="17" height="37" /></div>
+		<div class="ML_Bottom"></div>
+		</div>
+		<div class="MiddleCenter">
+		<div class="MC_Left"><img src="../images/popup/icone_help.gif" /></div>
+		<div class="MC_Center"></div>
+		<div class="MC_Right">
+		<div class="MCR_Para"><h:outputText value="#{msgs['common.message.addFolderConfirmMessage']}" /></div>
+		<div class="MCR_Espace"></div>
+		<div class="MCR_Titre">&#160;</div>
+		<div class="MCR_Espace"></div>
+		<div class="N_MCR_Btn">
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink value="#{msgs['common.message.saveChanges.cancel']}"
+			actionListener="#{navigationTree.closeConfirmAddFolderPopup}" id="cancel_add_button" tabindex="2"
+			onblur=";document.getElementById('cnfAddFForm:accept_add_button').focus();">
+			<f:ajax render="@all" execute="@all" />
+				</h:commandLink></div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		&#160;</div>
+		<div class="SRight">&#160;</div>
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink id="accept_add_button" value="#{msgs['common.message.saveChanges.yes']}"
+			actionListener="#{navigationTree.acceptAddFolderClicked}" tabindex="1">
+			<f:ajax render="@all" execute="@all" />
+			</h:commandLink></div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		</div>
+		<div class="SRight">&#160;</div>
+		</div>	
+		</div>
+		</div>
+		<div class="MiddleRight">
+		<div class="MR_Top"><img src="../images/popup/popup_06.gif" width="20" height="37" /></div>
+		<div class="MR_Bottom"></div>
+		</div>
+		</div>
+		<div class="bottom">
+		<div class="BottomLeft"><img src="../images/popup/popup_10.gif" width="17" height="16" /></div>
+		<div class="BottomCenter"><img src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+		<div class="BottomRight"><img src="../images/popup/popup_12.gif" width="20" height="16" /></div>
+		</div>
+		</div>
+	</h:form>
+</ace:dialog>
+
+	<ace:dialog id="privacyPopup" rendered="#{navigationTree.showPrivacyMessage}"
+		visible="#{navigationTree.showPrivacyMessage}" draggable="false" showHeader="false" resizable="false"
+		modal="true"  >
+		<h:panelGroup layout="block"  styleClass="privacy-ld" id="privacyLd" style="width: 100%; overflow-y:auto; overflow-x:hidden">
+		 <h:form id="fprivacyForm" styleClass="icePnlPop" >
+
+
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody2">
+			<div class="popup-container">
+				<h2 class="iceOutTxt popupHeaderText">Bitte best&#228;tigen Sie den folgenden Hinweis zum Datenschutz</h2>
+
+				 <p class="iceOutTxt popupBodyText">
+				Ich habe die <h:outputLink value="../resources/Datenschutzerklaerung_eKM.pdf" target="_blank">Datenschutzerkl&#228;rung</h:outputLink> gelesen und willige ein, dass die genannten Daten von eKM 
+				entsprechend der Beschreibung verwendet werden d&#252;rfen.				
+				</p>	
+
+
+				<h:panelGrid columns="3">
+	
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn" value="Ok"
+						actionListener="#{navigationTree.closePrivacyMessage}">
+					   <f:ajax execute="@form" render="@all" />	
+					</h:commandButton>	
+				</h:panelGrid>
+				</div>
+			</h:panelGroup>
+		</h:form>
+		</h:panelGroup>
+	</ace:dialog>
+</html>

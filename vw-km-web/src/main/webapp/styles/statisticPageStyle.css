@@ -1,0 +1,8 @@
+html{
+ overflow-y: scroll !important;
+ overflow-x: auto !important;
+ }
+ 
+table{
+ border-collapse: inherit !important;
+ }

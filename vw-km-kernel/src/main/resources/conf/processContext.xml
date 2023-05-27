@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<!-- the scheduler factory is what does the work to setup the triggers -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="schedulingJob" />
+				<ref bean="anonomyzeUsersJob" />
+				<ref bean="deactivateUsersJob" />
+			</list>
+		</property>
+	</bean>
+	<!--
+		costElementTxServiceJob defines a bean that points to costElementTxService and says to call its saveInUseStatus()
+		method when the trigger is fired
+	-->
+	<bean id="schedulingTxService" class="vwg.vw.km.application.service.logic.SchedulingService">
+		<property name="elementVersionManager" ref="elementVersionManager" />
+		<property name="enumStatusManager" ref="enumStatusManager" />
+    	<property name="componentElementManager" ref="componentElementManager" />
+    	<property name="componentVersionManager" ref="componentVersionManager" />
+    	<property name="componentVersionStandManager" ref="componentVersionStandManager" />
+    	<property name="elementVersionUsersManager" ref="elementVersionUsersManager" />
+    	<property name="componentVersionUsersManager" ref="componentVersionUsersManager" />
+    	<property name="userManager" ref="userManager" />
+    	<property name="mailService" ref="mailService"/>
+	</bean>
+	
+	<bean id="schedulingTxServiceJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="schedulingTxService" />
+		<property name="targetMethod" value="saveInUseStatus" />
+	</bean>
+
+	<!-- here's where we use the Cron like scheduling expression to define when the bean is run. -->
+	<bean id="schedulingJob" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="schedulingTxServiceJobDetail" />
+		<!-- run every 5 minutes -->
+		<property name="cronExpression" ref="elementCronExpression"/>
+	</bean>
+	
+	<bean id="anonomyzeUsersTxServiceJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="schedulingTxService" />
+		<property name="targetMethod" value="saveAnonomyzedUsers" />
+	</bean>
+	<bean id="anonomyzeUsersJob" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="anonomyzeUsersTxServiceJobDetail" />
+		<!-- run every 5 minutes -->
+		<property name="cronExpression" ref="userCronExpression"/>
+	</bean>
+
+    <!-- Job to deactivate user which has the last date Login more than 3 months -->
+    
+	<bean id="deactivateUsersTxServiceJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="schedulingTxService" />
+		<property name="targetMethod" value="saveDeactivateUsers" />
+	</bean>
+	<bean id="deactivateUsersJob" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="deactivateUsersTxServiceJobDetail" />
+		<!-- run every 5 minutes -->
+		<property name="cronExpression" ref="deactivUserCronExpression"/>
+	</bean>	
+
+</beans>

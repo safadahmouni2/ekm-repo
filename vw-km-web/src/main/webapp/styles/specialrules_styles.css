@@ -1,0 +1,36 @@
+table.rules td.lightgreen {
+	background-color: #BEC79B;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+table.rules td.green {
+	background-color: #879632;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+table.rules td.orange 
+{
+	background-color: #F6E5BC;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+table.rules tr td.block_0,
+table.rules tr td.block_1,
+table.rules tr td.block_2,
+table.rules tr td.block_3,
+table.rules tr td.block_4 
+{
+	width:3em;
+}
+table.rules tr td.rule_description 
+{
+	width:25em;
+}
+table.rules tr td.rule_id 
+{
+	padding-left:12px;
+	width:8em;
+}
+

@@ -1,0 +1,243 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>vwg.vw.km</groupId>
+		<artifactId>vw-km-parent</artifactId>
+		<version>3-2-1-8</version>
+	</parent>
+	<artifactId>vw-km-kernel</artifactId>
+
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>**/*.xls</exclude>
+					<exclude>**/*.xlsx</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.xls</include>
+					<include>**/*.xlsx</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+	<dependencies>
+		<!-- log4j -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+		</dependency>
+		<!-- springframework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
+		<!-- ORACLE JDBC driver -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>${ojdbc-version}</version>
+		</dependency>
+
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-ehcache</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+		<dependency>
+		    <groupId>net.sf.ehcache</groupId>
+		    <artifactId>ehcache</artifactId>
+		    <version>2.10.6</version>
+		</dependency>		
+		<!-- poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>dom4j</groupId>
+					<artifactId>dom4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.activation</groupId>
+					<artifactId>activation</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<!-- commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<prop.application.db.driver>oracle.jdbc.driver.OracleDriver</prop.application.db.driver>
+				<prop.application.db.url>jdbc:oracle:thin:@192.168.0.123:1521:degussadb</prop.application.db.url>
+				<prop.application.db.system_user>EKM_DEV</prop.application.db.system_user>
+				<prop.application.db.system_pwd>EKM_DEV</prop.application.db.system_pwd>
+				<prop.application.db.connectionpool.min_size>10</prop.application.db.connectionpool.min_size>
+				<prop.application.db.connectionpool.max_size>100</prop.application.db.connectionpool.max_size>
+				<prop.application.db.connectionpool.max_statement>0</prop.application.db.connectionpool.max_statement>
+				<prop.application.db.hibernate.show_sql>false</prop.application.db.hibernate.show_sql>
+
+				<prop.application.xml.xml_path>E:\projects\VW\import</prop.application.xml.xml_path>
+
+				<prop.application.batch.element>0 0/15 13-14 * * ?</prop.application.batch.element>
+				<prop.application.batch.component>0 0/15 13-14 * * ?</prop.application.batch.component>
+				<prop.application.batch.user>0 0/5 * * * ?</prop.application.batch.user>
+				<prop.application.batch.deactivUser>0 0/7 * * * ?</prop.application.batch.deactivUser>
+
+				<prop.application.mail.server>ttmx01.thinktank.de</prop.application.mail.server>
+				<prop.application.mail.authentification>false</prop.application.mail.authentification>
+				<prop.application.mail.user>smtpuser</prop.application.mail.user>
+				<prop.application.mail.password>smtppassword</prop.application.mail.password>
+				<prop.application.mail.from>info@thinktank-tunisie.com</prop.application.mail.from>
+				<!-- desc= true : display debug infos in standard output -->
+				<prop.application.mail.debug>true</prop.application.mail.debug>
+				<prop.application.mail.reactivationURL>http://localhost:8080/process_designer/pages/reactivationPage.jsf?activationCode=</prop.application.mail.reactivationURL>
+				<prop.application.mail.loginURL>http://localhost:8080/process_designer/pages/login.jsf</prop.application.mail.loginURL>
+			</properties>
+		</profile>
+		<profile>
+			<id>tentun7</id>
+			<properties>
+				<prop.application.db.hibernate.show_sql>false</prop.application.db.hibernate.show_sql>
+				<prop.application.db.connectionpool.jndiName>jdbc/RAM_Con</prop.application.db.connectionpool.jndiName>
+
+				<prop.application.xml.xml_path>E:\projects\VW\import</prop.application.xml.xml_path>
+
+				<prop.application.batch.element>0 0/15 * * * ?</prop.application.batch.element>
+				<prop.application.batch.component>0 0/15 * * * ?</prop.application.batch.component>
+				<prop.application.batch.user>0 0/5 * * * ?</prop.application.batch.user>
+				<prop.application.batch.deactivUser>0 0/7 * * * ?</prop.application.batch.deactivUser>
+
+				<prop.application.mail.server>ttmx01.thinktank.de</prop.application.mail.server>
+				<prop.application.mail.authentification>false</prop.application.mail.authentification>
+				<prop.application.mail.user>smtpuser</prop.application.mail.user>
+				<prop.application.mail.password>smtppassword</prop.application.mail.password>
+				<prop.application.mail.from>noreply@vw-km.de</prop.application.mail.from>
+				<!-- desc= true : display debug infos in standard output -->
+				<prop.application.mail.debug>true</prop.application.mail.debug>
+				<prop.application.mail.reactivationURL>http://192.168.0.24:9080/vkm/pages/reactivationPage.jsf?activationCode=</prop.application.mail.reactivationURL>
+				<prop.application.mail.loginURL>http://192.168.0.24:9080/vkm/pages/login.jsf</prop.application.mail.loginURL>
+			</properties>
+		</profile>
+		<profile>
+			<id>audi_qs</id>
+			<properties>
+				<prop.application.db.connectionpool.jndiName>jdbc/process_designer/process_ds</prop.application.db.connectionpool.jndiName>
+				<prop.application.db.hibernate.show_sql>false</prop.application.db.hibernate.show_sql>
+
+				<prop.application.xml.xml_path>/home/vw_km/project/delivery</prop.application.xml.xml_path>
+
+				<prop.application.batch.element>0 0/15 * * * ?</prop.application.batch.element>
+				<prop.application.batch.component>0 0/15 * * * ?</prop.application.batch.component>
+				<prop.application.batch.user>0 0/5 * * * ?</prop.application.batch.user>
+				<prop.application.batch.deactivUser>0 0/5 * * * ?</prop.application.batch.deactivUser>
+
+				<prop.application.mail.server>mailgate.qs2x.vwg</prop.application.mail.server>
+				<prop.application.mail.authentification>false</prop.application.mail.authentification>
+				<prop.application.mail.user>smtpuser</prop.application.mail.user>
+				<prop.application.mail.password>smtppassword</prop.application.mail.password>
+				<prop.application.mail.from>em-planner@volkswagen.de</prop.application.mail.from>
+				<!-- desc= true : display debug infos in standard output -->
+				<prop.application.mail.debug>true</prop.application.mail.debug>
+				<prop.application.mail.reactivationURL>https://tmxkm-qs.wob.vw.vwg/vkm/pages/reactivationPage.jsf?activationCode=</prop.application.mail.reactivationURL>
+				<prop.application.mail.loginURL>https://tmxkm-qs.wob.vw.vwg/vkm/</prop.application.mail.loginURL>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>audi_prod</id>
+			<properties>
+				<prop.application.db.connectionpool.jndiName>jdbc/process_designer/process_ds</prop.application.db.connectionpool.jndiName>
+				<prop.application.db.hibernate.show_sql>false</prop.application.db.hibernate.show_sql>
+
+				<prop.application.xml.xml_path>/home/vw_km/project/delivery</prop.application.xml.xml_path>
+
+				<prop.application.batch.element>0 0/30 00-06 * * ?</prop.application.batch.element>
+				<prop.application.batch.component>0 0/30 00-06 * * ?</prop.application.batch.component>
+				<prop.application.batch.user>0 0 22 * * ?</prop.application.batch.user>
+				<prop.application.batch.deactivUser>0 0 23 * * ?</prop.application.batch.deactivUser>
+
+				<prop.application.mail.server>mailgate.b2x.vwg</prop.application.mail.server>
+				<prop.application.mail.authentification>false</prop.application.mail.authentification>
+				<prop.application.mail.user>smtpuser</prop.application.mail.user>
+				<prop.application.mail.password>smtppassword</prop.application.mail.password>
+				<prop.application.mail.from>em-planner@volkswagen.de</prop.application.mail.from>
+				<!-- desc= true : display debug infos in standard output -->
+				<prop.application.mail.debug>true</prop.application.mail.debug>
+				<prop.application.mail.reactivationURL>https://tmxkm.wob.vw.vwg/vkm/pages/reactivationPage.jsf?activationCode=</prop.application.mail.reactivationURL>
+				<prop.application.mail.loginURL>https://tmxkm.wob.vw.vwg/vkm/</prop.application.mail.loginURL>
+
+			</properties>
+		</profile>
+	</profiles>
+</project>

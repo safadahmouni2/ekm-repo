@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="BaseFilter" class="vwg.vw.km.presentation.client.filters.BaseVKMFilter">
+    <property name="userService" ref="userTxService" />
+	</bean>
+	<bean id="logoutUrl" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="${prop.application.web.external_logout}" />
+	</bean>
+	<bean id="imagesServer" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="${prop.application.web.images_server}" />
+	</bean>
+	<bean id="imagesServerUrl" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="${prop.application.web.images_server_url}" />
+	</bean>	
+</beans>

@@ -1,0 +1,344 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+<h:panelGroup layout="block" id="mainContent">
+
+	<h:panelGroup id="mainContent2" rendered="#{newsListBean.loadWithoutClickedNode}">
+
+		<table border="0" id="mainContent3"  >
+			<tbody>
+				<tr>
+					<td class="customized-column-width"><h:panelGrid columns="1" rows="2" border="0"
+							id="mainContent4">
+							<h2 id="contentHeadline" class="h2Mar blue-title">#{msgs['welcomepage.header.title']}</h2>
+							<br />
+							<img src="../images/Beispiel.jpg" />
+							<br />
+							<br />
+							<h:panelGrid columns="4" border="0" columnClasses="boldTitle"
+								cellspacing="10" cellpadding="10">
+
+								<h:outputText styleClass="stat-label  state-width-60"
+									value="#{msgs['statistikseite.application.varsion.startDate']}" />
+								<h:outputText value="#{statisticBean.startTime}" />
+								<h:outputText styleClass="stat-label no-white-space state-width-120"
+									value="#{msgs['statistikseite.application.varsion.num']}" />
+								<h:outputText styleClass="state-width-101 no-white-space"
+									value="version-${project.version}" />
+
+						</h:panelGrid>
+
+						</h:panelGrid></td>
+      <td style="position: relative;"><div class="vertical-divider" id="f:dividerpanelDivider">&#160;</div></td>					
+
+					<td width="600" style="padding-left: 5px;">
+						<div class="smallerFontTitleLatest">
+							Latest <span>News</span>
+						</div> <!-- Start News Table -->
+							<h:panelGroup layout="block"
+								rendered="#{newsListBean.dto.noNews}">
+								<center>
+									<strong><h:outputText
+											value="#{msgs['newsAdministration.list.empty']}" /></strong>
+								</center>
+							</h:panelGroup>						
+						<div class="time-line-container">
+							<!-- Start First Row -->
+							<h:panelGroup layout="block" styleClass="mc"
+								rendered="#{!newsListBean.dto.noNews}">
+								<h:dataTable width="100%" border="0" cellpadding="0"
+									cellspacing="0" var="newsElement"
+									value="#{newsListBean.dto.newsList}" style="margin: 0px; border: none;"
+									id="us_lst" styleClass="iceDatTbl" rowClasses="latest-new-item"
+									columnClasses="news-timeline, news-description">
+
+									<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+
+										<div>
+											<h:outputText value="#{newsElement.validFrom}"> <f:convertDateTime pattern="MMM d"  /></h:outputText>
+											<div class="timle-line-circle"></div>
+										</div>
+										<div class="timle-line-stroke"></div>
+									</h:column>
+
+									<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+
+										<div class="news-date"> <h:outputText value="#{newsElement.validFrom}"> <f:convertDateTime pattern="d MMM yyyy"  /></h:outputText> </div>
+										<div class="news-title">
+											<h:outputText value="#{newsElement.title}" />
+										</div>
+										<div class="news-text">
+											<h:outputText id="more" styleClass="viewLessNews" value="#{newsElement.description}"/> 
+											<h:panelGroup styleClass="view-more-link" layout="block" onclick="javascript:viewMore(#{newsListBean.dto.newsList.indexOf(newsElement)})">view more</h:panelGroup>
+										</div>
+									</h:column>
+
+								</h:dataTable>
+							</h:panelGroup>
+							<!-- END First Row -->
+						</div> <!-- END News Table -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br />
+		<div class="devider-table"></div>
+	</h:panelGroup>
+<!-- 	<div class="horizontal-divider" id="f:dividerpanelDivider">&#160;</div> -->
+
+	<!-- Start Anderungshistorie  -->
+	<h:panelGroup id="mainContent6" rendered="#{changeHistoryBean.loadWithoutClickedNode}">
+		<h:panelGroup layout="block">
+			<h2 id="contentHeadline" class="h2Mar smallerSpaceTitle">
+				<br /> <br />
+				<h:outputText
+					value=" #{msgs['changehistory.search.showDetails.lastChanges.welcomePage']}"
+					styleClass="smallerFontTitle" />
+			</h2>
+		</h:panelGroup>
+		<h:panelGroup layout="block">
+			<h:outputText
+				rendered="#{changeHistoryBean.dto.noSearchResultForLastChanges}"
+				value="#{msgs['changehistory.search.noresult.lastChanges']}" />
+		</h:panelGroup>
+		<table>
+			<tbody>
+
+				<tr>
+					<td><h:panelGroup layout="block" styleClass="mc"
+							rendered="#{!empty changeHistoryBean.dto.componentChangesResults}">
+							<h:outputText
+								 styleClass="likeH3"
+								value="#{msgs['changehistory.search.component']}" />
+					           <br />
+							<ace:dataTable styleClass="element_cost_attribute " width="100%"
+								value="#{changeHistoryBean.dto.componentChangesResults}"
+								headerClass="tabIce_left PFF" var="versionChange"
+								id="componentChangesResults" rows="10" paginator="true"
+								pageCount="4" paginatorPosition="bottom">
+								<ace:column style="width:166px">
+									<f:facet name="header">
+										<h:panelGroup layout="block">
+											<h:outputText style="white-space: nowrap;"
+												value="#{msgs['changehistory.search.componentNr']}" />
+										</h:panelGroup>
+									</f:facet>
+									<h:panelGroup layout="block" styleClass="listlink">
+										<h:commandLink
+											value="#{versionChange.componentStand.componentVersion.component.componentNumber}"
+											styleClass="ForceLien"
+											actionListener="#{changeHistoryBean.openDetails}"
+											title="#{msgs['changehistory.search.showDetails']}">
+											<f:param name="object_id"
+												value="#{versionChange.componentStand.componentVersion.component.componentId}"></f:param>
+											<f:param name="object_type" value="2"></f:param>
+											<f:ajax render="@all" execute="@all" />
+										</h:commandLink>
+									</h:panelGroup>
+								</ace:column>
+								<ace:column>
+									<f:facet name="header">
+										<h:panelGroup layout="block">
+											<h:outputText value="#{msgs['costcomponent.name']}" />
+										</h:panelGroup>
+									</f:facet>
+									<h:commandLink
+										value="#{versionChange.componentStand.componentVersion.component.designation}"
+										styleClass="ForceLien"
+										actionListener="#{changeHistoryBean.openDetails}"
+										title="#{msgs['changehistory.search.showDetails']}">
+										<f:param name="object_id"
+											value="#{versionChange.componentStand.componentVersion.component.componentId}"></f:param>
+										<f:param name="object_type" value="2"></f:param>
+										<f:ajax render="@all" execute="@all" />
+									</h:commandLink>
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText value="#{msgs['costcomponent.version']}" />
+									</f:facet>
+									<h:outputText
+										value="#{versionChange.componentStand.componentVersion.number}" />
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText style="white-space: nowrap;"
+											value="#{msgs['changehistory.search.componentAndElementStand']}" />
+									</f:facet>
+									<h:outputText value="#{versionChange.componentStand.number}"
+										rendered="#{versionChange.componentStand.componentVersion.number != null}" /> &#160;
+                                </ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:panelGroup layout="block">
+											<h:outputText value="#{msgs['costelement.owner']}" />
+										</h:panelGroup>
+									</f:facet>
+									<h:outputText
+										value="#{versionChange.componentStand.componentVersion.component.owner.brandId}" />
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText value="#{msgs['costelement.users']}" />
+									</f:facet>
+									<ui:repeat value="#{versionChange.users}" var="brand">
+										<h:outputText value="#{brand.brandId}" /> &#160;
+                                    </ui:repeat>
+								</ace:column>
+								<ace:column style="width:277px">
+									<f:facet name="header">
+										<h:outputText
+											value="#{msgs['changehistory.search.changeType']}" />
+									</f:facet>
+									<h:outputText value="#{versionChange.changeType}" />
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:panelGroup layout="block">
+											<h:outputText
+												value="#{msgs['changehistory.search.componentAndElementUser']}" />
+										</h:panelGroup>
+									</f:facet>
+									<h:outputText value="#{versionChange.userFullName}" />
+								</ace:column>
+								<ace:column style="width:95px">
+									<f:facet name="header">
+										<h:panelGroup layout="block">
+											<h:outputText
+												value="#{msgs['costelement.versionChanges.date']}" />
+										</h:panelGroup>
+									</f:facet>
+									<h:outputText value="#{versionChange.date.dateSeparatedPt}" />
+								</ace:column>
+							</ace:dataTable>
+							<div>&#160;</div>
+						</h:panelGroup></td>
+				</tr>
+
+
+
+				<tr>
+					<td><h:panelGroup layout="block" styleClass="mc"
+							rendered="#{!empty changeHistoryBean.dto.elementChangesResults}">
+							<h:outputText
+							     styleClass="likeH3"
+								value="#{msgs['changehistory.search.element']}" /> <br /> 
+							<ace:dataTable styleClass="element_cost_attribute " width="100%"
+								resizable="false" clientOnly="true"
+								value="#{changeHistoryBean.dto.elementChangesResults}"
+								headerClass="tabIce_left PFF" var="versionChange"
+								varStatus="varStatus" id="elementChangesResults" rows="10"
+								paginator="true" pageCount="4" paginatorPosition="bottom">
+								<ace:column style="width:166px">
+									<f:facet name="header">
+										<h:outputText style="white-space: nowrap;"
+											value="#{msgs['changehistory.search.elementNr']}" />
+									</f:facet>
+									<h:panelGroup layout="block" styleClass="listlink">
+										<h:commandLink
+											value="#{versionChange.elementVersion.element.elementNumber}"
+											styleClass="ForceLien"
+											actionListener="#{changeHistoryBean.openDetails}"
+											title="#{msgs['changehistory.search.showDetails']}">
+											<f:param name="object_id"
+												value="#{versionChange.elementVersion.element.elementId}"></f:param>
+											<f:param name="object_type" value="1"></f:param>
+											<f:ajax render="@all" execute="@all" />
+										</h:commandLink>
+									</h:panelGroup>
+								</ace:column>
+								<ace:column>
+									<f:facet name="header">
+										<h:outputText value="#{msgs['costcomponent.name']}" />
+									</f:facet>
+									<h:commandLink
+										value="#{versionChange.elementVersion.element.designation}"
+										styleClass="ForceLien"
+										actionListener="#{changeHistoryBean.openDetails}"
+										title="#{msgs['changehistory.search.showDetails']}">
+										<f:param name="object_id"
+											value="#{versionChange.elementVersion.element.elementId}"></f:param>
+										<f:param name="object_type" value="1"></f:param>
+										<f:ajax render="@all" execute="@all" />
+									</h:commandLink>
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText style="white-space: nowrap;"
+											value="#{msgs['changehistory.search.componentAndElementStand']}" />
+									</f:facet>
+									<h:outputText value="#{versionChange.elementVersion.number}" />
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText value="#{msgs['costelement.owner']}" />
+									</f:facet>
+									<h:outputText
+										value="#{versionChange.elementVersion.element.owner.brandId}" />
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText value="#{msgs['costelement.users']}" />
+									</f:facet>
+									<ui:repeat value="#{versionChange.users}" var="brand">
+										<h:outputText value="#{brand.brandId}" /> &#160;
+                                    </ui:repeat>
+								</ace:column>
+								<ace:column style="width:277px">
+									<f:facet name="header">
+										<h:outputText
+											value="#{msgs['changehistory.search.changeType']}" />
+									</f:facet>
+									<h:outputText value="#{versionChange.changeType}" />
+								</ace:column>
+								<ace:column style="width:91px">
+									<f:facet name="header">
+										<h:outputText
+											value="#{msgs['changehistory.search.componentAndElementUser']}" />
+									</f:facet>
+									<h:outputText value="#{versionChange.userFullName}" />
+								</ace:column>
+								<ace:column style="width:95px">
+									<f:facet name="header">
+										<h:outputText
+											value="#{msgs['costelement.versionChanges.date']}" />
+									</f:facet>
+									<h:outputText value="#{versionChange.date.dateSeparatedPt}" />
+								</ace:column>
+							</ace:dataTable>
+						</h:panelGroup></td>
+				</tr>
+				<tr>
+					<td>&#160;</td>
+				</tr>
+			</tbody>
+		</table>
+	</h:panelGroup>
+	<!-- END Anderungshistorie  -->
+</h:panelGroup>
+
+<script type="text/javascript">
+function viewMore(rowIndex) {
+	var x = document.getElementsByClassName("view-more-link");
+	
+	if (x[rowIndex].innerHTML == "view more"){
+		document.getElementById('f:contIW:us_lst:'+rowIndex+':more').style.height='auto';
+		x[rowIndex].innerHTML = "view less";
+	} else {
+		document.getElementById('f:contIW:us_lst:'+rowIndex+':more').style.height='13px';
+		x[rowIndex].innerHTML = "view more";
+	}
+	}
+</script>
+
+<script type="text/javascript">
+	screenResizeInit();
+</script>
+</html>
+

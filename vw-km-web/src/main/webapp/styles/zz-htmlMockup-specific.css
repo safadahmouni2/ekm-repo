@@ -1,0 +1,149 @@
+
+@import url(../styles/zz-htmlMockup-content-classes.css);
+
+.htmlMockup .nowMenu
+{
+  background:transparent url(../images/headerImg_045-sw.jpg) no-repeat 0 0;
+}
+
+.htmlMockup .nowMenu .head
+{
+  opacity:0.82;
+  filter:Alpha(opacity=82, style=0);
+}
+
+.htmlMockup .nowMenu ul li a
+{
+
+}
+.htmlMockup .nowMenu li.active>a
+{
+}
+
+.htmlMockup #areaFooter ul li.pullup ul,
+.htmlMockup #areaFooter,
+.htmlMockup #areaFooter ul li,
+.htmlMockup .nowMenu ul
+{
+
+}
+
+.htmlMockup .nowMenu ul
+{
+  background-color:#000!important;
+}
+
+.htmlMockup .nowMenu li ul
+{
+	display:none;
+}
+
+.htmlMockup .nowMenu li.active>ul
+{
+  display:block!important;
+}
+.htmlMockup .nowMenu li:hover>ul
+{
+  display:block!important;
+}
+
+body.htmlMockup div.nowMenu ul li a
+{
+	background-image:url(../images/arrow_menu_black.gif)!important;
+	background-repeat:no-repeat;
+}
+
+
+.htmlMockup .nowMenu ul.body li:not([class*=active]) a
+{
+	color:#aaa!important;
+	background-position: -1px -20px;
+	font-weight:normal!important;
+}
+
+.htmlMockup .nowMenu ul li.active>a
+{
+	color:#fff!important;
+	background-position: -1px -1px!important;
+}
+
+body.htmlMockup .nowMenu div > ul.body > li > a
+{
+	background-position: -100px -200px!important;
+}
+
+.htmlMockup.usp_ExtentContentFull .nowMenu
+{
+  background-color:#000;
+}
+
+.htmlMockup #areaContent .tabCtrlHead li.toggle.active a,
+.htmlMockup #areaContent .tabCtrlHead .allOpen li.toggle.active a,
+.htmlMockup #areaContent h3.legend,
+.htmlMockup #areaContent .tabCtrlHead li.active a,
+.htmlMockup .tabBlock h3
+{
+  background-color: #000;
+}
+
+.htmlMockup .tabControl li.active a
+{
+	border-color:#FFFFFF #FFFFFF #000;
+}
+
+.htmlMockup.usp_collapseMenu #areaSubnav fieldset.mpb_0:hover
+{
+  background-color:#000 !important;
+}
+
+.htmlMockup .clientCtrl.hover .comboHandle
+{
+  background:#000 url(../images/collabsible-arrow-down.gif) no-repeat -1px 0px;
+}
+
+.htmlMockup #areaContent .tabBlock.active.selected h3,
+.htmlMockup #areaContent h3.head
+{
+  border:1px solid #121;
+  color:#121;
+}
+
+.htmlMockup h2#contentHeadline
+{
+  color:#121;
+}
+
+.htmlMockup input.collapsibleHead
+{
+  border:1px solid #121;
+  color:#121;
+}
+
+.htmlMockup span.clientCtrl,
+.htmlMockup input[type="text"],
+.htmlMockup input[type="password"],
+.htmlMockup	td.PopDeleteBtns input[type="submit"],
+.htmlMockup input.confirmChangeStatusBtn,
+.htmlMockup textarea,
+.htmlMockup select
+{
+  border-color:#7F8789!important;
+}
+
+.usp_contrast.htmlMockup span.clientCtrl,
+.usp_contrast.htmlMockup input[type="text"],
+.usp_contrast.htmlMockup input[type="password"],
+.usp_contrast.htmlMockup td.PopDeleteBtns input[type="submit"],
+.usp_contrast.htmlMockup input.confirmChangeStatusBtn,
+.usp_contrast.htmlMockup textarea,
+.usp_contrast.htmlMockup select
+{
+  border-color:#121!important;
+}
+
+
+
+#areaMain
+{
+  margin-bottom:1200px;
+}

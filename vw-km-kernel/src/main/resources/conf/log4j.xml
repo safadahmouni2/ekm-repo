@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="info">
+	<Properties>
+		<Property name="LOG_PATTERN">%d : %-5p : %C:%L : %M() : %t : %m%n</Property>
+		<Property name="basePath">${prop.application.log.dir}</Property>
+	</Properties>
+
+	<Appenders>
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+
+		<RollingFile name="rollingFile"
+			fileName="${basePath}/vw_km.log"
+			filePattern="${basePath}/vw_km-%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+				<SizeBasedTriggeringPolicy size="20MB" />
+			</Policies>
+			<!-- Max 10 files will be created everyday -->
+			<DefaultRolloverStrategy max="100">
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		<RollingFile name="hbmRollingFile"
+			fileName="${basePath}/vw_km_hbm.log"
+			filePattern="${basePath}/vw_km_hbm-%d{yyyy-MM-dd}.log">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<SizeBasedTriggeringPolicy size="20MB" />
+			</Policies>
+			<!-- Max 10 files will be created everyday -->
+			<DefaultRolloverStrategy max="100">
+			</DefaultRolloverStrategy>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="Console" />
+		</Root>
+		<Logger name="org.directwebremoting" additivity="false" level="${prop.application.log.level}">
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="org.hibernate" additivity="false" level="${prop.application.log.hibernate_level}">
+			<AppenderRef ref="hbmRollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="org.apache.commons" additivity="false" level="${prop.application.log.level}">
+			<AppenderRef ref="hbmRollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="com.mchange" additivity="false" level="${prop.application.log.connectionpool_level}">
+			<AppenderRef ref="hbmRollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<!-- Application layers logging -->
+		<Logger name="vwg.vw.km.integration" additivity="false" level="${prop.application.log.integration_level}">
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="vwg.vw.km.application.implementation" additivity="false" level="${prop.application.log.business_level}">
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="vwg.vw.km.application.service" additivity="false" level="${prop.application.log.service_level}">
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="vwg.vw.km.common" additivity="false" level="${prop.application.log.common_level}">
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="vwg.vw.km.presentation.client" level="${prop.application.log.base_level}">
+			<AppenderRef ref="${prop.application.log.base_appender}" />
+			<AppenderRef ref="Console" />
+		</Logger>
+	</Loggers>
+</Configuration>

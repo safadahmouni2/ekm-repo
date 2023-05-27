@@ -1,0 +1,538 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:panelGroup layout="block" styleClass="areaTabContent" rendered="#{hourlyRateCatalogBean.loadDTO}" id="mainTabContent">
+          <h:panelGroup layout="block" style="padding-top:15px">
+			<h:panelGroup layout="block" styleClass="btn" rendered="#{hourlyRateCatalogBean.dto.userHasWriteAccess}">
+				<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTC">
+					<h:commandLink value="#{msgs['hourlyRateCatalog.edit.button.save']}"
+						actionListener="#{hourlyRateCatalogBean.save}" >
+						<f:ajax render="@all" execute="@all" />
+					</h:commandLink>	
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block" styleClass="space" rendered="#{hourlyRateCatalogBean.dto.userHasWriteAccess}">&#160;</h:panelGroup>
+
+			<h:panelGroup layout="block" styleClass="btn" rendered="#{hourlyRateCatalogBean.dto.userHasWriteAccess}">
+			   <!-- Aktion menu -->
+				<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+					<ace:submenu label="#{msgs['hourlyRateCatalog.action']}" id="action">
+						<ace:menuItem id="new" actionListener="#{hourlyRateCatalogBean.createFromObjectClicked}"
+							value="#{msgs['hourlyRateCatalog.add.newHRCataloh']}"/>
+						<ace:menuItem id="delete" actionListener="#{hourlyRateCatalogBean.deleteObjectClicked}"
+							value="#{msgs['hourlyRateCatalog.delete']}"
+							rendered="#{hourlyRateCatalogBean.dto.hourlyRateCatalogModel.loaded}" />
+					</ace:submenu>
+				</ace:menuBar>
+				<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block" styleClass="space" rendered="#{hourlyRateCatalogBean.dto.userHasWriteAccess}">&#160;</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="btn">
+				<h:panelGroup layout="block" styleClass="bgrBTL">
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTC">
+					<h:commandLink value="#{msgs['hourlyRateCatalog.back']}"
+						actionListener="#{hourlyRateCatalogBean.listFromObjectClicked}" immediate="true">
+						<f:ajax render="@all" execute="@all" />
+					</h:commandLink>	
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="bgrBTR">
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+			<h:outputText style="color: red;#{(! empty facesContext.maximumSeverity) ? 'display:block;':'display:none;'}"
+				value="#{msgs['common.message.fixError']}" />
+		</h:panelGroup>
+        
+        <h:panelGroup layout="block">
+              <h2 id="contentHeadline" class="h2Mar smallerSpace">
+                <h:graphicImage value="../images/setting.gif" class="iconObject"/>
+                <h:outputText value="#{msgs['hourlyRateCatalog.edit.title']}" styleClass="smallerFont"/>
+              </h2>
+         </h:panelGroup>
+		<br />
+		<h:panelGrid columns="2" border="0">
+			<h:panelGroup layout="block">
+				<strong><h:outputText value="#{msgs['hourlyRateCatalog.list.designation']}:" /></strong>
+			&#160;<h:inputText id="hourly_rate_catalog_designation"
+					value="#{hourlyRateCatalogBean.dto.hourlyRateCatalogModel.designation}" maxlength="50"
+					styleClass="tabme" required="true"
+					valueChangeListener="#{hourlyRateCatalogBean.checkChanged}" 
+					readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+					<f:ajax render="@all" execute="@this" />
+					</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup layout="block">		
+			<strong><h:outputText value="#{msgs['hourlyRateCatalog.edit.tab.workArea']}:" /></strong>
+				&#160;<h:selectOneMenu value="#{hourlyRateCatalogBean.dto.workAreaIdAsString}"
+					styleClass="min_6 validate tabmeOp2Prime"
+					valueChangeListener="#{hourlyRateCatalogBean.checkChanged}" 
+					disabled="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+					<f:selectItems value="#{hourlyRateCatalogBean.workAreaItems}" />
+					<f:ajax render="@all" execute="@this" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+		</h:panelGrid>
+		<br />
+		
+		
+	<ace:panel style="width:99%;border: 1px solid #ABABAB;">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td>
+					<h2><strong><h:outputText
+						value="#{msgs['hourlyRateCatalog.edit.tab.mecanic']}" /></strong></h2>
+					</td>
+					<td width="10">&#160;</td>
+					<td>
+					<h2><strong><h:outputText
+						value="#{msgs['hourlyRateCatalog.edit.tab.electric']}" /></strong></h2>
+					</td>
+				</tr>
+				<tr>
+					<td height="12" colspan="3"></td>
+				</tr>
+				<tr>
+					<td>
+					<table border="0" cellpadding="0" cellspacing="0" width="500">
+						<tbody>
+							<tr>
+								<td height="23" nowrap="nowrap"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.mecanic.construction']}" /></strong></td>
+
+								<td>&#160;</td>
+								<td></td>
+
+							</tr>
+							<tr>
+								<td><h:dataTable var="mecanicHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.generalMecanicHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px; width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+
+									<h:column nowrap="nowrap">
+										
+										<h:panelGroup layout="block" style="width:300px;height:17">
+											<h:outputText
+												value="#{mecanicHourlyRate.costAttribute.description}"
+												title="#{msgs['hourlyRateCatalog.M.title']}" />
+										</h:panelGroup>
+									</h:column>
+
+									<h:column nowrap="nowrap">
+
+										<h:inputText value="#{mecanicHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+											<f:ajax render="@all" execute="@this" />
+											</h:inputText>
+											&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+								</h:dataTable></td>
+							</tr>
+
+
+							<tr>
+								<td><h:dataTable var="mecanicHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.constructionHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{mecanicHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.M.title']}" />
+									</h:column>
+
+									<h:column nowrap="nowrap">
+										<h:inputText value="#{mecanicHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+											<f:ajax render="@all" execute="@this" />
+											</h:inputText>
+										&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+
+
+							<tr>
+								<td><h:dataTable var="mecanicHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.robotOfflineProgrammingHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{mecanicHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.M.title']}" />
+
+									</h:column>
+
+									<h:column nowrap="nowrap">
+										<h:inputText value="#{mecanicHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+											<f:ajax render="@all" execute="@this" />
+											</h:inputText>
+								
+									&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+								<tr>
+									<td height="20" colspan="3"></td>
+								</tr>
+							<tr>
+								<td height="23" nowrap="nowrap"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.mecanic.production']}" /></strong></td>
+
+								<td>&#160;</td>
+								<td></td>
+							</tr>
+
+							<tr>
+								<td>
+								<h:dataTable var="mecanicHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.productionHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{mecanicHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.M.title']}" />
+									</h:column>
+									<h:column nowrap="nowrap">
+										<h:inputText value="#{mecanicHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>	
+									&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+									<tr>
+									<td height="20" colspan="3"></td>
+								</tr>
+							<tr>
+								<td height="23" nowrap="nowrap"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.mecanic.montage']}" /></strong></td>
+
+								<td>&#160;</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><h:dataTable var="mecanicHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.montageMecanicHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{mecanicHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.M.title']}" />
+									</h:column>
+
+
+									<h:column nowrap="nowrap"
+										style="border:none;text-align: right;">
+										<h:inputText value="#{mecanicHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>
+									&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{mecanicHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+
+                             <tr>
+									<td height="20" colspan="3"></td>
+								</tr>
+							<tr>
+								<td height="23" nowrap="nowrap"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.mecanic.purshase.factor']}" /></strong></td>
+
+								<td>&#160;</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><h:dataTable var="mecanicHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.mechanicPurchaseFactorHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{mecanicHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.M.title']}" />
+									</h:column>
+
+
+									<h:column nowrap="nowrap"
+										style="border:none;text-align: right;">
+										<h:inputText value="#{mecanicHourlyRate.factor}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>
+									&#160;<h:outputText value="#{msgs['hourlyRateCatalog.Percentage']}" />
+									&#160;&#160;&#160;&#160;
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+
+							<tr>
+								<td height="2" colspan="3"></td>
+							</tr>
+						</tbody>
+					</table>
+					</td>
+					<td width="10">&#160;</td>
+					<td>
+					
+					<table border="0" cellpadding="0" cellspacing="0" width="500">
+						<tbody>
+							<tr>
+								<td colspan="2" height="23" nowrap="nowrap"><strong>
+								<h:outputText
+									value="#{msgs['hourlyRateCatalog.electric.constructionPlanDoc']}" />
+								</strong></td>
+							</tr>
+							<tr>
+								<td><h:dataTable var="electricHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.generalElectricHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{electricHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.E.title']}" />
+									</h:column>
+
+									<h:column nowrap="nowrap">
+
+										<h:inputText value="#{electricHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>
+										&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+
+								</h:dataTable></td>
+							</tr>
+							
+							
+							<tr>
+								<td><h:dataTable var="electricHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.constructionMchanicHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{electricHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.E.title']}" />
+									</h:column>
+									
+									<h:column nowrap="nowrap">
+										<h:inputText value="#{electricHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>	
+										&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+							<tr>
+									<td height="20" colspan="3"></td>
+								</tr>
+							<tr>
+								<td colspan="2" height="23"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.electric.montageInstall']}" /></strong></td>
+							</tr>
+							<tr>
+								<td><h:dataTable var="electricHourlyRate"
+									value="#{hourlyRateCatalogBean.dto.electricPurchasedPartsHourlyRates}"
+									style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">
+									<h:column nowrap="nowrap">
+										<h:outputText
+											value="#{electricHourlyRate.costAttribute.description}"
+											title="#{msgs['hourlyRateCatalog.E.title']}" />
+									</h:column>
+									<h:column nowrap="nowrap">
+										
+										<h:inputText value="#{electricHourlyRate.value}"
+											styleClass="catgRate"
+											valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+											maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>	
+										&#160;&#8364;<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Kg'}"/>
+									</h:column>
+
+								</h:dataTable></td>
+							</tr>
+							<tr>
+									<td height="20" colspan="3"></td>
+								</tr>
+							<tr>
+								<td colspan="2" height="23"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.electric.commissioning']}" /></strong></td>
+							</tr>
+							
+							<tr><td>
+							<h:dataTable var="electricHourlyRate"
+								value="#{hourlyRateCatalogBean.dto.electricInstallationHourlyRates}"
+								style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">								
+								<h:column nowrap="nowrap">
+									<h:outputText
+										value="#{electricHourlyRate.costAttribute.description}"
+										title="#{msgs['hourlyRateCatalog.E.title']}" />
+								</h:column>
+										
+									<h:column nowrap="nowrap">
+										<h:inputText
+										value="#{electricHourlyRate.value}"
+										styleClass="catgRate"
+										valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+										maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>&#160;&#8364;
+										<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Kg'}"/>
+										</h:column>
+								</h:dataTable>
+								</td></tr>
+								
+								<tr><td>
+						
+							<h:dataTable var="electricHourlyRate"
+								value="#{hourlyRateCatalogBean.dto.commissioningHourlyRates}"
+								style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">								
+								<h:column nowrap="nowrap">
+									<h:outputText
+										value="#{electricHourlyRate.costAttribute.description}"
+										title="#{msgs['hourlyRateCatalog.E.title']}" />
+								</h:column>
+										
+									<h:column nowrap="nowrap">
+										
+										<h:inputText
+										value="#{electricHourlyRate.value}"
+										styleClass="catgRate"
+										valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+										maxlength="7" onblur="javascript:validateTableField(this,4);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>&#160;&#8364;
+<h:outputText value="#{msgs['hourlyRateCatalog.PerHour']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Std.'}"/>
+										<h:outputText escape="false" value="#{msgs['hourlyRateCatalog.PerKg']}" rendered="#{electricHourlyRate.costAttribute.unit eq 'Kg'}"/>
+										</h:column>
+													
+							</h:dataTable>
+							</td></tr>
+							
+							<tr>
+									<td height="20" colspan="3"></td>
+								</tr>
+							<tr>
+								<td colspan="2" height="23"><strong><h:outputText
+									value="#{msgs['hourlyRateCatalog.electric.purshase.factor']}" /></strong></td>
+							</tr>
+							
+							<tr><td>
+							<h:dataTable var="electricHourlyRate"
+								value="#{hourlyRateCatalogBean.dto.electricPurchaseFactorHourlyRates}"
+								style="border:none; margin-left: 0px;padding-left: 0px;margin-top:0px; margin-bottom:0px;padding-top:0px; padding-bottom:0px;width:500px"
+									columnClasses="iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol1,iceDatTblCol iceDatTblRow1 HRCDetailDatTbCol2"
+									rowClasses="iceDatTblRow1,iceDatTblRow2">								
+								<h:column nowrap="nowrap">
+									<h:outputText
+										value="#{electricHourlyRate.costAttribute.description}"
+										title="#{msgs['hourlyRateCatalog.E.title']}" />
+								</h:column>
+										
+									<h:column nowrap="nowrap">
+										<h:inputText
+										value="#{electricHourlyRate.factor}"
+										styleClass="catgRate"
+										valueChangeListener="#{hourlyRateCatalogBean.checkChanged}"
+										maxlength="7" onblur="javascript:validateTableField(this,3);" readonly="#{!hourlyRateCatalogBean.dto.userHasWriteAccess}">
+                                         <f:ajax render="@all" execute="@this" />										
+										</h:inputText>&#160;
+										<h:outputText value="#{msgs['hourlyRateCatalog.Percentage']}"/>
+										&#160;&#160;&#160;&#160;
+										
+										</h:column>
+								</h:dataTable>
+								</td></tr>							
+						</tbody>
+					</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</ace:panel>
+
+</h:panelGroup>
+
+<script type="text/javascript">
+	   screenResizeInit ();	
+</script>
+<style type="text/css">
+.ui-panel .ui-widget-content {
+  background: none !important;
+  border: 0px; 
+}	
+</style>
+</html>

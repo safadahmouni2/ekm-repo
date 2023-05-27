@@ -1,0 +1,15 @@
+
+.usp_pageHelp h2#contentHeadline
+{
+  background:url("../images/page-help.gif") no-repeat scroll 100% 0 transparent;
+}
+.usp_pageHelp h2#contentHeadline:hover
+{
+  background-position:100% -80px !important;
+  cursor:help;
+}
+
+.dragWindow.editHelp .body
+{
+  overflow:visible;
+}

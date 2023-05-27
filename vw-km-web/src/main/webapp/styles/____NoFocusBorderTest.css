@@ -1,0 +1,58 @@
+xinput:focus,
+a:active,
+a:focus
+{
+  outline: 0!important;
+  -moz-outline-style: none!important;
+  -moz-outline: none!important;
+  -moz-outline: 0!important;
+  outline: none!important;
+}
+
+xinput[type="checkbox"]
+{   
+  border: 1px solid green!important;
+  outline: none!important; 
+  -xmoz-appearance: none!important;
+} 
+
+input:focus, textarea:focus {
+  -moz-outline: 0.2em solid -moz-rgba(85,165,243,0.75) !important;
+  -moz-outline-offset: -0.1em !important;
+  -moz-outline-radius: 4px !important;
+}
+
+input[type="submit"]:focus, input[type="image"]:focus, input[type="radio"]:focus, input[type="checkbox"] {
+  -moz-outline: transparent !important;
+}
+
+
+
+button:focus::-moz-focus-inner {
+  border-color: transparent !important;
+}
+
+
+
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  border: 1px dotted transparent !important;
+}
+
+
+
+input[type="radio"]:focus {
+  -moz-outline-radius: 12px;
+  -moz-outline-offset: 0px !important;
+}
+
+  input[type="checkbox"]:focus {
+    margin: 2px !important;
+    -moz-appearance: checkbox !important;
+  }
+
+

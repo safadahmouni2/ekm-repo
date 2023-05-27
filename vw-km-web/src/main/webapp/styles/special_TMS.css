@@ -1,0 +1,312 @@
+.tms .maxWinWidth {
+	width: 100%;
+	border: 1;
+}
+
+.tms .maxWinHeigth {
+	height: 300px;
+	border: 1;
+}
+
+.tms .scroll {
+	overflow: scroll;
+}
+
+.tms .scrollX {
+	overflow-x: scroll;
+}
+
+.tms .collapsible .body {
+	margin-left: 12px;
+}
+
+.tms .scrollY {
+	overflow-y: scroll;
+}
+
+.tms table.datascroller {
+	width: auto;
+}
+
+.tms .notEditable {
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+
+.tms #content .notEditable {
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+
+.tms #content .inputTextareaReadonly {
+	background-color: red;
+	background-color: transparent;
+	border: none;
+	height: 20px;
+	font-family: Arial, Univers, Helvetica, Verdana, sans-serif;
+	font-size: 11px;
+	color: inherit;
+}
+
+.tms #content .inputTextarea {
+	background-color: blue;
+	border: none;
+	height: 20px;
+	font-family: Arial, Univers, Helvetica, Verdana, sans-serif;
+	font-size: 11px;
+}
+
+.tms .tabbedPane {
+	vertical-align: top !important;
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
+	background-color: #ffffff !important;
+	table-layout: fixed;
+	color: inherit;
+}
+
+.tms .inactiveTab {
+	width: 155px;
+	background-color: #b9b9b9 !important;
+	border-top: 1px solid #ffffff !important;
+	border-left: 1px solid #ffffff !important;
+	border-right: 1px solid #ffffff !important;
+	border-bottom: none !important;
+	padding: 2px !important;
+	color: inherit;
+}
+
+.tms .activeSub {
+	background-color: #b9b9b9 !important;
+	padding: 0 !important;
+	border: none !important;
+	margin: 0 !important;
+	color: inherit;
+}
+
+.tms .inactiveSub {
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+}
+
+.tms .tabContent {
+	background-color: #ffffff !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+	color: inherit;
+}
+
+.tms .loading fieldset.logoTop {
+	background-color: #fcc;
+}
+
+.tms .keyVisual {
+	float: right;
+	width: 165px;
+	padding: 0;
+	margin: 0;
+}
+
+.tms .headline {
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+.tms .logo { /*float: left;*/
+	width: 165px;
+	padding: 20px 0px 0px 0px;
+	margin: 0;
+}
+
+.tms .errorHeader {
+	height: 60px;
+	margin: 0px 5px;
+	padding: 0;
+}
+
+.tms .errorContent {
+	border: 1px solid silver;
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.tms .errorContentHeader {
+	font-size: 30pt;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-weight: bold;
+	color: #ff9999;
+}
+
+.tms .errorContentText {
+	font-size: 10pt;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tms .errorContentTextarea {
+	margin-left: 5px;
+	padding-left: 5px;
+	width: 99%;
+	background-color: transparent;
+}
+
+.tms .errorLink {
+	font-size: 12pt;
+	font-weight: bold;
+	color: green;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.tms .errorLinkDiv {
+	margin-top: 20px;
+	margin-right: 50px;
+	text-align: center;
+}
+
+.tms table.tmsTable {
+	margin-left: 1px;
+	padding-right: 1px;
+	width: 100%;
+	border: 1px solid #e4e4e5;
+}
+
+.tms table.tmsTable td {
+	overflow: hidden;
+	border: 1px solid #FFF;
+	padding-left: 2px;
+}
+
+.tms table.tmsTable th {
+	height: 40px;
+	vertical-align: bottom;
+	border: 1px solid #C0C0C0;
+	padding-left: 2px;
+	margin-top: 1px;
+}
+
+.tms table.tmsTable thead tr th.col_viewName {
+	width: 145px !important;
+}
+
+.tms table.tmsTable tbody tr td.col_viewName {
+	width: 144px !important;
+}
+
+.tms table.tmsTable thead tr th input.filter_viewName {
+	margin-top: 10px !important;
+	width: 140px !important;
+}
+
+.tms table.tmsTable thead tr th.col_viewDescription {
+	width: 600px !important;
+}
+
+.tms table.tmsTable tbody tr td.col_viewDescription {
+	width: 599px !important;
+}
+
+.tms table.tmsTable thead tr th input.filter_viewDescription {
+	margin-top: 10px !important;
+	width: 250px !important;
+}
+
+.tms input.inputRecordSort {
+	width: 600px;
+	margin-left: 20px;
+}
+
+.tms input.recordFilter {
+	width: 90px;
+}
+
+.tms input.tmsGridInput {
+	width: 110px;
+}
+
+.tms a {
+	color: #004963 !important;
+	background: transparent url(../images/blank.gif) no-repeat 0 0px !important
+		;
+	padding-left: 0px !important;
+	/* text-decoration: underline !important;	*/
+}
+
+.tms a:hover {
+	color: #004963 !important;
+	background: transparent url(../images/blank.gif) no-repeat 0 0px !important
+		;
+	padding-left: 0px !important;
+	/* text-decoration: underline !important;	*/
+}
+
+.tms a.underline {
+	color: #004963 !important;
+	background: transparent url(../images/blank.gif) no-repeat 0 0px !important
+		;
+	padding-left: 0px !important;
+	text-decoration: underline !important;
+}
+
+.tms a.underline:hover {
+	color: #004963 !important;
+	background: transparent url(../images/blank.gif) no-repeat 0 0px !important
+		;
+	padding-left: 0px !important;
+	text-decoration: underline !important;
+}
+
+.tms a.tmsButton {
+	background: transparent url(../images/arrow_double_right.gif) no-repeat 1px
+		7px !important;
+	font-size: 1.2em !important;
+	color: #87173D !important;
+	padding-left: 14px !important;
+	cursor: hand !important;
+	text-decoration: none !important;
+}
+
+.tms a.tmsButton:hover {
+	background-position: 2px -95px !important;
+	font-size: 1.2em !important;
+	color: #7F8789 !important;
+	text-decoration: underline !important;
+	cursor: pointer !important;
+}
+
+.tms .error {
+	padding: 0;
+	color: #9A0C39;
+	border: none;
+}
+
+.tms .dbComboBox {
+	width: 250px !important;
+}
+
+.tms .nowrap {
+	white-space: nowrap !important;
+}
+
+.tms .displayNone {
+	display: none;
+}
+
+.tms .tmsCheckBox {
+	background-color: #b9b9b9 !important;
+	border: #000000 solid 1px;
+	font-family: verdana;
+	font-size: 12px;
+	color: #000000
+}
+
+.tms input [type='checkbox'], input.checkbox {
+	border: 2px solid red !important;
+}

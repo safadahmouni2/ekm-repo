@@ -1,0 +1,442 @@
+.autoCompleteMenu
+{
+	max-height:200px;
+	overflow-x:hidden !important;
+	overflow-y:scroll !important;
+	z-index:7000;
+}
+
+.autoCompleteMenu li:hover
+{
+	cursor:pointer;
+	background-color:#345D6F;
+	color:#FFF;
+	
+}
+.autoCompleteMenu li.selected
+{
+	cursor:pointer !important;
+	background-color:#345D6F !important;
+	color:#FFF !important;
+	
+}
+
+.autoCompleteMenu .keyboard li:hover
+{
+	cursor:default;
+	background-color:#FFF;
+	color:#000;
+}
+
+.newadaJ .ulShowMoreFields
+{
+	list-style:none;
+	width:420px;
+}
+.newadaJ .ulShowMoreFields li
+{
+	display:block;
+}
+
+
+.newadaJ table.data thead th input
+{
+	width:50px;
+}
+.newadaJ table.data > thead th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+}
+.newadaJ .autoWidth
+{
+	width:auto;
+}
+.newadaJ .mpb_1 input, 
+.newadaJ .mpb_1 select
+{
+	width:100px !important;
+}
+.newadaJ .button
+{
+	margin-right:30px;
+	white-space:nowrap;
+}
+.newadaJ .divButtons input
+{
+	margin:15px 10px 30px 0px;
+}
+.newadaJ .txtLogin
+{
+	width:auto !important;
+	margin-left:12px;
+}
+/* Pager settings */
+.newadaJ .pager
+{
+	width:auto;
+	margin-top:12px;
+}
+.newadaJ .pager a
+{
+	background-image:none !important;
+	padding-left:0 !important;
+}
+.newadaJ .pager table td
+{
+	padding-left:3px;
+	padding-right:3px;
+}
+.newadaJ .pager table td.activeColumn
+{
+	font-weight:bold;
+	border:1px solid #000;
+}
+
+/* SubTable settings */
+//.newadaJ table.subTable
+//{
+//	border:none;
+//}
+.newadaJ table.subTable th
+{
+	border:1px solid #B2B3B6;
+	vertical-align:bottom;
+}
+.newadaJ table.subTable tr
+{
+	background-color:#C0C0C0 !important;
+}
+.newadaJ table.subTable td
+{
+	border:1px solid #B2B3B6;
+	padding-left:2px;
+}
+.newadaJ table.subTable tbody tr:first-child td {
+	padding-top:0;
+}
+/* Fixed TBody */
+.usp_fixedTableBody table.data tbody
+{
+	height: 200px;
+	overflow-y: scroll;
+	overflow-x:hidden;
+}
+.usp_fixedTableBody table.data tbody tr
+{
+	height: 1em;
+}
+.usp_fixedTableBody table.data tbody tr:last-child
+{
+	height: 100% !important;
+}
+.usp_fixedTableBody table.data .tblRadioButton tbody
+{
+	height: auto;
+	overflow: auto;
+}
+.newadaJ table.data .tblRadioButton td
+{
+	border:0;
+}
+.newadaJ table.data .tblRadioButton tr
+{
+	background-color:transparent;
+}
+
+.newadaJ .masterMode table.data,
+.newadaJ .sendReceive table.data,
+.newadaJ .orderProtocol table.data
+{
+	table-layout:fixed;
+}
+
+.newadaJ table.data th,
+.newadaJ table.data td
+{
+	overflow:hidden;
+	padding-left:3px;
+}
+
+/*InitialOutfitter------------------------------*/
+.initialOutfitter table.data a
+{
+	background-image:none !important;
+	padding-left:0 !important;
+	text-decoration:underline;
+}
+.initialOutfitterOverview table.data thead tr th.col_radioButton,
+.initialOutfitter table.data thead tr th.col_radioButton
+{
+	width:30px;
+}
+.configuratorElementsDiv
+{
+	clear:left;
+	margin-bottom:5px;
+	width:200px;
+}
+.configuratorElementsTextSelectable
+{
+	border:1px solid #000;
+	padding:3px;
+	display:block;
+	width:100px;
+	margin-bottom:5px;
+	margin-right:5px;
+	float:left;
+}
+.configuratorElementsTextNotSelectable
+{
+	border:1px solid #CCC;
+	padding:3px;
+	display:block;
+	width:100px;
+	margin-bottom:5px;
+	margin-right:5px;
+	float:left;
+	font-style:italic;
+	color:#CCC;
+}
+
+.configuratorElementsImgSelectable
+{
+	-moz-box-shadow:2px 2px 2px #000;
+	height:25%;
+	width:25%;
+}
+.configuratorElementsImgNotSelectable
+{
+	-moz-box-shadow:2px 2px 2px #000;
+	height:25%;
+	width:25%;
+	opacity:0.4;
+}
+
+.overlayToolTipStyle
+{
+	border:2px solid #CCC;
+	padding:5px;
+	width:180px;
+	background-color:#C4DCE8;
+}
+.overlayToolTip
+{
+	position:absolute;
+	display:none;
+}
+.showOverlayToolTip .overlayToolTip
+{
+	display:block;
+}
+
+/*MasterMode------------------------------------*/
+.masterMode table.data th,
+.masterMode table.data td
+{
+	width:55px;
+}
+.masterMode table.data thead th input,
+.masterMode table.data thead th select
+{
+	width:50px !important;
+}
+.masterMode table.data thead th:first-child
+{
+	width:30px;
+}
+
+/*Send/Receive------------------------------------*/
+.sendReceive table.data a
+{
+	background-image:none !important;
+	padding-left:0 !important;
+	text-decoration:underline;
+}
+.sendReceive .usp_sr_filterFields input, 
+.sendReceive .usp_sr_filterFields select
+{
+	width:100px;
+}
+/* column widths */
+.sendReceive table.data thead tr th.col_chkBox,
+.sendReceive table.data thead tr th.col_srType
+{
+	width:25px;
+}
+.sendReceive table.data thead tr th.col_vcsId,
+.sendReceive table.data thead tr th.col_companyNo,
+.sendReceive table.data thead tr th.col_reqTime
+{
+	width:60px;
+}
+.sendReceive table.data thead tr th.col_reqDate,
+.sendReceive table.data thead tr th.col_portalUserId
+{
+	width:70px;
+}
+.sendReceive table.data thead tr th.col_reqCorrelId,
+.sendReceive table.data thead tr th.col_reqMessageId
+{
+	width:100px;
+}
+.sendReceive table.data thead tr th.col_reqName
+{
+	width:auto;
+}
+
+/*OrderProtocol------------------------------------*/
+.orderProtocol table.data th,
+.orderProtocol table.data td
+{
+	overflow:hidden;
+	border:1px solid #FFF;
+	padding-left:3px;
+}
+.orderProtocol table.data th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+}
+.orderProtocol table.data th input
+{
+	width:55px;
+}
+.orderProtocol table.data th input.calendar,
+.orderProtocol table.data th select
+{
+	width:80px;
+}
+.orderProtocol table.data th.col_transReason1 input,
+.orderProtocol table.data th.col_transReason2 input
+{
+	width:125px;
+}
+.orderProtocol table.data a
+{
+	background-image:none !important;
+	padding-left:0 !important;
+	text-decoration:underline;
+}
+/* column widths */
+.orderProtocol table.data thead tr th.col_radioButton,
+.orderProtocol table.data thead tr th.col_lfdNr,
+.orderProtocol table.subTable tbody tr td.col_lfdNr
+{
+	width:25px;
+}
+.orderProtocol table.subTable tbody tr td.col_radioButton
+{
+	width:22px;
+}
+.orderProtocol table.data thead tr th.col_dealerCommissionNo,
+.orderProtocol table.data thead tr th.col_commissionNo,
+.orderProtocol table.data thead tr th.col_modelKey,
+.orderProtocol table.subTable tbody tr td.col_dealerCommissionNo,
+.orderProtocol table.subTable tbody tr td.col_commissionNo,
+.orderProtocol table.subTable tbody tr td.col_modelKey
+{
+	width:60px;
+}
+.orderProtocol table.data thead tr th.col_orderLogDate,
+.orderProtocol table.data thead tr th.col_dealerNo,
+.orderProtocol table.subTable tbody tr td.col_orderLogDate,
+.orderProtocol table.subTable tbody tr td.col_dealerNo
+{
+	width:85px;
+}
+.orderProtocol table.data thead tr th.col_transReason1,
+.orderProtocol table.data thead tr th.col_transReason2,
+.orderProtocol table.subTable tbody tr td.col_transReason1,
+.orderProtocol table.subTable tbody tr td.col_transReason2
+{
+	width:130px;
+}
+.orderProtocol table.data thead tr th.col_firstCreated,
+.orderProtocol table.subTable tbody tr td.col_firstCreated
+{
+	width:auto;
+}
+
+
+/*SelectiveOrderMod------------------------------------*/
+.selectiveOrderMod table.data tbody td:first-child
+{
+	text-align:right;
+	vertical-align:top;
+	padding-right:4px;
+}
+.selectiveOrderMod table.newRowOnTab tbody tr
+{
+	position:absolute;
+	top:-1000px;
+	left:-1000px;
+}
+.selectiveOrderMod table.newRowOnTab tbody tr:first-child,
+.selectiveOrderMod table.newRowOnTab tbody tr.visible
+{
+	position:static;
+	top:0;
+	left:0;
+}
+/* column widths */
+.selectiveOrderMod table.data thead tr th.col_number,
+.selectiveOrderMod table.data thead tr th.col_img
+{
+	width:25px;
+}
+
+.selectiveOrderMod table.data thead tr th.col_deliToImporter,
+.selectiveOrderMod table.data thead tr th.col_salesConfimDate,
+.selectiveOrderMod table.data thead tr th.col_agreedDeliDate,
+.selectiveOrderMod table.data thead tr th.col_custoDeliDate,
+.selectiveOrderMod table.data thead tr th.col_demoCarDeregDate
+{
+	width:90px;
+}
+.selectiveOrderMod table.data thead tr th.col_dealerOrderDate,
+.selectiveOrderMod table.data thead tr th.col_orderEntryDate,
+.selectiveOrderMod table.data thead tr th.col_vfm
+{
+	width:75px;
+}
+.selectiveOrderMod table.data thead tr th.col_vfmSingle
+{
+	width:40px;
+}
+.selectiveOrderMod table.data thead tr th.col_model,
+.selectiveOrderMod table.data thead tr th.col_modelGroup,
+.selectiveOrderMod table.data thead tr th.col_nwCommNo,
+.selectiveOrderMod table.data thead tr th.col_odometer,
+.selectiveOrderMod table.data thead tr th.col_name,
+.selectiveOrderMod table.data thead tr th.col_street,
+.selectiveOrderMod table.data thead tr th.col_city
+{
+	width:60px;
+}
+.selectiveOrderMod table.data thead tr th.col_zip
+{
+	width:40px;
+}
+.selectiveOrderMod table.data thead tr th.col_infosErrors
+{
+	width:auto;
+}
+.stockTransferProtocol table.stpMasterTable th
+{
+	height:60px;
+	vertical-align:bottom;
+}
+
+/*COLORS--------------------------------------------------*/
+.newadaJ .darkRed
+{
+	color:#990000;
+}
+
+.newadaJ .darkGreen
+{
+	color:#006600;
+}

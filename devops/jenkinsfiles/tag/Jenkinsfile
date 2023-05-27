@@ -1,0 +1,153 @@
+@Library("jenkins-shared-library")
+import com.thinktank.jenkins.steps.*
+
+def pipelineSteps = new PipelineSteps(this)
+def scmSteps = new SCMSteps(this)
+def projectName = pipelineSteps.multiBranchDisplayName()
+
+final def credentialsId = "jenkins.user-username"
+
+// Project variables
+def mvnParams = ""
+
+pipeline {
+	agent any
+	
+	options { disableConcurrentBuilds()
+	          skipDefaultCheckout() 
+	}
+	
+	parameters {
+		string(defaultValue: "HEAD", description: "Provide the SHA-1 of a revision to tag (for example: HEAD is latest, short SHA-1: ef8e31a2, full SHA-1: ef8e31a2c111831fd119f11680a91063977d8b70)", name: 'REVISION')
+		string(defaultValue: "", description: "Provide a release version, for example: 1-3-1-0", name: 'TAG_VERSION')
+		string(defaultValue: "", description: "Provide a new snapshot version, for example: 1-3-1-1", name: 'NEXT_WORKING_VERSION')
+		string(defaultValue: "", description: "Provide a tag message", name: 'TAG_MESSAGE')
+        booleanParam(defaultValue: false, description: 'Provides the possiblity to run the job from the failed stage of the last build', name: 'resumelast')
+	}
+	
+	tools{
+        maven 'mvn3.6.3'
+        jdk 'jdk-1.8.0_131'
+    }
+    
+	stages {
+        stage("Setup") {
+            when{
+                expression{
+                    track.start(this)
+                }
+            }
+            steps{
+                script{
+                    pipelineSteps.checkParameters([])
+                }
+            }
+        }
+        stage("SCM: Checkout"){
+            when{
+                expression{
+                    track.start(this)
+                }
+            }
+            steps{
+                script{
+                    def gitURL="http://gitlab.thinktank-tt.com/vw/ekm/ekm-repository.git"
+
+                    log.outputBanner("Checking out from the GIT")
+                    scmSteps.cloneRepository(gitURL, env.BRANCH_NAME, credentialsId)
+                }
+            }
+        }
+        
+        stage ("Release: version") {
+            when{
+                expression{
+                    track.start(this)
+                }
+            }
+            steps {
+                script{
+                    log.outputBanner("Calculate version")
+
+                    pipelineSteps.getMavenReleaseVersion(mvnParams)
+                }
+            }
+        }
+         
+        stage("Jenkins: build") {
+            when{
+                expression{
+                    track.start(this)
+                }
+            }
+            steps {
+                script{
+                    log.outputBanner("Building project")
+
+                    pipelineSteps.mavenInstall(mvnParams)
+                }
+            }
+        }
+
+        stage("Push: release version") {
+             when{
+                 expression{
+                     track.start(this)
+                 }
+             }
+             steps {
+                 script{
+                     log.outputBanner("Set and Push release version to GIT")
+
+                     scmSteps.setGitConfig(projectName)  
+                     scmSteps.pushReleaseVersion(env.BRANCH_NAME, credentialsId)
+                 }
+             }
+        }
+                
+        stage("Create: tag") {
+            when{
+                 expression{
+                     track.start(this)
+                 }
+            }
+            steps {
+                script {
+                    log.outputBanner("Tag version")
+
+                    scmSteps.createGitTagRelease(env.BRANCH_NAME, projectName, credentialsId)
+                }
+            }
+        }
+        
+        stage("Push: snapshot version") {
+             when{
+                 expression{
+                     track.start(this)
+                 }
+             }
+             steps {
+                 script{
+                     log.outputBanner("Set and Push working version to GIT")
+
+                     pipelineSteps.setMavenSnapshotVersion(mvnParams)
+                     scmSteps.pushSnapshotVersion(env.BRANCH_NAME, credentialsId)
+                 }
+             }
+        } 
+        stage("Post Stage") {
+             when{
+                 expression{
+                     track.start(this)
+                 }
+             }
+             steps {
+                 script{
+                     log.outputBanner("Cleaning up")
+
+                     track.success()
+                 }
+             }
+         }       
+	 }
+}

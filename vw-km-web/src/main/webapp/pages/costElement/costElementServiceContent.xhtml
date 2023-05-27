@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>
+				<table width="771" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td height="17"><h:outputText value="#{msgs['costelement.service.mecanicConstruction']}" /></td>
+						<td>&#160;</td>
+						<td>&#160;</td>
+					</tr>
+
+					<tr>
+						<td height="8" colspan="3">
+						<h:inputTextarea styleClass="TMG" 
+						onblur="javascript:validateTextArea(this,3000);" 
+						onkeyup="javascript:validateTextArea(this,3000);" 
+						onkeypress="javascript:validateTextArea(this,3000);"  
+						value="#{costElementBean.dto.elementVersion.mechanicalConstruction}" 
+						rendered="#{! costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}" 
+						valueChangeListener="#{costElementBean.checkChanged}" >
+						 <f:ajax execute="@this" render="@all"/>
+						</h:inputTextarea>
+						<h:panelGroup layout="block" styleClass="TMG-dis-div" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costElementBean.dto.elementVersion.mechanicalConstruction}" escape="false" />
+						</h:panelGroup>
+						</td>
+					</tr>
+
+					<tr>
+						<td height="8" colspan="3"></td>
+					</tr>
+
+					<tr>
+						<td height="17"><h:outputText value="#{msgs['costelement.service.mecanicExecution']}" /></td>
+						<td>&#160;</td>
+						<td>&#160;</td>
+					</tr>
+
+					<tr>
+						<td height="8" colspan="3">
+						<h:inputTextarea styleClass="TMG" 
+						onblur="javascript:validateTextArea(this,3000);" 
+						onkeyup="javascript:validateTextArea(this,3000);" 
+						onkeypress="javascript:validateTextArea(this,3000);" 
+						value="#{costElementBean.dto.elementVersion.mechanicalExecution}" 
+						rendered="#{! costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}" 
+						valueChangeListener="#{costElementBean.checkChanged}" >
+						<f:ajax execute="@this" render="@all"/>
+						</h:inputTextarea>
+						<h:panelGroup layout="block" styleClass="TMG-dis-div" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costElementBean.dto.elementVersion.mechanicalExecution}" escape="false" />
+						</h:panelGroup>
+						</td>
+					</tr>
+
+					<tr>
+						<td height="8" colspan="3"></td>
+					</tr>
+					
+					<tr>
+						<td height="17"><h:outputText value="#{msgs['costelement.service.electricConnection']}" /></td>
+						<td>&#160;</td>
+						<td>&#160;</td>
+					</tr>
+
+					<tr>
+						<td height="8" colspan="3">
+						<h:inputTextarea styleClass="TMG" 
+						onblur="javascript:validateTextArea(this,3000);" 
+						onkeyup="javascript:validateTextArea(this,3000);" 
+						onkeypress="javascript:validateTextArea(this,3000);" 
+						value="#{costElementBean.dto.elementVersion.electric}" 
+						rendered="#{! costElementBean.dto.elementVersion.enumStatus.readOnly and costElementBean.dto.userHasWriteAccess}" 
+						valueChangeListener="#{costElementBean.checkChanged}" >
+							<f:ajax execute="@this" render="@all"/>
+						</h:inputTextarea> 
+						<h:panelGroup layout="block" styleClass="TMG-dis-div" rendered="#{costElementBean.dto.elementVersion.enumStatus.readOnly or !costElementBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costElementBean.dto.elementVersion.electric}" escape="false" />
+						</h:panelGroup>
+						</td>
+					</tr>
+
+					<tr>
+						<td height="8" colspan="3"></td>
+					</tr>					
+
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

@@ -1,0 +1,56 @@
+.extendSubnav #areaSubnav fieldset,
+.usp_ExtendSubnav #areaSubnav fieldset
+{
+  display:none;
+}
+
+.extendSubnav #areaContent,
+.usp_ExtendSubnav #areaContent
+{
+  margin-left:0;
+  padding-left:0;
+  position:static;
+  left:0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+.usp_ExtendMarginal #areaMarginal fieldset
+{
+  display:none;
+}
+
+.usp_ExtendMarginal #areaContent
+{
+  margin-right:0;
+  padding-right:0;
+}
+
+.usp_ExtentContentFull #areaContainer
+{
+  min-width:888px;
+  width:100%;
+}
+
+.usp_ExtentContentFull form
+{
+  margin:0 1em;
+}
+
+.usp_ExtentContentFull .nowMenu
+{
+  background-color:#345D6F;
+  width:auto;
+  height:192px;
+  overflow:hidden;
+}
+
+.mqDestApp_TEST.usp_ExtentContentFull .nowMenu
+{
+  background-color:#070;
+}
+
+html > body.usp_ExtentContentFull  #areaFooter > ul
+{
+  width:auto;
+}

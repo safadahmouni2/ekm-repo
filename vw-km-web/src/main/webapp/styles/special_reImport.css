@@ -1,0 +1,33 @@
+.reImp .nowrap
+{
+	white-space:nowrap !important;
+}
+.reImp .chassisNumber
+{
+	width: 184px !important;
+}
+.reImp .hint
+{
+	width: 660px !important;
+}
+.reImp .companyNumber
+{
+	width: 85px !important;
+}
+.reImp .companyField
+{
+	width: 96px !important;
+/*	width: 85px !important; */
+}
+.reImp .comboCompany
+{
+	width: 100px !important;
+}
+.reImp .disabled
+{
+	background-color: #eeeeee !important;
+}
+.reImp .averagePriceMessage
+{
+	color: red !important;
+}

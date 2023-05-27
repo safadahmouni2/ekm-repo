@@ -1,0 +1,1148 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+	<ace:dialog id="saveChangesPopup" rendered="#{costComponentBean.dto.showSaveChangesPopup}" widgetVar="saveChangesDialog"
+		visible="#{costComponentBean.dto.showSaveChangesPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true" >
+		<h:form id="svForm">
+			<div class="popup">
+			<div class="top">
+			<div class="TopLeft"><img src="../images/popup/popup_01.gif" width="17" height="40" /></div>
+			<div class="TopCenter">
+			<div class="PopTit">#{msgs['common.popup.title.saveChanges']}</div>
+			<div class="Popclose"><h:commandLink  id="sv_hcb"
+				actionListener="#{costComponentBean.closeSaveMessagePopup}">
+			  <f:ajax execute="@this" render="@all" />
+			  <img src="../images/popup/close.gif" width="49" height="20"/>
+			</h:commandLink >
+			</div>
+			</div>
+			<div class="TopRight"><img src="../images/popup/popup_03.gif" width="20" height="40" /></div>
+			</div>
+			<div class="middle">
+			<div class="MiddleLeft">
+			<div class="ML_Top"><img src="../images/popup/popup_04.gif" width="17" height="37" /></div>
+			<div class="ML_Bottom"></div>
+			</div>
+			<div class="MiddleCenter">
+			<div class="MC_Left"><img src="../images/popup/icone_help.gif" /></div>
+			<div class="MC_Center"></div>
+			<div class="MC_Right">
+			<div class="MCR_Para"><h:outputText value="#{msgs['common.message.saveChanges']}" /></div>
+			<div class="MCR_Espace"></div>
+			<div class="MCR_Titre">&#160;</div>
+			<div class="MCR_Espace"></div>
+			<div class="N_MCR_Btn">
+			<div class="BRight">
+			<div class="bgrBTL"><a href="#"></a></div>
+			<div class="bgrBTC">
+			<h:commandLink  id="cancel_save_changes_button" value="#{msgs['common.message.saveChanges.cancel']}" 
+			actionListener="#{costComponentBean.closeSaveMessagePopup}" 
+			immediate="true" tabindex="3">
+			  <f:ajax execute="@this" render="@all" />
+			</h:commandLink>
+			</div>
+			<div class="bgrBTR"><a href="#"></a></div>
+			&#160;
+			</div>
+			<div class="SRight">&#160;</div>
+			<div class="BRight">
+			<div class="bgrBTL"><a href="#"></a></div>
+			<div class="bgrBTC"><h:commandLink id="refuse_save_changes_button"
+				value="#{msgs['common.message.saveChanges.no']}"	actionListener="#{costComponentBean.cancelModifications}" tabindex="2">
+				 <f:ajax execute="@this" render="@all" />
+				</h:commandLink></div>
+			<div class="bgrBTR"><a href="#"></a></div>
+			</div>
+			<div class="SRight">&#160;</div>
+			<div class="BRight">
+			<div class="bgrBTL"><a href="#"></a></div>
+			<div class="bgrBTC"><h:commandLink id="accept_save_changes_button"
+				value="#{msgs['common.message.saveChanges.yes']}" actionListener="#{costComponentBean.save}" tabindex="1">
+				<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+				</div>
+			<div class="bgrBTR"><a href="#"></a></div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<div class="MiddleRight">
+			<div class="MR_Top"><img src="../images/popup/popup_06.gif" width="20" height="37" /></div>
+			<div class="MR_Bottom"></div>
+			</div>
+			</div>
+			<div class="bottom">
+			<div class="BottomLeft"><img src="../images/popup/popup_10.gif" width="17" height="16" /></div>
+			<div class="BottomCenter"><img src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+			<div class="BottomRight"><img src="../images/popup/popup_12.gif" width="20" height="16" /></div>
+			</div>
+			</div>
+		</h:form>
+	</ace:dialog>	
+	
+
+	<ace:dialog id="modalConfirmChangeStatusPopup" 
+		visible="#{costComponentBean.dto.showConfirmChangeStatusPopup}"
+		rendered="#{costComponentBean.dto.showConfirmChangeStatusPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true" >
+		<h:form id="chForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderWrapper" style="width: 370px">
+				<h:outputText value="#{msgs['costcomponent.changeStatus.comment']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlCloseBtn1"
+					actionListener="#{costComponentBean.closeConfirmChangeStatusPopup}" styleClass="popupHeaderImage" immediate="true">
+					<f:ajax execute="@this" render="@all" />
+			       <img src="../images/popupclose.gif" width="18" height="18"/>
+				</h:commandLink>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+				<h:outputText value="#{msgs['costcomponent.changeStatus.confirm']}" styleClass="iceOutTxt popupHeaderText" />
+				<br />
+				<br />
+					<h:panelGroup layout="block"  styleClass="areaTabContent"
+					rendered="#{costComponentBean.dto.toStatusId==3 and costComponentBean.dto.componentVersion.enumStatus.enumStatusId==2 and costComponentBean.dto.componentVersion.component.folder.creatorRefId ==null}">
+						<h:inputTextarea id="change_status_remark" value="#{costComponentBean.dto.changeStatusComment}" styleClass="txtareaPopup" 
+							onkeydown="textCounter(this,document.getElementById('remLen'),#{costComponentBean.dto.maxLengthForChangeStatus},document.getElementById('remLen_error'),'#{msgs['costelement.changeStatus.commentTooLong']}')"
+							onkeyup="textCounter(this,document.getElementById('remLen'),#{costComponentBean.dto.maxLengthForChangeStatus},document.getElementById('remLen_error'),'#{msgs['costelement.changeStatus.commentTooLong']}')" />
+						<br />
+						<div align="left"><span id="remLen">#{costComponentBean.dto.maxLengthForChangeStatus}</span>&#160;#{msgs['common.message.charactersRemaining']}</div>
+						<br />
+						<div align="left"><span id="remLen_error" style="color: red;"></span></div>
+						<br />
+					</h:panelGroup>
+				<h:commandButton  id="modalConfirmChangeStatusCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+					value="#{msgs['costcomponent.changeStatus.comment.add']}"
+					actionListener="#{costComponentBean.saveReleaseStatus}" >
+					 <f:ajax render="@all" execute="@form" />
+				</h:commandButton>	
+				<h:commandButton styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['costcomponent.changeStatus.comment.no']}"
+					actionListener="#{costComponentBean.closeConfirmChangeStatusPopup}" immediate="true">
+					 <f:ajax render="@all" execute="@this" />
+				</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>	
+
+	<ace:dialog id="exportPopup" rendered="#{costComponentBean.dto.showExcelExportPopup}"
+		visible="#{costComponentBean.dto.showExcelExportPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true">
+       <h:form id="exExcForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderNoWidth" style="width: 370px">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.excel.title']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlCloseBtn2"
+					action="#{costComponentBean.cancelExport}" styleClass="popupHeaderImage">
+			         <img src="../images/popupclose.gif" height="18" width="18" />
+			        <f:ajax render="@all" execute="@this" />
+				</h:commandLink>
+			</h:panelGroup>
+
+		   <h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+			  <ace:dateTimeEntry id="date_export1"
+                           value="#{costComponentBean.dto.exportDate}"
+                           valueChangeListener="#{costComponentBean.prepareExcelExport}" 
+                           onkeydown="javascript:return false;"
+                           pattern="dd.MM.yyyy"
+                           renderAsPopup="true"
+                           showOn="button"
+                           showButtonPanel="true"
+                           locale="de"
+                           popupIcon="/images/img_onglet/cal_button.gif"/>									
+				<br />
+				<br />
+				<h:panelGrid columns="3">
+					<h:panelGroup layout="block"  id="panelGroup1" onclick="javascript:exportResourceEvent('exExcForm','exExcForm:excelResourceEventHandler')">
+					<ace:dynamicResource styleClass="iceCmdBtn saveChangesPopupBtn" style="width: 90px !important;margin: 0px;" id="excel_export_hidden" type="button" attachment="true" fileName="#{costComponentBean.excelResource.resourceName}" label="#{msgs['costcomponent.exportPopup.excel']}" mimeType="application/vnd.ms-excel"
+							shared="false" resource="#{costComponentBean.excelResource}" rendered="#{costComponentBean.showExcelViewFile}">
+				   </ace:dynamicResource>
+				   <h:inputHidden id="excelResourceEventHandler" value ="default" valueChangeListener="#{costComponentBean.excelResourceClicked}"/>
+				   </h:panelGroup>					
+				   <h:commandButton  styleClass="iceCmdBtn saveChangesPopupBtn" value="#{msgs['costcomponent.back']}"
+					action="#{costComponentBean.cancelExport}">
+					 <f:ajax render="@all" execute="@form" />
+					</h:commandButton>
+				</h:panelGrid>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>
+
+	<ace:dialog id="modalConfirmChangeUsePopup"
+		visible="#{costComponentBean.dto.showConfirmChangeUsePopup}"
+		rendered="#{costComponentBean.dto.showConfirmChangeUsePopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true">
+		<h:form id="confirmChangeUseForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderWrapper" style="width: 370px">
+				<h:outputText value="#{msgs['costelement.changeUse']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlCloseBtn3"
+					actionListener="#{costComponentBean.closeConfirmChangeUsePopup}" styleClass="popupHeaderImage">
+					<f:ajax execute="@this" render="@all" />
+					 <img src="../images/popupclose.gif" height="18" width="18" />
+				</h:commandLink>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+				<h:outputText value="#{costComponentBean.changeUseConfirmMessage}" escape="false" styleClass="iceOutTxt popupHeaderText" />
+				<br />
+				<br />
+				<div align="left" style="height:18"></div>
+				<h:commandButton id="modalConfirmChangeUseCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+					value="#{msgs['costelement.changeUse.add']}"
+					actionListener="#{costComponentBean.changeUseComponentStand}">
+					<f:ajax execute="@this" render="@all" />
+				</h:commandButton>	
+				<h:commandButton styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['costelement.changeUse.no']}"
+					actionListener="#{costComponentBean.closeConfirmChangeUsePopup}" >
+					<f:ajax execute="@this" render="@all" />
+				</h:commandButton>	
+
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>
+	
+	<ace:dialog id="exportXMLPopup" rendered="#{costComponentBean.dto.showXmlExportPopup}"
+		visible="#{costComponentBean.dto.showXmlExportPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true" >
+		<h:panelGroup layout="block"  id="exportXMLd" style="width: 385px; overflow-y:auto; overflow-x:hidden">
+		 <h:form id="fexpForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderNoWidth" style="width: 360px">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.title']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlCloseBtn4" action="#{costComponentBean.cancelXmlExport}"
+					styleClass="popupHeaderImage">
+					 <img src="../images/popupclose.gif" height="18" width="18" />
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody2">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.info']} :" styleClass="iceOutTxt popupHeaderText" style="margin-left: 15px"/>
+				<br />
+				<br />
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="xml_compo1 StyLog">
+				
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.date.help']}" />
+				 </span>
+				</div>				
+				
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.date']}" /></div>
+				<div class="compo2">
+				<div style="width: 182px;">
+			  <ace:dateTimeEntry id="date_export2"
+                           value="#{costComponentBean.dto.exportDate}"
+                           styleClass="TPE"
+                           pattern="dd.MM.yyyy"
+                           renderAsPopup="true"
+                           showOn="button"
+                           showButtonPanel="true"
+                           locale="de"
+                           popupIcon="/images/img_onglet/cal_button.gif"/>												
+				</div>
+				</div>
+				</div>
+				</div>
+				<div style="margin-left: 15px">
+
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.approvedComponent.help']}" />
+				 </span>
+				</div>				
+				
+				 	<h:outputText value="#{msgs['costcomponent.exportPopup.xml.approvedComponent.info']} :" />
+				</div>
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="compo3 StyLog" style="width: 280px !important;"><h:selectBooleanCheckbox id="with_approved_component1"
+					value="#{costComponentBean.dto.exportApprovedComponent}" styleClass="WBS1" style="vertical-align: middle;"/><h:outputText
+					value="#{msgs['costcomponent.exportPopup.xml.approvedComponent']}" style="vertical-align: middle;"/></div>
+
+				</div>
+				</div>
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.withoutCostAttributes.info']} :" style="margin-left: 15px"/>
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="compo3 StyLog"><h:selectBooleanCheckbox id="without_cost_attributes1"
+					value="#{costComponentBean.dto.exportWithoutAttributes}" styleClass="WBS1" style="vertical-align: middle;"/><h:outputText
+					value="#{msgs['costcomponent.exportPopup.xml.withoutCostAttributes']}" style="vertical-align: middle;"/></div>
+
+				</div>
+				</div>
+				<!-- Add here -->
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.libraries']} :" style="margin-left: 15px"/>
+				<div class="Xml_pop"><div class="benu">
+				<div class="xml_compo1 StyLog"><h:outputText value="#{msgs['costcomponent.exportPopup.xml.owner']}" /></div>
+				<div class="compo2">
+				<h:selectManyMenu id="libraries"
+					value="#{costComponentBean.dto.selectedLibraryIds}"
+					styleClass="nCCLA"  >
+					<f:selectItems value="#{costComponentBean.ownerItems}" />
+				</h:selectManyMenu>
+				</div>
+				</div></div>
+				<br style="clear: both"/>
+				<div class="Xml_pop" style="padding-top: 15px !important"><div class="benu">
+				<div class="xml_compo1 StyLog">
+				
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.primaryLibrary.help']}" />
+				 </span>
+				</div>				
+				
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.primaryLibrary']}" /></div>
+				<div class="compo2">
+				<h:selectOneMenu id="owner_brandId"
+						value="#{costComponentBean.dto.selectedPrimaryLibraryAsString}"
+						styleClass="min_6 validate tabme">
+					<f:selectItem  itemLabel="#{msgs['common.message.select']}" itemValue=""/>
+					<f:selectItems value="#{costComponentBean.libraryItems}" />
+				</h:selectOneMenu>
+				</div>
+				</div></div>
+				<div class="Des"></div>
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.userIdExport']} :" styleClass="iceOutTxt popupHeaderText" style="margin-left: 15px"/>
+				<br />
+				<br />
+				<div class="Xml_pop"><div class="benu">
+				<div class="xml_compo1 StyLog"><h:outputText value="#{msgs['costelement.users']}" /></div>
+				<div class="compo2">
+				<h:selectManyMenu id="users"
+					value="#{costComponentBean.dto.selectedUsersIds}"
+					styleClass="nCCLA">
+					<f:selectItems value="#{costComponentBean.userItems}" />
+				</h:selectManyMenu>
+				</div>
+				</div></div>
+				<br style="clear: both"/>
+				<table width="771" cellspacing="0" cellpadding="0" border="0">                      
+                      <tbody><tr>
+                        <td height="17">&#160;</td>
+                      </tr>
+                      <tr>
+                        <td height="8">
+                        
+			     	<div class="tooltip">
+			    	<img src="../images/info.gif"/>&#160;
+			    	 <span class="tooltiptext">
+			    	 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.componentType.help']}" />
+				     </span>
+				   </div>                        
+                        
+                        <h:outputText value="#{msgs['costcomponent.exportPopup.xml.componentType']}:" />
+						&#160;<h:inputText value="#{costComponentBean.dto.componentType}"
+								   maxlength="50" styleClass="min_6 validate tabme"/>
+						</td>
+					  </tr>
+            </tbody></table>
+				<!-- End -->
+				<br />
+				<h:panelGrid columns="2" style="text-align: center;"
+					class="save-changes-popup-footer">
+
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn"
+						value="#{msgs['costcomponent.exportPopup.xmlPD']}"
+						id="btn_export_pd"
+						onclick="disableButton(this.id);disableButton('fexpForm:btn_export_connect');"
+						actionListener="#{costComponentBean.xmlExport}"
+						disabled="#{costComponentBean.showXmlViewFile}">
+						<f:param name="export_target" value="pd"></f:param>
+						<f:ajax execute="@form" render="@all" />
+					</h:commandButton>
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn"
+						value="#{msgs['costcomponent.exportPopup.xml']}"
+						id="btn_export_connect"
+						onclick="disableButton(this.id);disableButton('fexpForm:btn_export_pd');"
+						actionListener="#{costComponentBean.xmlExport}"
+						disabled="#{costComponentBean.showXmlViewFile}">
+						<f:param name="export_target" value="connect"></f:param>
+						<f:ajax execute="@form" render="@all" />
+					</h:commandButton>
+
+					<ace:dynamicResource styleClass="iceCmdBtn saveChangesPopupBtn"
+						id="xml_export_hidden1" type="button" attachment="true"
+						fileName="#{costComponentBean.xmlResource.resourceName}"
+						label="#{msgs['costcomponent.exportPopup.view']}"
+						mimeType="application/xml" shared="false"
+						resource="#{costComponentBean.xmlResource}"
+						rendered="#{costComponentBean.showXmlViewFile}">
+					</ace:dynamicResource>
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn"
+						value="#{msgs['costcomponent.back']}"
+						action="#{costComponentBean.cancelXmlExport}">
+						<f:ajax execute="@form" render="@all" />
+					</h:commandButton>
+				</h:panelGrid>
+			</h:panelGroup>
+		</h:form>
+		</h:panelGroup>
+	</ace:dialog>
+
+   <ace:dialog id="exportXMLComponentPopup" rendered="#{costComponentBean.dto.showXmlComponentExportPopup}"
+		visible="#{costComponentBean.dto.showXmlComponentExportPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true">
+		<h:panelGroup layout="block"  id="exportXMLdc" style="width: 385px; overflow-y:auto; overflow-x:hidden">
+		 <h:form id="cexpForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderNoWidth" style="width: 360px">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.title']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlCloseBtn5" action="#{costComponentBean.cancelXmlExport}"
+					styleClass="popupHeaderImage">
+					 <img src="../images/popupclose.gif" height="18" width="18" />
+					<f:ajax execute="@form" render="@all" />
+				</h:commandLink>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody2">
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.info']} :" styleClass="iceOutTxt popupHeaderText" style="margin-left: 15px"/>
+				<br />
+				<br />
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="xml_compo1 StyLog">
+				
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.date.help']}" />
+				 </span>
+				</div>
+				
+				
+				<h:outputText value="#{msgs['costcomponent.exportPopup.xml.date']}" /></div>
+				<div class="compo2">
+				<div style="width: 182px;">
+			  <ace:dateTimeEntry id="date_export3"
+                           value="#{costComponentBean.dto.exportDate}"
+                           styleClass="TPE"
+                           pattern="dd.MM.yyyy"
+                           renderAsPopup="true"
+                           showOn="button"
+                           showButtonPanel="true"
+                           locale="de"
+                           popupIcon="/images/img_onglet/cal_button.gif"/>									
+				</div>
+				</div>
+				<div class="Des"></div>
+				</div>
+				<br />
+				</div>
+				<div style="margin-left: 15px">
+
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.approvedComponent.help']}" />
+				 </span>
+				</div>				
+				
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.approvedComponent.info']} :" />
+				</div>
+				<div class="Xml_pop">
+				<div class="benu">
+				<div class="compo3 StyLog" style="width: 280px !important;"><h:selectBooleanCheckbox id="with_approved_component2"
+					value="#{costComponentBean.dto.exportApprovedComponent}" styleClass="WBS1" style="vertical-align: middle;"/><h:outputText
+					value="#{msgs['costcomponent.exportPopup.xml.approvedComponent']}" style="vertical-align: middle;"/></div>
+				<div class="Des"></div>
+				</div>
+				</div>
+				<h:outputText
+					value="#{msgs['costcomponent.exportPopup.xml.withoutCostAttributes.info']} :"
+					style="margin-left: 15px" />
+				<div class="Xml_pop">
+					<div class="benu">
+						<div class="compo3 StyLog">
+							<h:selectBooleanCheckbox id="without_cost_attributes2"
+								value="#{costComponentBean.dto.exportWithoutAttributes}"
+								styleClass="WBS1" style="vertical-align: middle;" />
+							<h:outputText
+								value="#{msgs['costcomponent.exportPopup.xml.withoutCostAttributes']}"
+								style="vertical-align: middle;" />
+						</div>
+						<div class="Des"></div>
+					</div>
+				</div>
+				<div class="Des"></div>
+				<br />
+				
+				<div class="tooltip">
+				<img src="../images/info.gif"/>&#160;
+				 <span class="tooltiptext">
+				 <h:outputText value="#{msgs['costcomponent.exportPopup.xml.componentType.help']}" />
+				 </span>
+				</div>					
+				
+                        <h:outputText value="#{msgs['costcomponent.exportPopup.xml.componentType']}:" />&#160;
+				<h:inputText value="#{costComponentBean.dto.componentType}" maxlength="50" styleClass="tabme"/>
+				<div class="Des"></div>
+				<br />
+				<h:panelGrid columns="2" style="text-align: center;" class="save-changes-popup-footer">
+				<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn" value="#{msgs['costcomponent.exportPopup.xmlPD']}"
+					id="btn_export_pd"
+						onclick="disableButton(this.id);disableButton('fexpForm:btn_export_connect');" actionListener="#{costComponentBean.xmlExport}" disabled="#{costComponentBean.showXmlComponentViewFile}">
+					  <f:param name="export_target" value="pd"></f:param>
+					  <f:ajax execute="@form" render="@all" />
+					</h:commandButton>
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn" value="#{msgs['costcomponent.exportPopup.xml']}"
+					id="btn_export_connect"
+						onclick="disableButton(this.id);disableButton('fexpForm:btn_export_pd');" actionListener="#{costComponentBean.xmlExport}" disabled="#{costComponentBean.showXmlComponentViewFile}">
+					<f:param name="export_target" value="connect"></f:param>
+					<f:ajax execute="@form" render="@all" />
+					</h:commandButton>	
+					<ace:dynamicResource styleClass="iceCmdBtn saveChangesPopupBtn"  id="xml_export_hidden2"
+						type="button" attachment="true" fileName="#{costComponentBean.xmlResource.resourceName}"
+						label="#{msgs['costcomponent.exportPopup.view']}" mimeType="application/xml" shared="false"
+						resource="#{costComponentBean.xmlResource}" rendered="#{costComponentBean.showXmlComponentViewFile}">
+					</ace:dynamicResource>
+					<h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn" value="#{msgs['costcomponent.back']}"
+						action="#{costComponentBean.cancelXmlExport}">
+						<f:ajax execute="@form" render="@all" />
+					</h:commandButton >	
+				</h:panelGrid>
+			</h:panelGroup>
+		</h:form>
+		</h:panelGroup>
+	</ace:dialog>
+
+	<ace:dialog id="modalConfirmReleasePopup"
+		visible="#{costComponentBean.dto.showConfirmReleasePopup}"
+		rendered="#{costComponentBean.dto.showConfirmReleasePopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true">
+		<h:form id="crForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderWrapper" style="width: 370px">
+				<h:commandLink id="modalPnlCloseBtn6"
+					actionListener="#{costComponentBean.closeConfirmReleasePopup}" styleClass="popupHeaderImage">
+					<f:ajax execute="@this" render="@all" />
+   				    <img src="../images/popupclose.gif" height="18" width="18" />
+				</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+				<h:outputText value="#{costComponentBean.releaseConfirmMessage}" escape="false" styleClass="iceOutTxt popupHeaderText" />
+				<br />
+				<br />
+				<div align="left" style="height:18"></div>
+				<h:commandButton id="modalConfirmReleaseCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+					value="Ja"
+					actionListener="#{costComponentBean.releaseComponentVersion}">
+					<f:ajax execute="@this" render="@all" />
+				</h:commandButton>	
+				<h:commandButton styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['costelement.changeUse.no']}"
+					actionListener="#{costComponentBean.closeConfirmReleasePopup}">
+					<f:ajax execute="@this" render="@all" />
+				</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>	
+	
+	<!-- Bemerkung Popup -->
+	<ace:dialog id="modalPnlPop"
+		visible="#{costComponentBean.dto.modalRendered}" rendered="#{costComponentBean.dto.modalRendered}"
+		draggable="false" showHeader="false" resizable="false" modal="true">
+		<h:form id="bmForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderWrapper" style="width: 370px">
+				<h:outputText value="#{msgs['costcomponent.costAttribute.description']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlCloseBtn" actionListener="#{costComponentBean.closeModal}" 
+				styleClass="popupHeaderImage">
+				  <f:ajax execute="@this" render="@all" />
+				  <img src="../images/popupclose.gif" height="18" width="18" />
+				</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+				<h:inputTextarea id="cost_attribute_remark" value="#{costComponentBean.dto.remark}" 
+									styleClass="txtareaPopup" maxlength="255" 
+									rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly  and costComponentBean.dto.userHasWriteAccess}"
+				 				    onblur="javascript:if(this.value.length == 255) alert('#{msgs['common.texterea.maxlength']}') ;" 
+				 				    valueChangeListener="#{costComponentBean.checkChanged}" tabindex="1"/>
+				<h:panelGroup layout="block"  styleClass="txtareaPopup-dis-div"
+							rendered="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costComponentBean.dto.remark}" escape="false" />
+				</h:panelGroup>			
+				<br />
+				<br />
+				<h:commandButton id="modalPnlCloseButton" styleClass="iceCmdBtn" type="submit"
+					value="#{msgs['costcomponent.costAttribute.description.update']}" 
+					actionListener="#{costComponentBean.closeModal}" 
+					disabled="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess}" tabindex="2">
+					 <f:ajax execute="@form" render="@all" />
+				</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>	
+	
+<!-- assign element Popup -->
+ <h:panelGroup layout="block"  id="assig_main"  style="top:2px;left:2%;right:5%;#{(costComponentBean.dto.showElementComponentpopup) ? 'display:block;':'display:none;'}"
+	rendered="#{costComponentBean.dto.showElementComponentpopup}">	
+ <h:form id="asdForm">
+	<ace:dialog 
+		id="dependentDeviceAssigning" 
+		visible="#{costComponentBean.dto.showElementComponentpopup}"
+		rendered="#{costComponentBean.dto.showElementComponentpopup}"
+		dragHandle=".icePnlPopHdr"
+		draggable="true"
+		modal="false"
+		showHeader="false"
+		style="z-index: 999;background: #F5F5F5;border: 1px solid #d9d9d9;padding: 0px;width:auto; height:auto;"
+		zindex="999"
+		onShow="ice.ace.jq( '#asdForm\\:dependentDeviceAssigning .ui-dialog' ).css({'left' : '3%','top':'2px'});">
+		<table cellspacing="0" cellpadding="0">
+		<tbody>
+		<tr>
+		<td class="icePnlPopHdr" style="cursor: move;" id="asdForm:dependentDeviceAssigningHandle">
+			<h:panelGroup layout="block" styleClass="icePnlGrp" style="width:99%;">
+				<h:outputText value="#{msgs['costcomponent.dependentDocument.link']}" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlClose"
+					actionListener="#{costComponentBean.closeAvailableCostElementPopUp}" styleClass="iceCmdLnk popupHeaderImage">
+					<f:param name="elements_page_index" value="1" />
+					<img src="../images/fleche_2_reverse.gif"  />
+				</h:commandLink>
+			</h:panelGroup>	
+		</td>
+		</tr>
+		<tr id="asdForm:dependentDeviceAssigning-tr"><td class="icePnlPopBody">	
+			<h:panelGroup layout="block"   styleClass="dependentDeviceDivider" style="width: 100%;" id="dependentDeviceDivider">
+				<h:panelGroup layout="block"  styleClass="panelDividerContainer" id="areaContent2" style="width: 100%;">	
+					<div class="icePnlDvr" id="asdForm:dividerpanelelement" style="width: 100%; height: 524px;">
+						<div class="icePnlDvrCnt">
+							<h:panelGroup id="leftSide" layout="block" style="position: static; height:100%;width:250px;float:left;" >
+							<ace:resizable handles="e" />
+							<div class="icePnlDvrFst" id="asdForm:dividerpanelelementFirst" style="height:100%;width:98%;">
+								<h:panelGroup layout="block"  style="padding: 10px;width: 100%;" >
+											<ace:tree 
+												value="#{navigationElementBean.model}"
+												var="node" 
+												expansion="true" 
+												selection="false"
+												reordering="false"
+												stateCreationCallback="#{navigationElementBean.contractProvinceInit}" 
+												stateMap="#{navigationElementBean.stateMap}"
+												stateVar="nState">
+										    <ace:ajax event="expand" listener="#{navigationElementBean.expandCollapse}" render="@all" execute="@all"/>
+										    <ace:ajax event="contract" listener="#{navigationElementBean.expandCollapse}" render="@all" execute="@all"/>
+												<ace:node>
+													<h:panelGroup
+														layout="block"
+														style="display: inline;text-align: left;padding: 0;margin: 0;">
+														<h:panelGroup
+															id="node"
+															layout="block"
+															style="display: inline;text-align: left;padding: 0;margin: 0;"
+															menuPopup="menuPopupActions">
+															<h:graphicImage
+																value="../#{node.icon}"
+																style="border: 0px"/>
+															<h:outputText 
+																value="&#160;" 
+																escape="false"/>	
+															<ace:linkButton 
+																styleClass="nodeText selectedNode#{node.selected}" 
+																actionListener="#{node.nodeClicked}"
+																value="#{node.menuDisplayText}" 
+																title="#{node.menuContentTitle}">
+																<ace:ajax render="@all" execute="@all" />
+															</ace:linkButton>
+															<h:outputText 
+																value="&#160;" 
+																escape="false" 
+																rendered="#{node.displayOwner}"/>
+															<h:graphicImage 
+																value="../images/#{node.ownerImg}" 
+																rendered="#{node.displayOwner}"/>
+														</h:panelGroup>
+														<ace:contextMenu 
+															id="menuPopupActions" 
+															orientation="Vertical"
+															style="background-color: #EFEFEF; width: 195px; z-index: 5000;position:fixed; top: 10px;left: -50px;"
+															for="node"
+															rendered="#{node.displayContextMenu and !costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userIsOwner and costComponentBean.dto.userHasWriteAccess}">
+															<ace:menuItem 
+																styleClass="ctxItem"  
+																id="new_ordner" 
+																icon="c-m-size c-m-assign" 
+																value="#{msgs['costcomponent.componentElement.tree.contextMenu.assign']}" 
+																actionListener="#{costComponentBean.assignElement}">
+																<f:param name="elem_id" value="#{node.nodeId}" />
+															</ace:menuItem>
+														</ace:contextMenu>
+													</h:panelGroup>
+												</ace:node>
+											</ace:tree>
+							</h:panelGroup>
+						</div>
+						<div class="icePnlDvrSpt" id="asdForm:dividerpanelelementDivider" style="float:left;cursor:auto;">&#160;</div>
+            </h:panelGroup>
+            <script type="text/javascript">
+            	ice.ace.jq( '#asdForm\\:leftSide' ).resize(function() {
+                	//alert(ice.ace.jq( '#f\\:leftSide' ).css("width"));
+            		if ((ice.ace.jq( '#asdForm\\:leftSide' ).css("width").replace('px','') * 1) &gt; 220) {
+            			var y = (ice.ace.jq( '#asdForm\\:leftSide' ).css("width").replace('px','') * 1);
+            			ice.ace.jq( "#asdForm\\:rightSide" ).css({"margin-left" : y });
+            		} else {
+            			ice.ace.jq( "#asdForm\\:rightSide" ).css({"margin-left" : 220});
+            			ice.ace.jq( '#asdForm\\:leftSide' ).css({"width" : 220});
+            		}
+            	});            
+            </script>
+						<h:panelGroup id="rightSide" layout="block" style="height:100%;margin-left:250px;" >
+						<div class="icePnlDvrSnd" id="asdForm:dividerpanelelementSecond" style="height: 100%; width: 100%;">
+							<h:panelGroup layout="block"  style="padding: 10px;width:1050px;overflow:auto;">	
+								<table  border="0" cellspacing="0" cellpadding="0">
+									<tr>
+									<td width="100%" colspan="3">
+									<table>					
+									<tr>
+										<td nowrap="nowrap" width="13%"><h:outputText escape="false" value="#{msgs['costcomponent.totalAmount']}:" />&#160;<span style="padding-right: 50px"></span></td>
+										<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.totalComponentElement.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+										<td nowrap="nowrap" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.mechanicSum']}:" /></strong>&#160;</td>
+										<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.mecanicsComponentElementSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+										<td nowrap="nowrap" align="left" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.electricSum']}:" /></strong>&#160;</td>
+										<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.electricalComponentElementSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+									</tr>
+									<tr><td height="2px" colspan="6"></td></tr>
+									<tr>
+										<td nowrap="nowrap" width="13%"><h:outputText escape="false" value="#{msgs['costcomponent.totalAmountWithProvision']}:" />&#160;</td>
+										<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.sumTotalComponentElementAndTotalComponentElementProvision.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+										<td nowrap="nowrap" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.mechanicSumWithProvision']}:" /></strong>&#160;<span style="padding-right: 3px"></span></td>
+										<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.mecanicsComponentElementProvisionSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+										<td nowrap="nowrap" align="left" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.electricSumWithProvision']}:" /></strong>&#160;</td>
+										<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.electricalComponentElementProvisionSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+										</tr>
+										<tr><td height="10px" colspan="3"></td></tr>
+									</table>		
+									</td>
+									</tr>
+									<tr>
+										<td ></td>
+										<td height="25"><strong><h:outputText
+											value="#{msgs['costcomponent.componentElement.associateCostElement.msge']}" /></strong></td>
+									</tr>
+						<tr>
+							<td width="6%" align="center" valign="middle" height="200">
+							<div class="BGT">
+							<div class="BCT">
+							<div class="bgrBTL"><a href="#"></a></div>
+
+							<div class="BF"><h:commandLink  value="&gt;&gt;"
+								actionListener="#{costComponentBean.moveSelectedToRight}"
+								disabled="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or ! costComponentBean.dto.userIsOwner or !costComponentBean.dto.userHasWriteAccess}">
+								 <f:ajax render="@all" execute="@form" />
+							</h:commandLink></div>
+							<div class="bgrBTR"><a href="#"></a></div>
+							</div>
+							<div class="space">&#160;</div>
+							<div class="Des">&#160;</div>
+							<div class="BCT">
+							<div class="bgrBTL"><a href="#"></a></div>
+							<div class="BF"><h:commandLink  value="&lt;&lt;"  actionListener="#{costComponentBean.moveSelectedToLeft}"
+								disabled="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or ! costComponentBean.dto.userIsOwner or !costComponentBean.dto.userHasWriteAccess}">
+							<f:ajax execute="@form" render="@all"/>
+							</h:commandLink></div>
+							<div class="bgrBTR"><a href="#"></a></div>
+
+							</div>
+
+							</div>
+							</td>
+							<td width="100%"><h:panelGroup layout="block"  id="assignedelement">
+								<ace:dataTable  border="0" cellpadding="0" cellspacing="0"
+									headerClasses="tabIce_left PFF,tabIce_left PFF,tabIce_left PFF,tabIce_noborder_lr,tabIce_noborder_lr"
+									value="#{costComponentBean.dto.componentVersion.availableComponentElementList}" var="componentElement"
+									style="margin: 0px;" 
+									binding="#{costComponentBean.componentElementTable2}" 
+									stateMap="#{costComponentBean.rowStateMapRight}"
+								    selectionMode="#{(!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess)?'multiple':''}"
+								    >
+								<ace:ajax event="select" execute="@this" render="@this" />
+                                <ace:ajax event="deselect" execute="@this" render="@this" />
+									<ace:column style="width:55px">
+										<f:facet name="header">
+											<h:outputText value="#{msgs['costcomponent.componentElement.list.elementNumber']}" />
+										</f:facet>
+	                                  <h:panelGroup layout="block" id="cntx1">						
+											<h:outputText value="#{componentElement.elementVersion.element.elementNumber}" rendered="#{!componentElement.elementVersion.element.inactive}"/>
+											<h:outputText value="#{componentElement.elementVersion.element.elementNumber}" styleClass="iceOutTxtGray"
+									rendered="#{componentElement.elementVersion.element.inactive}"/>							
+										</h:panelGroup>	
+						      <ace:contextMenu  id="editElVersionChangeAction1" for="cntx1"
+									style="z-index: 5000;position:fixed; top: 10px;left: -50px;" 
+									rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess and ( !componentElement.elementVersion.element.inactive or (componentElement.elementVersion.enumStatus.enumStatusId==5 and costComponentBean.dto.userIsOwner))}">
+									<ace:menuItem styleClass="ctxItem"  id="ver_change1"  value="#{msgs['costcomponent.assignelement.change.to.editversion']}" actionListener="#{costComponentBean.assignInEditElementVersion}" rendred="#{componentElement.elementVersion.enumStatus.enumStatusId==5 and costComponentBean.dto.userIsOwner}">
+										<f:param name="elem_id" value="#{componentElement.elementVersion.element.elementId}" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-TOP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortTop']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+				                     	<f:param name="sort_parameter" value="TOP" />
+				                    </ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-UP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortUp']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+										<f:param name="sort_parameter" value="UP" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-DOWN" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortDown']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+										<f:param name="sort_parameter" value="DOWN" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-BOTTOM" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortBottom']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+										<f:param name="sort_parameter" value="BOTTOM" />
+									</ace:menuItem>										
+								</ace:contextMenu>			
+									</ace:column>
+									<ace:column>
+										<f:facet name="header" >
+											<h:outputText value="#{msgs['costcomponent.componentElement.list.designation']}" />
+										</f:facet>
+										<h:panelGroup layout="block" id="cntx2">
+																			
+											<h:outputText value="#{componentElement.elementVersion.element.designation}" rendered="#{!componentElement.elementVersion.element.inactive}"/>
+											<h:outputText value="#{componentElement.elementVersion.element.designation}" styleClass="iceOutTxtGray"
+											rendered="#{componentElement.elementVersion.element.inactive}"/>	
+												
+											<span style="width:45px">&#160;</span>	
+										</h:panelGroup>							
+									<ace:contextMenu  id="editElVersionChangeAction2" for="cntx2"
+									style="z-index: 5000;position:fixed; top: 10px;left: -50px;" 
+									rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess and ( !componentElement.elementVersion.element.inactive or (componentElement.elementVersion.enumStatus.enumStatusId==5 and costComponentBean.dto.userIsOwner))}">
+									<ace:menuItem styleClass="ctxItem"  id="ver_change2"  value="#{msgs['costcomponent.assignelement.change.to.editversion']}" actionListener="#{costComponentBean.assignInEditElementVersion}" rendred="#{componentElement.elementVersion.enumStatus.enumStatusId==5 and costComponentBean.dto.userIsOwner}">
+										<f:param name="elem_id" value="#{componentElement.elementVersion.element.elementId}" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-TOP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortTop']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+				                     	<f:param name="sort_parameter" value="TOP" />
+				                    </ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-UP" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortUp']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+										<f:param name="sort_parameter" value="UP" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-DOWN" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortDown']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+										<f:param name="sort_parameter" value="DOWN" />
+									</ace:menuItem>
+									<ace:menuItem styleClass="ctxItem" icon="ui-icon-sort ui-icon-BOTTOM" value="#{msgs['vwg.vw.km.presentation.client.navigation.contextMenu.sortBottom']}" actionListener="#{costComponentBean.sortAvailableComponentElementFromTab2}" rendred="#{costComponentBean.dto.userCanSort and !componentElement.elementVersion.element.inactive}">
+										<f:param name="sort_parameter" value="BOTTOM" />
+									</ace:menuItem>										
+								</ace:contextMenu>	
+									</ace:column>																	
+									<ace:column style="width:45px">
+										<f:facet name="header">
+											<h:outputText value="#{msgs['costcomponent.componentElement.list.number']}" styleClass="arbeit" />
+										</f:facet>
+										<center><span class="PaFont"> <h:inputText onblur="javascript:validateAnzahlField(this);"
+											value="#{componentElement.number}"
+											valueChangeListener="#{costComponentBean.changedComponentElementNumberValueFromTab2}"
+											styleClass="RMM" maxlength="4"
+											immediate="true"
+											rendered="#{!costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess and !componentElement.elementVersion.element.inactive}">
+											<f:ajax render="@all" execute="@this" />
+										</h:inputText>
+										<h:outputText styleClass="spanRMM" value="#{componentElement.number}" rendered="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess or componentElement.elementVersion.element.inactive}"/>
+										 </span></center>
+									</ace:column>
+									<ace:column style="width:80px">
+										<f:facet name="header">
+											<h:outputText value="#{msgs['costcomponent.componentElement.list.sum']} [&#8364;]" styleClass="arbeit" />
+										</f:facet>
+											<h:outputText value="#{componentElement.totalAmount.stringFormatted}" rendered="#{!componentElement.elementVersion.element.inactive}"/>
+                  							<h:outputText value="#{componentElement.totalAmount.stringFormatted}" styleClass="iceOutTxtGray"
+												rendered="#{componentElement.elementVersion.element.inactive}"/>
+									</ace:column>
+									<ace:column  style=" width:46px;border-left:0px;text-align: right;">
+										<h:commandLink actionListener="#{costComponentBean.showElement}"
+											rendered="#{!(componentElement.componentElementId==null)}">
+											<f:param name="element_id" value="#{componentElement.elementVersion.element.elementId}"></f:param>
+											<f:param name="folder_id" value="#{componentElement.elementVersion.element.folder.folderId}"></f:param>
+											<f:param name="element_version_id" value="#{componentElement.elementVersion.elementVersionId}"></f:param>
+											<img src="../images/loupe.gif" />
+											<f:ajax execute="@form" render="@all"/>
+										</h:commandLink>
+									</ace:column>
+	
+								</ace:dataTable>
+							</h:panelGroup></td>
+						</tr>
+									</table>
+								</h:panelGroup>
+							</div>
+						</h:panelGroup>
+						</div>
+					</div>
+				</h:panelGroup>	
+			</h:panelGroup>
+           </td>
+           </tr>
+           </tbody>
+           </table>
+	</ace:dialog>
+	<script type="text/javascript">
+		var x = (ice.ace.jq( '#asdForm\\:dependentDeviceAssigning' ).css("width").replace('px','') * 1) - 100;
+		//console.log(" x " + x);
+		setTimeout(function(){ ice.ace.jq( '#asdForm\\:dependentDeviceAssigning_main').css({"width" : x });}, 20);
+		setTimeout(function(){ ice.ace.jq( '#asdForm\\:dependentDeviceDivider').css({"width" : x-22 });}, 20);
+	</script>
+  </h:form>    
+  </h:panelGroup>
+
+<h:panelGroup><!--add h:panelGroup to avoid update all dialog container id="areaContainer2" -->
+	<ace:dialog id="modalElementVersionChoicePopup"
+		visible="#{costComponentBean.dto.showElementVersionChoicePopup}"
+		rendered="#{costComponentBean.dto.showElementVersionChoicePopup}" 
+		draggable="false" showHeader="false" resizable="false" modal="true">		
+		<h:form id="vcForm" styleClass="icePnlPop">
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderWrapper" style="width: 370px">
+			<h:outputText value="#{costComponentBean.dto.selectedElementModel.elementNumber}"  styleClass="iceOutTxt popupHeaderText" />				
+				<h:commandLink id="modalPnlCloseBtn_assign"
+					actionListener="#{costComponentBean.closeElementVersionChoicePopup}" styleClass="popupHeaderImage">
+					<f:ajax execute="@this" render="@all" />
+			        <img src="../images/popupclose.gif" height="18" width="18" />
+			    </h:commandLink>
+			</h:panelGroup>
+
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+				<h:outputText value="#{msgs['costcomponent.assignelement.changeversion']}"  />
+				<br />
+				<div style="width: 210px">
+				<h:selectOneRadio id="elementVersionToAssign" value="#{costComponentBean.dto.elementVersionToAssignAsString}" 
+					layout="pageDirection" styleClass="WithBorRadio" >
+						<f:selectItems id="elementVersionsToAssign" value="#{costComponentBean.elementVersionsToAssignItems}"/>
+					<f:ajax execute="@this" render="@all"></f:ajax>	
+				</h:selectOneRadio>
+				</div>
+				<br />
+				<div align="left" style="height:10"></div>
+				<h:commandButton id="modalElementVersionChoiceCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+					value="#{msgs['costcomponent.assignelement.action']}"
+					actionListener="#{costComponentBean.assignElementVersion}" >
+					<f:ajax execute="@form" render="@all" />
+				</h:commandButton>	
+				<h:commandButton styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['common.message.saveChanges.cancel']}"
+					actionListener="#{costComponentBean.closeElementVersionChoicePopup}">
+					<f:ajax execute="@form" render="@all" />
+				</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>
+</h:panelGroup>	
+	<ace:dialog id="modalConfirmChangeElUsePopup" 
+			visible="#{costComponentBean.dto.showConfirmChangeElUsePopup}"
+			rendered="#{costComponentBean.dto.showConfirmChangeElUsePopup}" 
+            draggable="false" showHeader="false" resizable="false" modal="true">
+		<h:form id="cceForm" styleClass="icePnlPop">
+			<h:panelGroup layout="block"  styleClass="icePnlPopHdr popupHeaderWrapper" style="width: 370px">					
+					<h:commandLink id="modalPnlCloseBtnElUse"
+						actionListener="#{costComponentBean.closeConfirmChangeElUsePopup}" styleClass="popupHeaderImage">
+					<f:ajax execute="@this" render="@all" />
+			        <img src="../images/popupclose.gif" height="18" width="18" />						
+					</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody">
+					<h:outputText value="#{costComponentBean.changeElUseConfirmMessage}" styleClass="iceOutTxt popupHeaderText" escape="false"/>
+					<br />
+					<br />
+					<div align="left" style="height:18"></div>
+					<br />
+					<h:commandButton id="modalConfirmChangeElUseCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+						value="#{msgs['costelement.changeUse.add']}"
+						actionListener="#{costComponentBean.changeUseElementVersion}">
+						<f:ajax execute="@this" render="@all" />
+					</h:commandButton>	
+					<h:commandButton styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['costelement.changeUse.no']}"
+						actionListener="#{costComponentBean.closeConfirmChangeElUsePopup}">
+						<f:ajax execute="@this" render="@all" />
+					</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>		
+	<ace:dialog id="modalDelFile"
+		visible="#{costComponentBean.dto.showDeleteFileConfirmation}"
+		rendered="#{costComponentBean.dto.showDeleteFileConfirmation}" draggable="false" showHeader="false" resizable="false"
+		modal="true">
+		<h:form id="dfForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody" style="width: 310px">
+				<h:outputText value="#{msgs['costcomponent.annexDocument.deleteConfirm']}" escape="false" styleClass="iceOutTxt popupHeaderText" />
+				<br />
+				<br />
+				<div align="left" style="height:18"></div>
+				<h:commandButton id="delfilButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+					value="#{msgs['common.message.delete.yes']}"
+					actionListener="#{costComponentBean.deleteFile}">
+					<f:ajax execute="@this" render="@all"/>
+				</h:commandButton>	
+				<h:commandButton id="delfilCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['common.message.delete.no']}"
+					actionListener="#{costComponentBean.closeDeleteFileConfirmation}">
+					<f:ajax execute="@this" render="@all"/>
+				</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>
+	
+	<ace:dialog id="modalDelImagePreview"
+		visible="#{costComponentBean.dto.showDeleteImagePreviewConfirmation}"
+		rendered="#{costComponentBean.dto.showDeleteImagePreviewConfirmation}" draggable="false" showHeader="false" resizable="false"
+		modal="true">
+		<h:form id="dipForm" styleClass="icePnlPop" >
+			<h:panelGroup layout="block"  styleClass="icePnlPopBody popupContentText popupBody" style="width: 310px">
+				<h:outputText value="#{msgs['costcomponent.deleteImagePreviewConfirm']}" escape="false" styleClass="iceOutTxt popupHeaderText" />
+				<br />
+				<br />
+				<div align="left" style="height:18"></div>
+				<h:commandButton id="delImagePreviewButton" styleClass="iceCmdBtn confirmChangeStatusBtn" type="submit"
+					value="#{msgs['common.message.delete.yes']}"
+					actionListener="#{costComponentBean.deleteImagePreview}">
+					<f:ajax execute="@this" render="@all"/>
+				</h:commandButton>	
+				<h:commandButton id="delImagePreviewCloseButton" styleClass="iceCmdBtn confirmChangeStatusBtn" value="#{msgs['common.message.delete.no']}"
+					actionListener="#{costComponentBean.closeDeleteImagePreviewConfirmation}">
+					<f:ajax execute="@this" render="@all"/>
+				</h:commandButton>	
+			</h:panelGroup>
+		</h:form>
+	</ace:dialog>	  
+
+<ace:dialog id="activationErrorPopUp" visible="#{costComponentBean.showActivationError}"
+	draggable="false" showHeader="false" resizable="false" modal="true"
+	onShow="SetFocus($('errForm:accept_error_button'))">
+	<h:form id="activationErrForm">
+		<div class="popup">
+		<div class="top">
+		<div class="TopLeft"><img src="../images/popup/popup_01.gif" width="17" height="40" /></div>
+		<div class="TopCenter">
+		<div class="PopTit">#{msgs['common.popup.title.error']}</div>
+		<div class="Popclose">
+		<h:commandLink  id="act_err_close" actionListener="#{costComponentBean.closeActivationErrorPopup}">
+		  <f:ajax execute="@this" render="@all" />
+		  <img src="../images/popup/close.gif" width="49" height="20"/>
+		</h:commandLink ></div>
+		</div>
+		<div class="TopRight"><img src="../images/popup/popup_03.gif" width="20" height="40" /></div>
+		</div>
+		<div class="middle">
+		<div class="MiddleLeft">
+		<div class="ML_Top"><img src="../images/popup/popup_04.gif" width="17" height="37" /></div>
+		<div class="ML_Bottom"></div>
+		</div>
+		<div class="MiddleCenter">
+		<div class="MC_Left"><img src="../images/popup/erreur_icone.gif" width="32" height="32" /></div>
+
+		<div class="MC_Right">
+		<div class="MCR_Para_Err"><h:outputText value="#{costComponentBean.activationErrorMessage}" escape="false" /></div>
+	
+		<div class="N_MCR_Btn">
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC">
+		<h:commandLink id="act_accept_error_button" actionListener="#{costComponentBean.closeActivationErrorPopup}">
+			<div class="fontBtne">#{msgs['common.ok.button']}</div>
+			<f:ajax render="@all" execute="@all" />
+		</h:commandLink>
+		</div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		&#160;</div>
+		<div class="SRight">&#160;</div>
+		</div>	
+		
+		
+		</div>
+		</div>
+		<div class="MiddleRight">
+		<div class="MR_Top"><img src="../images/popup/popup_06.gif" width="20" height="37" /></div>
+		<div class="MR_Bottom"></div>
+		</div>
+		</div>
+		<div class="bottom">
+		<div class="BottomLeft"><img src="../images/popup/popup_10.gif" width="17" height="16" /></div>
+		<div class="BottomCenter"><img src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+		<div class="BottomRight"><img src="../images/popup/popup_12.gif" width="20" height="16" /></div>
+		</div>
+		</div>
+	</h:form>
+</ace:dialog>  
+
+<ace:dialog 
+		id="historyDetail" 
+		visible="#{costComponentBean.dto.showHistoryDetailpopup}"
+		rendered="#{costComponentBean.dto.showHistoryDetailpopup}"
+		draggable="false"
+		modal="true"
+		showHeader="false"
+		
+		zindex="999">
+		<h:form id="histDForm" styleClass="icePnlPop">
+			<h:panelGroup layout="block" styleClass="icePnlPopHdr icePnlGrp" style="width:100%;">
+				<h:outputText value="Historie" styleClass="iceOutTxt popupHeaderText" />
+				<h:commandLink id="modalPnlClose"
+					actionListener="#{costComponentBean.closeHistoryDetailPopup}" styleClass="iceCmdLnk popupHeaderImage">
+					<img src="../images/popupclose.gif"  />
+				</h:commandLink>
+			</h:panelGroup>			
+		<table cellspacing="0" cellpadding="0">
+		<tbody>
+
+		<tr id="histDForm:tble-tr"><td class="icePnlPopBody">	 
+ 
+						<h:dataTable width="100%"
+                        value="#{costComponentBean.dto.changeDetails}"
+						var="versionChange"
+                        binding="#{costComponentBean.versionHistoryDetailTable}"
+						styleClass="iceDatTbl element_cost_attribute"
+						rowClasses="iceDatTblRow1,iceDatTblRow2"
+						columnClasses="iceDatTblCol1,iceDatTblCol2,iceDatTblCol1,iceDatTblCol1,iceDatTblCol2,iceDatTblCol1,iceDatTblCol2,iceDatTblCol1,iceDatTblCol2"
+                        >
+                        
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left2 PFF">
+							<f:facet name="header">
+                                 <h:outputText value="#{msgs['costcomponent.versionChanges.attribute']}"/>
+							</f:facet>
+							<h:outputText value="#{versionChange.change}" />
+						</h:column>
+
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left2 PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costcomponent.versionChanges.oldValue']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.oldValue}" />&#160;<h:outputText rendered="#{versionChange.oldValue != null}" value="#{versionChange.unit}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left2 PFF">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['costcomponent.versionChanges.newValue']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.newValue}" escape="false" />&#160;<h:outputText rendered="#{versionChange.newValue != null}" value="#{versionChange.unit}" />
+						</h:column>
+						<h:column headerClass="iceDatTblColHdr2 tabIce_left2 PFF ">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costelement.versionChanges.oldComment']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.oldComment}"/>
+						</h:column>
+						<h:column  headerClass="iceDatTblColHdr1 tabIce_left2 PFF ">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costelement.versionChanges.newComment']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.newComment}"/>
+						</h:column>
+						<h:column  headerClass="iceDatTblColHdr2 tabIce_left2 PFF ">
+                        
+                        <f:facet name="header">
+                              <h:outputText value="#{msgs['costcomponent.versionChanges.date']}"/>
+                        </f:facet>
+							
+							<h:outputText value="#{versionChange.date.dateSeparatedPt}"/>
+						</h:column >
+						<h:column headerClass="iceDatTblColHdr1 tabIce_left2 PFF">
+							<f:facet name="header" style="width:10%"> 
+								<h:outputText value="#{msgs['costcomponent.versionChanges.user']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.userFullName}"/>
+						</h:column>
+
+					</h:dataTable>
+				
+					</td>
+					</tr>
+				</tbody>
+			</table>		
+	  </h:form>  
+</ace:dialog>
+	<script type="text/javascript">
+	   xmlExportModelResize();
+	   initCostComponetDeviceSize();
+	</script>			
+</html>

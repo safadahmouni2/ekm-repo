@@ -1,0 +1,29 @@
+
+body[class*="page_orderentry-"].usp_highlightTopics .tdColSize2,
+body[class*="page_orderentry-"].usp_highlightTopics .highLight,
+body[class*="page_orderentry-"].usp_highlightTopics input.readonly,
+body[class*="page_orderentry-"].usp_highlightTopics input.disabled,
+body[class*="page_orderentry-"].usp_highlightTopics .konzernLayout8 td
+{
+  font-weight:bold;
+  color:#004963;
+}
+
+body[class*="page_orderentry-"].usp_highlightTopics label,
+body[class*="page_orderentry-"].usp_highlightTopics .normalLight,
+body[class*="page_orderentry-"].usp_highlightTopics .konzernLayout8 td div,
+body[class*="page_orderentry-"].usp_highlightTopics .konzernLayout8 td span
+{
+  font-weight:normal;
+  color:#004963;
+}
+
+#areaFooter .highlightTopics
+{
+  display:none!important;
+}
+
+body[class*="page_orderentry-"] #areaFooter .highlightTopics
+{
+  display:block!important;
+}

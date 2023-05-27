@@ -1,0 +1,113 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:panelGroup layout="block" styleClass="areaTab" rendered="#{workAreaListBean.loadDTO}" id="mainContent">
+
+	<h:panelGroup layout="block" styleClass="btnGen" style="padding-top:15px">
+		<h:panelGroup layout="block" styleClass="btn" rendered="#{!workAreaListBean.dto.searchMode}">
+			<div class="bgrBTL"><a href="#"></a></div>
+			<div class="bgrBTC"><h:commandLink value="#{msgs['workArea.add.newWorkArea']}"
+				actionListener="#{workAreaListBean.createClicked}">
+				<f:ajax execute="@all" render="@all"/>
+			</h:commandLink></div>
+			<div class="bgrBTR"><a href="#"></a></div>
+			<div class="space">&#160;</div>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" styleClass="btn" rendered="#{!workAreaListBean.dto.noWorkAreas}">
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+				<!-- Aktion menu -->
+				<ace:submenu label="#{msgs['common.action.button']}" id="action">
+					<ace:menuItem id="print" value="#{msgs['common.print.button']}" url="javascript:friendlyPrint();" />
+				</ace:submenu>
+			</ace:menuBar>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			<div class="space">&#160;</div>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block">
+			<h2 id="contentHeadline" class="h2Mar smallerSpace"><h:graphicImage value="../images/Arbeitsbereiche_Icn.jpg"
+				class="iconObject" /> <h:outputText value="#{msgs['workArea.common.title']}" styleClass="smallerFont" /></h2>
+		</h:panelGroup>
+	</h:panelGroup>
+	<table width="100%">
+		<tr>
+			<td rowspan="2"></td>
+			<td align="right" height="8"></td>
+		</tr>
+		<tr>
+			<td align="right"><h:panelGroup layout="block"
+				rendered="#{!workAreaListBean.dto.searchMode or (workAreaListBean.dto.searchMode and workAreaListBean.dto.noSearchResult)}">
+				<h:inputText
+					styleClass="min_6 validate revalidate valid iptRight searchinpt"
+					value="#{workAreaListBean.dto.searchString}" onfocus="this.value='';" 
+					onkeydown="if (event.keyCode == 13) {document.getElementById('f:contInc:srch_btn').click();return false;}"/>
+				<h:panelGroup layout="block" style="float: right;">
+					<div class="bgrBTL"><a href="#"></a></div>
+					<div class="bgrBTC"><h:commandLink id="srch_btn" actionListener="#{workAreaListBean.search}"
+						value="#{msgs['workArea.common.search.label']}">
+						<f:ajax execute="@all" render="@all"/>
+						</h:commandLink></div>
+					<div class="bgrBTR"><a href="#"></a></div>
+				</h:panelGroup>
+			</h:panelGroup></td>
+		</tr>
+	</table>
+	<h:panelGroup layout="block" rendered="#{!workAreaListBean.dto.searchMode}">
+		<h:outputText value="#{msgs['userAdministration.actualfolder']}:" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="absmiddle" />
+			&#160;<h:outputText value="#{navigationTree.selectedNodeObject.menuDisplayText}" />
+	</h:panelGroup>
+	<h:panelGroup layout="block" rendered="#{workAreaListBean.dto.searchMode}">
+		<h:outputText value="#{msgs['workArea.searchResult.searchFolder']}" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="absmiddle" />
+			&#160;<h:outputText value="#{workAreaListBean.dto.searchFolder}" />
+		<br />
+		<strong><h:outputText value="#{msgs['workArea.searchResult.searchString']}" /> &#160;&#34;<h:outputText
+			nospan="true" value="#{workAreaListBean.dto.searchStringResult}" />&#34;</strong>
+	</h:panelGroup>
+	<div class="Des"></div>
+	<h:panelGroup layout="block" rendered="#{workAreaListBean.dto.noWorkAreas}">
+		<center><strong><h:outputText value="#{msgs['workArea.list.empty']}" /></strong></center>
+	</h:panelGroup>
+	<h:panelGroup layout="block" styleClass="mc" rendered="#{!workAreaListBean.dto.noWorkAreas}">
+		<h:dataTable width="100%" border="0" cellpadding="0" cellspacing="0" value="#{workAreaListBean.dto.workAreas}"
+			var="workAreaElement" style="margin: 0px;" styleClass="iceDatTbl" rowClasses="iceDatTblRow1,iceDatTblRow2"
+			columnClasses="iceDatTblCol PFF work-areaDatTbCol1,iceDatTblCol PFF work-areaDatTbCol2" id="wa_lst">
+			<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+				<f:facet name="header">
+					<h:panelGroup layout="block">
+						&#160;<h:outputText value="#{msgs['workArea.list.designation']}" />
+					</h:panelGroup>
+				</f:facet>
+
+				<h:commandLink styleClass="iceCmdLnk" value="#{workAreaElement.designation}"
+					actionListener="#{workAreaListBean.editClicked}">
+					<f:param name="object_id" value="#{workAreaElement.workAreaId}"></f:param>
+					<f:ajax execute="@form" render="@all"/>
+				</h:commandLink>
+			</h:column>
+			<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+				<span class="downTab"> <h:commandLink id="edit" styleClass="iceCmdLnk"
+					actionListener="#{workAreaListBean.editClicked}" title="#{msgs['workArea.edit.alt']}">
+					<f:param name="object_id" value="#{workAreaElement.workAreaId}"></f:param>
+					<img src="../images/edit_icone.gif"></img>
+					<f:ajax execute="@form" render="@all"/>
+				</h:commandLink> <h:commandLink id="delete" styleClass="iceCmdLnk"
+					actionListener="#{workAreaListBean.deleteClicked}" title="#{msgs['workArea.delete.alt']}">
+					<f:param name="object_id" value="#{workAreaElement.workAreaId}"></f:param>
+					<img src="../images/delete_icone.gif" />
+					<f:ajax execute="@form" render="@all"/>
+				</h:commandLink> </span>
+			</h:column>
+		</h:dataTable>
+	</h:panelGroup>
+	<div class="Des"></div>
+
+</h:panelGroup>
+<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

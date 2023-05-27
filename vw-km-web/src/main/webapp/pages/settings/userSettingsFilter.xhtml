@@ -1,0 +1,424 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components" xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td height="8">
+				<p>Der Filter wird auf die angezeigten Elemente und Bausteine im Navigationsbaum angewendet.</p>
+				<p>&#160;</p>
+				<p class="StyLog style1"><span class="style2">Bausteinverwaltung:</span></p>
+				<p class="style3">Nur Bausteine folgender Marken anzeigen<strong> (Besitzer):</strong></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="15%"></td>
+						<td width="85%"></td>
+					</tr>
+
+					<tr>
+						<td height="8"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<table width="771" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="25">
+								<table style="width: 580px !important;" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td height="23" width="250"><strong><h:outputText value="Auswahlm&#246;glichkeiten" /></strong></td>
+										<td align="center" valign="middle" width="80">&#160;</td>
+										<td width="250"><strong><h:outputText value="Ausgew&#228;hlte	Filterkriterien" /></strong></td>
+									</tr>
+									<tr>
+										<td align="left" width="250"><ace:dataTable border="0" cellpadding="0" cellspacing="0" width="100%"
+											style="margin: 0px;" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true"
+											scrollHeight="100" var="ownerComponentLeft" value="#{userDefSettings.componentOwnerBrandLeft}"
+											id="owner_component_left_table"
+											selectionMode="multiple"
+											stateMap="#{userDefSettings.componentOwnerBrandRowStateMapLeft}">
+											<ace:ajax event="select" execute="@this" render="@this" />
+			                                <ace:ajax event="deselect" execute="@this" render="@this" />
+											<ace:column style="width: 250px" id="owner_component_left_row">
+											<!--  
+												<ice:rowSelector id="selectedOC" styleClass="PaFont" value="#{ownerComponentLeft.selected}" multiple="true"
+													selectionListener="#{userDefSettings.toggelComponentOwnerBrandLeft}" preStyleOnSelection="true" />
+											-->		
+												<f:facet name="header">
+													<strong><h:outputText value="Marken" /></strong>
+												</f:facet>
+												<strong><h:outputText value="#{ownerComponentLeft.model.brandId}" id="owner_component_left_label" /></strong>
+											</ace:column>
+										</ace:dataTable></td>
+										<td width="80" valign="middle">
+										<div class="B2GT">
+										<div class="BC2T">
+										<div class="bgrBTL"></div>
+										<div class="BF"><h:commandLink value="&#62;&#62;"
+											actionListener="#{userDefSettings.moveSelectedComponentOwnerBrandToRight}">
+											<f:ajax execute="@all" render="@all"/>
+										</h:commandLink></div>
+										<div class="bgrBTR"></div>
+										</div>
+										<div class="space">&#160;</div>
+										<div class="Des">&#160;</div>
+										<div class="BC2T">
+										<div class="bgrBTL"><a href="#"></a></div>
+										<div class="BF" style="float: center;"><h:commandLink value="&#60;&#60;"
+											actionListener="#{userDefSettings.moveSelectedComponentOwnerBrandToLeft}">
+											<f:ajax execute="@all" render="@all"/>
+										</h:commandLink></div>
+										<div class="bgrBTR"></div>
+										</div>
+
+										</div>
+										</td>
+										<td width="250"><ace:dataTable width="100%" style="margin: 0px;" border="0" cellpadding="0"
+											cellspacing="0" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true" scrollHeight="100"
+											var="ownerComponenRight" value="#{userDefSettings.componentOwnerBrandRight}" id="owner_component_right_table"
+											selectionMode="multiple"
+											stateMap="#{userDefSettings.componentOwnerBrandRowStateMapRight}">
+											<ace:ajax event="select" execute="@this" render="@this" />
+			                                <ace:ajax event="deselect" execute="@this" render="@this" />
+											<ace:column style="width: 250px">
+												<f:facet name="header">
+													<strong><h:outputText value="Marken" /></strong>
+												</f:facet>
+												<!--  
+												<ice:rowSelector id="oCRight" value="#{ownerComponenRight.selected}"
+													selectionListener="#{userDefSettings.toggelComponentOwnerBrandRight}" toggleOnClick="true"
+													preStyleOnSelection="true" multiple="true" styleClass="PaFont" />
+												-->	
+												<strong><h:outputText value="#{ownerComponenRight.model.brandId}" /></strong>
+											</ace:column>
+										</ace:dataTable></td>
+									</tr>
+									<tr>
+										<td>&#160;</td>
+										<td>&#160;</td>
+										<td>&#160;</td>
+									</tr>
+								</table>
+
+
+								</td>
+							</tr>
+							<tr>
+								<td height="17">&#160;</td>
+							</tr>
+							<tr>
+								<td height="8"><span class="style3">Nur Bausteine folgender Marken anzeigen <strong>(Nutzer):</strong></span></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+
+					<tr>
+						<td height="8"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<table width="771" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="25">
+								<table style="width: 580px !important;" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td height="23" width="250"><strong><h:outputText value="Auswahlm&#246;glichkeiten" /></strong></td>
+										<td align="center" valign="middle" width="80">&#160;</td>
+										<td width="250"><strong><h:outputText value="Ausgew&#228;hlte	Filterkriterien" /></strong></td>
+									</tr>
+									<tr>
+										<td align="left" width="250"><ace:dataTable border="0" cellpadding="0" cellspacing="0" width="100%"
+											style="margin: 0px;" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true"
+											scrollHeight="100" var="userComponentLeft" value="#{userDefSettings.componentUserBrandLeft}"
+											id="user_component_left_table"
+											selectionMode="multiple"
+											stateMap="#{userDefSettings.componentUserBrandRowStateMapLeft}">
+											<ace:ajax event="select" execute="@this" render="@this" />
+			                                <ace:ajax event="deselect" execute="@this" render="@this" />
+
+											<ace:column style="width: 250px">
+												<f:facet name="header">
+													<strong><h:outputText value="Marken" /></strong>
+												</f:facet><!--
+												<ice:rowSelector id="selectedUC" styleClass="PaFont" value="#{userComponentLeft.selected}" multiple="true"
+													toggleOnClick="true" selectionListener="#{userDefSettings.toggelComponentUserBrandLeft}"
+													preStyleOnSelection="true" />
+												--><strong><h:outputText value="#{userComponentLeft.model.brandId}" /></strong>
+											</ace:column>
+										</ace:dataTable></td>
+										<td width="80" valign="middle">
+										<div class="B2GT">
+										<div class="BC2T">
+										<div class="bgrBTL"></div>
+										<div class="BF"><h:commandLink value="&#62;&#62;"
+											actionListener="#{userDefSettings.moveSelectedComponentUserBrandToRight}">
+											<f:ajax execute="@all" render="@all"/>
+										</h:commandLink></div>
+										<div class="bgrBTR"></div>
+										</div>
+										<div class="space">&#160;</div>
+										<div class="Des">&#160;</div>
+										<div class="BC2T">
+										<div class="bgrBTL"><a href="#"></a></div>
+										<div class="BF" style="float: center;"><h:commandLink value="&#60;&#60;"
+											actionListener="#{userDefSettings.moveSelectedComponentUserBrandToLeft}">
+											<f:ajax execute="@all" render="@all"/>
+										</h:commandLink></div>
+										<div class="bgrBTR"></div>
+										</div>
+
+										</div>
+										</td>
+										<td width="250"><ace:dataTable width="100%" style="margin: 0px;" border="0" cellpadding="0"
+											cellspacing="0" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true" scrollHeight="100"
+											var="userComponenRight" value="#{userDefSettings.componentUserBrandRight}"
+											selectionMode="multiple"
+											stateMap="#{userDefSettings.componentUserBrandRowStateMapRight}">
+											<ace:ajax event="select" execute="@this" render="@this" />
+			                                <ace:ajax event="deselect" execute="@this" render="@this" />
+											<ace:column style="width: 250px">
+												<f:facet name="header">
+													<strong><h:outputText value="Marken" /></strong>
+												</f:facet><!--
+												<ice:rowSelector id="uCRight" value="#{userComponenRight.selected}"
+													selectionListener="#{userDefSettings.toggelComponentUserBrandRight}" toggleOnClick="true"
+													preStyleOnSelection="true" multiple="true" styleClass="PaFont" />
+												--><strong><h:outputText value="#{userComponenRight.model.brandId}" /></strong>
+											</ace:column>
+										</ace:dataTable></td>
+									</tr>
+									<tr>
+										<td>&#160;</td>
+										<td>&#160;</td>
+										<td>&#160;</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="17">&#160;</td>
+							</tr>
+
+							<tr>
+								<td height="8">
+								<p class="StyLog style1"><span class="style2"><br />
+								Elementverwaltung:</span></p>
+								<p class="style3">Nur Elemente folgender Marken anzeigen<strong> (Besitzer):</strong></p>
+								</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="8"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<table width="771" border="0" cellspacing="0" cellpadding="0">
+
+							<tbody>
+								<tr>
+									<td height="25">
+									<table style="width: 580px !important;" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td height="23" width="250"><strong><h:outputText value="Auswahlm&#246;glichkeiten" /></strong></td>
+											<td align="center" valign="middle" width="80">&#160;</td>
+											<td width="250"><strong><h:outputText value="Ausgew&#228;hlte	Filterkriterien" /></strong></td>
+										</tr>
+										<tr>
+											<td align="left" width="250"><ace:dataTable border="0" cellpadding="0" cellspacing="0" width="100%"
+												style="margin: 0px;" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true"
+												scrollHeight="100" var="ownerElementLeft" value="#{userDefSettings.elementOwnerBrandLeft}"
+												selectionMode="multiple"
+												stateMap="#{userDefSettings.elementOwnerBrandRowStateMapLeft}">
+												<ace:ajax event="select" execute="@this" render="@this" />
+				                                <ace:ajax event="deselect" execute="@this" render="@this" />
+												<ace:column style="width: 250px">
+													<f:facet name="header">
+														<strong><h:outputText value="Marken" /></strong>
+													</f:facet><!--
+													<ice:rowSelector id="selectedOE" styleClass="PaFont" value="#{ownerElementLeft.selected}" multiple="true"
+														toggleOnClick="true" selectionListener="#{userDefSettings.toggelElementOwnerBrandLeft}"
+														preStyleOnSelection="true" />
+													--><strong><h:outputText value="#{ownerElementLeft.model.brandId}" /></strong>
+												</ace:column>
+											</ace:dataTable></td>
+											<td width="80" valign="middle">
+											<div class="B2GT">
+											<div class="BC2T">
+											<div class="bgrBTL"></div>
+											<div class="BF"><h:commandLink value="&#62;&#62;"
+												actionListener="#{userDefSettings.moveSelectedElementOwnerBrandToRight}">
+												<f:ajax execute="@all" render="@all"/>
+											</h:commandLink></div>
+											<div class="bgrBTR"></div>
+											</div>
+											<div class="space">&#160;</div>
+											<div class="Des">&#160;</div>
+											<div class="BC2T">
+											<div class="bgrBTL"><a href="#"></a></div>
+											<div class="BF" style="float: center;"><h:commandLink value="&#60;&#60;"
+												actionListener="#{userDefSettings.moveSelectedElementOwnerBrandToLeft}">
+												<f:ajax execute="@all" render="@all"/>
+											</h:commandLink></div>
+											<div class="bgrBTR"></div>
+											</div>
+
+											</div>
+											</td>
+											<td width="250"><ace:dataTable width="100%" style="margin: 0px;" border="0" cellpadding="0"
+												cellspacing="0" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true"
+												scrollHeight="100" var="ownerElementRight" value="#{userDefSettings.elementOwnerBrandRight}"
+												selectionMode="multiple"
+												stateMap="#{userDefSettings.elementOwnerBrandRowStateMapRight}">
+												<ace:ajax event="select" execute="@this" render="@this" />
+				                                <ace:ajax event="deselect" execute="@this" render="@this" />
+												<ace:column style="width: 250px">
+													<f:facet name="header">
+														<strong><h:outputText value="Marken" /></strong>
+													</f:facet><!--
+													<ice:rowSelector id="oERight" value="#{ownerElementRight.selected}"
+														selectionListener="#{userDefSettings.toggelElementOwnerBrandRight}" toggleOnClick="true"
+														preStyleOnSelection="true" multiple="true" styleClass="PaFont" />
+													--><strong><h:outputText value="#{ownerElementRight.model.brandId}" /></strong>
+												</ace:column>
+											</ace:dataTable></td>
+										</tr>
+										<tr>
+											<td>&#160;</td>
+											<td>&#160;</td>
+											<td>&#160;</td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td height="8">
+									<p class="style3"><br />
+									Nur Elemente folgender Marken anzeigen<strong> (Nutzer):</strong></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="8"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<table width="771" border="0" cellspacing="0" cellpadding="0">
+
+							<tbody>
+								<tr>
+									<td height="25">
+									<table style="width: 580px !important;" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td height="23" width="250"><strong><h:outputText value="Auswahlm&#246;glichkeiten" /></strong></td>
+											<td align="center" valign="middle" width="80">&#160;</td>
+											<td width="250"><strong><h:outputText value="Ausgew&#228;hlte	Filterkriterien" /></strong></td>
+										</tr>
+										<tr>
+											<td align="left" width="250"><ace:dataTable border="0" cellpadding="0" cellspacing="0" width="100%"
+												style="margin: 0px;" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true"
+												scrollHeight="100" var="userElementLeft" value="#{userDefSettings.elementUserBrandLeft}"
+												selectionMode="multiple"
+												stateMap="#{userDefSettings.elementUserBrandRowStateMapLeft}">
+												<ace:ajax event="select" execute="@this" render="@this" />
+				                                <ace:ajax event="deselect" execute="@this" render="@this" />
+
+												<ace:column style="width: 250px">
+													<f:facet name="header">
+														<strong><h:outputText value="Marken" /></strong>
+													</f:facet><!--
+													<ice:rowSelector id="selectedUE" styleClass="PaFont" value="#{userElementLeft.selected}" multiple="true"
+														toggleOnClick="true" selectionListener="#{userDefSettings.toggelElementUserBrandLeft}"
+														preStyleOnSelection="true" />
+													--><strong><h:outputText value="#{userElementLeft.model.brandId}" /></strong>
+												</ace:column>
+											</ace:dataTable></td>
+											<td width="80" valign="middle">
+											<div class="B2GT">
+											<div class="BC2T">
+											<div class="bgrBTL"></div>
+											<div class="BF"><h:commandLink value="&#62;&#62;"
+												actionListener="#{userDefSettings.moveSelectedElementUserBrandToRight}">
+												<f:ajax execute="@all" render="@all"/>
+											</h:commandLink></div>
+											<div class="bgrBTR"></div>
+											</div>
+											<div class="space">&#160;</div>
+											<div class="Des">&#160;</div>
+											<div class="BC2T">
+											<div class="bgrBTL"><a href="#"></a></div>
+											<div class="BF" style="float: center;"><h:commandLink value="&#60;&#60;"
+												actionListener="#{userDefSettings.moveSelectedElementUserBrandToLeft}">
+												<f:ajax execute="@all" render="@all"/>
+											</h:commandLink></div>
+											<div class="bgrBTR"></div>
+											</div>
+
+											</div>
+											</td>
+											<td width="250"><ace:dataTable width="100%" style="margin: 0px;" border="0" cellpadding="0"
+												cellspacing="0" headerClass="tabIce" rowClasses="PaFont,tabInter PaFont" scrollable="true"
+												scrollHeight="100" var="userElementRight" value="#{userDefSettings.elementUserBrandRight}"
+												selectionMode="multiple"
+												stateMap="#{userDefSettings.elementUserBrandRowStateMapRight}">
+												<ace:ajax event="select" execute="@this" render="@this" />
+				                                <ace:ajax event="deselect" execute="@this" render="@this" />
+												<ace:column style="width: 250px">
+													<f:facet name="header">
+														<strong><h:outputText value="Marken" /></strong>
+													</f:facet><!--
+													<ice:rowSelector id="uERight" value="#{userElementRight.selected}"
+														selectionListener="#{userDefSettings.toggelElementUserBrandRight}" toggleOnClick="true"
+														preStyleOnSelection="true" multiple="true" styleClass="PaFont" />
+													--><strong><h:outputText value="#{userElementRight.model.brandId}" /></strong>
+												</ace:column>
+											</ace:dataTable></td>
+										</tr>
+										<tr>
+											<td>&#160;</td>
+											<td>&#160;</td>
+											<td>&#160;</td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+
+								<tr>
+									<td height="17">&#160;</td>
+								</tr>
+								<tr>
+									<td height="8">&#160;</td>
+								</tr>
+								<tr>
+									<td height="8">&#160;</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+		screenResizeInit ();
+	</script>
+</html>

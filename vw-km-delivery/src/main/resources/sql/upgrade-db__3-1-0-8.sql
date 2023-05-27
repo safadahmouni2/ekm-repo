@@ -1,0 +1,4 @@
+insert into T_KOSTENATTRIBUT (ID, BEZEICHNUNG,EINHEIT,PLAN_KOSTEN_KATEGORIE_REF, ORDER_NR,X_PREIS_PRO_EINHEIT,BEISTELLUNG_AG) values (41, 'E - Off-Line-Programmierung (RobCAD)','Std.', 10,221,1,0);
+select seq_cost_attribute.NEXTVAL from dual;
+insert into T_STUNDENSAETZE (ID,WERT,KOSTEN_ATTRIBUT_REF_ID,STD_SATZ_KAT_REF_ID) values (seq_hourly_rate.NEXTVAL,1, 41,1) ;
+insert into T_STUNDENSAETZE (ID,WERT,KOSTEN_ATTRIBUT_REF_ID,STD_SATZ_KAT_REF_ID) select seq_hourly_rate.NEXTVAL,0, 41,ID from T_STDSATZKATALOG where ID > 1 ;

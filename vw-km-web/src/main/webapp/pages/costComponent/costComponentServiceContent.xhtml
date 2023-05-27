@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+			<table width="771" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td height="17"><h:outputText value="#{msgs['costcomponent.service.mecanicConstruction']}" /></td>
+					<td>&#160;</td>
+					<td>&#160;</td>
+				</tr>
+
+				<tr>
+					<td height="8" colspan="3"><h:inputTextarea styleClass="TMG"
+					onblur="javascript:validateTextArea(this,3000);" onkeyup="javascript:validateTextArea(this,3000);" onkeypress="javascript:validateTextArea(this,3000);"
+						value="#{costComponentBean.dto.componentVersion.mechanicalConstruction}"
+						rendered="#{! costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess}" partialSubmit="true"
+						valueChangeListener="#{costComponentBean.checkChanged}" />
+						<h:panelGroup layout="block" styleClass="TMG-dis-div"
+							rendered="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costComponentBean.dto.componentVersion.mechanicalConstruction}" escape="false" />
+						</h:panelGroup>
+					</td>
+				</tr>
+
+				<tr>
+					<td height="8" colspan="3"></td>
+				</tr>
+
+				<tr>
+					<td height="17"><h:outputText value="#{msgs['costcomponent.service.mecanicExecution']}" /></td>
+					<td>&#160;</td>
+					<td>&#160;</td>
+				</tr>
+
+				<tr>
+					<td height="8" colspan="3"><h:inputTextarea styleClass="TMG"
+					onblur="javascript:validateTextArea(this,3000);" onkeyup="javascript:validateTextArea(this,3000);" onkeypress="javascript:validateTextArea(this,3000);"
+						value="#{costComponentBean.dto.componentVersion.mechanicalExecution}"
+						rendered="#{! costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess}" partialSubmit="true"
+						valueChangeListener="#{costComponentBean.checkChanged}" />
+						<h:panelGroup layout="block" styleClass="TMG-dis-div"
+							rendered="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costComponentBean.dto.componentVersion.mechanicalExecution}" escape="false" />
+						</h:panelGroup>
+						</td>
+				</tr>
+
+				<tr>
+					<td height="8" colspan="3"></td>
+				</tr>
+
+				<tr>
+					<td height="17"><h:outputText value="#{msgs['costcomponent.service.electricConnection']}" /></td>
+					<td>&#160;</td>
+					<td>&#160;</td>
+				</tr>
+
+				<tr>
+					<td height="8" colspan="3"><h:inputTextarea styleClass="TMG"
+					onblur="javascript:validateTextArea(this,3000);" onkeyup="javascript:validateTextArea(this,3000);" onkeypress="javascript:validateTextArea(this,3000);"
+						value="#{costComponentBean.dto.componentVersion.electric}"
+						rendered="#{! costComponentBean.dto.componentVersion.enumStatus.readOnly and costComponentBean.dto.userHasWriteAccess}" partialSubmit="true"
+						valueChangeListener="#{costComponentBean.checkChanged}" />
+						<h:panelGroup layout="block" styleClass="TMG-dis-div"
+							rendered="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess}">
+							<h:outputText value="#{costComponentBean.dto.componentVersion.electric}" escape="false" />
+						</h:panelGroup>
+					
+					</td>
+				</tr>
+
+				<tr>
+					<td height="8" colspan="3"></td>
+				</tr>
+
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

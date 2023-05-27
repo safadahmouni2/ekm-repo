@@ -1,0 +1,27 @@
+.wsDB2Data .inputField_1
+{
+	width: 500px !important;
+}
+.wsDB2Data .inputField_2
+{
+	width: 775px !important;
+}
+.wsDB2Data .textarea_1
+{
+	width: 500px !important;
+}
+.wsDB2Data .textarea_2
+{
+	width: 750px !important;
+	height:300px !important;
+}
+.wsDB2Data .sqlConst
+{
+	color: red !important;
+}
+.wsDB2Data .nowrap {
+	white-space: nowrap !important;
+}
+.wsDB2Data .scrollX {
+	overflow-x: scroll;
+}

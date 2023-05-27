@@ -1,0 +1,44 @@
+
+.autoCompleteMenu
+{
+  background-color:#FFF;
+  border:1px solid #809EBA;
+  height:auto;
+  min-width:200px!important;
+  width:auto !important;  
+  overflow:auto;
+  position:absolute;
+  top:-999px;
+  left:-999px;
+  cursor:hand;
+}
+.autoCompleteMenu:hover
+{
+  cursor:pointer;
+}
+.autoCompleteMenu ul
+{
+  list-style:none;
+  background-color:#FFF;
+}
+.autoCompleteMenu ul li
+{
+  padding-left: .5em;
+  white-space:nowrap;
+}
+.autoCompleteMenu ul li strong
+{
+  color:#87173D;
+}
+.autoCompleteMenu ul li.selected,
+.autoCompleteMenu ul li.selected strong
+{
+  color:#fff;
+  background-color:#345D6F;
+}
+
+input.ajaxPerformedField
+{
+  border-style: dotted!important; 
+}
+

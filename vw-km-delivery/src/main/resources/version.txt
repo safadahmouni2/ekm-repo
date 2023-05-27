@@ -1,0 +1,3 @@
+
+Version: version-${project.version}
+Created at: ${BUILD_TIMESTAMP}

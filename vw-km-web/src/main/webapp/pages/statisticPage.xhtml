@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+
+
+    <f:loadBundle basename="resources.messages" var="msgs" />
+    
+   <h:head>
+   </h:head>
+        
+    <h:body id="statisticPage" class="htmlMockup usp_showMenuOnHover usp_contrast lang_de usp_ExtentContentFull ExtentContentFull usp_ExtendSubnav ExtendSubnav usp_headClosed">
+    <h:outputScript name="scripts/head_statistic_extension.js" target="head" />
+    <h:outputScript name="scripts/browser-detect.js" />
+    <h:outputScript name="scripts/wo_waiting_page.js" />
+    
+    <h:panelGroup layout="block" id="areaContainer">
+
+        <h:panelGroup layout="block" id="areaHeader" styleClass="MarBot readyToDrop">
+            <h1><span>VOLKSWAGEN</span></h1>
+            <h2>AKTIENGESELLSCHAFT</h2>
+        </h:panelGroup>
+        <div class="ANMELDATEN"></div>
+        <div class="statistikseiteTitle" >#{msgs['statistikseite.page.title']}</div>
+     
+      <h:panelGrid columns="3" border="0" style="margin-left:60px;margin-right:40px; width:90%">
+          <h:panelGroup layout="block" id="infosPanel" width="40%">
+           <table style="height:50%;padding:20px;">
+                 <tr class="statisticBlock"><td id="infoPanel_top">
+                     <div class="statistikseiteSubTitle" >#{msgs['statistikseite.application.info.title']}</div>
+                     <div class="infoPanel">
+                     
+                     <h:panelGrid columns="2" border="0" columnClasses="boldTitle" cellspacing="10" cellpadding="10">
+                     
+                     <h:outputText  value="#{msgs['statistikseite.application.varsion.num']}"   />
+                     <h:outputText  value="version-${project.version}" />
+     
+                     <h:outputText  value="#{msgs['statistikseite.application.varsion.startDate']}"   />
+                     <h:outputText  value="#{statisticBean.startTime}"/>
+                     
+                     </h:panelGrid>
+                                     
+                     </div>
+                 </td></tr>
+                 
+                 <tr  class="statisticBlockBottom"><td id="infoPanel_bottom" >
+                 <div class="statistikseiteSubTitle" >#{msgs['statistikseite.tableSpace.info.title']}</div>
+                 <div class="chartPanel">
+                 <ace:chart id="TS_chart"
+                       animated="false"
+                       value="#{statisticBean.barData}"
+                       stackSeries="false"
+                       xAxis="#{statisticBean.barXAxis}"
+                       yAxes="#{statisticBean.barYAxes}"             
+                       highlighter="true"
+                       highlighterAxes="#{statisticBean.highlighterTooltipAxes}"
+                       highlighterFormatString="%d %"
+                       highlighterLocation="#{statisticBean.highlighterLocation}"
+                       highlighterShowMarker="false"
+                       highlighterBringSeriesToFront="true"
+                       widgetVar="barChart" /> 
+                       <br/>
+                       <h:dataTable width="70%;" border="0" cellpadding="0" cellspacing="0"
+                            var="tableSpaceElement" 
+							value="#{statisticBean.tableSpaceDetailsList}" 
+                            style="margin: 0px;"
+                            styleClass="iceDatTbl"
+							rowClasses="iceDatTblRow1,iceDatTblRow2"
+							columnClasses="iceDatTblCol1 cell-noborder-l,iceDatTblCol2 cell-noborder-l,iceDatTblCol1 cell-border-l">
+                            <h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs['statistikseite.tablespace.type']}" />
+                                </f:facet>
+                                <h:outputText value="#{tableSpaceElement.tableSpaceType}"/>
+                            </h:column>
+                            <h:column headerClass="iceDatTblColHdr tabIce_left PFF" >
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs['statistikseite.tablespace.size']}"/>
+                                </f:facet>
+                                <h:outputText value="#{tableSpaceElement.tableSpaceSize}"/>
+                            </h:column>
+                            <h:column headerClass="iceDatTblColHdr tabIce_noborder_lr PFF">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs['statistikseite.tablespace.used']}"/>
+                                </f:facet>
+                                <h:outputText value="#{tableSpaceElement.usedAmount}"/>
+                            </h:column>
+                        </h:dataTable>
+                 </div>
+                 </td></tr>
+           </table>
+           </h:panelGroup>
+            <h:panelGroup layout="block" width="10%" ><div class="sepPanel"></div></h:panelGroup>
+            <h:panelGroup layout="block" id="graphsPanel" width="40%">
+           <table style="height:50%;padding:20px;">
+             <tr  class="statisticBlock"><td id="graphPanel_top">
+             <div class="statistikseiteSubTitle" ><h:outputText  value="#{msgs['statistikseite.database.status.title']}" /></div>
+                     <div class="infoPanel">
+                      
+                     <h:panelGrid columns="2" border="0" columnClasses="boldTitle" cellspacing="10" cellpadding="30">
+                      <h:outputText  value="#{msgs['statistikseite.database.status']}"    /> 
+                      <h:outputText  value="#{statisticBean.dbStatus}" />
+                                                  
+                     </h:panelGrid>
+                     </div>
+            
+             
+             </td></tr>
+             <tr class="statisticBlockBottom"><td id="graphPanel_bottom">
+            
+             <div class="statistikseiteSubTitle" >#{msgs['statistikseite.users.online.title']}</div>
+              <div class="chartPanel">
+              <ace:chart id="usersActivChart"
+                       animated="false"
+                       value="#{statisticBean.usersActivData}"
+                       widgetVar="usersChart"/>
+                       
+               
+                  <br/>
+                <h:panelGroup layout="block" style="font-weight:bold;text-align:center;">     
+                      
+                       <h:outputText  value="#{msgs['statistikseite.users.online']}"/>
+                       <span style="margin-left:3px;"></span>
+                       <h:outputText  value="#{statisticBean.activeSessionsNumber}" id="countOnline"/> 
+                       
+               
+               </h:panelGroup>  
+              </div>
+             </td></tr>
+          </table>
+          </h:panelGroup>
+        
+      </h:panelGrid>                   
+     
+      
+    </h:panelGroup>
+     <h:panelGroup layout="block" id="areaFooter" styleClass="HoverBehaviour">
+        <ul>
+            <li>&#160;</li>
+        </ul>
+    </h:panelGroup>
+    
+    <script type="text/javascript" src="../scripts/__nowSciptLoader.js">
+    screenResizeInit ();
+    </script>
+    </h:body>
+    </html>

@@ -1,0 +1,100 @@
+.selectiveOrderMod table.data th,
+.selectiveOrderMod table.data td,
+table.dojoTableSuggest td
+{
+	overflow:hidden;
+	border:1px solid #FFF;
+	padding-left:3px;
+}
+
+table.dojoTableSuggest
+{
+	width:auto;
+}
+
+.selectiveOrderMod table.data th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+}
+
+.selectiveOrderMod table.data
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+
+.selectiveOrderMod table.data tbody td:first-child
+{
+	text-align:right;
+	vertical-align:top;
+	padding-right:4px;
+}
+
+.selectiveOrderMod table.data tbody input
+{
+	width:80px !important;
+}
+
+.selectiveOrderMod table.newRowOnTab tbody tr
+{
+	position:absolute;
+	top:-1000px;
+	left:-1000px;
+}
+
+.selectiveOrderMod table.newRowOnTab tbody tr:first-child,
+.selectiveOrderMod table.newRowOnTab tbody tr.visible
+{
+	position:static;
+	top:0;
+	left:0;
+}
+
+.selectiveOrderMod select
+{
+	width:100px !important;
+}
+
+
+.selectiveOrderMod .uploadFile
+{
+	width:220px;
+}
+
+
+/* column widths */
+.selectiveOrderMod table.data thead tr th.col_number,
+.selectiveOrderMod table.data thead tr th.col_img
+{
+	width:25px;
+}
+
+.selectiveOrderMod table.data thead tr th.col_nwKomVin,
+.selectiveOrderMod table.data thead tr th.col_deliToImporter,
+.selectiveOrderMod table.data thead tr th.col_salesConfimDate,
+.selectiveOrderMod table.data thead tr th.col_agreedDeliDate,
+.selectiveOrderMod table.data thead tr th.col_custoDeliDate,
+.selectiveOrderMod table.data thead tr th.col_DemoCarDeregDate,
+.selectiveOrderMod table.data thead tr th.col_odometer
+{
+	width:95px;
+}
+
+.selectiveOrderMod table.data thead tr th.col_name,
+.selectiveOrderMod table.data thead tr th.col_street,
+.selectiveOrderMod table.data thead tr th.col_city
+{
+	width:60px;
+}
+
+.selectiveOrderMod table.data thead tr th.col_zip
+{
+	width:40px;
+}
+
+.selectiveOrderMod table.data thead tr th.col_infosErrors
+{
+	width:auto;
+}

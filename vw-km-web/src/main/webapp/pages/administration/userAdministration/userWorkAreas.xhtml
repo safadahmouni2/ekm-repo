@@ -1,0 +1,123 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+			<table width="771" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+					<table width="95%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td height="23" width="44%"><strong><h:outputText
+								value="#{msgs['userAdministration.edit.workArea.available']}" /></strong></td>
+							<td align="center" valign="middle" width="12%">&#160;</td>
+							<td width="44%"><strong><h:outputText
+								value="#{msgs['userAdministration.edit.workArea.assigned']}" /></strong></td>
+						</tr>
+						<tr>
+							<td align="left"><ace:dataTable border="0" cellpadding="0" cellspacing="0" 
+							    width="100%" 
+							    style="margin: 0px;"
+								resizable="false" 
+                                headerClass="tabIce" 
+                                rowClasses="PaFont,tabInter PaFont" 
+                                scrollable="true" 
+                                scrollHeight="180" 
+                                var="itemLeft"
+								value="#{userDetailBean.itemsLeft}"
+								selectionMode="#{userDetailBean.hasManageUserRight?'multiple':''}"
+								stateMap="#{userDetailBean.rowStateMapLeft}"
+								styleClass="userWorkAreaDatTbl">
+								<ace:ajax event="select" execute="@this" render="@this" />
+                                <ace:ajax event="deselect" execute="@this" render="@this" />
+								<ace:column style="width: 325px">
+									<f:facet name="header">
+										<strong><h:outputText value="#{msgs['userAdministration.edit.workArea.label']}" /></strong>
+									</f:facet>
+									<!--
+									<ice:rowSelector id="selected" value="#{itemLeft.selected}" multiple="true"
+										toggleOnClick="#{userDetailBean.hasManageUserRight}" selectionListener="#{userDetailBean.toggelLeft}"
+										preStyleOnSelection="true" styleClass="PaFont"/>
+									-->	
+									<strong><h:outputText value="#{itemLeft.model.designation}"/></strong>
+								</ace:column>
+							</ace:dataTable></td>
+							<td align="center" valign="middle">
+							<div class="BGT" style="width: 121px">
+							<div class="btnBoth">
+							<div class="bgrBTL"></div>
+							<div class="BBTCWF"><h:commandLink value="#{msgs['userAdministration.edit.workArea.add']}&#160;&#62;"
+								actionListener="#{userDetailBean.moveSelectedToRight}" disabled="#{!userDetailBean.hasManageUserRight}">
+								<f:ajax execute="@form" render="@all"/>
+							</h:commandLink></div>
+							<div class="bgrBTR"></div>
+							</div>
+							<div class="Des"></div>
+
+							<div class="btnBoth">
+							<div class="bgrBTL"><a href="#"></a></div>
+							<div class="BBTCWF" style="float: center;"><h:commandLink value="&#60;&#160;#{msgs['userAdministration.edit.workArea.remove']}"
+								actionListener="#{userDetailBean.moveSelectedToLeft}" disabled="#{!userDetailBean.hasManageUserRight}">
+								<f:ajax execute="@form" render="@all"/>
+							</h:commandLink></div>
+							<div class="bgrBTR"></div>
+							</div>
+
+							</div>
+							</td>
+							<td><ace:dataTable width="100%" style="margin: 0px;" border="0" cellpadding="0" cellspacing="0"
+							    styleClass="userWorkAreaDatTbl"
+                                headerClass="tabIce" 
+                                rowClasses="PaFont,tabInter PaFont" 
+                                scrollable="true" 
+                                scrollHeight="180" 
+                                var="itemRight"
+								value="#{userDetailBean.itemsRight}"
+								selectionMode="#{userDetailBean.hasManageUserRight?'multiple':''}"
+								stateMap="#{userDetailBean.rowStateMapRight}">
+								<ace:ajax event="select" execute="@this" render="@this" />
+                                <ace:ajax event="deselect" execute="@this" render="@this" />
+								<ace:column style="width: 325px">
+									<f:facet name="header">
+										<strong><h:outputText value="#{msgs['userAdministration.edit.workArea.label']}" /></strong>
+									</f:facet>
+									<!--  
+									<ice:rowSelector id="rsRight" value="#{itemRight.selected}" selectionListener="#{userDetailBean.toggelRight}"
+										toggleOnClick="#{userDetailBean.hasManageUserRight}" preStyleOnSelection="true" multiple="true" rendered="#{userDetailBean.hasManageUserRight}" styleClass="PaFont"/>
+									-->
+									<strong><h:outputText value="#{itemRight.model.designation}"/></strong>
+								</ace:column>
+							</ace:dataTable></td>
+						</tr>
+						<tr>
+
+							<td>&#160;</td>
+							<td>&#160;</td>
+							<td>&#160;</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>	
+</html>

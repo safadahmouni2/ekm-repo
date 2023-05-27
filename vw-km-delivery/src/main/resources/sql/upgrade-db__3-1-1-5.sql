@@ -1,0 +1,166 @@
+
+-- 
+-- Backup der Tabellen T_BAUSTEINVERSIONANDERUNG und T_ELEMENTVERSIONANDERUNG
+-- 
+CREATE TABLE T_BAUSTVERSIONANDERUNG_V_3_1_1 AS SELECT * FROM T_BAUSTEINVERSIONANDERUNG;
+CREATE TABLE T_ELEMEVERSIONANDERUNG_V_3_1_1 AS SELECT * FROM T_ELEMENTVERSIONANDERUNG;
+
+-- 
+-- Upgrade
+--
+ALTER TABLE T_BAUSTEINVERSIONANDERUNG ADD ERSTELLER_REF_ID NUMBER (19,0);
+ALTER TABLE T_ELEMENTVERSIONANDERUNG ADD ERSTELLER_REF_ID NUMBER (19,0);
+
+-- Initial-Bereiningung der UserHistorie
+
+-- siehe Liste_aller_Benutzer_in_der_Historie_20190212
+-- unter E:\Projekte\vw_ekm\vw_km_devdocs\Analysis_Concept\Fach_Konzept\2019\Sprint-1-2019\Initial-Bereiningung der UserHistorie
+
+-- Rote User anonymisieren
+UPDATE T_BAUSTEINVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = '0';
+UPDATE T_ELEMENTVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = '0';
+
+UPDATE T_BAUSTEINVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = 'administrator';
+UPDATE T_ELEMENTVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = 'administrator';
+
+UPDATE T_BAUSTEINVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = 'kreisar';
+UPDATE T_ELEMENTVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = 'kreisar';
+
+UPDATE T_BAUSTEINVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = 'krimm2';
+UPDATE T_ELEMENTVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE BENUTZER = 'krimm2';
+
+-- Blaue User migrieren
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Glaser Frank' where BENUTZER = 'eb0glas';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Glaser Frank' where BENUTZER = 'eb0glas';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Niebuhr Torsten' where BENUTZER = 'admin#niebu2';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Niebuhr Torsten' where BENUTZER = 'admin#niebu2';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Apel Dirk' where BENUTZER = 'apel6';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Apel Dirk' where BENUTZER = 'apel6';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Bauer Josef' where BENUTZER = 'bauerjo';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Bauer Josef' where BENUTZER = 'bauerjo';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Birkl Markus' where BENUTZER = 'birklma';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Birkl Markus' where BENUTZER = 'birklma';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Dittmann Uwe' where BENUTZER = 'dittm3';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Dittmann Uwe' where BENUTZER = 'dittm3';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Schreiber Ingo' where BENUTZER = 'dpf0scr';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Schreiber Ingo' where BENUTZER = 'dpf0scr';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Bade Christian' where BENUTZER = 'ebadech';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Bade Christian' where BENUTZER = 'ebadech';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Eberl Heinrich-Johann' where BENUTZER = 'eberlhe';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Eberl Heinrich-Johann' where BENUTZER = 'eberlhe';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Gruschka Thomas' where BENUTZER = 'egrusch';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Gruschka Thomas' where BENUTZER = 'egrusch';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Schulze Henning' where BENUTZER = 'eschhen';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Schulze Henning' where BENUTZER = 'eschhen';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Fischer Henning' where BENUTZER = 'fisch23';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Fischer Henning' where BENUTZER = 'fisch23';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Glaser Frank' where BENUTZER = 'glase2';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Glaser Frank' where BENUTZER = 'glase2';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Kunze Jörg' where BENUTZER = 'kunze11';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Kunze Jörg' where BENUTZER = 'kunze11';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Lindemann Udo' where BENUTZER = 'linde5';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Lindemann Udo' where BENUTZER = 'linde5';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Lindemann Udo' where BENUTZER = 'Lindemann';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Lindemann Udo' where BENUTZER = 'Lindemann';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Niebuhr Torsten' where BENUTZER = 'niebu2';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Niebuhr Torsten' where BENUTZER = 'niebu2';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Pasch Erik' where BENUTZER = 'pasch01';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Pasch Erik' where BENUTZER = 'pasch01';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Pasch Erik' where BENUTZER = 'polakma';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Pasch Erik' where BENUTZER = 'polakma';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Roeckl Jürgen' where BENUTZER = 'roeckeju';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Roeckl Jürgen' where BENUTZER = 'roeckeju';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Ronowski Peter' where BENUTZER = 'ronow4';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Ronowski Peter' where BENUTZER = 'ronow4';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Wende Frank' where BENUTZER = 'wende6';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Wende Frank' where BENUTZER = 'wende6';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Wendl Sebastian' where BENUTZER = 'wendlse';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Wendl Sebastian' where BENUTZER = 'wendlse';
+
+update T_BAUSTEINVERSIONANDERUNG set BENUTZER = 'Zaeuner Markus' where BENUTZER = 'zaeunema';
+update T_ELEMENTVERSIONANDERUNG set BENUTZER = 'Zaeuner Markus' where BENUTZER = 'zaeunema';
+
+-- set ERSTELLER_REF_ID in T_BAUSTEINVERSIONANDERUNG
+
+MERGE 
+INTO T_BAUSTEINVERSIONANDERUNG BVA
+USING (
+SELECT USER_ID,
+CASE 
+WHEN TRIM(VORNAME) is null THEN NACHNAME
+WHEN TRIM(NACHNAME) is null THEN VORNAME
+ELSE NACHNAME || ' ' ||  VORNAME
+END  AS full_name,
+CASE
+WHEN TRIM(VORNAME) is null THEN NACHNAME
+WHEN TRIM(NACHNAME) is null THEN VORNAME
+ELSE TRIM(NACHNAME) || ' ' ||  TRIM(VORNAME)
+END  AS full_name_trim,
+CASE 
+WHEN TRIM(VORNAME) is null THEN NACHNAME
+WHEN TRIM(NACHNAME) is null THEN VORNAME
+ELSE NACHNAME || ' ' ||  VORNAME
+END || DECODE(EXTERNER_MIT,1,' im Auftrag von '||IM_AUFTRAG_VON,'') AS sig_full_name
+FROM T_BENUTZER
+WHERE NACHNAME <> 'Anonymous'
+AND VORNAME <> 'Anonymous'
+) B
+on
+ ( BVA.BENUTZER = B.sig_full_name OR BVA.BENUTZER = B.full_name OR BVA.BENUTZER = B.full_name_trim)
+WHEN MATCHED THEN 
+  UPDATE SET BVA.ERSTELLER_REF_ID = B.USER_ID;
+-- UPDATE T_BAUSTEINVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE ERSTELLER_REF_ID is null;
+
+-- set ERSTELLER_REF_ID in T_ELEMENTVERSIONANDERUNG
+
+MERGE 
+INTO T_ELEMENTVERSIONANDERUNG EVA
+USING (
+SELECT USER_ID,
+CASE 
+WHEN TRIM(VORNAME) is null THEN NACHNAME
+WHEN TRIM(NACHNAME) is null THEN VORNAME
+ELSE NACHNAME || ' ' ||  VORNAME
+END  AS full_name,
+CASE
+WHEN TRIM(VORNAME) is null THEN NACHNAME
+WHEN TRIM(NACHNAME) is null THEN VORNAME
+ELSE TRIM(NACHNAME) || ' ' ||  TRIM(VORNAME)
+END  AS full_name_trim,
+CASE 
+WHEN TRIM(VORNAME) is null THEN NACHNAME
+WHEN TRIM(NACHNAME) is null THEN VORNAME
+ELSE NACHNAME || ' ' ||  VORNAME 
+END || DECODE(EXTERNER_MIT,1,' im Auftrag von '||IM_AUFTRAG_VON,'') AS sig_full_name
+FROM T_BENUTZER
+WHERE NACHNAME <> 'Anonymous'
+AND VORNAME <> 'Anonymous'
+) B
+on
+( EVA.BENUTZER = B.sig_full_name OR EVA.BENUTZER = B.full_name OR EVA.BENUTZER = B.full_name_trim)
+WHEN MATCHED THEN update set EVA.ERSTELLER_REF_ID = B.USER_ID;
+-- UPDATE T_ELEMENTVERSIONANDERUNG SET BENUTZER = 'Anonymous' WHERE ERSTELLER_REF_ID is null;
+
+COMMIT;

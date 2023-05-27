@@ -1,0 +1,95 @@
+@Library("jenkins-shared-library")
+import com.thinktank.jenkins.steps.*
+
+
+def pipelineSteps = new PipelineSteps(this)
+def scmSteps = new SCMSteps(this)
+def NexusUsername = config.getNexusUsername()
+def NexusPassword = config.getNexusPassword()
+
+
+final def credentialsId = "jenkins.user-username"
+
+pipeline {
+    agent any 
+	
+	 parameters {
+       gitParameter name: 'BRANCH_TAG', type: 'PT_TAG', defaultValue: 'origin/main', useRepository: 'http://gitlab.thinktank-tt.com/vw/ekm/ekm-repository.git'
+       choice(name: 'Profile', choices: ['tentun7', 'audi_qs', 'audi_prod'])
+    }
+
+
+ tools{
+        maven 'mvn3.6.3'
+        jdk 'jdk-1.8.0_131'
+        
+    }
+
+    environment {
+        NEXUS_VERSION = "nexus3"
+        NEXUS_PROTOCOL = "http"
+        NEXUS_URL = "nexusdevops.thinktank-tt.com:8081"
+        NEXUS_REPOSITORY = "ekm_delivery"
+		NEXUS_CREDENTIAL_ID = "nexus-cred" 	
+
+    }
+stages{
+        stage("SCM: Checkout"){
+
+            steps{
+                script{
+                    cleanWs()
+                    def gitURL = config.getGitUrl() + "vw/ekm/ekm-repository.git"
+
+                    log.outputBanner("Checking out from the SCM")
+                    scmSteps.cloneRepositoryWithTags(gitURL, params.get('BRANCH_TAG'), credentialsId)
+                }
+            }
+        }
+	stage('Build') {
+        steps{
+            
+                sh "mvn clean package  -P${params.Profile}" 
+                echo ' step build ekm' 
+    		
+		}
+	}
+stage('Publish to Nexus Repository Manager') {
+            steps {
+                script {
+                    echo " test 1"
+                    pom = readMavenPom file: "pom.xml";
+                    echo " test 2"
+        filesByGlob = findFiles(glob: "**/**/*.zip");
+                    echo " test 3"
+                    artifactPath = filesByGlob[0].path;
+                    echo " test 4"
+                    artifactExists = fileExists artifactPath;
+                    echo " test 5"
+                    if(artifactExists) {
+                  echo " test 6"
+                        nexusArtifactUploader(
+                            nexusVersion: NEXUS_VERSION,
+                            protocol: NEXUS_PROTOCOL,
+                            nexusUrl: NEXUS_URL,
+                            groupId: pom.groupId,
+                            version: pom.version,
+                            repository: NEXUS_REPOSITORY,
+                            credentialsId: NEXUS_CREDENTIAL_ID,
+                            artifacts: [
+                                [artifactId: "${params.Profile}_vw_km_web-version",
+                                classifier: '',
+                                file: artifactPath,
+                                type: "zip"]
+                                
+                            ]
+                        );
+                    } else {
+                        error "*** File: ${artifactPath}, could not be found";
+                    }
+                }
+            }
+        }
+  }	
+}
+

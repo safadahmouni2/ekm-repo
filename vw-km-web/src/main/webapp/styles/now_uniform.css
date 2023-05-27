@@ -1,0 +1,62 @@
+* 
+{
+  font-family: verdana,sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, ol, ul, li, a, p, fieldset, form
+{
+  margin:0;
+  padding:0;
+}
+
+label
+{
+  cursor:pointer;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus
+{
+  border:none;
+  outline: none;
+  outline-color:-moz-use-text-color;
+  outline-style:none;
+  outline-width:medium;
+  text-decoration:none;
+}
+
+a:active
+{
+  outline: none;
+  border:none;
+}
+
+
+img
+{
+	border:none;
+}
+
+
+#areaContent p a,
+#areaContent li a
+{
+  color:#87173D;
+}
+#areaContent p a:hover,
+#areaContent li a:hover
+{
+  text-decoration:underline;
+  color:#7F8789;
+}
+
+#areaContent p,
+#areaContent ul
+{
+  padding-bottom:1em;
+}
+

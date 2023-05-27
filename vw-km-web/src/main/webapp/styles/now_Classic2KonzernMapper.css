@@ -1,0 +1,131 @@
+
+
+
+#areaMarginal .multiPurpose li span
+{
+	padding: 0px 0px 1px 8px;
+}
+
+#areaContent .button,
+#areaContent .formular .button,
+#areaContent .formular li .button,
+#areaContent .formular li input.button,
+#areaContent button
+{
+  border:none !important;
+  background:transparent url(../images/arrow_double_right.gif) no-repeat 1px 7px;
+  color:#87173D;
+  padding:0;
+  padding-left:10px !important;
+  width:auto !important;
+  min-width:88px;
+  text-align:left !important;
+  font-size:1.2em;
+  cursor:hand;
+}
+
+#areaContent .formular li .button:hover,
+#areaContent .formular li input.button:hover,
+#areaContent button:hover,
+#areaContent .button:hover,
+button:hover
+{
+  background-position:3px -93px;
+  color:#7F8789;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.linkSection input
+{
+  border:none;
+  background-color:transparent;
+  text-align:left;
+  color:#7F8789;
+  font-size:1em;
+  cursor:hand;
+  padding-left:0;
+}
+.usp_contrast .linkSection input
+{
+  color:#000;
+}
+
+.linkSection input.hover,
+.linkSection input:hover
+{
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+.required,
+.InputFieldRequired
+{
+  background-color: #F6E5BC !important;
+  border:1px solid #809EBA !important;
+}
+
+table.carConfig select
+{
+  width:288px !important;
+}
+
+.client_ie6 table.carConfig select,
+.client_ie7 table.carConfig select
+{
+  width:284px !important;
+}
+
+#areaContent button.ButtonImage,
+#areaContent button.ButtonImageSortPr,
+#areaContent button.ButtonImageSortDesc
+{
+  padding:0;
+  background:transparent none;
+}
+
+#areaContent button.ButtonImage
+{
+  margin-right:0;
+}
+
+#areaMain #areaContent #contentBody table.carConfig input.inputPrExtra,
+#areaMain #areaContent #contentBody table.carConfig input.InputPrExtra
+{
+  padding: 0;
+  margin: 0;
+	width:3em !important;
+  height:1em;
+  border:1px solid #809EBA;
+}
+
+#areaContent table.TableOuter
+{
+  width:auto !important;
+}
+
+#areaContent .fullContentSize table.TableOuter
+{
+  width:782px !important;
+}
+
+td.buttons
+{
+  padding:0 0 0 12px;
+}
+
+
+.classicLayout table td.buttons input,
+.classicLayout td.buttons
+{
+  margin-left:0;
+}
+
+.classicLayout table td.TdInput .clientCtrl,
+.classicLayout table td.TdInput input,
+.classicLayout table td.TdInput select
+{
+  margin-left:0;
+  margin-bottom:4px;
+}
+

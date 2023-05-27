@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<f:loadBundle basename="resources.messages" var="msgs" />
+<h:head>
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&amp;display=swap" rel="stylesheet"/> -->
+</h:head>
+<h:body id="contentBody"  onload="SetInitScrollPos();"
+	class="htmlMockup usp_showMenuOnHover usp_contrast lang_de usp_ExtentContentFull ExtentContentFull usp_ExtendSubnav ExtendSubnav usp_headClosed"
+	style="width:100%;overflow:hidden;">
+	<h:outputScript name="scripts/head_extension.js" target="head" />
+<script type="text/javascript">
+		function validateTableField(object,size){
+			//validateBaseBigDecimal(object,"#{msgs['javax.faces.converter.BigDecimalConverter.DECIMAL']}",size)
+			validateCurrency( object, "#{msgs['javax.faces.converter.BigDecimalConverter.DECIMAL']}" )
+		}
+		function validateAnzahlField(object){
+			validateRequiredNumber(object,"#{msgs['javax.faces.converter.BigDecimalConverter.DECIMAL']}")
+		}
+		function validateTextArea(object,maxSize){
+			validateTextAreaSize(object,"#{msgs['validation.textarea.maxlength']}",maxSize)
+		}
+</script>	
+	<h:outputScript name="scripts/validator.js" />
+   <h:outputScript name="scripts/browser-detect.js" />
+  <h:outputScript name="scripts/wo_waiting_page.js" />
+  <h:outputScript name="scripts/print.js" />
+
+	<h:panelGroup layout="block" id="areaContainer" style="width:100%">
+		<h:panelGroup id="areaHeader" styleClass="MarBot readyToDrop" layout="block">
+			<h1><span>VOLKSWAGEN</span></h1>
+			<h2>AKTIENGESELLSCHAFT</h2>
+		</h:panelGroup>
+		<h:form style="margin:0px !important;" id="f">
+		<f:attribute name="DISABLE_CAPTURE_SUBMIT" value="true" /> 
+			<div class="ANMELDATEN HoAm hideprint"> 
+			<div id="nv">
+			<div class="no-drop-menu">
+			<h:outputLink value="../resources/Datenschutzerklaerung_eKM.pdf" target="_blank">
+				<div class="fontAmel">DATENSCHUTZ</div>
+			</h:outputLink>
+			</div>
+			<ul class="mnu BrAm">
+				<li class="lvel1-li">
+			         <a class="lvel1-a" href="#url">
+			         <div class="fontAmel">ANMELDEDATEN &#8250;</div>
+			         </a>
+				<ul class="sb">
+					<li>					
+					<a href="#url">
+					<div class="PaAmel"> 
+					<h:outputText value="#{navigationTree.userFromSession.fullName}" /> 
+					</div>
+					</a>		
+					</li>
+					 <li>
+					  <h:outputLink value="../resources/eKMLight_Benutzerhandbuch.pdf" target="_blank"><div class="PaAmel">#{msgs['help.label']}</div></h:outputLink>
+                     </li>
+					<li>
+						<h:commandLink immediate="true" action="#{loginBean.doLogout}">
+							<div class="PaAmel">
+								<h:outputText value="#{msgs['logout.text']}" />
+							</div>	
+							<f:ajax render="@all" execute="@this" />
+						</h:commandLink>
+					</li>
+				</ul>
+				</li>
+			</ul>
+			</div>
+			</div>
+			<h:panelGroup layout="block" styleClass="panelDividerContainer" id="areaContent">
+				<div class="icePnlDvr" id="f:dividerpanel" style="width: 100%; height: 485px; ">
+					<div class="icePnlDvrCnt">
+						<h:panelGroup id="leftSide" layout="block" style="position: static; height:100%;width:250px;float:left;" >
+						<ace:resizable handles="e" />
+						<div class="icePnlDvrFst border-width" id="f:dividerpanelFirst" style="height:100%;width:98%;">
+							<div id="first" style="position:relative;">
+								<h:panelGroup layout="block" style="padding: 10px;" styleClass="hideprint" id="n_t_div">
+									<f:subview id="nv">
+										<ui:include src="./common/navigation.xhtml" />
+									</f:subview>
+								</h:panelGroup>
+							</div>
+            </div>
+		        <div class="icePnlDvrSpt" id="f:dividerpanelDivider" style="float:left;cursor:auto;">&#160;</div>
+            </h:panelGroup>
+            <script type="text/javascript">
+            	ice.ace.jq( '#f\\:leftSide' ).resize(function() {
+                	//alert(ice.ace.jq( '#f\\:leftSide' ).css("width"));
+            		if ((ice.ace.jq( '#f\\:leftSide' ).css("width").replace('px','') * 1) &gt; 220) {
+            			ice.ace.jq( "#f\\:rightSide" ).css({"margin-left" : ice.ace.jq( '#f\\:leftSide' ).css("width")});
+            			sessionStorage.setItem('leftSideWidth', ice.ace.jq( '#f\\:leftSide' ).css("width"));
+            		} else {
+            			ice.ace.jq( "#f\\:rightSide" ).css({"margin-left" : 220});
+            			ice.ace.jq( '#f\\:leftSide' ).css({"width" : 220});
+            		}
+            	});            
+            </script>
+						<h:panelGroup id="rightSide" layout="block" style="height:100%;margin-left:250px;" >
+						<div class="icePnlDvrSnd" id="f:dividerpanelSecond" style="padding-left: 0.5%;height:100%;width:99.5%;">
+								<f:subview id="contIW" rendered="#{navigationTree.selectedNodeObject.templateName=='welcomePage.xhtml'}">
+									<ui:include src="welcomePage.xhtml" />
+								</f:subview>
+								<f:subview id="contInc" scrollable="true" rendered="#{navigationTree.selectedNodeObject.templateName!='welcomePage.xhtml' and navigationTree.selectedNodeObject.templateName!='./changeHistory/lastChangeHistoryNotifications.xhtml'}">
+									<ui:include src="#{navigationTree.selectedNodeObject.templateName}" />
+								</f:subview>
+                <f:subview id="contInc1" scrollable="true" rendered="#{navigationTree.selectedNodeObject.templateName=='./changeHistory/lastChangeHistoryNotifications.xhtml' }">
+                    <ui:include src="./changeHistory/lastChangeHistoryNotifications.xhtml" />
+                </f:subview>
+	          </div>
+						</h:panelGroup>
+	        </div>
+				</div>
+			</h:panelGroup>
+		</h:form>
+	</h:panelGroup>
+	<!-- POPUPs -->
+	<h:panelGroup layout="block" id="commonPopupContainer">
+	 <ui:include src="./common/commonPopup.xhtml" />
+	</h:panelGroup>	
+	<!-- POPUPs -->
+	<h:panelGroup layout="block" id="areaContainer2">
+	 <ui:include src="#{navigationTree.selectedNodeObject.popupPageName}" />	
+	</h:panelGroup>	
+	
+	<!-- copyright and company stuff -->
+	<h:panelGroup layout="block" id="areaFooter" styleClass="HoverBehaviour">
+		<ul>
+			<li>&#160;<h:outputText style="color: #FFFFFF" value="#{navigationTree.downActionDefintion}" /></li>
+		</ul>
+	</h:panelGroup>
+
+	<h:panelGroup id="submitMonitorGroup">
+         <ace:submitMonitor id="submitMonitor"
+              for="f:dividerpanelFirst f:contInc:mainContent f:contInc:menuBar f:contInc:contSearch f:contInc:svb confirmDeletePopUp" 
+              blockUI="@all"/>
+    </h:panelGroup>
+
+<ace:panel rendred="false"></ace:panel>
+
+	<script type="text/javascript">
+		setFocusToEditableFolderName();
+	</script>
+
+	</h:body>
+</html>

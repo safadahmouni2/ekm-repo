@@ -1,0 +1,64 @@
+.universysPbs .errorText
+{
+	color: #9A0C39;
+}
+
+.universysPbs input, select
+{
+	width: auto;
+}
+
+.universysPbs h2
+{
+	margin: 20px 0px 10px 0px;
+}
+
+.universysPbs .divButtons input
+{
+	margin: 15px 10px 30px 0px;
+}
+
+.universysPbs .pager
+{
+	width: auto;
+	margin-top: 20px;
+}
+
+.universysPbs .pager a
+{
+	background-image: none !important;
+	padding-left: 0 !important;
+}
+
+.universysPbs .txtPager
+{
+	margin-top: 20px;
+	display: block;
+}
+
+.universysPbs .tblStandard
+{
+	width: auto;
+}
+
+
+.universysPbs .areaError fieldset span.error
+{
+  padding:0;
+  color:#9A0C39;
+  border:none;
+}
+
+.universysPbs .areaError fieldset span.info
+{
+  padding:0;
+  color:#000;
+  border:none;
+}
+
+.universysPbs strong
+{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	display: block;
+}

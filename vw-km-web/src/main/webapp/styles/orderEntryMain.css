@@ -1,0 +1,24 @@
+/* 2010-10-11: muendlich mit Thomas Roeder abgestimmt: otherStatusInfo soll immer angezeigt werden */
+x.otherStatusInfo
+{
+	display:none;
+}
+
+body.hasSpecialOeInfo .regularStatusInfo
+{
+	display:none;
+}
+
+.otherStatusInfo
+{
+	font-weight:bold;
+	color:#87173D;
+}
+
+body.hasSpecialOeInfo .otherStatusInfo
+{
+	display:block;
+	visibility:visible;
+	display:table-cell;
+}
+

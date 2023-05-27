@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      	
+	<ace:dialog id="exportPopup" rendered="#{changeHistoryBean.showExcelExportPopup}"
+		visible="#{changeHistoryBean.showExcelExportPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true" >
+		<h:form id="svForm" styleClass="icePnlPop">
+	
+			<h:panelGroup layout="block" styleClass="icePnlPopHdr popupHeaderNoWidth" style="width: 370px">
+				<h:outputText value="#{msgs['changehistory.search.exportPopup.excel.title']}" styleClass="iceOutTxt popupHeaderText" />
+			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="icePnlPopBody popupContentText popupBody">
+				<h:panelGrid columns="3">
+					<h:panelGroup layout="block" id="panelGroup1" onclick="javascript:exportResourceEvent('svForm','svForm:excelResourceEventHandler')">
+						<ace:dynamicResource styleClass="iceCmdBtn saveChangesPopupBtn"
+							style="width: 90px !important;margin: 0px;"
+							id="excel_export_hidden" type="button" attachment="true"
+							fileName="#{changeHistoryBean.excelResource.resourceName}"
+							label="#{msgs['costcomponent.exportPopup.excel']}"
+							mimeType="application/vnd.ms-excel" shared="false"
+							resource="#{changeHistoryBean.excelResource}"
+							rendered="#{changeHistoryBean.showExcelViewFile}">
+						</ace:dynamicResource>
+						<h:inputHidden id="excelResourceEventHandler" value ="default" valueChangeListener="#{changeHistoryBean.excelResourceClicked}"/>
+				   </h:panelGroup>					
+				   <h:commandButton styleClass="iceCmdBtn saveChangesPopupBtn" value="#{msgs['costcomponent.back']}"
+					action="#{changeHistoryBean.cancelExport}" >
+					 <f:ajax render="@all" execute="@form" />
+					</h:commandButton>
+				</h:panelGrid>	
+			</h:panelGroup>
+		
+		</h:form>
+	</ace:dialog>	
+</html>

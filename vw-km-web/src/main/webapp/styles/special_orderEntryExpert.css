@@ -1,0 +1,89 @@
+
+td.dw span.labelSizeHalf
+{
+	float:left !important;
+	margin-right:12px;
+}
+
+.client_ie6 td.dw span.labelSizeHalf,
+.client_ie7 td.dw span.labelSizeHalf
+{
+	margin-right:8px;
+}
+
+.client_ie6 .valueList_OrderWeekTypeBD
+{
+	position:relative;
+	top:-1px;
+}
+
+table.konzernLayout8 td.orderWeekType span.clientCtrl,
+table.konzernLayout8 td.orderWeekType input.Format_weekYear
+{
+ width:68px;
+ float:left;
+}
+table.konzernLayout8 td.orderWeekType input.valueList_OrderWeekTypeBD
+{
+ width:16px !important;
+}
+.client_ie6 table.konzernLayout8 td.orderWeekType span.clientCtrl,
+.client_ie6 table.konzernLayout8 td.orderWeekType input.Format_weekYear,
+.client_ie7 table.konzernLayout8 td.orderWeekType span.clientCtrl,
+.client_ie7 table.konzernLayout8 td.orderWeekType input.Format_weekYear
+{
+ width:55px;
+}
+
+table.konzernLayout8 td.promotion3 div
+{
+	display:block;
+	height:12px;
+	padding-top:0;
+	white-space:nowrap;
+	width:88px;
+}
+table.konzernLayout8 td.promotion3 input
+{
+	width:26px !important;
+	float:left;
+}
+.client_ie8 table.konzernLayout8 td.promotion3 input,
+.client_ie7 table.konzernLayout8 td.promotion3 input,
+.client_ie6 table.konzernLayout8 td.promotion3 input
+{
+	width:24px !important;
+}
+
+table.konzernLayout8 td.promotion3 input:nth-child(10n+1),
+table.konzernLayout8 td.promotion3 input:nth-child(10n+2)
+{
+	margin-right:2px;
+}
+
+table.vehicleTable td
+{
+	width:86px;
+}
+
+table.vehicleTable td td.tdPrList
+{
+  padding-left:0px;
+}
+
+#_ctl0_oeFleetOrderCtrl_divFleetOrderPage,
+.fleetDiscount
+{
+	clear:left;
+}
+.fleetDiscount h3
+{
+	margin-bottom:6px!important;
+	margin-top:12px;
+}
+
+#_ctl0_oeFleetOrderCtrl_divFleetOrderPage
+{
+	margin-left:12px;
+}
+

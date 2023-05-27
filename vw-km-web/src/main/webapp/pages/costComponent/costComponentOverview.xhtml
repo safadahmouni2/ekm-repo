@@ -1,0 +1,140 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="702">
+			<div class="div_border">
+			<table width="702" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="340" height="18" align="left" class="tabIce PFF"><h:outputText value="#{msgs['costcomponent.overview.planCostAttribute']}" /></td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td width="180" align="center" class="tabIce"><h:outputText value="#{msgs['costcomponent.overview.totalAmount']}" />&#160;[&#8364;]</td>
+					<td width="1" align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td width="180" align="center" class="tabIce"><h:outputText value="#{msgs['costcomponent.overview.provision']}" /></td>
+				</tr>
+				<tr class="PaFont">
+					<td height="20" align="left" valign="middle" class="overviewRow1"><strong><h:outputText value="#{msgs['costcomponent.overview.mecanic']}" /></strong></td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td align="left" valign="middle" class="overviewRow1">&#160;</td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td height="20" align="left" valign="middle" class="overviewRow1">
+					<table width="51%" border="0" align="center">
+						<tr>
+							<td width="8%"><h:selectBooleanCheckbox id="withProvision"
+									value="#{costComponentBean.dto.componentVersion.withProvision}" styleClass="WBS" partialSubmit="true"
+									valueChangeListener="#{costComponentBean.doChangeProvision}"
+									disabled="#{costComponentBean.dto.componentVersion.enumStatus.readOnly or !costComponentBean.dto.userHasWriteAccess}" >
+										<f:ajax render="@all" execute="@this" />
+									</h:selectBooleanCheckbox>
+									</td>
+							<td width="92%"><strong><h:outputText value="#{msgs['costelement.overview.withProvision']}" /></strong></td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="1" align="center" valign="middle" bgcolor="#cccccc" colspan="5"></td>
+				</tr>
+				<ui:repeat var="mecanicsCostAttributeCategory"
+						value="#{costComponentBean.dto.componentVersion.mecanicsCostAttributeCategories}" varStatus="status">
+					<tr>
+						<td height="20" align="left" valign="middle" class="overviewRow#{status.index%2}"><h:outputText
+									value="#{mecanicsCostAttributeCategory.category}" />
+						</td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" alt="" width="1" height="1" /></td>			
+						<td align="center" valign="middle" class="overviewRow#{status.index%2}">
+						<h:outputText styleClass="spanInputDesign" value="#{mecanicsCostAttributeCategory.amount.stringFormatted}"/>&#160;&#8364;
+						</td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" alt="" width="1" height="1" /></td>			
+						<td height="20" align="center" valign="middle" class="overviewRow#{status.index%2}"><h:panelGroup layout="block" 
+									rendered="#{mecanicsCostAttributeCategory.dependFromProvision}">
+						<h:outputText styleClass="spanInputDesign" value="#{mecanicsCostAttributeCategory.provisionAmount.stringFormatted}"/>&#160;&#8364;
+						</h:panelGroup></td>
+					</tr>
+					<tr>
+						<td height="1" align="center" valign="middle" bgcolor="#cccccc" colspan="5"></td>
+					</tr>
+					</ui:repeat>
+					
+				<tr class="PaFont">
+					<td height="14" align="left" valign="middle" class="tabInter PaFont PFF"><strong><h:outputText
+							value="#{msgs['costcomponent.overview.totalMecanic']}" /></strong></td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" alt="" width="1" height="1" /></td>		
+					<td align="center" valign="middle" class="tabInter PaFont PFF">
+						<h:outputText styleClass="spanInputDesignStrg" value="#{costComponentBean.dto.componentVersion.mecanicsSum.stringFormatted}"/>&#160;&#8364;
+					</td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" alt="" width="1" height="1" /></td>		
+					<td align="center" valign="middle" class="tabInter PaFont PFF">&#160;</td>
+				</tr>
+				<tr>
+					<td height="1" align="left" valign="middle" bgcolor="#cccccc" colspan="5"></td>
+				</tr>
+				<tr class="PaFont">
+					<td height="14" align="left" valign="middle" class="PaFont">&#160;</td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td align="center" valign="middle" class="PaFont PFF">&#160;</td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td align="center" valign="middle" class="PaFont PFF">&#160;</td>
+				</tr>
+				<tr>
+					<td height="1" align="left" valign="middle" bgcolor="#cccccc" colspan="5"></td>
+				</tr>
+				<tr class="PaFont">
+					<td height="14" align="left" valign="middle" class="overviewRow1"><strong><h:outputText
+							value="#{msgs['costcomponent.overview.electric']}" /></strong></td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+					<td align="center" valign="middle" class="overviewRow1">&#160;</td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>
+					<td align="center" valign="middle" class="overviewRow1">&#160;</td>
+				</tr>
+				<tr>
+					<td height="1" align="left" valign="middle" bgcolor="#CCCCCC" colspan="5"></td>
+				</tr>
+				<ui:repeat  var="electricalCostAttributeCategory"
+						value="#{costComponentBean.dto.componentVersion.electricalCostAttributeCategories}" varStatus="status">
+					<tr class="PaFont">
+						<td height="14" align="left" valign="middle" class="overviewRow#{status.index%2}"><h:outputText
+								value="#{electricalCostAttributeCategory.category}" /></td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+						<td align="center" valign="middle" class="overviewRow#{status.index%2}">
+							<h:outputText styleClass="spanInputDesign" value="#{electricalCostAttributeCategory.amount.stringFormatted}"/>&#160;&#8364;
+						</td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+						<td align="center" valign="middle" class="overviewRow#{status.index%2}">
+						<h:panelGroup layout="block"  rendered="#{electricalCostAttributeCategory.dependFromProvision}">
+						<h:outputText styleClass="spanInputDesign" value="#{electricalCostAttributeCategory.provisionAmount.stringFormatted}"/>&#160;&#8364;
+						</h:panelGroup></td>
+					</tr>
+					<tr>
+						<td height="1" align="left" valign="middle" bgcolor="#CCCCCC" colspan="5"></td>
+					</tr>
+				</ui:repeat>
+				<tr class="PaFont">
+					<td height="14" align="left" valign="middle" class="overviewRow0"><strong><h:outputText
+							value="#{msgs['costcomponent.overview.totalElectric']}" /></strong></td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+					<td align="center" valign="middle" class="overviewRow0" nowrap="nowrap">
+						<h:outputText styleClass="spanInputDesignStrg" value="#{costComponentBean.dto.componentVersion.electricalSum.stringFormatted}"/>&#160;&#8364;
+					</td>
+					<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+					<td align="center" valign="middle" class="overviewRow0"><div>&#160;</div></td>
+				</tr>
+			</table>
+			</div>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2"></td>
+		</tr>
+	</table>	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

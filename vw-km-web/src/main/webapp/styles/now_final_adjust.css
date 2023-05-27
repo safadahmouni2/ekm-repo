@@ -1,0 +1,7 @@
+
+.noIcon,
+#areaContent button .noIcon
+{
+  background-image: none !important;
+  background-position:-1000px -1000px !important;
+}

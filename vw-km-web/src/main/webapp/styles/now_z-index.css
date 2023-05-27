@@ -1,0 +1,165 @@
+.nowMenu,
+.nowMenu .head
+{
+  z-index:800;
+}
+#areaBreadcrumb
+{
+  z-index:500;
+}
+
+fieldset.logoTop
+{
+  z-index:1000;
+}
+
+#areaMain,
+#areaContent
+{
+  z-index:1000;
+}
+
+#areaSubnav fieldset.mpb_0
+{
+  z-index:1010;
+}
+
+#areaSubnav
+{
+  z-index:1010;
+}
+
+#areaFooter
+{
+  z-index:3000;
+}
+#areaFooter:hover
+{
+  z-index:8000;
+}
+
+#areaGeneric
+{
+  z-index:4999;
+}
+
+
+#loadingCancel
+{
+  z-index:9500;
+}
+#loadingCancel a.cancelSubmit
+{
+  z-index:9998;
+}
+.sys_submit #areaGeneric
+{
+  z-index:9000 !important;
+}
+
+.messageBox
+{
+  z-index:9999 !important;
+}
+
+.autocomplete
+{
+  z-index:3000;
+}
+
+#DivPreVehicleHelp,
+#DivPromotionHelp,
+.dragWindow
+{
+   z-index:5700;
+}
+
+#devDbgWin
+{
+  z-index:5500;
+}
+html > body .autocomplete.fixed
+{
+  z-index:5500;
+}
+
+.clpDiv
+{
+  z-index:5000; 
+}
+
+.tooltip
+{
+	z-index: 10000!important;
+}
+
+#autoCompleteMenu
+{
+  z-index:3000;
+}
+
+.calendar_date_select
+{
+  z-index: 2000;
+}
+iframe.ie6_blocker {
+  z-index: 1999;
+}
+
+
+
+/* ======================== */
+/* z-index by User Settings */
+/* ======================== */
+.style_NaviLeft .mainNavi:hover
+{
+  z-index:6000;
+}
+.style_NaviLeft .mainNavi:hover ul li ul
+{
+  z-index:4000;
+}
+.style_NaviLeft.NaviHeight .mainNavi:hover ul li ul
+{
+  z-index:4000;
+}
+/* ========== */
+/* Navi fixed */
+/* ========== */
+
+#areaContent .formular ul.group li ul li.level2
+{
+  z-index:100;
+}
+fieldset.formular legend
+{
+  z-index:100;
+}
+
+.clientCtrl .spinnerCtrlDown,
+.clientCtrl .spinnerCtrlUp,
+.clientCtrl .calendarHandle,
+.clientCtrl .comboHandle
+{
+  z-index:100;
+}
+.clientCtrl .spinnerCtrlDown:hover,
+.clientCtrl .spinnerCtrlUp:hover
+{
+  z-index:3200;
+}
+
+
+.OneColumn #areaContent .formular ul.group li ul li.inline
+{
+  z-index:100;
+}
+
+.usp_collapseMenu .nowMenu .head {
+  z-index:1100;
+}
+
+.usp_collapseMenu .nowMenu ul
+{
+  z-index:2000;
+}

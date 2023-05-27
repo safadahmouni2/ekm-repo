@@ -1,0 +1,337 @@
+#areaContent a[href]
+{
+  background:transparent url(../images/arrow_single_right.gif) no-repeat 0 4px;
+  padding-left:10px;
+}
+
+#areaContent a[href].light
+{
+  background-image:none !important;
+  padding-left:0 !important;
+}
+
+#areaContent a[href]:hover
+{
+  background-position:0 -96px;
+}
+
+a.button,
+button,
+buttons input.button,
+#areaContent input.button,
+#areaContent .formular li.button input,
+.button input
+{
+  border:none !important;
+  background:transparent url(../images/arrow_double_right.gif) no-repeat 1px 7px;
+  color:#87173D;
+  padding-left:12px !important;
+  width:auto !important;
+  cursor:hand;
+  cursor:pointer;
+}
+
+
+a.link
+{
+	background:transparent url(../images/arrow_single_right.gif) no-repeat scroll 0 5px;
+	color:#87173D;
+	margin-left:10px;
+	padding-left:4px;
+	text-decoration:none;
+}
+
+a.link:hover
+{
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+html>body button,
+html>body #areaContent input.button,
+html>body #areaContent .formular li.button input,
+html>body .button input
+{
+  margin-right:12px;
+  cursor:pointer;
+}
+
+input.button:hover,
+button:hover,
+.button input:hover
+{
+  background-position:2px -93px;
+  color:#7F8789;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.button .disabled,
+button.disabled,
+input.disabled
+{
+  background-position:2px -93px !important;
+  color:#7F8789 !important;
+  text-decoration:none !important;
+  cursor:default !important;
+}
+
+button[disabled],
+.button input[disabled],
+#areaContent input.button[disabled]
+{
+  background-position:2px -93px !important;
+  color:#7F8789 !important;
+  text-decoration:none !important;
+  cursor:no-drop !important;
+}
+
+
+#areaContent a.button
+{
+  background:transparent url(../images/arrow_double_right.gif) no-repeat 1px 7px;
+  color:#87173D;
+  padding-left:14px;
+  cursor:hand;
+  text-decoration:none;
+}
+
+#areaContent a.button:hover
+{
+  background-position:2px -95px;
+  color:#7F8789;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+#areaContent a.next,
+#areaContent a.prev
+{
+  background:transparent url(../images/trans.gif) no-repeat 0 0;
+}
+
+.btnHidden {
+	position:absolute;
+	top:-1000px;
+	left:-1000px;
+}
+
+#areaContent .linkButton
+{
+  border:none !important;
+  text-decoration: underline;
+  text-align:left !important;
+  width:auto !important;
+  background-color:transparent !important;
+  color: #7F8789;
+  font-size: 1em;
+  cursor:hand;
+}
+
+.usp_contrast #areaContent .linkButton
+{
+  color: #000;
+}
+
+#areaContent .buttons
+{
+  margin-left:12px;
+}
+
+#areaContent .buttons input
+{
+  margin-left:0px;
+}
+
+#areaContent .linkButton:hover
+{
+  cursor:pointer;
+}
+
+
+/***** altlasten ******/
+input.forward,
+.ButtonNext
+{
+  border: 0;
+  padding: 0 0 0 15px;
+  background-position: center 50% !important;
+  font-size: 12px;
+  background-image: url(../images/arrow_next.gif) !important;
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+  background-color: transparent;
+  text-align: left;
+  height:15px;
+  width: auto !important;
+  cursor:pointer;
+}
+
+.ButtonNextDisabled
+{
+  border: 0;
+  padding: 0 0 0 15px;
+  background-position: center 50%;
+  font-size: 12px;
+  background-image: url(../images/arrow_next_disabled.gif);
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+  background-color: transparent;
+  text-align: left;
+  width: auto !important;
+  height:15px;
+}
+
+input.backward,
+.ButtonPrev
+{
+  border: 0;
+  padding: 0 0 0 15px;
+  background-position: center 50% !important;
+  font-size: 12px;
+  background-image: url(../images/arrow_prev.gif) !important;
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+  background-color: transparent;
+  text-align: left;
+  width: auto !important;
+  height:15px;
+  cursor:pointer;
+}
+
+.ButtonPrevDisabled
+{
+  border: 0;
+  padding: 0 0 0 15px;
+  background-position: center 50%;
+  font-size: 12px;
+  background-image: url(../images/arrow_prev_disabled.gif);
+  background-repeat: no-repeat;
+  border-collapse: collapse;
+  background-color: transparent;
+  text-align: left;
+  width: auto !important;
+  height:15px;
+}
+
+#areaContent button.arrowSetBack,
+#areaContent button.arrowMoveR,
+#areaContent button.arrowMoveL,
+#areaContent button.arrowMoveAll
+{
+  background-position: 0 0 !important;
+  background-position: 0 0 !important;
+  width:20px !important;
+  height:20px !important;
+  background-repeat: no-repeat;
+  display:block;
+  float:right;
+  margin:0;
+}
+button.arrowSetBack
+{
+  background-image: url(../images/arrow_setback.gif) !important;
+}
+
+button.arrowMoveR
+{
+  background-image: url(../images/arrow_move_r.gif) !important;
+}
+
+button.arrowMoveL
+{
+  background-image: url(../images/arrow_move_l.gif) !important;
+}
+button.arrowMoveAll
+{
+  background-image: url(../images/arrow_move_all.gif) !important;
+}
+
+button.arrowSetBack:hover,
+button.arrowMoveR:hover,
+button.arrowMoveL:hover,
+button.arrowMoveAll:hover
+{
+  background-position: 0 0 !important;
+}
+
+#areaContent h3 input.button
+{
+  display:block;
+  height:1.2em;
+  position:absolute;
+  right:0;
+  color:#fff !important;
+}
+h3 span
+{
+  float:left;
+}
+
+h3.head span
+{
+  float:none;
+}
+
+input.collapsibleHead 
+{
+  width:100%;
+  background:transparent url(../images/comboArrows-sw-trans.gif) no-repeat 99.5% 5px;
+  margin-bottom:1px;
+  color:#345D6F;
+  font-size:1em;
+  padding:0.1em 0.2em;
+  font-weight:bold;
+  text-align:left;
+  cursor:pointer;
+}
+
+* html input.collapsibleHead 
+{
+  padding:0.2em 0.5em 0.1em;
+  cursor:hand;
+}
+
+
+.clipButton
+{
+   background-position:3px -93px;
+
+   color:#87173D;
+
+   background:transparent url(../images/arrow_double_right.gif) no-repeat 1px 7px;
+
+   margin-right:12px;
+   margin-left:8px;
+
+   padding-top:0;
+   padding-bottom:0;
+   padding-left:10px !important;
+   padding-right:0;
+
+   font-family:verdana,sans-serif;
+   font-size:1.2em;
+
+   text-align:left !important;
+   text-decoration:none;
+
+   width:auto !important;
+   border:medium none !important;
+
+   cursor:pointer;
+}
+.clipButton:hover
+{
+   text-decoration:underline;
+
+   cursor:pointer;
+}
+
+span.button.disabled,
+span.button.disabled:hover
+{
+	color:#7F8789 !important;
+	cursor:no-drop !important;
+	background-position:0 -96px !important;
+	text-decoration:none !important;
+}

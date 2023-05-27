@@ -1,0 +1,419 @@
+
+.dragWindow
+{
+  position:absolute;
+  width: 600px;
+  border:1px solid black;
+  background-color:#fff;
+  top:-1px;
+}
+
+html > body .dragWindow
+{
+  position:fixed;
+}
+
+.dragWindow .body
+{
+  overflow:auto;
+  max-height:360px;
+}
+
+.dragWindow .body h5
+{
+  font-size: 1em;
+  margin-bottom:1em;
+  padding-left:1em;
+}
+.dragWindow .foot
+{
+  width: 100%;
+  height: 18px;
+  background-color:#345D6F;
+	color:#ddd;
+	background:-moz-linear-gradient(center top , #1877A2, #081013) repeat scroll 0 0 #345D6F;
+  border:none;
+}
+.dragWindow .twoLines
+{
+	height: 39px;
+}
+.dragWindow .foot .buttons
+{
+	height:20px;
+  background-color:#345D6F;
+	background:-moz-linear-gradient(center top , #1877A2, #081013) repeat scroll 0 0 #345D6F;
+}
+
+.dragWindow .foot .legend
+{
+	text-align:center;
+	background-color:#1877A2;
+	padding:3px 0;
+	font-size:0.9em;
+}
+
+.dragWindow .foot label,
+.dragWindow .foot .button
+{
+  float: left;
+  margin-left: 1em;
+  margin-top:0 !important;
+  padding-top:2px;
+  color:#ddd;
+	background-color:transparent;
+}
+.dragWindow .foot .button
+{
+  width:auto;
+	border:1px solid transparent!important;
+}
+.dragWindow .foot .button:hover
+{
+	border-color:#B8C9D1!important;
+}
+
+.dragWindow .foot input
+{
+  float: left;
+}
+
+.dragWindow .foot .fRight
+{
+  width:auto;
+}
+.dragWindow .foot .fRight label
+{
+  margin-left: 0;
+}
+
+  
+.dragWindow .foot a
+{
+  background-position:-999px -999px;
+  padding:1px 6px !important;
+}  
+
+.dragWindow .foot a:hover
+{
+  xxbackground:transparent url(../images/now_iconSet.gif) no-repeat -9px -4px;
+}  
+
+.dragWindow .buttons
+{
+  margin: 0;
+  padding:1px 0;
+}
+
+.dragWindow h4
+{
+  border-bottom:1px solid #345D6F;
+  color:#fff;
+  font-size:1em;
+  height:16px;
+  margin:0;
+  margin-bottom:6px;
+  padding-top:4px;
+  width:100%;
+  background-color:#345D6F;
+	background:-moz-linear-gradient(center top , #1877A2, #081013) repeat scroll 0 0 #345D6F;
+}
+
+
+
+.dragWindow h4 span
+{
+  float:left;
+}
+
+.dragWindow h4.head span
+{
+  float:none;
+}
+
+.usp_developDbgWnd .usp_developDbgWnd h4
+{
+  margin:0;
+  height:13px;
+}
+
+.usp_developDbgWnd .usp_developDbgWnd .buttons
+{
+  display:none;
+}
+
+
+.dragWindow h4 a.abort,
+.dragWindow h4 a
+{
+  width:15px;
+  height:15px;
+  text-indent:-444em;
+  position:absolute;
+  right:0;
+  top:0;
+  background:transparent url(../images/now_iconSet.gif) no-repeat -1250px -3px !important;
+}
+.dragWindow h4 a.abort:hover,
+.dragWindow h4 a:hover
+{
+  background-position: -1250px -67px !important; 
+}
+
+
+.dragWindow h4 span.head
+{
+  background:transparent url(../images/now_iconSet.gif) no-repeat -1235px -3px !important;
+  color:#E7F3F3;
+  height:15px;
+  margin:0;
+  padding:0;
+  position:absolute;
+  right:18px;
+  text-indent:-444em;
+  width:15px;
+  top:0;
+	display:none;
+}
+
+.dragWindow h4 span.active.head
+{
+	display:block;
+}
+
+.dragWindow h4 span.head:hover
+{
+  background-position: -1235px -67px !important; 
+}
+
+.dragWindow h4 span.closed
+{
+  background-position: -1220px -3px !important; 
+}
+.dragWindow h4 span.closed:hover
+{
+  background-position: -1220px -67px !important; 
+}
+
+
+.dragWindow h4 span.dragHandle
+{
+  width:542px;
+  padding:0 1em;
+  background-color:transparent;
+}
+
+.dragWindow h4 a.button
+{
+  margin-right:4px !important;
+  margin-top:2px !important;
+}
+
+.dragWindow .content .error
+{
+  background-color:#f00;
+  color:#ff0;
+}
+
+.dragWindow .content ul
+{
+  margin-left:1em;
+}
+
+.dragWindow .content ul li
+{
+  margin-left:1em;
+}
+
+#areaGeneric
+{
+  position:absolute;
+  bottom:0;
+  left:-4000px;
+  height:0px;
+  width:0px;
+  background-color: #173346;
+	opacity: 0.2;
+  cursor:default;
+  filter:Alpha(opacity=20, style=0);
+}
+
+html>body #areaGeneric
+{
+  position:fixed;
+}
+
+.sys_submit #areaGeneric,
+.mode_Modal #areaGeneric
+{
+  display:block;
+  bottom:0;
+  left:0;
+  height:100% !important;
+  width:100% !important;
+  cursor:default;
+}
+
+.noModal #areaGeneric,
+.noModal #loadingCancel
+{
+  display:none !important;
+}
+
+.noModal fieldset.linkSection ul li .dateTime
+{
+	background-position: -100px -100px !important;
+}
+
+.load_Modal #areaGeneric
+{
+  display:block;
+  top:0;
+  left:0;
+  height:1200px !important;
+  width:2400px !important;
+  cursor:wait;
+}
+
+
+.sys_submit .iFrmModal,
+.mode_Modal .iFrmModal
+{
+  display:block;
+  bottom:0;
+  left:0;
+  height:100% !important;
+  width:100% !important;
+}
+
+.scrollContent
+{
+  width:100%;
+  max-height:400px;
+  overflow:auto;
+}
+.client_ie6 .scrollContent,
+.client_ie7 .scrollContent
+{
+  height:400px;
+}
+
+.onDragWindowMove select,
+.onWindowResizeScroll select,
+.ie6_displayDragWindow select,
+.hideListBoxes select,
+* html .sys_submit select,
+* html .mode_Modal select
+{
+  visibility:hidden;
+}
+
+
+#loadingCancel
+{
+  background-color: #fff;
+  border:1px solid #345D6F;
+  height:84px;
+  left:-4000px;
+  margin-left:-95px;
+  opacity:0.8;
+  padding:0 95px;
+  position:absolute;
+  bottom:66%;
+  width:1px;
+  cursor:move;
+}
+#loadingCancel p
+{
+  background: #fff url(../images/now_iconSet.gif) -1040px -222px no-repeat;
+  width:190px;
+  height:52px;
+  position:absolute;
+  top:0;
+  left:0;
+}
+html>body #loadingCancel
+{
+  position:fixed;
+}
+
+.sys_submit #areaGeneric
+{
+  cursor:wait;
+}
+.client_netscape5 #areaGeneric
+{
+  cursor:default;
+}
+
+.sys_submit #loadingCancel
+{
+  left:50%;
+  display:block;
+  bottom:66%;
+}
+.loadingCanceled #loadingCancel
+{
+  display:none;
+}
+
+#loadingCancel a.cancelSubmit
+{
+	font-size:10px;
+  background-color:#FFFFFF;
+  border:1px solid #345D6F;
+  color:#345D6F;
+  cursor:pointer;
+  display:block;
+  top:56px;
+  left:55px;
+  opacity:1;
+  padding:4px;
+  position:absolute;
+  text-align:center;
+  width:8em;
+}
+
+
+.loading #loadingCancel
+{
+  display:block;
+  width:auto;
+  height:auto;
+  left:auto;
+  bottom:auto;
+  top:0;
+  right:0;
+  background-color:transparent;
+  border:none;
+}
+
+.loading #loadingCancel p
+{
+  left:auto;
+  background:transparent none repeat 0 0;
+  height:17px;
+  position:absolute;
+  right:0;
+  top:0;
+  width:17px;
+}
+
+.loading #loadingCancel a.cancelSubmit
+{
+  top:0;
+  left:auto;
+  right:0;
+  text-indent:-444em;
+  height:17px;
+  width:17px;
+  background:transparent url(../images/now_iconSet.gif) no-repeat -1200px -68px;
+  padding:0;
+  border:none;
+}
+.mqDestApp_QS div.usp_developDbgWnd,
+.mqDestApp_PRODUCTION div.usp_developDbgWnd
+{
+  display:none;
+}
+

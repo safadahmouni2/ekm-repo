@@ -1,0 +1,32 @@
+
+.dateExpired
+{
+  background-color:#B22222 !important;
+}
+.dateNearly
+{
+  background-color:#D8D000 !important;
+}
+#areaContent input.ButtonTermInfo
+{
+  border: none;
+	width : 13px!important;
+	cursor:hand;
+	cursor:pointer;
+}
+.LinkButtonStart
+{
+  text-decoration: underline;
+  cursor:hand;
+  border:none;
+  font-weight: bold;
+  padding:0;
+  background-image:none !important;
+}
+
+.colHeaderTermination
+{
+  background-color:#E7F3F3;
+  border:1px solid #B8C9D1;
+  color:#345D6F;
+}

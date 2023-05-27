@@ -1,0 +1,160 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="702">
+		<div class="div_border">
+		<table width="702" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="340" height="18" align="left" class="tabIce PFF"><h:outputText id="pl"
+					value="#{msgs['costelement.overview.planCostAttribute']}" />
+					<img src="../images/1px.gif" width="1" height="1" />
+					</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td width="180" align="center" class="tabIce"><h:outputText id="am"
+					value="#{msgs['costelement.overview.totalAmount']}" />&#160;[&#8364;]</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td width="180" align="center" class="tabIce"><h:outputText id="pr"
+					value="#{msgs['costelement.overview.provision']}" /></td>
+			</tr>
+			<tr class="PaFont">
+				<td height="20" align="left" valign="middle"
+					class="tabInter PaFont  PFF"><strong><h:outputText id="meh"
+					value="#{msgs['costelement.overview.mecanic']}" /></strong></td>
+
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" alt="" width="1" height="1" /></td>
+				<td align="left" valign="middle" class="tabInter PaFont PFF">&#160;</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" alt="" width="1" height="1" /></td>
+				<td height="20" align="left" valign="middle" class="tabInter PaFont PFF"></td>
+			</tr>
+			<tr>
+				<td height="1"  valign="middle" bgcolor="#cccccc" colspan="5"></td>
+			</tr>
+			<ui:repeat value="#{costElementBean.dto.elementVersion.mecanicsCostAttributeCategories}" 
+			           var="mecanicsCostAttributeCategory" varStatus="status" id="me">
+					<tr>
+						<td height="20" align="left" valign="middle" class="overviewRow#{status.index%2}"><h:outputText
+									value="#{mecanicsCostAttributeCategory.category}" />
+						</td>
+						<td width="1" align="center" bgcolor="#cccccc"><img src="../images/1px.gif" alt="" width="1" height="1" /></td>			
+						<td align="center" valign="middle" nowrap="nowrap" class="overviewRow#{status.index%2}">
+							<h:outputText styleClass="spanInputDesign" value="#{mecanicsCostAttributeCategory.amount.stringFormatted}"/>&#160;&#8364;
+						</td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" alt="" width="1" height="1" /></td>			
+						<td height="20" align="center" nowrap="nowrap"  valign="middle" class="overviewRow#{status.index%2}">
+							<h:panelGroup layout="block" rendered="#{mecanicsCostAttributeCategory.dependFromProvision}">
+								<h:outputText styleClass="spanInputDesign" value="#{mecanicsCostAttributeCategory.provisionAmount.stringFormatted}"/>&#160;&#8364;
+							</h:panelGroup>
+						</td>
+					</tr>
+					<tr>
+						<td height="1" align="center" valign="middle" bgcolor="#cccccc" colspan="5"></td>
+					</tr>
+				
+			</ui:repeat>		
+			<tr>
+				<td height="14" align="left" valign="middle" 
+					class="tabInter PaFont PFF"><strong><h:outputText
+					value="#{msgs['costelement.overview.totalMecanic']}" /></strong></td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" alt="" width="1" height="1" /></td>
+				<td align="center" valign="middle" nowrap="nowrap"
+					class="tabInter PaFont PFF"><h:outputText
+					styleClass="spanInputDesignStrg"
+					value="#{costElementBean.dto.elementVersion.mecanicsSum.stringFormatted}" />&#160;&#8364;
+				</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" alt="" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="tabInter PaFont PFF">&#160;</td>
+			</tr>
+			<tr>
+				<td height="1"  valign="middle" bgcolor="#cccccc"
+					colspan="5"></td>
+			</tr>
+			<tr class="PaFont">
+				<td height="14" align="left" valign="middle" class="PaFont">&#160;</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="PaFont PFF">&#160;</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="PaFont PFF">&#160;</td>
+			</tr>
+			<tr>
+				<td height="1" align="left" valign="middle" bgcolor="#cccccc"
+					colspan="5"></td>
+			</tr>
+			<tr class="PaFont">
+				<td height="14" align="left" valign="middle"
+					class="tabInter PaFont   PFF"><strong><h:outputText
+					value="#{msgs['costelement.overview.electric']}" /></strong></td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="tabInter PaFont PFF">&#160;</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="tabInter PaFont PFF">&#160;</td>
+			</tr>
+		
+			<tr>
+				<td height="1" align="left" valign="middle" bgcolor="#CCCCCC" colspan="5"></td>
+			</tr>
+			<ui:repeat value="#{costElementBean.dto.elementVersion.electricalCostAttributeCategories}" 
+			            var="electricalCostAttributeCategory" varStatus="status" id="el">
+					<tr class="PaFont">
+						<td height="14" align="left" valign="middle" class="overviewRow#{status.index%2}"><h:outputText
+								value="#{electricalCostAttributeCategory.category}" /></td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+						<td align="center" nowrap="nowrap" valign="middle" class="overviewRow#{status.index%2}">
+						<h:outputText styleClass="spanInputDesign" value="#{electricalCostAttributeCategory.amount.stringFormatted}"/>&#160;&#8364;
+						</td>
+						<td width="1"  align="center" bgcolor="#cccccc"><img src="../images/1px.gif" width="1" height="1" /></td>		
+						<td align="center" valign="middle" nowrap="nowrap" class="overviewRow#{status.index%2}">
+						<h:panelGroup layout="block"  rendered="#{electricalCostAttributeCategory.dependFromProvision}">
+						<h:outputText styleClass="spanInputDesign" value="#{electricalCostAttributeCategory.provisionAmount.stringFormatted}"/>&#160;&#8364;
+						</h:panelGroup>
+						</td>
+					</tr>
+					<tr>
+						<td height="1" align="left" valign="middle" bgcolor="#CCCCCC" colspan="5"></td>
+					</tr>
+			</ui:repeat>			
+			
+			
+			<tr class="PaFont">
+				<td height="14" align="left" valign="middle" class="PaFont   PFF"><strong><h:outputText
+					value="#{msgs['costelement.overview.totalElectric']}" /></strong></td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="PaFont PFF"><h:outputText
+					styleClass="spanInputDesignStrg"
+					value="#{costElementBean.dto.elementVersion.electricalSum.stringFormatted}" />&#160;&#8364;
+				</td>
+				<td width="1" align="center" bgcolor="#cccccc"><img
+					src="../images/1px.gif" width="1" height="1" /></td>
+				<td align="center" valign="middle" class="PaFont PFF">&#160;</td>
+			</tr>
+
+		</table>
+		</div>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td colspan="2"></td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

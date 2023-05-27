@@ -1,0 +1,210 @@
+ul.pdfList li
+{
+	padding-bottom:5px;
+}
+ul.pdfList li a.pdf
+{
+  background: transparent url(../images/PDFLogo.gif) 0 0 no-repeat !important;
+  padding-left:0 !important;
+  display:block;
+  width:16px;
+  height:16px;
+  float:left;
+}
+
+ul.pdfList li input.check 
+{
+  float:left;
+}
+
+#areaContent ul.pdfList li a[href].pdf
+{
+  background: transparent url(../images/PDFLogo.gif) 0 0 no-repeat !important;
+  padding-left:0 !important;
+  display:block;
+  width:16px;
+  height:16px;
+  float:left;
+}
+
+#areaContent
+{
+  position:relative;
+}
+
+.clientCtrl
+{
+  zoom:1;
+  height:1%;
+}
+
+ul.layout2Columns
+{
+}
+ul.layout2Columns,
+ul.layout2Columns ul
+{
+  list-style:none;
+}
+ul.layout2Columns li
+{
+  width:39.7em;
+  margin-right:12px;
+  float:left;
+}
+
+ul.layout2Columns li.col1
+{
+  white-space:nowrap;
+}
+
+ul.layout2Columns li.col2
+{
+  white-space:nowrap;
+  margin-right:0;
+}
+
+ul.layout2Columns li.row
+{
+  width:83.3em;
+  margin-right:0;
+  margin-bottom:.6em;
+}
+
+ul.layout2Columns li.row ul
+{
+  position:relative;
+  clear:left;
+}
+
+ul.layout2Columns li label
+{
+  display:block;
+  float:left;
+  width:17.7em;
+  margin-left:12px !important;
+}
+
+ul.layout2Columns li .lSize
+{
+	width:17.5em !important;
+}
+
+ul.layout2Columns li .clientCtrl
+{
+	width: 80px !important;
+	margin-left:12px !important;
+}
+
+ul.layout2Columns li select.lSize
+{
+	margin-left:9px !important;
+}
+
+ul.layout2Columns li.bgFromTo
+{
+  background: transparent url(../images/hypen.gif) 76.5% 50% no-repeat;
+}
+
+ul.layout2Columns li input.button,
+ul.layout2Columns li .noMarginLeft,
+ul.layout2Columns li .clientCtrl input
+{
+	margin-left:0 !important;
+}
+ul.zebra li input 
+{
+	background-color :transparent;
+}
+ul.layout2Columns li span.fromTo
+{
+	float:left;
+	display:none;
+	width:1em;
+	overflow:hidden;
+	padding:0;
+	width:12px;	
+	margin:0;
+}
+ul.layout2Columns li .mSize
+{
+	width:8.6em !important;
+}
+* html ul.layout2Columns li .mSize
+{
+	width:7.6em !important;
+}
+
+* html ul.layout2Columns li
+{
+  width:40.8em;
+}
+
+* html ul.layout2Columns li .lSize
+{
+	width:170px !important;
+}
+
+html > body ul.layout2Columns li .lSize
+{
+	width:188px !important;
+}
+
+ul li.headRow 
+{
+	margin-bottom:5px;
+}
+
+ul li input.firstDl 
+{
+	margin-left:6em !important;
+}
+
+* html ul li input.firstDl 
+{
+	margin-left:6.6em !important;
+}
+
+* html ul.layout2Columns li input.endDate
+{
+  margin:0;
+  margin-left:12px !important;
+  width:7em !important;
+  float:left;
+  display:block;
+}
+
+* html ul.layout2Columns li input.calendar
+{
+  margin-left:15px !important;
+}
+
+* html ul.layout2Columns li.bgFromTo
+{
+  background-position: 75% 50%;
+}
+
+
+.clearfix:after
+{
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {display: inline-block;}  /* for IE/Mac */
+
+/* for IE */
+*html  .clearfix
+{
+  zoom: 1;     /* triggers hasLayout */
+  display: block;     /* resets display for IE/Win */
+  height:1%;
+}
+    
+.clearLeft
+{
+  clear: left;
+}

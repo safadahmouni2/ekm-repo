@@ -1,0 +1,43 @@
+table.data
+{
+  width:100%;
+  border:1px solid #e4e4e5;
+}
+
+table.data thead th
+{
+  text-align:left;
+  color:#004963;
+  border-bottom:2px solid #b2b3b6;
+  padding-bottom:10px;
+}
+
+table.data tbody tr:first-child td
+{
+  padding-top:4px;
+}
+
+table.data tbody td
+{
+  border-bottom:1px solid #b2b3b6;
+}
+
+table td
+{
+	vertical-align:top;	
+}
+
+table.data tr.selected
+{
+  background-color:#ccc !important;
+}
+.rowClick tr
+{
+	cursor:pointer;
+	cursor:hand;
+}
+
+.cellLabel
+{
+	padding:0px 12px 0px 12px
+}

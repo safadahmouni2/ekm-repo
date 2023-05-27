@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans SYSTEM "file:///@prop.build.process.location@/build/pre-dist/WEB-INF/spring-beans.dtd">
+
+<beans>
+	<bean id="c3p0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${prop.application.db.driver}" />
+		<property name="jdbcUrl" value="${prop.application.db.url}" />
+		<property name="user" value="${prop.application.db.system_user}" />
+		<property name="password" value="${prop.application.db.system_pwd}" />
+		<property name="minPoolSize" value="${prop.application.db.connectionpool.min_size}" />
+		<property name="maxPoolSize" value="${prop.application.db.connectionpool.max_size}" />
+		<property name="maxStatements" value="${prop.application.db.connectionpool.max_statement}" />
+	</bean>
+</beans>

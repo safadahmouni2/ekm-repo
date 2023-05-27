@@ -1,0 +1,4 @@
+function OrderStatus_Init() 
+{
+}
+

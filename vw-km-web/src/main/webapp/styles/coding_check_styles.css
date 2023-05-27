@@ -1,0 +1,73 @@
+
+
+.usp_showStyleAttributes .showStyleAttributes,
+.usp_showStyleAttributes label[style],
+.usp_showStyleAttributes input[style],
+.usp_showStyleAttributes select[style],
+.usp_showStyleAttributes textarea[style]
+{
+  border:3px dotted #F88!important;
+}
+
+.usp_showOnClick .showOnClick,
+.usp_showOnClick *[onclick],
+.usp_showOnClick input[onclick],
+.usp_showOnClick select[onclick],
+.usp_showOnClick textarea[onclick]
+{
+  border:2px solid #8F8!important;
+}
+
+.usp_showOnBlur .showOnBlur,
+.usp_showOnBlur *[onblur],
+.usp_showOnBlur input[onblur],
+.usp_showOnBlur select[onblur],
+.usp_showOnBlur textarea[onblur]
+{
+  border:1px dashed #88F!important;
+}
+
+.usp_showOnKey .showOnKey,
+.usp_showOnKey *[onkeyup],
+.usp_showOnKey *[onkeydown],
+.usp_showOnKey *[onchange],
+.usp_contrast.usp_showOnKey *[onkeyup],
+.usp_contrast.usp_showOnKey *[onkeydown],
+.usp_contrast.usp_showOnKey *[onchange]
+{
+  border:2px solid #88F!important;
+}
+
+
+.usp_showLegacyStyles .showLegacyStyles,
+.usp_showLegacyStyles .CLR_ODD,
+.usp_showLegacyStyles .CLR_EVEN, 
+.usp_showLegacyStyles .CLR_HILITE,
+.usp_showLegacyStyles .COLSELECTED,
+.usp_showLegacyStyles .COLNOREQ,
+.usp_showLegacyStyles .COLREQU,
+.usp_showLegacyStyles .CLR_READONLY,
+.usp_showLegacyStyles .COLEVEN,
+.usp_showLegacyStyles .COLODD,
+.usp_showLegacyStyles .COLHEAD,
+.usp_showLegacyStyles .COLPRODD,
+.usp_showLegacyStyles .COLPREVEN,
+.usp_showLegacyStyles .CLR_NOCOLOR,
+.usp_showLegacyStyles .CLR_EVA_EXCLUDE_SELECTED,
+.usp_showLegacyStyles .CLR_EVA_EXCLUDE,
+.usp_showLegacyStyles .CLR_EVA_INCLUDE_SELECTED,
+.usp_showLegacyStyles .CLR_EVA_INCLUDE,
+.usp_showLegacyStyles .CLR_INT_INCLUDE_SELECTED,
+.usp_showLegacyStyles .CLR_INT_INCLUDE,
+.usp_showLegacyStyles .CLR_SELECTED,
+.usp_showLegacyStyles .Color_Selected,
+.usp_showLegacyStyles .Color_Even,
+.usp_showLegacyStyles .Color_Odd
+{
+  border:6px solid #88F!important;
+}
+
+.usp_showReadOnly input.readonly
+{
+  border:1px solid #ccc !important;
+}

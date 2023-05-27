@@ -1,0 +1,173 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+	<ace:dialog id="saveChangesPopup" rendered="#{hourlyRateCatalogBean.dto.showSaveChangesPopup}" widgetVar="saveChangesDialog"
+		visible="#{hourlyRateCatalogBean.dto.showSaveChangesPopup}" draggable="false" showHeader="false" resizable="false"
+		modal="true" >
+		<h:form id="svForm">
+		<div class="popup">
+		<div class="top">
+		<div class="TopLeft"><img src="../images/popup/popup_01.gif" width="17" height="40" /></div>
+		<div class="TopCenter">
+		<div class="PopTit">#{msgs['common.popup.title.saveChanges']}</div>
+		<div class="Popclose"><h:commandLink id ="sv_hcb"
+			actionListener="#{costComponentBean.closeSaveMessagePopup}">
+			<img src="../images/popup/close.gif" height="20" width="49"></img>
+				<ace:ajax render="@all" execute="@this" />
+		</h:commandLink>
+		</div>
+		</div>
+		<div class="TopRight"><img src="../images/popup/popup_03.gif" width="20" height="40" /></div>
+		</div>
+		<div class="middle">
+		<div class="MiddleLeft">
+		<div class="ML_Top"><img src="../images/popup/popup_04.gif"	width="17" height="37" /></div>
+		<div class="ML_Bottom"></div>
+		</div>
+		<div class="MiddleCenter">
+		<div class="MC_Left"><img src="../images/popup/icone_help.gif" /></div>
+		<div class="MC_Center"></div>
+		<div class="MC_Right">
+		<div class="MCR_Para"><h:outputText value="#{msgs['common.message.saveChanges']}" /></div>
+		<div class="MCR_Espace"></div>
+		<div class="MCR_Titre">&#160;</div>
+		<div class="MCR_Espace"></div>
+		<div class="N_MCR_Btn">
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink
+			id="cancel_save_changes_button"
+			value="#{msgs['common.message.saveChanges.cancel']}"
+			actionListener="#{hourlyRateCatalogBean.closeSaveMessagePopup}"
+			immediate="true" tabindex="3">
+			<ace:ajax render="@all" execute="@this" />
+			</h:commandLink>
+			</div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		&#160;</div>
+		<div class="SRight">&#160;</div>
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink
+			id="refuse_save_changes_button"
+			value="#{msgs['common.message.saveChanges.no']}"
+			actionListener="#{hourlyRateCatalogBean.cancelModifications}" tabindex="2" >
+			 <ace:ajax render="@all" execute="@this" />
+			</h:commandLink></div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		</div>
+		<div class="SRight">&#160;</div>
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink
+			id="accept_save_changes_button"
+			value="#{msgs['common.message.saveChanges.yes']}"
+			actionListener="#{hourlyRateCatalogBean.save}" tabindex="1">
+			<ace:ajax render="@all" execute="@this" />
+			</h:commandLink>
+			</div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		</div>
+		</div>
+		</div>
+		</div>
+		<div class="MiddleRight">
+		<div class="MR_Top"><img src="../images/popup/popup_06.gif" width="20" height="37" /></div>
+		<div class="MR_Bottom"></div>
+		</div>
+		</div>
+		<div class="bottom">
+		<div class="BottomLeft"><img src="../images/popup/popup_10.gif" width="17" height="16" /></div>
+		<div class="BottomCenter"><img src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+		<div class="BottomRight"><img src="../images/popup/popup_12.gif" width="20" height="16" /></div>
+		</div>
+		</div>
+	</h:form>
+ </ace:dialog>	
+ 
+ 
+	<ace:dialog id="confirmSaveWithoutWorkAreaPopUp" rendered="#{hourlyRateCatalogBean.showWithoutWorkAtraConfirm}" widgetVar="saveChangesDialog"
+		visible="#{hourlyRateCatalogBean.showWithoutWorkAtraConfirm}" draggable="false" showHeader="false" resizable="false"
+		modal="true" 
+		onShow="SetFocus($('confSWAForm:yes_save_button'))">
+		<h:form id="confSWAForm">	
+		<div class="popup">
+		<div class="top">
+		<div class="TopLeft"><img src="../images/popup/popup_01.gif"
+			width="17" height="40" /></div>
+		<div class="TopCenter">
+		<div class="PopTit">#{msgs['hourlyRateCatalog.confirmSaveWithoutWorkArea']}</div>
+		<div class="Popclose"><h:commandLink id="close_Btn"
+			actionListener="#{hourlyRateCatalogBean.closeConfirmWithoutWorkAtraPopup}">
+			<img src="../images/popup/close.gif" height="20" width="49"></img>
+			<ace:ajax render="@all" execute="@this" />
+		</h:commandLink>
+		</div>
+		</div>
+		<div class="TopRight"><img src="../images/popup/popup_03.gif"
+			width="20" height="40" /></div>
+		</div>
+		<div class="middle">
+		<div class="MiddleLeft">
+		<div class="ML_Top"><img src="../images/popup/popup_04.gif"
+			width="17" height="37" /></div>
+		<div class="ML_Bottom"></div>
+		</div>
+		<div class="MiddleCenter">
+		<div class="MC_Left"><img src="../images/popup/icone_help.gif" /></div>
+		<div class="MC_Center"></div>
+		<div class="MC_Right">
+		<div class="MCR_Para">#{msgs['hourlyRateCatalog.saveWithoutWorkAreaMessage']}</div>
+		<div class="MCR_Espace"></div>
+		<div class="MCR_Titre">&#160;</div>
+		<div class="MCR_Espace"></div>
+		<div class="N_MCR_Btn">
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink value="#{msgs['hourlyRateCatalog.cancelSave']}"
+			actionListener="#{hourlyRateCatalogBean.closeConfirmWithoutWorkAtraPopup}"
+			id="no_save_button" tabindex="2"
+			onblur=";document.getElementById('confSWAForm:yes_save_button').focus();">
+			<f:ajax render="@all" execute="@all" />
+			</h:commandLink></div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		&#160;</div>
+		<div class="SRight">&#160;</div>
+		<div class="BRight">
+		<div class="bgrBTL"><a href="#"></a></div>
+		<div class="bgrBTC"><h:commandLink value="#{msgs['hourlyRateCatalog.acceptSave']}" id="yes_save_button"
+			actionListener="#{hourlyRateCatalogBean.save}"
+			tabindex="1">
+			<f:param name="save_mode" value="ESCAPE_CONFIRMATION"></f:param>
+			</h:commandLink></div>
+		<div class="bgrBTR"><a href="#"></a></div>
+		</div>
+		<div class="SRight">&#160;</div>
+		</div>
+		</div>
+		</div>
+		<div class="MiddleRight">
+		<div class="MR_Top"><img src="../images/popup/popup_06.gif"
+			width="20" height="37" /></div>
+		<div class="MR_Bottom"></div>
+		</div>
+		</div>
+		<div class="bottom">
+		<div class="BottomLeft"><img src="../images/popup/popup_10.gif"
+			width="17" height="16" /></div>
+		<div class="BottomCenter"><img
+			src="../images/popup/popup_11.gif" width="379" height="16" /></div>
+		<div class="BottomRight"><img src="../images/popup/popup_12.gif"
+			width="20" height="16" /></div>
+		</div>
+		</div>
+		</h:form>
+</ace:dialog>
+ 
+ 
+ 
+</html>

@@ -1,0 +1,34 @@
+body.bodyGridBackground
+{
+  background: url(../images/layout_grid.gif) no-repeat;
+}
+
+
+html body.usp_mainGridBackground .nowMenu,
+body.usp_mainGridBackground #areaMain
+{
+  background: transparent url(../images/grid-konzernstyle.gif) repeat scroll -2px 0;
+}
+html body.usp_mainGridBackground .nowMenu .head
+{
+  opacity:.8;
+}
+html body.usp_mainGridBackground.usp_contrast .nowMenu .head
+{
+  opacity:.92;
+}
+
+
+body.contentGridBackground #areaContent
+{
+  background: url(../images/newadaWeb-Content-layout_grid2b.gif) no-repeat;
+}
+
+
+body.usp_hideSubnav #areaSubnav *,
+body.usp_hideMarginal #areaMarginal *,
+body.usp_hideContent #areaContent *
+{
+  display:none;
+}
+

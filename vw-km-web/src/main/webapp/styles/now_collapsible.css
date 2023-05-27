@@ -1,0 +1,98 @@
+
+#areaContent h3.head,
+#areaContent h4.head
+{
+  background-color:#fff;
+  border:1px solid #345D6F;
+  color:#345D6F;
+  font-size:1em;
+  margin-bottom:6px;
+  margin-left:12px;
+  padding:0.3em 0.5em;
+  width:97%;
+}
+
+* html #areaContent h3.head,
+* html #areaContent h4.head
+{
+  width:100%;
+}
+
+#areaContent table.contentBody h3.head
+{
+  margin-left:0;
+}
+
+#areaContent h4.closed,
+#areaContent h3.closed
+{
+  margin-bottom:1px;
+}
+
+#areaContent .collapsible
+{
+}
+.collapsible .head
+{
+  padding-right:14px;
+  background-position:99.5% 2px;
+  background-repeat: no-repeat;
+}
+.expandItem .head
+{
+  background-position:0 2px;
+}
+.expandItem ul.body
+{
+  margin-left:12px;
+  margin-top:4px;
+  padding-left:12px;
+}
+.expandItem .collapsibleHead
+{
+  background-image:url(../images/comboArrows-sw-trans.gif);
+  background-position:0 3px;
+}
+.expandItem span.fright
+{
+  margin-left:12px;
+}
+#areaContent .expandItem ul.body
+{
+  margin-bottom:4px;
+}
+
+.collapsible legend.head:hover
+{
+  background-image: url(../images/comboArrowUp-trans.gif);
+}
+
+.collapsible legend.closed
+{
+  background-image: url(../images/comboArrows-sw-trans.gif);
+  background-position:99.5% 3px;
+}
+.collapsible legend.head.closed:hover
+{
+  background-image: url(../images/comboArrow-trans.gif);
+}
+
+#areaContent .collapsible .body
+{
+  margin-bottom:2em;
+  overflow:hidden;
+}
+
+
+/* ****** altlasten ****** */
+
+#areaContent .TrSubHeadline .head,
+#areaContent .TrSubHeadline td
+{
+  background-color:#345D6F;
+  margin-bottom:1px;
+  color:#e7f3f3;
+  font-size:1em;
+  padding:0.3em 0.5em;
+  width:578px !important;
+}

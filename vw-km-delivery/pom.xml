@@ -1,0 +1,54 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>vwg.vw.km</groupId>
+		<artifactId>vw-km-parent</artifactId>
+		<version>3-2-1-8</version>
+	</parent>
+
+	<artifactId>vw-km-delivery</artifactId>
+	<description>VW KM delivery Content ZIP Module</description>
+	<packaging>pom</packaging>
+	<properties>
+		<BUILD_TIMESTAMP>${maven.build.timestamp}</BUILD_TIMESTAMP>
+		<maven.build.timestamp.format>yyyyMMddhhmm</maven.build.timestamp.format>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>zipball</id>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							 <finalName>${rp.build.earname}_vw_km_web-version-${project.version}</finalName>
+							<descriptors>
+								<descriptor>src/main/assembly/zip.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>vwg.vw.km</groupId>
+			<artifactId>process-designer</artifactId>
+			<type>ear</type>
+		</dependency>
+	</dependencies>
+
+</project>

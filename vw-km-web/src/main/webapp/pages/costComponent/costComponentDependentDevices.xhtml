@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<table>
+	
+	<tr>
+		<td nowrap="nowrap" width="13%"><h:outputText escape="false" value="#{msgs['costcomponent.totalAmount']}:" />&#160;<span style="padding-right: 50px"></span></td>
+		<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.totalComponentElement.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+		<td nowrap="nowrap" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.mechanicSum']}:" /></strong>&#160;</td>
+		<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.mecanicsComponentElementSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+		<td nowrap="nowrap" align="left" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.electricSum']}:" /></strong>&#160;</td>
+		<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.electricalComponentElementSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+	</tr>
+	<tr><td height="2px" colspan="6"></td></tr>
+	<tr>
+		<td nowrap="nowrap" width="13%"><h:outputText escape="false" value="#{msgs['costcomponent.totalAmountWithProvision']}:" />&#160;</td>
+		<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.sumTotalComponentElementAndTotalComponentElementProvision.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+		<td nowrap="nowrap" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.mechanicSumWithProvision']}:" /></strong>&#160;<span style="padding-right: 3px"></span></td>
+		<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.mecanicsComponentElementProvisionSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+		<td nowrap="nowrap" align="left" width="10%">&#160;<strong><h:outputText value="#{msgs['costcomponent.electricSumWithProvision']}:" /></strong>&#160;</td>
+		<td width="17%" align="left"><h:outputText styleClass="spanSRM" value="#{costComponentBean.dto.componentVersion.electricalComponentElementProvisionSum.stringFormatted}" /> <span class="spanCurrency">&#8364;</span></td>
+		</tr>
+		<tr><td height="10px" colspan="3"></td></tr>
+	</table>
+
+	<table width="400" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><h:commandLink actionListener="#{costComponentBean.showAvailableCostElementPopUp}">
+								<strong><h:outputText nospan="true" value="#{msgs['costcomponent.dependentDocument.link']}" /></strong>
+								&#160;<img src="../images/fleche_2.gif"  border="0" align="top" />
+								<f:ajax render="@all" execute="@all" />
+							</h:commandLink> </td>
+						</tr>
+	</table>
+	                   
+	<h:panelGroup layout="block" rendered="#{costComponentBean.availableCostElementsPage==1}">
+		<ui:include src="./costComponentDependentDevices1.xhtml"/>
+	</h:panelGroup> 
+
+</html>

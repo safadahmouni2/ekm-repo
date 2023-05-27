@@ -1,0 +1,33 @@
+
+.unitTestDropContainer
+{
+  display:none;
+}
+
+.droppEnabled .unitTestDropContainer
+{
+  display:block;
+}
+
+.unitTestDropContainer .body .readyToDrop
+{
+  background-color: #eee;
+  border: 1px solid #600;
+}
+
+.unitTestDropContainer .droppZone 
+{
+  width:96%;
+  min-height:30px;
+  border: 1px solid #ccc;
+}
+
+.unitTestDropContainer .droppZone em
+{
+  color: #600;
+}
+
+.unitTestDropContainer .testName input 
+{
+  width:84%;
+}

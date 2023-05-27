@@ -1,0 +1,575 @@
+
+body.usp_style_Audi
+{
+  background-color:#8F9398;
+  color:#000;
+}
+
+.usp_style_Audi a
+{
+  color:#000;
+}
+
+/* ======== */
+/* Headline */
+/* ======== */
+.usp_style_Audi #areaHeader
+{
+  margin-bottom:0;
+}
+
+.usp_style_Audi #areaHeader h1
+{
+  background:#fff url(../images/blank.gif) no-repeat 0 17px;
+  height:1.1em;
+  border:none;
+}
+.usp_style_Audi fieldset.logoTop
+{
+  background:transparent url(../images/audi-newadaWeb-logo.gif) no-repeat 100% 0px;
+  width:233px;
+  height:54px;
+  top:0;
+  opacity:1;
+}
+
+.usp_style_Audi fieldset.logoTop h4
+{
+  background-color:transparent;
+  background-position:-1000px -1000px;
+}
+
+
+.usp_style_Audi #areaHeader
+{
+  border-bottom:2px solid #fff;
+}
+
+/* ========== */
+/* Navigation */
+/* ========== */
+.usp_style_Audi .nowMenu
+{
+  background-image:none;
+  border:medium none;
+  height:28px;
+  position:absolute;
+  top:72px;
+  z-index:3000;
+  background-color:#B2B2B2;
+  border-top:1px solid #ccc;
+  width:100%;
+}
+.usp_style_Audi .nowMenu ul
+{
+  background-color:#B2B2B2;
+  width:auto;
+  height:auto!important;
+  border-left:none !important;
+}
+.usp_style_Audi .nowMenu ul li
+{
+  float:left;
+  position:relative;
+}
+
+.usp_style_Audi .nowMenu ul li.active ul
+{
+  display:none;
+}
+
+.usp_style_Audi .nowMenu li.active li li a,
+.usp_style_Audi .nowMenu li.active li a
+{
+  color:#000 !important;
+}
+
+.usp_style_Audi .nowMenu .head
+{
+  height:auto;
+  opacity:1 !important;
+}
+
+.usp_style_Audi .nowMenu ul ul
+{
+  left:0;
+  position:absolute;
+  top:1.5em;
+  width:188px;
+  border:1px solid #000 !important;
+  border-top:none !important;
+}
+
+.usp_style_Audi .nowMenu ul ul ul
+{
+  left:188px;
+  position:absolute;
+  top:0;
+}
+
+.usp_style_Audi .nowMenu ul li:hover ul,
+.usp_style_Audi .nowMenu ul li:hover ul li:hover ul
+{
+  display:block;
+}
+
+.usp_style_Audi .nowMenu ul li:hover ul ul
+{
+  display:none;
+}
+
+.usp_style_Audi .nowMenu ul a
+{
+  color:#222;
+  border-right:1px solid #fff;
+}
+
+.usp_style_Audi .nowMenu ul ul a
+{
+  width:164px;
+  border-right:none;
+  display:block;
+}
+.usp_style_Audi .nowMenu ul ul li:last-child>a
+{
+  padding-bottom:2em;
+}
+
+.usp_style_Audi .nowMenu a.activateOnClick,
+.usp_style_Audi .nowMenu a.activateOnClick:hover
+{
+  background:transparent url(../images/comboArrow-trans.gif) no-repeat 99% 2px;
+  padding-right:14px;
+}
+
+.usp_style_Audi .nowMenu li li a.activateOnClick,
+.usp_style_Audi .nowMenu li li a.activateOnClick:hover
+{
+  background:transparent url(../images/comboArrows-sw-trans.gif) no-repeat 99% 4px !important;
+}
+
+.usp_style_Audi h2#contentHeadline
+{
+  position:absolute;
+  top:-98px;
+  left:0;
+  color:#CA0029;
+  background:transparent url(../images/now-loader.gif) no-repeat -100px -100px;
+  width:753px;
+}
+.sys_submit.usp_style_Audi h2#contentHeadline, 
+.loading.usp_style_Audi h2#contentHeadline
+{
+  background-position:98% 2px;
+}
+
+
+.usp_style_Audi .nowMenu .head h3.legend
+{
+  display:none;
+}
+
+
+.usp_style_Audi #areaHeader:hover
+{
+  background-image:none;
+  background-color:#fff;
+}
+
+.usp_style_Audi #areaSubnav 
+{
+  left:auto !important;
+  right:0;
+  background-color:#B2B2B2;
+}
+
+.usp_style_Audi #areaSubnav fieldset.mpb_0 ul
+{
+  border:none;
+  margin-bottom:20px;
+  padding-bottom:3px;
+  padding-top:3px;
+}
+
+.usp_style_Audi fieldset.mpb_0 legend, 
+.usp_style_Audi fieldset.mpb_0 ul li
+{
+  padding-left:12px;
+}
+
+.usp_style_Audi fieldset.linkSection,
+.usp_style_Audi #areaSubnav fieldset.mpb_0
+{
+  position:static !important;
+}
+
+.usp_style_Audi fieldset.linkSection li,
+.usp_style_Audi #areaSubnav fieldset.mpb_0
+{
+  padding-left:0;
+}
+
+.usp_style_Audi #areaSubnav fieldset.mpb_0
+{
+  background-color:transparent;
+  border:none;
+
+}
+
+.usp_style_Audi fieldset.linkSection legend
+{
+  background-color:#B5BBAD;
+  margin:0;
+  padding:0;
+  text-indent:12px;
+  display:table-row;
+}
+
+.usp_style_Audi #areaContent
+{
+  background:#D6DBD6 url(../images/Audi/bg-content.gif) repeat 0 0;
+  margin:0;
+  padding:0 188px 4em 0 !important;
+  width:auto;
+  position:static;
+  left:0;
+}
+
+.usp_style_Audi #areaContent h3.head
+{
+  margin-left:0;
+  background-color:#B5BBAD;
+  border:1px solid #FFFFFF;
+  color:#fff;
+}
+
+.usp_style_Audi fieldset.linkSection ul li a,
+.usp_style_Audi fieldset.linkSection ul li span
+{
+  width:165px;
+}
+
+.usp_style_Audi.sys_submit #areaSubnav fieldset.linkSection ul li span.dateTime, 
+.usp_style_Audi.loading #areaSubnav fieldset.linkSection ul li span.dateTime
+{
+  background-position:-100px -100px ;
+}
+
+.usp_style_Audi .nowMenu ul li.active a
+{
+  background-color:#FE9B00;
+  color:#262626;
+}
+.usp_style_Audi .nowMenu ul li.active li
+{
+  background-image:none;
+}
+.usp_style_Audi .nowMenu ul li.active li a
+{
+  background-color:#B2B2B2;
+  color:#262626;
+  background-image:none;
+}
+
+.usp_style_Audi .nowMenu ul li:hover ul
+{
+  background-color:#B2B2B2;
+}
+
+.usp_style_Audi .nowMenu li a:hover
+{
+  color:#000 !important;
+}
+
+
+.usp_style_Audi #areaContainer
+{
+  border-left:1px solid #666666;
+  border-right:1px solid #666666;
+  width:1024px;
+}
+
+
+/* ========== */
+/* Breadcrumb */
+/* ========== */
+.usp_style_Audi #areaBreadcrumb
+{
+  background:#B2B2B2 none repeat 0 0;
+  color:#262626;
+  display:block;
+  height:1em;
+  margin-left:0;
+  padding:6px 0;
+  position:absolute;
+  text-indent:12px;
+  top:51px;
+  width:100%;
+}
+.usp_style_Audi #areaBreadcrumb p
+{
+  text-indent:0;
+}
+.usp_style_Audi #areaBreadcrumb ul
+{
+  list-style:none;
+}
+.usp_style_Audi #areaBreadcrumb ul li
+{
+  float:left;
+}
+.usp_style_Audi #areaBreadcrumb strong
+{
+  float:left;
+  padding-right:1em;
+}
+.usp_style_Audi #areaBreadcrumb ul li a
+{
+  color:#262626 !important;
+  padding-right:1.4em;
+  background:transparent url(../images/comboArrows-sw-trans.gif) no-repeat 100% 3px;
+}
+
+.usp_style_Audi #areaBreadcrumb #bct ul li a:hover
+{
+  text-decoration:underline;
+}
+
+/* ========== */
+/* main       */
+/* ========== */
+.usp_style_Audi #areaMain
+{
+  margin-top:0;
+}
+
+
+/* =========== */
+/* Tab-Control */
+/* =========== */
+
+.usp_style_Audi .tabControl li a
+{
+  border-left:1px solid #D6DBD6;
+  border-right:1px solid #D6DBD6;
+}
+
+.usp_style_Audi .tabControl li a:focus, 
+.usp_style_Audi .tabControl li a:hover
+{
+  border:1px solid #99B2B2;
+}
+
+.usp_style_Audi .tabControl li.active a
+{
+  border-color:#D6DBD6 #D6DBD6 #99B2B2;
+}
+
+.usp_style_Audi #areaContent .tabCtrlHead a
+{
+  background-color:transparent;
+}
+
+.usp_style_Audi #areaContent .tabCtrlHead li.active a
+{
+  background-color:#99B2B2;
+}
+
+.usp_style_Audi #areaContent .tabCtrlHead .allOpen li.toggle.active a
+{
+  background-color:#99B2B2;
+}
+
+
+
+/* ========== */
+/* Footer     */
+/* ========== */
+
+.usp_style_Audi #areaFooter
+{
+  background-color:#B2B2B2;
+  border-top:1px solid #666666;
+}
+
+.usp_style_Audi #areaFooter ul li.pullup ul
+{
+  background-color:#B2B2B2;
+}
+
+.usp_style_Audi #areaFooter ul li 
+{
+  background-color:#B2B2B2;
+}
+
+.usp_style_Audi #areaFooter ul li label, 
+.usp_style_Audi #areaFooter ul li a
+{
+  color:#262626;
+}
+.usp_style_Audi #areaFooter li.pullup h3
+{
+  color:#262626;
+  border-bottom:1px dotted #222;
+}
+
+/* ========== */
+/* Generic    */
+/* ========== */
+
+html body.usp_headClosed.usp_style_Audi #areaContainer
+{
+  margin-top:-72px !important;
+}
+
+html body.usp_collapseMenu.usp_style_Audi .nowMenu ul li
+{
+  display:block;
+}
+
+.usp_collapseMenu.usp_style_Audi .nowMenu ul
+{
+  overflow:auto;
+}
+
+.usp_style_Audi .TableGridDivExc,
+.usp_style_Audi .DivAllPr,
+.usp_style_Audi .TableGridDiv, 
+.usp_style_Audi table.ListGrid,
+.usp_style_Audi .TableWildcard,
+.usp_style_Audi input, 
+.usp_style_Audi select
+{
+  border:1px solid #B5BBAD !important;
+}
+
+.usp_style_Audi #areaGeneric
+{
+  background-color:#2B430C;
+}
+
+.usp_style_Audi #areaContent h3.legend,
+.usp_style_Audi .tabBlock h3
+{
+  color: #fff;
+  background-color: #99B2B2;
+}
+
+.usp_style_Audi .required
+{
+  background-color:#F6E5BC;
+  background-color:#F8F7DA !important;
+  border:1px solid #5E5E5E !important;
+}
+
+.usp_style_Audi fieldset.linkSection ul
+{
+  border:none;
+}
+
+.usp_style_Audi .linkSection input
+{
+  color: #000;
+}
+
+.usp_style_Audi input.invalid
+{
+  color: #5E5E5E;
+  background-color:#E6BFC4 !important;
+}
+
+.usp_style_Audi #areaContent input[type="text"]:focus,
+.usp_style_Audi #areaContent select:focus,
+.usp_style_Audi #areaContent textarea:focus
+{
+  border-color:#000 !important;
+}
+
+.usp_style_Audi .areaError
+{
+  background-color:#fff;
+  padding-left:12px;
+  margin-left:0;
+  width:100%;
+}
+
+
+.usp_style_Audi .zebra .odd
+{
+  background-color:#ccc;
+}
+
+.usp_style_Audi #areaContent h3.legend, 
+.usp_style_Audi .tabBlock h3
+{
+  margin-left:0;
+}
+
+.usp_style_Audi table
+{
+  width:98%;;
+}
+
+/* ========== */
+/* overwnd    */
+/* ========== */
+.usp_style_Audi .draggable .dragHandle
+{
+  background-color:#B5BBAD;
+}
+
+
+/* ========== */
+/* Buttons    */
+/* ========== */
+
+
+.usp_style_Audi #areaContent .button,
+.usp_style_Audi #areaContent .formular .button,
+.usp_style_Audi #areaContent .formular li .button,
+.usp_style_Audi #areaContent .formular li input.button,
+.usp_style_Audi #areaContent button,
+.usp_style_Audi a.button,
+.usp_style_Audi button,
+.usp_style_Audi buttons input.button,
+.usp_style_Audi #areaContent input.button,
+.usp_style_Audi #areaContent .formular li.button input,
+.usp_style_Audi .button input,
+.usp_style_Audi #areaContent .formular li .button:hover,
+.usp_style_Audi #areaContent .formular li input.button:hover,
+.usp_style_Audi #areaContent button:hover,
+.usp_style_Audi #areaContent .button:hover,
+.usp_style_Audi #areaContent input.button,
+.usp_style_Audi button:hover
+{
+  border:1px solid #000 !important;
+  color:#000 !important;
+  text-decoration:none;
+  background:#ccc url(../images/Audi/arrow_orange.gif) no-repeat 4px 4px !important;
+}
+
+
+
+.usp_style_Audi #areaContent button[disabled],
+.usp_style_Audi #areaContent .button input[disabled],
+.usp_style_Audi #areaContent input.button[disabled],
+.usp_style_Audi #areaContent button[disabled]:hover,
+.usp_style_Audi #areaContent .button input[disabled]:hover,
+.usp_style_Audi #areaContent input.button[disabled]:hover
+{
+  border:1px solid #aaa !important;
+  color:#aaa !important;
+  cursor:no-drop !important;
+  background-image:url(../images/Audi/arrow_grey.gif) !important;
+}
+
+
+.usp_style_Audi #areaContent .button .disabled,
+.usp_style_Audi #areaContent button.disabled,
+.usp_style_Audi #areaContent input.disabled
+ {
+  border:1px solid #aaa !important;
+  color:#aaa !important;
+  cursor:default !important;
+}
+

@@ -1,0 +1,437 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<h:panelGroup layout="block" styleClass="areaTabContent" rendered="#{changeHistoryBean.loadDTO}" id="mainContent">
+
+		<div class="Des">&#160;</div>
+		<div class="Des">&#160;</div>
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<h:panelGroup layout="block" styleClass="btn">
+				<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+					<!-- Aktion menu--> 
+					<ace:submenu label="#{msgs['costcomponent.action']}" id="action">
+						<ace:menuItem id="export" value="#{msgs['costcomponent.export']}"
+							actionListener="#{changeHistoryBean.showExcelExportModal}" target="_blank"/>
+					</ace:submenu>
+				</ace:menuBar>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+			<h:panelGroup layout="block" styleClass="space">&#160;</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTC">
+				<h:commandLink  value="#{msgs['changehistory.search.changeType.search']}"
+					actionListener="#{changeHistoryBean.search}">
+					<f:ajax render="@all" execute="@all" />
+				</h:commandLink>	
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+            <h:panelGroup layout="block">
+			     <h2 id="contentHeadline" class="h2Mar smallerSpace">
+                <h:graphicImage value="../images/loupe.gif" class="iconObjectLeftSpace"/>
+                <h:outputText value="#{msgs['changehistory.search.title']}" styleClass="smallerFont" />
+                </h2>
+		   </h:panelGroup>
+         
+         <br/>
+		<h:panelGroup layout="block" styleClass="mc">
+		<table cellspacing="0" cellpadding="0" border="0">
+			<tbody>
+				<tr>
+					<td class="likeH2">#{msgs['changehistory.search.subTitle']}</td>
+				</tr>
+				<tr>
+					<td height="31" style="padding-top: 10px"><span class="likeH3">#{msgs['changehistory.search.period']}</span></td>
+				</tr>
+				<tr>
+					<td width="50%" height="206" class="likeH3">	
+						 <table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td>
+							<div class="Von input-container">
+								<strong>#{msgs['changehistory.search.period.from']}</strong>
+							  <ace:dateTimeEntry id="date_from"
+                                               value="#{changeHistoryBean.dto.searchObject.fromDate}"                                              
+                                               timeZone="#{changeHistoryBean.timeZome}"
+                                               pattern="dd.MM.yyyy"
+                                               renderAsPopup="true"
+                                               showOn="button"
+                                               showButtonPanel="true"
+                                               locale="de"
+                                               popupIcon="/images/img_onglet/cal_button.gif"/>																								
+							</div>
+							<div  class="Bis input-container">
+								<strong>#{msgs['changehistory.search.period.to']}</strong>
+							  <ace:dateTimeEntry id="date_to"
+                                               value="#{changeHistoryBean.dto.searchObject.toDate}"                                               
+                                               timeZone="#{changeHistoryBean.timeZome}"
+                                               pattern="dd.MM.yyyy"
+                                               renderAsPopup="true"
+                                               showOn="button"
+                                               showButtonPanel="true"
+                                               locale="de"
+                                               popupIcon="/images/img_onglet/cal_button.gif"/>									
+							</div>
+							<div class="Ander checkbox-container">
+								<strong>#{msgs['changehistory.search.changeType']}</strong><br />
+								<div class="Ander1">
+									<div class="ad1">
+										<div class="Jar">
+											<h:selectBooleanCheckbox id="deaktivierung"
+												value="#{changeHistoryBean.dto.searchObject.desactivaton}"
+												styleClass="WBT" style="vertical-align: middle;"/>
+										</div>
+										<div class="JarPlus">#{msgs['changehistory.search.changeType.desactivation']}</div>
+									</div>
+									<div class="ad2">
+										<div class="Jar">
+											<h:selectBooleanCheckbox id="in_Bearbeitung"
+												value="#{changeHistoryBean.dto.searchObject.inProgress}"
+												styleClass="WBT" style="vertical-align: middle;" />
+										</div>
+										<div class="JarPlus">#{msgs['status.designationbyId.4']}</div>
+									</div>
+								</div>
+								<div class="Ander2">
+									<div class="ad1">
+										<div class="Jar">
+											<h:selectBooleanCheckbox id="aktivierung"
+												value="#{changeHistoryBean.dto.searchObject.activation}"
+												styleClass="WBT" style="vertical-align: middle;" />
+										</div>
+										<div class="JarPlus">#{msgs['changehistory.search.changeType.activation']}</div>
+									</div>
+									<div class="ad2">
+										<div class="Jar">
+											
+												<h:selectBooleanCheckbox id="neuer_Stand"
+												value="#{changeHistoryBean.dto.searchObject.newState}"
+												styleClass="WBT" style="vertical-align: middle;" />
+										</div>
+										<div class="JarPlus">#{msgs['changehistory.search.changeType.newState']}</div>
+									</div>
+								</div>
+								<div class="Ander3">
+									<div class="ad1">
+										<div class="Jar">
+											<h:selectBooleanCheckbox id="wechsel_genutzter_Stand"
+												value="#{changeHistoryBean.dto.searchObject.exchangeUnusedState}"
+												styleClass="WBT" style="vertical-align: middle;" />
+
+										</div>
+										<div class="JarGonfle">#{msgs['changehistory.search.changeType.unusedState']}</div>
+									</div>
+									<div class="ad2">
+										<div class="Jar">
+											<h:selectBooleanCheckbox id="neu"
+												value="#{changeHistoryBean.dto.searchObject.newOne}"
+												styleClass="WBT" style="vertical-align: middle;" />
+
+										</div>
+										<div class="JarPlus">#{msgs['changehistory.search.changeType.new']}</div>
+									</div>
+								</div>
+							</div>
+							</td></tr></tbody></table>
+						
+						
+						<table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td>
+							<div class="Bis input-container">
+								<strong>#{msgs['costelement.owner']}</strong>
+								<h:selectOneMenu id="owner_brandId"
+									value="#{changeHistoryBean.dto.searchObject.owner}"
+									styleClass="tabme">
+									<f:selectItems value="#{changeHistoryBean.brandItems}" />
+								</h:selectOneMenu>
+							</div>
+							<div class="Nutzer input-container">
+								<strong>#{msgs['costelement.users']}</strong>
+								<h:selectOneMenu id="users_brandId"
+									value="#{changeHistoryBean.dto.searchObject.user}"
+									styleClass="tabme">
+									<f:selectItems value="#{changeHistoryBean.brandItems}" />
+								</h:selectOneMenu>
+							</div>
+							 <div style="width: 400px;" class="Ander checkbox-container">
+								<div class="Ander1">
+									<div style="padding-top: 12px;" class="ad1">
+										<div class="Jar">
+											
+												<h:selectBooleanCheckbox id="nur_Bausteine"
+												value="#{changeHistoryBean.dto.searchObject.justEelement}"
+												styleClass="WBT" style="vertical-align: middle;" />
+										</div>
+										<div class="JarPlus">#{msgs['changehistory.search.changeType.justElement']}</div>
+									</div>
+									<div style="padding-top: 12px;" class="ad2">
+										<div class="Jar">
+											<h:selectBooleanCheckbox id="nur_Elemente"
+												value="#{changeHistoryBean.dto.searchObject.justComponent}"
+												styleClass="WBT" style="vertical-align: middle;" />
+										</div>
+										<div class="JarPlus">#{msgs['changehistory.search.changeType.justComponent']}</div>
+									</div>
+								</div>
+							</div>
+							</td></tr></tbody></table>
+				
+						<table cellspacing="0" cellpadding="0" border="0" class="table-spacing">
+							<tbody>
+								<tr>
+								 <td>
+								<div class="Von input-container">
+								<strong>#{msgs['changehistory.search.elementNumber']}</strong>
+								<h:inputText value="#{changeHistoryBean.dto.searchObject.numElement}"
+									maxlength="50"
+									styleClass="tabme"/>
+							</div>
+							<div class="Von input-container">
+										<strong>#{msgs['changehistory.search.componentNumber']}</strong>
+										<h:inputText value="#{changeHistoryBean.dto.searchObject.numComponent}"
+											maxlength="50"
+											styleClass="tabme"/>
+							</div>
+							<div class="Von input-container externalid-container">
+										<strong>#{msgs['changehistory.search.externalId']}</strong>
+										<h:inputText value="#{changeHistoryBean.dto.searchObject.externalId}"
+											maxlength="50"
+											styleClass="tabme"/>
+							</div>
+							</td></tr></tbody></table>
+						
+					</td>
+				</tr>
+
+				<tr>
+					<td height="30" style="padding-top: 10px;" class="likeH2">#{msgs['changehistory.search.searchResults']}</td>
+				</tr>
+				<tr>
+					<td style="padding-top: 10px;">
+					<h:outputText rendered="#{changeHistoryBean.noSearchResult}" 
+					value="#{msgs['changehistory.search.noresult']}"/>					
+					</td>
+				</tr>				
+				<tr>
+		          <td><span class="likeH3">
+                          <h:outputText rendered="#{!empty changeHistoryBean.dto.componentChangesResults}" value="#{msgs['changehistory.search.component']}"/>
+		          </span><br/></td>
+	            </tr>
+				<tr>
+		          <td>
+					<h:panelGroup layout="block" styleClass="mc" rendered="#{!empty changeHistoryBean.dto.componentChangesResults}">
+						<ace:dataTable styleClass="element_cost_attribute " width="100%"
+                        value="#{changeHistoryBean.dto.componentChangesResults}" 
+                        headerClass="tabIce_left PFF"
+						var="versionChange" varStatus="varStatus" id="componentChangesResults" 
+						rows="10"
+						paginator="true"
+						pageCount="4"
+						paginatorPosition="bottom">
+						<ace:column style="width:10%">
+							<f:facet name="header">
+                             <h:panelGroup layout="block">
+                                     <h:outputText style="white-space: nowrap;" value="#{msgs['changehistory.search.componentNr']}" />
+                                    
+                            </h:panelGroup>
+							</f:facet>
+							<h:panelGroup layout="block" styleClass="listlink">
+							<h:commandLink  value="#{versionChange.componentStand.componentVersion.component.componentNumber}" styleClass="ForceLien" actionListener="#{changeHistoryBean.openDetails}" title="#{msgs['changehistory.search.showDetails']}">
+								<f:param name="object_id" value="#{versionChange.componentStand.componentVersion.component.componentId}"></f:param>
+								<f:param name="object_type" value="2"></f:param>
+								<f:ajax render="@all" execute="@all" />
+							</h:commandLink>
+							</h:panelGroup>
+						</ace:column>
+						
+						<ace:column style="width:30%">
+							<f:facet name="header">
+                                <h:panelGroup layout="block">
+                                    <h:outputText value="#{msgs['costcomponent.name']}" />
+                                 </h:panelGroup>
+								
+							</f:facet>
+							<h:commandLink value="#{versionChange.componentStand.componentVersion.component.designation}" styleClass="ForceLien" actionListener="#{changeHistoryBean.openDetails}"  title="#{msgs['changehistory.search.showDetails']}">
+								<f:param name="object_id" value="#{versionChange.componentStand.componentVersion.component.componentId}"></f:param>
+								<f:param name="object_type" value="2"></f:param>
+								<f:ajax render="@all" execute="@all" />
+							</h:commandLink>
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costcomponent.version']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.componentStand.componentVersion.number}" />
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['changehistory.search.componentAndElementStand']}" />
+							</f:facet>							
+    						<h:outputText value="#{versionChange.componentStand.number}" rendered="#{versionChange.componentStand.componentVersion.number != null}"/>&#160;
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                   <h:outputText value="#{msgs['costelement.owner']}" />
+                            </h:panelGroup>
+								
+							</f:facet>
+							<h:outputText value="#{versionChange.componentStand.componentVersion.component.owner.brandId}" />
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costelement.users']}" />
+							</f:facet>
+							<ui:repeat value="#{versionChange.users}" var="brand">
+								 <h:outputText value="#{brand.brandId}"/>&#160;
+							</ui:repeat>
+						</ace:column>
+						<ace:column style="width:15%">
+							<f:facet name="header">
+                             <h:outputText value="#{msgs['changehistory.search.changeType']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.changeType}" />
+						</ace:column>
+						<ace:column style="width:10%">
+							<f:facet name="header">
+                                <h:panelGroup layout="block">
+                                    <h:outputText value="#{msgs['changehistory.search.componentAndElementUser']}" />
+                                    
+                            </h:panelGroup>
+							
+							</f:facet>
+							<h:outputText value="#{versionChange.userFullName}" />
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                     <h:outputText value="#{msgs['costelement.versionChanges.date']}" />
+                                 
+                            </h:panelGroup>
+                            
+							</f:facet>
+							<h:outputText value="#{versionChange.date.dateSeparatedPt}"/>
+						</ace:column>
+					</ace:dataTable>
+				</h:panelGroup>
+			</td>
+	            </tr>
+	            <tr>
+		          <td>    
+
+       				 </td>
+	            </tr>
+	           <tr>
+		          <td>&#160;</td>
+	            </tr>
+	            <tr>
+		          <td><span class="likeH3"><h:outputText rendered="#{!empty changeHistoryBean.dto.elementChangesResults}" value="#{msgs['changehistory.search.element']}"/><br/></span></td>
+	            </tr>
+	            <tr>
+		          <td>
+					<h:panelGroup layout="block" styleClass="mc" rendered="#{!empty changeHistoryBean.dto.elementChangesResults}">
+						<ace:dataTable styleClass="element_cost_attribute " width="100%" 
+                        value="#{changeHistoryBean.dto.elementChangesResults}" headerClass="tabIce_left PFF"
+						var="versionChange" varStatus="varStatus" id="elementChangesResults" 
+						rows="10"
+						paginator="true"
+						pageCount="4"
+						paginatorPosition="bottom">
+						<ace:column style="width:10%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                   <h:outputText style="white-space: nowrap;" value="#{msgs['changehistory.search.elementNr']}" />
+                                   
+                            </h:panelGroup>
+							</f:facet>
+							<h:panelGroup layout="block" styleClass="listlink">
+							<h:commandLink value="#{versionChange.elementVersion.element.elementNumber}" styleClass="ForceLien" actionListener="#{changeHistoryBean.openDetails}" title="#{msgs['changehistory.search.showDetails']}">
+								<f:param name="object_id" value="#{versionChange.elementVersion.element.elementId}"></f:param>
+								<f:param name="object_type" value="1"></f:param>
+								<f:ajax render="@all" execute="@all" />
+							</h:commandLink>
+							</h:panelGroup>
+						</ace:column>
+						<ace:column style="width:47%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                    <h:outputText value="#{msgs['costcomponent.name']}" />
+                                
+                            </h:panelGroup>
+							</f:facet>
+							<h:commandLink value="#{versionChange.elementVersion.element.designation}" styleClass="ForceLien" actionListener="#{changeHistoryBean.openDetails}" title="#{msgs['changehistory.search.showDetails']}">
+								<f:param name="object_id" value="#{versionChange.elementVersion.element.elementId}"></f:param>
+								<f:param name="object_type" value="1"></f:param>
+								<f:ajax render="@all" execute="@all" />
+							</h:commandLink>
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+								<h:outputText style="white-space: nowrap;" value="#{msgs['changehistory.search.componentAndElementStand']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.elementVersion.number}" />
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                   <h:outputText value="#{msgs['costelement.owner']}" />
+                                   
+                            </h:panelGroup>
+							</f:facet>
+							<h:outputText value="#{versionChange.elementVersion.element.owner.brandId}" />
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costelement.users']}" />
+							</f:facet>
+						    <ui:repeat value="#{versionChange.users}" var="brand">
+								 <h:outputText value="#{brand.brandId}"/>&#160;
+							</ui:repeat>
+						</ace:column>
+						<ace:column style="width:13%">
+							<f:facet name="header">
+                             <h:outputText value="#{msgs['changehistory.search.changeType']}" />
+							</f:facet>
+							<h:outputText value="#{versionChange.changeType}" />
+						</ace:column>
+						<ace:column style="width:10%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                  <h:outputText value="#{msgs['changehistory.search.componentAndElementUser']}" />
+                                
+                            </h:panelGroup>
+								
+							</f:facet>
+							<h:outputText value="#{versionChange.userFullName}" />
+						</ace:column>
+						<ace:column style="width:5%">
+							<f:facet name="header">
+                            <h:panelGroup layout="block">
+                                  	<h:outputText value="#{msgs['costelement.versionChanges.date']}" />
+                                
+                            </h:panelGroup>
+							
+							</f:facet>
+							<h:outputText value="#{versionChange.date.dateSeparatedPt}"/>
+						</ace:column>
+					</ace:dataTable>	
+				</h:panelGroup>
+                  </td>
+	            </tr>
+	            <tr>
+		          <td>&#160;</td>
+	            </tr>
+			</tbody>
+		</table>
+		</h:panelGroup>
+	</h:panelGroup>
+
+ <style type="text/css">
+.ui-inputfield {
+  width: 179px !important;
+}
+ </style>	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>	
+</html>

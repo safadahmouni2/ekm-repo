@@ -1,0 +1,173 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+	<h:panelGroup layout="block" styleClass="areaTab" rendered="#{userListBean.loadDTO}" id="mainContent">
+	
+		<h:panelGroup layout="block" styleClass="btnGen" style="padding-top:15px">
+			<h:panelGroup layout="block" styleClass="btn" rendered="#{!userListBean.dto.searchMode and userListBean.hasManageUserRight and userListBean.dto.userCreationAllowed}" >
+				<div class="bgrBTL"><a href="#"></a></div>
+				<div class="bgrBTC">
+					<h:commandLink  value="#{msgs['userAdministration.add.newUser']}"  actionListener="#{userListBean.createClicked}">
+					<f:ajax render="@all" execute="@all" />
+					</h:commandLink> 
+				</div>
+				<div class="bgrBTR"><a href="#"></a></div>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="space" rendered="#{!userListBean.dto.searchMode and userListBean.hasManageUserRight and userListBean.dto.userCreationAllowed}">&#160;</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="btn" rendered="#{!userListBean.dto.noUsers}">			
+				<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+				<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+					<!-- Aktion menu -->
+					<ace:submenu label="#{msgs['common.action.button']}" id="action">
+						<ace:menuItem id="print" value="#{msgs['common.print.button']}" url="javascript:friendlyPrint();" />
+					</ace:submenu>
+				</ace:menuBar>
+				<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>				
+                <div class="space">&#160;</div> 
+			</h:panelGroup>
+            
+            <h:panelGroup layout="block">
+             <h2 id="contentHeadline" class="h2Mar smallerSpace">
+               <h:graphicImage value="../images/Arbeitsbereiche_Icn.jpg" class="iconObject"/>
+               <h:outputText value="#{msgs['userAdministration.common.title']}"  styleClass="smallerFont" />
+             </h2>
+            </h:panelGroup>
+									
+		</h:panelGroup>	
+	<table width="100%">
+		<tbody>
+              <tr>
+                <td rowspan="2"> </td>
+                <td align="right" height="8"></td>
+              </tr>
+              <tr>
+                <td align="right">
+	         <h:panelGroup layout="block" rendered="#{!userListBean.dto.searchMode or (userListBean.dto.searchMode and userListBean.dto.noSearchResult)}">
+							<h:inputText
+							styleClass="min_6 validate revalidate valid iptRight searchinpt"
+							value="#{userListBean.dto.searchString}" onfocus="this.value='';"
+							onkeydown="if (event.keyCode == 13) {document.getElementById('f:contInc:srch_btn').click();return false;}"/>
+						<h:panelGroup layout="block" style="float: right;">
+							<div class="bgrBTL"><a href="#"></a></div>
+							<div class="bgrBTC"><h:commandLink id="srch_btn"
+							    actionListener="#{userListBean.search}"
+								value="#{msgs['userAdministration.common.search.label']}">
+								<f:ajax render="@all" execute="@all" />
+								</h:commandLink></div>
+							<div class="bgrBTR"><a href="#"></a></div>
+						</h:panelGroup>
+					</h:panelGroup>
+	            </td>
+              </tr>
+          </tbody>
+ 	</table>
+         <h:panelGroup layout="block" rendered="#{!userListBean.dto.searchMode}">
+		<h:outputText value="#{msgs['userAdministration.actualfolder']}:" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="absmiddle" />
+			&#160;<h:outputText value="#{navigationTree.selectedNodeObject.menuDisplayText}" />
+		</h:panelGroup>	
+		<h:panelGroup layout="block" rendered="#{userListBean.dto.searchMode}">
+			<h:outputText value="#{msgs['userAdministration.searchResult.searchFolder']}" /> &#160;
+		 	<img src="../images/img_onglet/tree_folder_close.gif" align="absmiddle" />
+			&#160;<h:outputText value="#{userListBean.dto.searchFolder}" /><br/>
+			<strong><h:outputText value="#{msgs['userAdministration.searchResult.searchString']}" /> 
+			&#160;&#34;<h:outputText nospan="true" value="#{userListBean.dto.searchStringResult}" />&#34;</strong>
+		</h:panelGroup>	
+		<div class="Des"></div>
+		<h:panelGroup layout="block" rendered="#{userListBean.dto.noUsers}">
+			<center><strong><h:outputText value="#{msgs['userAdministration.list.empty']}" /></strong></center>
+		</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="mc" rendered="#{!userListBean.dto.noUsers}">
+						<h:dataTable width="100%" border="0" cellpadding="0" cellspacing="0"                             
+							var="userElement" value="#{userListBean.dto.users}"
+                            style="margin: 0px;"
+                            id="us_lst"
+                            styleClass="iceDatTbl" rowClasses="iceDatTblRow1,iceDatTblRow2"
+			                columnClasses="iceDatTblCol1 userDatTbCol1,iceDatTblCol1 userDatTbCol1,iceDatTblCol1 userDatTbColAktiv,iceDatTblCol1 userDatTbCol1,iceDatTblCol2 userDatTbCol2,iceDatTblCol1 userDatTbColAction">
+								
+							<h:column headerClass="iceDatTblColHdr tabIce_left PFF" >
+								<f:facet name="header">
+                                  <h:outputText value="#{msgs['userAdministration.list.lastName']}" />
+								</f:facet>
+                                 <h:commandLink value="#{userElement.lastName}" actionListener="#{userListBean.editClicked}" title="#{msgs['userAdministration.edit.alt']}">
+										<f:param name="object_id" value="#{userElement.userId}"></f:param>
+										<f:ajax execute="@form" render="@all"/>
+								</h:commandLink>
+							</h:column>
+                            
+							<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+                            
+                            <f:facet name="header">
+                               &#160;<h:outputText value="#{msgs['userAdministration.list.firstName']}"/>  
+                            </f:facet>
+																
+							<h:commandLink value="#{userElement.firstName}" actionListener="#{userListBean.editClicked}" title="#{msgs['userAdministration.edit.alt']}">
+									<f:param name="object_id" value="#{userElement.userId}"></f:param>
+									<f:ajax execute="@form" render="@all"/>
+							</h:commandLink>
+
+							</h:column>
+							<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+                            
+                            <f:facet name="header">
+                               &#160;<h:outputText value="Aktiv"/>  
+                            </f:facet>
+																
+							<h:commandLink value="#{userElement.active ? 'Ja' : 'Nein'}" 
+							actionListener="#{userListBean.editClicked}" title="#{msgs['userAdministration.edit.alt']}">
+									<f:param name="object_id" value="#{userElement.userId}"></f:param>
+									<f:ajax execute="@form" render="@all"/>
+							</h:commandLink>
+
+							</h:column>	
+							<h:column headerClass="iceDatTblColHdr tabIce_left PFF">
+                            
+                            <f:facet name="header">
+                               &#160;<h:outputText value="Letztes Login"/>
+                            </f:facet>   
+							<h:commandLink value="#{userElement.lastLogInTime}" 
+							actionListener="#{userListBean.editClicked}" title="#{msgs['userAdministration.edit.alt']}">
+									<f:param name="object_id" value="#{userElement.userId}"></f:param>
+									<f:ajax execute="@form" render="@all"/>
+							</h:commandLink>                                 
+							</h:column> 													
+							<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+                            
+                            <f:facet name="header">
+                               &#160;<h:outputText value="Deaktivierungsdatum"/>  
+                            </f:facet>
+							<h:commandLink value="#{userElement.deactivationDate}" 
+							actionListener="#{userListBean.editClicked}" title="#{msgs['userAdministration.edit.alt']}">
+									<f:param name="object_id" value="#{userElement.userId}"></f:param>
+									<f:ajax execute="@form" render="@all"/>
+							</h:commandLink>  
+							</h:column>                            
+							<h:column headerClass="iceDatTblColHdr tabIce_noborder_lr">
+							<span class="downTab"> 
+								<h:commandLink id="edit" actionListener="#{userListBean.editClicked}" title="#{msgs['userAdministration.edit.alt']}">
+									<f:param name="object_id" value="#{userElement.userId}"></f:param>
+									<img src="../images/edit_icone.gif"></img>
+									<f:ajax execute="@form" render="@all"/>
+								 </h:commandLink>
+								 <h:commandLink  id="delete" actionListener="#{userListBean.deleteClicked}" rendered="#{userListBean.dto.userDeleteAllowed and userElement.active}" title="#{msgs['userAdministration.delete.alt']}">
+									<f:param name="object_id" value="#{userElement.userId}"></f:param>
+									<img src="../images/delete_icone.gif"></img>
+									<f:ajax execute="@form" render="@all"/>
+								 </h:commandLink> 
+								 </span> 								 
+							</h:column>
+							
+				</h:dataTable>
+			</h:panelGroup> 
+			<div class="arbeit"></div>
+					<div class="Des"></div>
+
+    </h:panelGroup> 
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

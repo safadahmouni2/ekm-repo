@@ -1,0 +1,106 @@
+
+.areaError
+{
+  width:592px;
+  margin-left: 12px;
+}
+
+.areaError legend.head
+{
+  margin-bottom: 0;
+}
+
+.areaError legend.closed
+{
+  margin-bottom: 2em;
+}
+
+.areaError fieldset
+{
+  padding:0;
+  color:#9A0C39;
+  border:none;
+}
+
+.areaError fieldset li.Notice,
+.areaError fieldset li.Warning
+{
+  color:#345D6F;
+  clear:left;
+}
+.areaError fieldset li em
+{
+  display:block;
+  float:left;
+  font-style:normal;
+  padding-right:0.6em;
+  text-align:right;
+  width:7em;
+}
+.areaError fieldset li strong
+{
+  display:block;
+  float:left;
+  width:5em;
+}
+.areaError .nextLine
+{
+  display:block;
+  margin-left:12.6em;
+}
+
+.areaError .startBlanks
+{
+  display:none;
+}
+
+.style_NaviLeft .areaError fieldset
+{
+  margin-top:2em;
+}
+
+.areaError fieldset legend
+{
+  color:#9A0C39;
+  font-size:1.1em;
+  font-weight:bold;
+  white-space:nowrap;
+  padding-left:0;
+}
+
+.areaError fieldset legend:hover span
+{
+  border-bottom:1px solid #9A0C39;
+}
+
+.areaError fieldset label
+{
+  color:#9A0C39;
+}
+.areaError fieldset label:hover 
+{
+  text-decoration:underline;
+}
+.areaError fieldset label.missingId
+{
+  text-decoration:none!important;
+  cursor:help!important;
+}
+
+.ShowMsg .areaError
+{
+  display:block;
+}
+
+#areaContent.error,
+#areaContent.error h1#contentHeadline,
+#areaContent.error h2
+{
+  color:#700026;
+}
+
+#areaContent.error a
+{
+  color:#700026;
+  text-decoration:underline;
+}

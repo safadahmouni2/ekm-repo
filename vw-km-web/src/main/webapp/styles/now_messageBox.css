@@ -1,0 +1,25 @@
+.messageBox
+{
+  width:480px !important;
+}
+
+.messageBox .body {
+  clear:left;
+  text-align:center;
+}
+
+.messageBox h4 {
+  height:2em;
+  width:100% !important;
+  background-color:#345D6F;
+}
+
+.processWindow
+{
+  width:800px !important;
+}
+
+.processWindow .content
+{
+  min-height:300px;
+}

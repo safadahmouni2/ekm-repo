@@ -1,0 +1,54 @@
+.masterMode table.data th,
+.masterMode table.data td
+{
+	width:55px;
+	overflow:hidden;
+	border:1px solid #FFF;
+}
+
+.masterMode table.data th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+}
+
+.masterMode table.data
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+
+.masterMode table.dataMenu
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+	width:auto;
+	display:block;
+}
+
+.masterMode table.data thead th input,
+.masterMode table.data thead th select
+{
+	width:50px !important;
+}
+
+.masterMode table.data thead th input[type="checkbox"]
+{
+	width:auto !important;
+}
+
+.masterMode table.data thead th:first-child
+{
+	width:30px;
+}
+
+.masterMode table.data .tblRadioButton td
+{
+	border:0;
+}
+
+.masterMode table.data .tblRadioButton tr
+{
+	background-color:transparent;
+}

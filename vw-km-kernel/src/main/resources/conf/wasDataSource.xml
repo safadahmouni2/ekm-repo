@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans SYSTEM "file:///@prop.build.process.location@/build/pre-dist/WEB-INF/spring-beans.dtd">
+
+<beans>
+	<bean id="wasDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${prop.application.db.connectionpool.jndiName}" />
+		<property name="lookupOnStartup" value="false" />
+		<property name="cache" value="true" />
+		<property name="proxyInterface" value="javax.sql.DataSource" />
+	</bean>
+</beans>

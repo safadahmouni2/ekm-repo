@@ -1,0 +1,466 @@
+
+.nowMenu
+{
+  width: 1000px;
+  height: 192px;
+  background:transparent url(../images/headerImg_027-rBorder.jpg) no-repeat 0 0;
+  border-top:1px solid #B8C9D1;
+  border-bottom:1px solid #B8C9D1;
+  position:relative;
+}
+
+.nowMenu .head h3.legend
+{
+  color:#fff;
+  background-color:#fff;
+  position:absolute;
+  text-indent:47%;
+  top:-13px;
+  width:100%;
+  background-position:55% 1px;
+  background-repeat:no-repeat;
+  font-weight:normal;
+}
+
+.nowMenu .head:hover h3.legend
+{
+  background-image:url(../images/comboArrowUp-trans.gif);
+  color:#7F8789;
+}
+.nowMenu .head:hover h3.legend:hover
+{
+  color:#004963 !important;
+  background-color:#c4dce8;
+}
+
+.nowMenu div.hover h3.legend
+{
+  background-image:url(../images/comboArrowUp-trans.gif);
+  color:#7F8789;
+}
+.nowMenu div.hover h3.hover
+{
+  color:#004963 !important;
+  background-color:#c4dce8;
+}
+
+.errorPage .nowMenu
+{
+  background: transparent url(../images/headerImg_024.jpg) no-repeat 0 0;
+}
+
+.locating .nowMenu
+{
+  background: transparent url(../images/headerImg_024.jpg) no-repeat 0 0;
+}
+
+.home .nowMenu
+{
+  background: transparent url(../images/headerImg_n001.jpg) no-repeat 0 0;
+}
+
+.auftragssuche .nowMenu
+{
+  background: transparent url(../images/headerImg_n002.jpg) no-repeat 0 0;
+}
+
+.kundenverwaltung .nowMenu
+{
+  background: transparent url(../images/headerImg_n003.jpg) no-repeat 0 0;
+}
+
+.rechnung .nowMenu
+{
+  background: transparent url(../images/headerImg_n004.jpg) no-repeat 0 0;
+}
+
+.nowMenu .head
+{
+  position: relative;
+  width: 1000px;
+  height: 192px;
+  opacity:0.96;
+  filter:Alpha(opacity=96, style=0);
+}
+.usp_contrast .nowMenu .head
+{
+  opacity:0.98;
+  filter:Alpha(opacity=98, style=0);
+}
+
+.nowMenu ul {
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    padding-top:8px;
+    width: 188px;
+    height: 184px !important; /* 192 - padding-top */
+    position: absolute;
+    float: left;
+    left: 0px;
+    list-style: none;
+    border-left:1px solid #fff !important;
+    background-color: #345D6F;
+}
+
+
+.nowMenu ul ul {
+    left: 188px;
+    width: 200px;
+}
+.nowMenu ul ul {
+}
+.nowMenu ul ul ul {
+    left: 200px;
+}
+.nowMenu ul ul ul ul ul {
+    left: 200px;
+    width: 210px;
+}
+
+* html body .nowMenu ul li
+{
+  zoom:1;  /* IE6: hasLayout einschalten */
+  margin-top:-2px;
+}
+
+html body .nowMenu ul li
+{
+  margin-left:-1px;
+}
+
+.nowMenu ul a
+{
+  width: 150px;
+  display: block;
+  padding: 0 12px 3px;
+  text-decoration: none;
+  color: #B8C9D1;
+  line-height:12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.nowMenu ul a
+{
+  width: 164px;
+}
+
+.nowMenu ul li.active a {
+  color: #fff;
+}
+
+.nowMenu a[rel*=external]
+{
+  background:url(../images/now_iconSet.gif) no-repeat -5px -144px transparent!important;
+  text-indent:6px;
+}
+.nowMenu li.activateOnClick
+{
+  background: transparent url(../images/comboArrows-sw-trans.gif) no-repeat 99% 3px;
+}
+
+.nowMenu li:hover
+{
+  background-position: 99% -89px;
+}
+.nowMenu li.hover
+{
+  background-position: 99% -89px;
+}
+.nowMenu li.activateOnClick.active
+{
+  background-position: 99% -89px;
+}
+* html .nowMenu ul li.active a {
+  position:relative;
+}
+
+.nowMenu li.active a,
+.nowMenu li.active a:hover
+{
+  background-position:-22px -22px;
+  color:#fff !important;
+  font-weight:bold !important;
+  cursor:default;
+}
+.nowMenu li.active li a:hover,
+.nowMenu li.active li.active li a:hover
+{
+  cursor:pointer;
+  cursor:hand;
+}
+
+.nowMenu li.active li.active a,
+.nowMenu li.active li.active li.active a,
+.nowMenu li.active li.active li.active li.active a,
+.nowMenu li.active li.active li.active li.active li.active a,
+.nowMenu li.active li.active li.active li.active li.active li.active a,
+.nowMenu li.active li.active li.active li.active li.active li.active li.active a
+{
+  color:#fff !important;
+  font-weight:bold !important;
+  background: transparent url(../images/arrow_menu_blue.gif) no-repeat -1px -1px;
+}
+
+
+.mqDestApp_QS .nowMenu
+{
+  background:transparent url(../images/nav_bg_qs_system.jpg) no-repeat 0 0;
+}
+
+.mqDestApp_TEST .nowMenu
+{
+  background:transparent url(../images/nav_bg_test_system.jpg) no-repeat 0 0;
+}
+
+.mqDestApp_QS #areaFooter ul li.pullup ul,
+.mqDestApp_TEST #areaFooter ul li.pullup ul,
+.mqDestApp_QS #areaFooter,
+.mqDestApp_TEST #areaFooter,
+.mqDestApp_QS #areaFooter ul li,
+.mqDestApp_TEST #areaFooter ul li,
+.mqDestApp_QS .nowMenu ul,
+.mqDestApp_TEST .nowMenu ul
+{
+  background-color:#007000!important;
+}
+
+body[class*=machineName_VW2C].compiled_DEBUG .nowMenu ul,
+body[class*=machineName_QS2X].compiled_DEBUG .nowMenu ul
+{
+  background-color:#666!important;
+}
+
+body.compiled_DEBUG .nowMenu,
+body[class*=machineName_VW2C].compiled_DEBUG .nowMenu,
+body[class*=machineName_QS2X].compiled_DEBUG .nowMenu
+{
+  background:transparent url(../images/nav_bg_debugCompiled.jpg) no-repeat 0 0;
+}
+
+.mqDestApp_QS .nowMenu li.active li.active a,
+.mqDestApp_TEST .nowMenu li.active li.active a,
+.mqDestApp_QS .nowMenu li.active li.active li.active a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active li.active a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active li.active a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active li.active li.active a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active li.active li.active a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active li.active li.active li.active a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active li.active li.active li.active a
+{
+  background: transparent url(../images/arrow_menu_green.gif) no-repeat -1px -1px;
+}
+
+
+.instance_schulung .nowMenu
+{
+  background:transparent url(../images/nav_bg_schulung.jpg) no-repeat 0 0;
+}
+
+
+.instance_schulung #areaFooter ul li.pullup ul,
+.instance_schulung #areaFooter,
+.instance_schulung #areaFooter ul li,
+.instance_schulung .nowMenu ul
+{
+  background-color:#943414 !important;
+}
+
+.instance_schulung .nowMenu li.active li.active a,
+.instance_schulung .nowMenu li.active li.active li.active a,
+.instance_schulung .nowMenu li.active li.active li.active li.active a,
+.instance_schulung .nowMenu li.active li.active li.active li.active li.active a,
+.instance_schulung .nowMenu li.active li.active li.active li.active li.active li.active a,
+.instance_schulung .nowMenu li.active li.active li.active li.active li.active li.active li.active a
+{
+  background-image: url(../images/arrow_menu_orange.gif);
+}
+
+.nowMenu li.active li a,
+.nowMenu li.active li.active li a,
+.nowMenu li.active li.active li.active li a,
+.nowMenu li.active li.active li.active li.active li a,
+.nowMenu li.active li.active li.active li.active li.active li a,
+.nowMenu li.active li.active li.active li.active li.active li.active li a
+{
+  background-position: -1px -20px;
+  color:#B8C9D1 !important;
+  font-weight:normal !important;
+}
+
+.mqDestApp_QS .nowMenu li.active li a,
+.mqDestApp_TEST .nowMenu li.active li a,
+.mqDestApp_QS .nowMenu li.active li.active li a,
+.mqDestApp_TEST .nowMenu li.active li.active li a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active li a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active li a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active li.active li a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active li.active li a,
+.mqDestApp_QS .nowMenu li.active li.active li.active li.active li.active li.active li a,
+.mqDestApp_TEST .nowMenu li.active li.active li.active li.active li.active li.active li a
+{
+  background-position: -1px -20px;
+}
+
+.nowMenu li a:hover,
+.nowMenu li.active a:hover,
+.nowMenu li.active li a:hover,
+.nowMenu li.active li.active li a:hover,
+.nowMenu li.active li.active li.active li a:hover,
+.nowMenu li.active li.active li.active li.active li a:hover,
+.nowMenu li.active li.active li.active li.active li.active li a:hover 
+{
+  color: #fff !important;
+}
+
+.nowMenu li>a:hover
+{
+  overflow:visible;
+}
+.nowMenu li a.immediate:hover
+{
+  overflow:visible;
+}
+
+.nowMenu li ul,
+.nowMenu li.active li ul,
+.nowMenu li.active li.active li ul,
+.nowMenu li.active li.active li.active li ul,
+.nowMenu li.active li.active li.active li.active li ul,
+.nowMenu li.active li.active li.active li.active li.active li ul
+{
+  display:none;
+}
+
+.nowMenu li.active ul,
+.nowMenu li.active li.active ul,
+.nowMenu li.active li.active li.active ul,
+.nowMenu li.active li.active li.active li.active ul,
+.nowMenu li.active li.active li.active li.active li.active ul,
+.nowMenu li.active li.active li.active li.active li.active li.active ul
+{
+  display:block;
+}
+
+/* ***** zugeklappt ***** */
+
+.usp_collapseMenu .nowMenu
+{
+  height: 22px !important;
+  position:absolute;
+  top:100px;
+}
+.usp_headClosed .nowMenu
+{
+  top:90px;
+}
+
+.usp_headClosed #nowHead
+{
+  top:1px;
+}
+
+.usp_collapseMenu .nowMenu ul
+{
+  opacity:1;
+  height:14px !important;
+}
+
+.usp_collapseMenu.usp_showMenuOnHover .nowMenu:hover
+{
+  z-index:8000;
+  height:192px !important;
+}
+
+.usp_collapseMenu.usp_showMenuOnHover .nowMenu:hover ul
+{
+  opacity:1;
+  overflow:visible;
+  height:184px !important;
+}
+
+.usp_collapseMenu.usp_showMenuOnHover .nowMenu:hover,
+.usp_collapseMenu.MenuOpen .nowMenu
+{
+  overflow:visible;
+}
+
+
+* html xxxx.usp_collapseMenu .nowMenu ul
+{
+  height: 14px !important;
+}
+
+body.usp_collapseMenu .nowMenu ul li
+{
+  display:none;
+  margin-top:-4px;
+}
+
+body.usp_collapseMenu .nowMenu ul li.active
+{
+  display:block;
+}
+
+body.usp_collapseMenu .nowMenu ul li a
+{
+  background-position: -1px 0px;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+body.usp_collapseMenu.usp_showMenuOnHover .nowMenu:hover ul li,
+body.usp_collapseMenu.MenuOpen .nowMenu ul li
+{
+  position:static !important;
+  display:block;
+  margin-top:0px;
+}
+
+
+
+
+
+/* nur fuer den IE */
+
+.usp_collapseMenu .nowMenuHover .head
+{
+  height:192px !important;
+}
+
+.usp_collapseMenu .nowMenuHover
+{
+  z-index:8000;
+  height:192px !important;
+}
+.usp_collapseMenu .nowMenuHover ul
+{
+  opacity:1;
+  overflow:visible;
+  height:184px !important;
+}
+body.usp_collapseMenu .nowMenuHover ul li
+{
+  position:static !important;
+  display:block;
+  margin-top:0px;
+  
+  margin-top:-2px;
+  margin-left:-1px;  
+  
+}
+body.usp_collapseMenu .nowMenuHover ul li a
+{
+  white-space:normal;
+}
+
+.nowMenu li.subSelected
+{
+  background-position: -99px -99px!important;
+}

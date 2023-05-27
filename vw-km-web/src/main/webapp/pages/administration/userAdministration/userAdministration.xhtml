@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	  
+	<h:panelGroup layout="block" style="padding-top:15px" rendered="#{userDetailBean.loadDTO}" id="mainTabContent">
+		<h:panelGroup layout="block" styleClass="btn"  style="#{(userDetailBean.hasManageUserRight) ? 'display:block;':'display:none;'}" rendred="#{userDetailBean.hasManageUserRight}">
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTC">
+				<h:commandLink value="#{msgs['userAdministration.edit.button.save']}" actionListener="#{userDetailBean.save}" >
+				   <f:ajax render="@all" execute="@all" />
+				</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" styleClass="space" style="#{(userDetailBean.hasManageUserRight) ? 'display:block;':'display:none;'}">&#160;</h:panelGroup>
+
+		<h:panelGroup layout="block" styleClass="btn" rendered="#{userDetailBean.dto.userDeleteAllowed and userDetailBean.dto.user.loaded and userDetailBean.dto.user.active and (userDetailBean.dto.user.userId != userDetailBean.dto.userLogged.userId)}">
+		<!-- Aktion menu -->
+			<h:panelGroup layout="block" styleClass="bgrBTL"></h:panelGroup>
+			<ace:menuBar id="menuBar" autoSubmenuDisplay="false">
+				<ace:submenu label="#{msgs['userAdministration.edit.button.action']}" id="action">
+					<ace:menuItem id="delete" actionListener="#{userDetailBean.deleteObjectClicked}" value="#{msgs['userAdministration.delete']}"/>
+				</ace:submenu>
+			</ace:menuBar>
+			<h:panelGroup layout="block" styleClass="bgrBTR"></h:panelGroup>
+		</h:panelGroup>
+
+		<h:panelGroup layout="block" styleClass="space" rendered="#{userDetailBean.dto.userDeleteAllowed and userDetailBean.dto.user.loaded and userDetailBean.dto.user.active and (userDetailBean.dto.user.userId != userDetailBean.dto.userLogged.userId)}">&#160;</h:panelGroup>
+		<h:panelGroup layout="block" styleClass="btn">
+			<h:panelGroup layout="block" styleClass="bgrBTL">
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTC">
+				<h:commandLink value="#{msgs['userAdministration.edit.button.cancel']}" actionListener="#{userDetailBean.listFromObjectClicked}" immediate="true">
+				  <f:ajax render="@all" execute="@all" />
+				</h:commandLink>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="bgrBTR">
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+    
+    <h:panelGroup layout="block">
+             <h2 id="contentHeadline" class="h2Mar smallerSpace">
+              <h:graphicImage value="../images/Arbeitsbereiche_Icn.jpg" class="iconObjectLeftSpace"/>
+              <h:outputText value="#{msgs['userAdministration.edit.title']}"  styleClass="smallerFont" />
+             </h2>
+   </h:panelGroup>
+	<br />
+	<table width="100%" border="0">
+	  <tr><td class="cost_element_header11"></td>
+	  <td class="cost_element_header12">	
+		<table border="0">
+		 <tr>
+		 <td class="header_search1">
+			<h:panelGroup layout="block">&#160;</h:panelGroup>
+		 </td>	
+		 <td class="header_search2">
+			<h:panelGroup layout="block" rendered="#{!userDetailBean.dto.searchMode}" id="contSearch">				
+							<h:inputText
+							styleClass="min_6 validate revalidate valid iptRight searchinpt"
+							value="#{userDetailBean.dto.searchString}" onfocus="this.value='';"
+							onkeydown="if (event.keyCode == 13) {document.getElementById('f:contInc:srch_btn').click();return false;}"/>
+						<h:panelGroup layout="block" style="float: right;">
+							<div class="bgrBTL"><a href="#"></a></div>
+							<div class="bgrBTC"><h:commandLink id="srch_btn"
+							    actionListener="#{userDetailBean.search}"
+								value="#{msgs['userAdministration.common.search.label']}">
+								<f:ajax render="@all" execute="@all" />
+								</h:commandLink></div>
+							<div class="bgrBTR"><a href="#"></a></div>
+						</h:panelGroup>
+			</h:panelGroup>
+		 </td>
+		</tr>	
+		</table>
+		</td></tr>
+	</table>
+	<div class="areaTabContent"><br />
+	<ace:tabSet selectedIndex="0" id="user_tab_set" partialSubmit="false">
+		<ace:tabPane id="user_general" label="#{msgs['userAdministration.edit.tab.general']}">
+			<ui:include src="userGeneral.xhtml" />
+		</ace:tabPane>
+		<ace:tabPane id="user_workspaces" label="#{msgs['userAdministration.edit.tab.workArea']}">
+			<ui:include src="userWorkAreas.xhtml" />
+		</ace:tabPane>
+		<ace:tabPane id="user_roles" label="#{msgs['userAdministration.edit.tab.role']}">
+			<ui:include src="userRoles.xhtml" />
+		</ace:tabPane>
+	</ace:tabSet> <h:panelGroup layout="block" styleClass="Des"></h:panelGroup></div>
+</html>

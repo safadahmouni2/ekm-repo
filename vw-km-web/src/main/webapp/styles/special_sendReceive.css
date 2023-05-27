@@ -1,0 +1,83 @@
+.sendReceive table.data th,
+.sendReceive table.data td
+{
+	overflow:hidden;
+	border:1px solid #FFF;
+	padding-left:3px;
+}
+
+.sendReceive table.data th
+{
+	height:40px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+}
+
+.sendReceive table.data
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+
+.sendReceive table.dataMenu
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+	width:auto;
+	display:block;
+}
+
+.sendReceive table.data a
+{
+	background-image:none !important;
+	padding-left:0 !important;
+	text-decoration:underline;
+}
+
+.sendReceive table.dataMenu
+{
+	table-layout:fixed;
+	border-collapse:collapse;
+	width:auto;
+	margin-top:12px;
+	margin-bottom:12px;
+	display:block;
+}
+
+.sendReceive .usp_sr_filterFields input, 
+.sendReceive .usp_sr_filterFields select
+{
+	width:100px;
+}
+
+
+/* column widths */
+.sendReceive table.data thead tr th.col_chkBox,
+.sendReceive table.data thead tr th.col_srType
+{
+	width:25px;
+}
+
+.sendReceive table.data thead tr th.col_vcsId,
+.sendReceive table.data thead tr th.col_companyNo,
+.sendReceive table.data thead tr th.col_reqTime
+{
+	width:60px;
+}
+
+.sendReceive table.data thead tr th.col_reqDate,
+.sendReceive table.data thead tr th.col_portalUserId
+{
+	width:70px;
+}
+
+.sendReceive table.data thead tr th.col_reqCorrelId,
+.sendReceive table.data thead tr th.col_reqMessageId
+{
+	width:100px;
+}
+
+.sendReceive table.data thead tr th.col_reqName
+{
+	width:auto;
+}

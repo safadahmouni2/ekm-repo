@@ -1,0 +1,12 @@
+
+var VehicleBrand_List = "Volkswagen:V,Audi:A,Nutzfahrzeuge:N";
+var VehicleModelV_List = "Der Tiguan:39560\2009,Der Tiguan Rechtslenker:39565\2009,Der Eos:39600\2009,Der Eos &quot;Edition 2009&quot;:39610\2009,Der Eos &quot;Individual&quot;:39630\2009,Der Eos Rechtslenker:39645\2009,Der Passat:39650\2009,Der Passat &quot;R-Line Edition&quot;:39676\2009,Der Passat &quot;Individual&quot;:39680\2009,Der neue Passat TSI EcoFuel:39690\2009,Der Passat Rechtslenker:39700\2009,Der Passat Taxi:39710\2009,Der Passat Mietwagen:39715\2009,Der Passat Variant:39730\2009,Der Passat Variant &quot;R-Line Edition&quot;:39756\2009,Der Passat Variant &quot;Individual&quot;:39760\2009,Der neue Passat Variant TSI EcoFuel:39775\2009,Der Passat Variant Rechtslenker:39785\2009,Das Passat Variant Taxi:39790\2009,Der Passat Variant Mietwagen:39795\2009,Der Passat CC:39810\2009,Der Passat CC Rechtslenker:39845\2009,Der Sharan:39850\2009,Der Sharan &quot;United&quot;:39860\2009,Der Sharan &quot;Special&quot;:39870\2009,Der Sharan &quot;Exclusive Edition&quot;:39871\2009,Der Sharan LPG:39875\2009,Der Sharan Rechtslenker:39880\2009,Das Sharan Taxi:39890\2009,Der Sharan Mietwagen:39895\2009,Der Touareg:39900\2009,Der Touareg &quot;Individual&quot;:39920\2009,Der Touareg &quot;North Sails&quot;:39923\2009,Der Touareg R50:39925\2009,Der Touareg &quot;W12 Individual&quot;:39930\2009,Der Touareg &quot;W12 R-Line&quot;:39935\2009,Der Touareg Rechtslenker:39945\2009,Der Phaeton:39955\2009,Der Phaeton mit langem Radstand:39965\2009,Der Phaeton Rechtslenker:39975\2009,Der Phaeton Rechtslenker Langversion:39985\2009";
+var VehicleModelA_List = "Audi TT Coupe:50049\2009,Audi TT Roadster:50069\2009,Audi TTS:50079\2009,Audi A3:50139\2009,Audi A3 Sportback:50149\2009,Audi S3/S3 Sportback:50159\2009,Audi A3 Cabrio:50169\2009,Audi S4 / S4 Avant neu:50249\2009,Audi A4 neu:50259\2009,Audi A4 Avant neu:50329\2009,Audi A4 Cabriolet:50419\2009,Audi S4 Cabriolet:50449\2009,Audi RS4 Cabriolet:50459\2009,Audi A5 Coupe:50509\2009,Audi S5 Coupe:50539\2009,Audi A6:50609\2009,Audi S6/S6 Avant:50639\2009,Audi A6 Avant:50709\2009,Audi RS 6:50759\2009,Audi A6 allroad quattro:50769\2009,Audi A8:50819\2009,Audi S8:50839\2009,Audi A8 W12 quattro:50859\2009,Audi R8:50879\2009,Audi Q7:50909\2009,Audi Q5:50929\2009,Audi Q7 V12 TDI:50959\2009,Audi A4 allroad quattro:51380\2010,Audi A5 Cabriolet:51410\2010,Audi S5 Cabriolet:51470\2010";
+var VehicleModelN_List = "Transporter,Caddy,Caddy Live";
+
+
+var VehicleEngine_List = "Stephan,Bernd,Thomas,Werner,Frank,Karl,Fritz";
+
+
+
+

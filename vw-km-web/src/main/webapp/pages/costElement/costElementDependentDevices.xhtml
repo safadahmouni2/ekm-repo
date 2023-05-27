@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="771">
+
+		<tbody>
+			<tr>
+				<td height="17" width="49%"><strong><h:outputText value="#{msgs['costelement.dependentDocument.title']}" /></strong></td>
+				<td width="2%"></td>
+				<td width="49%">&#160;</td>
+			</tr>
+			<tr>
+				<td colspan="3" height="17">
+				<h:panelGroup layout="block" rendered="#{costElementBean.dto.noComponents}">
+					<center><strong><h:outputText value="#{msgs['costelement.dependentDocument.empty']}" /></strong></center>
+				</h:panelGroup>
+				<h:panelGroup layout="block" style="height:300px;overflow:auto;" rendered="#{!costElementBean.dto.noComponents}">
+				   <!-- cant use h:dataTable because we need groupBy -->
+					<ace:dataTable id="comp_lst" styleClass="element_cost_attribute " width="100%" border="0" cellpadding="0" cellspacing="0"
+						value="#{costElementBean.dto.componentElementList}" varStatus="varStatus"
+                        headerClass="tabIce_left PFF"
+						var="componentElement" columnClasses="PFF,PFF,PFF,PFF,PFF,PFF" style="margin: 0px;"
+                        binding="#{costElementBean.componentElementListTable}">
+						<ace:column groupBy="#{componentElement.componentStand.componentVersion.component.componentNumber}" 
+						sortWhenGrouping="false" hideSortControls="true"
+							style="background-color: #FFFFFF !important;">
+                            <f:facet name="header">
+                                  <h:outputText value="#{msgs['costelement.dependentDocument.list.number']}"/>
+                            </f:facet>							
+							<h:outputText
+								value="#{componentElement.componentStand.componentVersion.component.componentNumber}" />
+						</ace:column>
+						<ace:column>							                            
+                             <f:facet name="header">
+                                  <h:outputText value="#{msgs['costelement.dependentDocument.list.designation']}"/>
+                            </f:facet>
+							<h:outputText value="#{componentElement.componentStand.componentVersion.component.designation} [#{componentElement.componentStand.componentVersion.validTo.dateSeparatedPt}]" />
+						</ace:column>
+						<ace:column>							                            
+                             <f:facet name="header">
+                                  <h:outputText value="Version"/>
+                            </f:facet>
+							<h:outputText value="#{componentElement.componentStand.componentVersion.number}" />
+						</ace:column>
+						<ace:column>							                            
+                             <f:facet name="header">
+                                  <h:outputText value="Stand"/>
+                            </f:facet>
+							<h:outputText value="#{componentElement.componentStand.number}" />
+						</ace:column>												
+						<ace:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costelement.dependentDocument.list.status']}" />
+							</f:facet>
+							<h:outputText value="#{msgs['costelement.dependentDocument.status.created']}" rendered="#{componentElement.componentStand.componentVersion.enumStatus.enumStatusId==1}"/>
+							<h:outputText value="#{msgs['costelement.dependentDocument.status.toBeApproved']}" rendered="#{componentElement.componentStand.componentVersion.enumStatus.enumStatusId==2}"/>
+							<h:outputText value="#{msgs['costelement.dependentDocument.status.approved']}" rendered="#{componentElement.componentStand.componentVersion.enumStatus.enumStatusId==3}"/>
+							<h:outputText value="#{msgs['costelement.dependentDocument.status.inPregress']}" rendered="#{componentElement.componentStand.componentVersion.enumStatus.enumStatusId==4}"/>
+							<h:outputText value="#{msgs['costelement.dependentDocument.status.inUse']}" rendered="#{componentElement.componentStand.componentVersion.enumStatus.enumStatusId==5}"/>
+						</ace:column>						
+						<ace:column>
+							<f:facet name="header">
+								<h:outputText value="#{msgs['costelement.dependentDocument.list.verwendung']}" />
+							</f:facet>
+							<h:outputText value="#{msgs['costelement.dependentDocument.inaktiv']}" rendered="#{componentElement.componentStand.componentVersion.component.inactive}"/>
+							<h:outputText value="#{msgs['costelement.dependentDocument.aktiv']}" rendered="#{!componentElement.componentStand.componentVersion.component.inactive}"/>
+						</ace:column>						
+						<ace:column>
+							<h:commandLink id="sho_c" actionListener="#{costElementBean.showComponent}">
+								<f:param name="component_id" value="#{componentElement.componentStand.componentVersion.component.componentId}"></f:param>
+								<f:param name="component_version_id" value="#{componentElement.componentStand.componentVersion.componentVersionId}"></f:param>
+								<f:param name="component_stand_id" value="#{componentElement.componentStand.id}"></f:param>
+								<f:param name="folder_id" value="#{componentElement.componentStand.componentVersion.component.folder.folderId}"></f:param>
+								<f:param name="status_id" value="#{componentElement.componentStand.componentVersion.enumStatus.enumStatusId}"></f:param>
+								<f:param name="creator_id" value="#{componentElement.componentStand.componentVersion.creator.userId}"></f:param>
+								<img src="../images/loupe.gif"/>
+								<f:ajax render="@all" execute="@all" />
+							</h:commandLink>
+						</ace:column>
+					</ace:dataTable>
+				</h:panelGroup>
+			 </td>
+			</tr>
+		
+		</tbody>
+	</table>
+		<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

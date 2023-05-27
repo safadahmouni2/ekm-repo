@@ -1,0 +1,229 @@
+.prevOwn table.prevOwnTable
+{
+  width:100%;
+  border:1px solid #e4e4e5;
+}
+
+.prevOwn table.prevOwnTable td
+{
+	overflow:hidden;
+	border:1px solid #FFF;
+	padding-left: 2px;
+}
+
+.prevOwn table.prevOwnTable th
+{
+	height:60px;
+	vertical-align:bottom;
+	border:1px solid #C0C0C0;
+	padding-left: 2px;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_checkBox {
+	width:25px !important;
+	/*background:green !important;*/
+}
+.prevOwn table.prevOwnTable tbody tr td.col_checkBox {
+	width:22px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_comNr {
+	width:50px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_comNr {
+	width:50px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_comNo{
+	width:45px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_deliveryStatus {
+	width:20px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_deliveryStatus {
+	width:20px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_deliveryStatus{
+	width:10px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_model {
+	width:50px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_model {
+	width:50px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_model{
+	width:45px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_customerName {
+	width:80px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_customerName {
+	width:80px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_customerName{
+	width:70px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_purchaseReason {
+	width:135px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_purchaseReason {
+	width:135px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_HSN {
+	width:60px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_HSN {
+	width:50px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_HSN{
+	width:30px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_manufacturer {
+	width:75px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_manufacturer {
+	width:75px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_manufacturer{
+	width:70px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_TSN {
+	width:60px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_TSN {
+	width:50px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_TSN{
+	width:35px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_tradeName {
+	width:90px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_tradeName {
+	width:90px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_tradeName{
+	width:85px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_buildYear {
+	width:40px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_buildYear {
+	width:40px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_buildYear{
+	width:35px !important;
+}
+
+.prevOwn table.prevOwnTable thead tr th.col_modUser {
+	width:60px !important;
+}
+.prevOwn table.prevOwnTable tbody tr td.col_modUser {
+	width:60px !important;
+}
+.prevOwn table.prevOwnTable thead tr th input.prevOwn_filter_modUser{
+	width:50px !important;
+}
+
+.prevOwn a
+{
+	color: #004963 !important;
+	background:transparent url(../images/blank.gif) no-repeat 0 0px !important;
+	padding-left: 0px !important;    
+}
+
+.prevOwn a:hover
+{
+	color: #004963 !important;
+	background:transparent url(../images/blank.gif) no-repeat 0 0px !important;
+	padding-left: 0px !important;  
+}
+
+.prevOwn .error
+{
+	padding:0;
+	color:#9A0C39;
+	border:none;
+}
+
+.prevOwn .tablePrevOwnSelection
+{
+	width: 90% !important;
+}
+
+.prevOwn .companyField
+{
+	width: 98px !important;
+	margin-left: 8px;	
+}
+.prevOwn .comboCompany
+{
+	width: 100px !important;
+	margin-left: 8px;	
+}
+.prevOwn .comboModelKey
+{
+	width: 199px !important;
+	margin-left: 0px !important;	
+}
+.prevOwn .comboPurchaseReason
+{
+	width: 130px !important;
+	margin-left: 0px;
+}
+
+.prevOwn .comboRowCount
+{
+	width: 70px !important;
+	margin-left: 6px !important;
+}
+.prevOwn .comNrField
+{
+	width: 86px !important;
+}
+
+.prevOwn .customerNrField
+{
+	width: 86px !important;
+}
+.prevOwn .scrollX {
+	overflow-x: scroll;
+}
+
+.prevOwn input.dataTableInputKaufgrund {
+	width: 115px;
+}
+
+.prevOwn input.dataTableInputHSN {
+	width: 30px;
+}
+
+.prevOwn input.dataTableInputTSN {
+	width: 30px;
+}
+
+.prevOwn input.dataTableInputBuildYear {
+	width: 35px;
+}
+
+.prevOwn .nowrap {
+	white-space: nowrap !important;
+}
+
+.prevOwn .modelKeyDateMessageMargin {
+	margin-left: 8px;
+}
+
+.prevOwn .comboArrow {
+	position: absolute;
+	cursor:pointer;
+}

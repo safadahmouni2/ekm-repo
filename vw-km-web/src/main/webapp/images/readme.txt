@@ -1,0 +1,1 @@
+03.12.2012: change icons

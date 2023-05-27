@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+    <h:panelGrid columns="2" border="0" columnClasses="user_general1,user_general2">
+		<h:outputText value="#{msgs['userAdministration.edit.gender']}:" />
+		<h:panelGroup layout="block">
+			<h:selectOneMenu id="user_gender" value="#{userDetailBean.dto.user.gender}"
+				disabled="#{!userDetailBean.hasManageUserRight}"
+				styleClass="min_6 validate tabme" required="true"
+				valueChangeListener="#{userDetailBean.checkChanged}">
+				<f:selectItem itemValue="" itemLabel="#{msgs['common.message.select']}" />
+				<f:selectItem itemValue="Herr" itemLabel="#{msgs['userAdministration.edit.gender.male']}" />
+				<f:selectItem itemValue="Frau" itemLabel="#{msgs['userAdministration.edit.gender.female']}" />
+				<f:ajax render="@all" execute="@this" />
+			</h:selectOneMenu>
+		&#160;<ace:message style="color: red;" id="user_gender_error" for="user_gender" />
+		</h:panelGroup>
+		<h:outputText value="#{msgs['userAdministration.edit.lastName']}:" />
+		<h:panelGroup layout="block">
+			<h:inputText id="user_lastName" label="#{msgs['userAdministration.edit.lastName']}"
+				value="#{userDetailBean.dto.user.lastName}" maxlength="50" disabled="#{!userDetailBean.hasManageUserRight}"
+				styleClass="tabme" required="true"
+				valueChangeListener="#{userDetailBean.checkChanged}">
+				<f:ajax render="@all" execute="@this" />
+			</h:inputText>	
+					&#160;<ace:message style="color: red;" id="user_lastName_error" for="user_lastName" />
+		</h:panelGroup>
+		<h:outputText value="#{msgs['userAdministration.edit.firstName']}:" />
+		<h:inputText value="#{userDetailBean.dto.user.firstName}" maxlength="50"
+			disabled="#{!userDetailBean.hasManageUserRight}"
+			styleClass="tabme"
+			valueChangeListener="#{userDetailBean.checkChanged}">
+			<f:ajax render="@all" execute="@this" />
+			</h:inputText>
+		<h:outputText value="#{msgs['userAdministration.edit.KUMSUserID']}:" />
+		<h:panelGroup layout="block">
+			<h:inputText id="user_kUMSUserId" label="#{msgs['userAdministration.edit.KUMSUserID']}" maxlength="10"
+				disabled="#{!userDetailBean.hasManageUserRight}" value="#{userDetailBean.dto.user.kUMSUserId}"
+				styleClass="tabme" required="true" valueChangeListener="#{userDetailBean.checkChanged}">
+				<f:ajax render="@all" execute="@this" />
+			</h:inputText>	
+			&#160;<ace:message style="color: red;" id="user_kUMSUserId_error" for="user_kUMSUserId"/>
+		</h:panelGroup>
+		<h:outputText value="#{msgs['userAdministration.edit.email']}:" />
+		<h:panelGroup layout="block">
+		<h:inputText id="user_mail" value="#{userDetailBean.dto.user.email}" maxlength="50"
+			disabled="#{!userDetailBean.hasManageUserRight}"
+			styleClass="tabme" required="true"
+			valueChangeListener="#{userDetailBean.checkChanged}">
+			<f:validator validatorId="emailValidator" />
+			<f:ajax render="@all" execute="@this" />
+		</h:inputText>
+		&#160;<ace:message style="color: red;" id="user_mail_error" for="user_mail" />
+		</h:panelGroup>
+		<h:outputText value="#{msgs['userAdministration.edit.telefon']}:" />
+		<h:panelGroup layout="block">
+		<h:inputText id="user_tel" value="#{userDetailBean.dto.user.telephone}" maxlength="20"
+				disabled="#{!userDetailBean.hasManageUserRight}"
+				styleClass="tabme"
+				valueChangeListener="#{userDetailBean.checkChanged}">
+				<f:validateLongRange></f:validateLongRange>
+				<f:ajax render="@all" execute="@this" />
+		</h:inputText>&#160;
+		<ace:message style="color: red;" id="user_tel_error" for="user_tel" />
+		</h:panelGroup>
+		
+		<h:outputText value="#{msgs['userAdministration.edit.active']}:" />
+		<h:panelGroup layout="block">
+		<h:selectBooleanCheckbox 
+			value="#{userDetailBean.dto.user.active}" disabled="#{!userDetailBean.rootAdmin}"
+			valueChangeListener="#{userDetailBean.checkChanged}">
+			<f:ajax render="@all" execute="@this" />
+		</h:selectBooleanCheckbox>	
+		</h:panelGroup>
+		
+		<h:outputText value="#{msgs['userAdministration.edit.external']}:" />
+		<h:panelGroup layout="block">
+		<h:selectBooleanCheckbox 
+			value="#{userDetailBean.dto.user.isExternal}" disabled="#{!userDetailBean.rootAdmin}"
+			valueChangeListener="#{userDetailBean.checkChanged}">
+			<f:ajax render="@all" execute="@this" />
+		</h:selectBooleanCheckbox>	
+		</h:panelGroup>
+		
+		<h:outputText value="#{msgs['userAdministration.edit.onbehalfof']}:" rendered="#{userDetailBean.dto.user.isExternal}"/>
+		<h:panelGroup layout="block" rendered="#{userDetailBean.dto.user.isExternal}">
+		<h:inputText id="user_onbehalfof" value="#{userDetailBean.dto.user.onBehalfOf}" maxlength="250"
+				disabled="#{!userDetailBean.rootAdmin}" required="#{userDetailBean.dto.user.isExternal}"
+				styleClass="tabme"
+				valueChangeListener="#{userDetailBean.checkChanged}">
+				<f:ajax render="@all" execute="@this" />
+				</h:inputText>&#160;
+				<ace:message style="color: red;" id="user_onbehalfof_error" for="user_onbehalfof" />
+		</h:panelGroup>		
+	</h:panelGrid>
+	
+	<script type="text/javascript">
+	   screenResizeInit ();	
+	</script>
+</html>

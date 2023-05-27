@@ -1,0 +1,339 @@
+
+.ListGrid
+{
+	cursor:pointer;
+	border-width:0px;
+	border-style:none;
+}
+
+.ListGridColPr
+{
+	font-size : 9pt;
+  vertical-align:top;
+}
+
+.ListGridColDesc
+{
+	white-space: nowrap;
+  vertical-align:top;  	
+}
+
+.ListGridColState
+{
+	padding: 0;	
+  vertical-align:top;  	
+  display:none;
+}
+
+.TableGridDiv
+{
+	overflow:scroll;
+	height: 120px;
+	padding:0 0 3px 3px;
+}
+.TableGridDivExc
+{
+	overflow:scroll;
+	height: 60px;
+	padding:0 0 3px 3px;
+  border:1px solid #809EBA;
+  width:288px !important;
+}
+
+
+.TdClrModel
+{
+  padding-right: 21px;
+  background-color:#FFCCCC !important;
+}
+.TdClrEva
+{
+  padding-right: 21px;
+  background-color:#D6E0F5 !important;
+}
+.TableWildcard
+{
+  border:1px solid #809EBA;
+  width:288px !important;
+}
+.TdDeepContentDirect
+{
+  width:288px !important;
+}
+
+.TdBold
+{
+  font-weight:bold;
+  text-align:left;
+  vertical-align:top;
+}
+.InputPrefix
+{
+  width:24px;
+}
+.InputPrExtraOld
+{
+  padding: 0;
+  margin: 0px 10px 0px 5px;
+	width:45px;
+  font-size : 11px;
+  height:20px;
+}
+.InputPrExtra
+{
+  padding: 0;
+  margin: 0px 15px 0px 0px;
+	width:46px;
+  font-size : 11px;
+  height:20px;
+}
+.InputPrExtraOldLast
+{
+  padding: 0;
+  margin: 0px 0px 0px 5px;
+	width:45px;
+  font-size : 11px;
+  height:20px;
+}
+.InputPr
+{
+  padding: 0;
+  margin: 0px 3px 0px 0px;
+	width:3.36em;
+	width:40px;
+}
+.TdInputPrList
+{
+	width : 210px;  
+  padding: 0px 8px 0px 5px;
+  margin:0;
+}
+
+.TdPrExtra
+{
+  padding: 0 10px 0 0; 
+  margin: 0 10px 0 0;
+  height:20px;
+}
+
+.carConfig #areaContent button.ButtonImage
+{
+  border: 0px;
+  padding: 0 2px 0 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  text-align:left;
+  height:16px;
+  line-height:16px;
+}
+.TdGridDivAll
+{
+  width: 284px !important;
+  vertical-align:top;
+  padding:0 0 0 12px;
+}
+.TdLabelRight
+{
+  width: 284px !important;
+}
+.TdLabelTopLeft
+{
+  padding:12px 0 0 12px;
+  width: 284px !important;
+}
+.TdLabelTopRight
+{
+  width: 284px !important;
+}
+.TdLabelBottomRight
+{
+  vertical-align:bottom;
+}
+.TdTextTopRight
+{
+  padding: 0px 10px 0px 5px;
+  margin: 0;
+  font-weight: bold;
+  vertical-align:top;
+}
+
+.carConfig .TdLabelTop
+{
+  padding:12px 0 0 12px;
+}
+
+.TdDeepContentDirekt
+{
+  padding: 0;
+  margin: 0;
+}
+.TdTextInnerRight
+{
+  padding: 0 7px 0 0; 
+  margin: 0;
+  text-align: right;
+  line-height:15px;
+}
+.TdTextInnerLeft
+{
+  padding: 0; 
+  margin: 0;
+  text-align: right;
+}
+.carConfig .TdTextInnerLeft button,
+.carConfig .TdTextInnerRight button
+{
+  position:relative;
+  top:7px;
+}
+.LabelExtraPr
+{
+  padding: 0;
+  margin: 0;
+  line-height:17px;
+  vertical-align:middle;
+}
+.TdMoreButton
+{
+  padding: 5px 0 5px 15px;
+  text-align:right;
+}
+
+.ButtonImageSortPr
+{
+	border: 1px;
+  border-style:outset;
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  height:16px;
+  line-height:16px;
+  width:40px;
+  vertical-align:top;
+}
+
+.ButtonImageSortDesc
+{
+	border: 1px;
+  border-style:outset;
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  height:16px;
+  line-height:16px;
+  width:260px;
+  vertical-align:top;
+}
+
+.tdSort
+{
+  background-color:#345D6F;
+  margin-bottom:2px;
+  height:1.6em;
+  width:288px;
+}
+
+/* ============= */
+/* carconfig new */
+/* ============= */
+
+.DivAllPr
+{
+  border:1px solid #809EBA;
+	overflow:scroll;
+  width:282px !important;
+	height:304px;
+	padding:0 0 3px 3px;
+  vertical-align:top;  	
+}
+
+.TableGridDiv
+{
+  border:1px solid #809EBA;
+	width:288px !important;
+  padding:0 0 0 12px;
+  padding:0!important;
+  margin:0!important;
+}
+
+table.ListGrid
+{
+  background-color:#fff;	
+}
+table.ListGrid tr
+{
+	cursor:pointer;
+  border-bottom:1px solid #809EBA;	
+}
+table.ListGrid tr.selected
+{
+  background-color:#c4dce8;
+}
+
+.carConfig .ListGrid td
+{
+  white-space:nowrap;
+}
+
+.usp_CarCfgCtrl .tdSort
+{
+	display:none;
+}
+
+
+#areaContent .tdSort button
+{
+  border:1px solid #809EBA !important;
+  height:1em;
+  margin-left:1px;
+  position:relative;
+  top:1px;
+  display:none; /* solange ausblenden, bis die funktionieren */
+}
+
+#areaContent .tdSort button img
+{
+  position:relative;
+  top:-4px;
+}
+
+#areaContent table.TableOuter tr.TrSubHeadline td
+{
+  padding:0.3em 0.5em !important;
+  font-weight:bold;
+}
+
+#areaContent .carconfig #areaContent table.TableOuter td
+{
+  width:100%;
+}
+
+
+.TdLabelLeft
+{
+  padding:0 0 0 12px;
+  vertical-align:middle; 
+}
+
+
+
+
+
+.client_ie6 .TableGridDiv,
+.client_ie6 .TableGridDivExc,
+.client_ie7 .TableGridDiv,
+.client_ie7 .TableGridDivExc,
+.client_ie6 .tdSort,
+.client_ie7 .tdSort
+{
+  width:284px !important;
+}
+
+.client_ie6 .DivAllPr,
+.client_ie7 .DivAllPr
+{
+  width:278px !important;
+}

@@ -1,0 +1,344 @@
+
+table.konzernLayout8
+{
+	width:800px;
+}
+table.konzernLayout8 td
+{
+  width:89px;
+	padding-left:11px;
+}
+table.konzernLayout8 td td
+{
+	padding-left:0px;
+}
+
+table.konzernLayout8 .leftSize1
+{
+  width:88px;
+	padding-left:0!important;
+}
+table.konzernLayout8 .leftSize2
+{
+  width:188px;
+	padding-left:0!important;
+}
+.client_ie6 table.konzernLayout8 .leftSize2,
+.client_ie7 table.konzernLayout8 .leftSize2
+{
+  width:185px;
+}
+table.konzernLayout8 .leftSize3
+{
+  width:288px;
+	padding-left:0!important;
+}
+table.konzernLayout8 .leftSize4
+{
+  width:388px;
+	padding-left:0!important;
+}
+table.konzernLayout8 .leftSize5
+{
+  width:488px;
+	padding-left:0!important;
+}
+table.konzernLayout8 .leftSize6
+{
+  width:588px;
+	padding-left:0!important;
+}
+
+table.konzernLayout8 .colSize1
+{
+  width:88px!important;
+}
+table.konzernLayout8 .colSize1 input
+{
+  width:84px!important;
+}
+
+table.konzernLayout8 .colSize2
+{
+  width:188px!important;
+}
+
+.client_ie6 table.konzernLayout8 .colSize2,
+.client_ie7 table.konzernLayout8 .colSize2
+{
+  width:185px;
+}
+
+
+table.konzernLayout8 .fullSize1
+{
+  width:100px!important;
+}
+table.konzernLayout8 .fullSize2
+{
+  width:200px!important;
+}
+table.konzernLayout8 .fullSize3
+{
+  width:300px!important;
+}
+table.konzernLayout8 .fullSize4
+{
+  width:400px!important;
+}
+table.konzernLayout8 .fullSize5
+{
+  width:500px!important;
+}
+table.konzernLayout8 .fullSize6
+{
+  width:600px!important;
+}
+table.konzernLayout8 .fullSize7
+{
+  width:700px!important;
+}
+
+table.konzernLayout8 .colSize3
+{
+  width:288px!important;
+}
+table.konzernLayout8 .colSize4
+{
+  width:388px!important;
+}
+table.konzernLayout8 .colSize5
+{
+  width:488px!important;
+}
+table.konzernLayout8 .colSize6
+{
+  width:588px!important;
+}
+table.konzernLayout8 .colSize7
+{
+  width:688px!important;
+}
+table.konzernLayout8 .colSize8
+{
+  width:788px!important;
+}
+
+table.konzernLayout8 td span
+{
+	display:block;
+	width:88px;
+}
+
+table.konzernLayout8 td span.clientCtrl
+{
+	width:86px;
+}
+
+table.konzernLayout8 td input
+{
+	display:block;
+	width:86px;
+}
+
+.client_ie6 table.konzernLayout8 td input,
+.client_ie7 table.konzernLayout8 td input
+{
+	width:84px;
+}
+
+table.konzernLayout8 td button
+{
+	width:88px;
+	display:block;
+	float:left;
+}
+
+table.konzernLayout8 table.vehiclePrNumberList
+{
+	width:488px;
+	margin-left:-1px;
+}
+.orderEntry20 table.konzernLayout8 table.vehiclePrNumberList
+{
+	width:588px;
+}
+.client_ie6 table.konzernLayout8 table.vehiclePrNumberList,
+.client_ie7 table.konzernLayout8 table.vehiclePrNumberList
+{
+	margin-left:1px;
+}
+
+.expert table.konzernLayout8 .tdPrList
+{
+  padding-left:0;
+}
+table.konzernLayout8 .vehiclePrNumberList td
+{
+  padding-left:0;
+}
+.orderEntry20 table.konzernLayout8 .vehiclePrNumberList td
+{
+  padding-left:12px;
+}
+
+table.konzernLayout8 .vehiclePrNumberList td input.prNumber
+{
+	margin-left:12px;
+	width:35px !important;
+}
+.orderEntry20 table.konzernLayout8 .vehiclePrNumberList td input.prNumber
+{
+	margin-left:0;
+}
+
+.client_ie6 table.konzernLayout8 .vehiclePrNumberList td input.prNumber,
+.client_ie7 table.konzernLayout8 .vehiclePrNumberList td input.prNumber
+{
+	margin-left:10px;
+	width:35px !important;
+}
+
+table.konzernLayout8 table.PrNumberList
+{
+	width:488px;
+	margin-left:-1px;
+}
+.client_ie6 table.konzernLayout8 table.PrNumberList,
+.client_ie7 table.konzernLayout8 table.PrNumberList
+{
+	margin-left:1px;
+}
+table.konzernLayout8 .PrNumberList td
+{
+  padding-left:0;
+}
+table.konzernLayout8 .PrNumberList td input.prNumber
+{
+	margin-left:12px;
+	width:35px !important;
+}
+.client_ie6 table.konzernLayout8 .PrNumberList td input.prNumber,
+.client_ie7 table.konzernLayout8 .PrNumberList td input.prNumber
+{
+	margin-left:10px;
+	width:35px !important;
+}
+
+.gross table.netGrossTotal .leftSize5
+{
+	display:none;
+}
+.gross table.netGrossTotal .priceTextNet
+{
+	text-align:left!important;
+}
+.gross table.netGrossTotal .both
+{
+	position:static;
+	top:0;
+	left:0;
+}
+
+.usp_LabelAlignRight table.konzernLayout8 td span
+{
+	text-align:right;
+}
+
+table.konzernLayout8 th
+{
+	padding-left:12px;
+	text-align:left;
+	vertical-align:bottom;
+}
+table.konzernLayout8 th:first-child
+{
+	padding-left:0 !important;
+}
+table.konzernLayout8 th.firstChild
+{
+	padding-left:0 !important;
+}
+
+.konzernLayout8 .smSize,
+.konzernLayout8 select
+{
+  margin-left:1px;
+}
+
+.doubleGroup .smSize
+{
+  margin-left:0;
+}
+
+
+table.noPaddingLeft td
+{
+  padding-left:0;
+}
+
+.tbl8 td
+{
+	width:100px!important;
+	padding:0;
+}
+
+.tbl8 td.size2
+{
+	width:200px!important;
+}
+
+.tbl8 td.size3
+{
+	width:300px!important;
+}
+
+.tbl8 td.size4
+{
+	width:400px!important;
+}
+
+.tbl8 td.size5
+{
+	width:500px!important;
+}
+
+.tbl8 td.size6
+{
+	width:600px!important;
+}
+
+.tbl4,
+.tbl8,
+.tbl8 td.size8
+{
+	width:800px!important;
+}
+
+.tbl4 td.size0,
+.tbl8 td.size0
+{
+	width:0!important;
+}
+
+.tbl4 td
+{
+	width:200px!important;
+}
+.tbl4 td.size6
+{
+	width:600px!important;
+}
+
+.tbl8 td.value,
+.tbl8 td.alignRight
+{
+	width:88px!important;
+	padding-right:12px;
+	text-align:right;
+}
+.tbl8 td.price
+{
+	width:100px!important;
+	text-align:right;
+}

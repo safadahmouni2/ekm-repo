@@ -1,0 +1,9 @@
+ul.formular,
+.formular li
+{
+  list-style:none;
+  border: 1px solid black !important;
+  margin-left:2em;
+  padding-left:2em;
+  color:red;
+}

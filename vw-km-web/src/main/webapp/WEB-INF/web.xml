@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<!-- web.xml - provided for *local* environment -->
+	<display-name>VW_KM</display-name>
+	<description>VW KM project</description>
+	<!-- ### CONTEXT PARAMS -->
+
+	<!-- *************************************************** -->
+	<!-- ********** Spring Configuration ******************* -->
+	<!-- *************************************************** -->
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		classpath:conf/${prop.application.db.connectionpool.dataSource}.xml
+		classpath:conf/applicationContext.xml
+		classpath:conf/daosContext.xml
+		classpath:conf/businessContext.xml
+		classpath:conf/servicesContext.xml
+ 		classpath:conf/processContext.xml
+		/WEB-INF/classes/conf/webContext.xml
+      </param-value>
+	</context-param>
+	
+	<!-- *************************************************** -->
+	<!-- ***************** Faces Configuration ************* -->
+	<!-- *************************************************** -->
+	
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Production</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+		<param-value>${prop.application.web.facelets.SKIP_COMMENTS}</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>facelets.DEVELOPMENT</param-name>
+		<param-value>${prop.application.web.facelets.DEVELOPMENT}</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+		<param-value>${prop.application.web.facelets.REFRESH_PERIOD}</param-value>
+	</context-param>
+
+		<context-param>
+		<param-name>com.icesoft.faces.checkJavaScript</param-name>
+		<param-value>false</param-value>
+		</context-param>
+
+	<context-param>
+		<param-name>com.icesoft.faces.uploadDirectory</param-name>
+		<param-value>upload</param-value>
+	</context-param>
+
+
+	<context-param>
+		<param-name>org.icefaces.compressResources</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	  <context-param>
+		<description>
+         The coalescing is applied to Javascript and CSS resources resulting into two separate resources, 
+         one for the coalesced Javascript and the other for the coalesced CSS. 
+         By reducing the numbers of requests made by the browser the page load time will improve significantly.
+         Default value is false. 
+         Since: 	3.3
+        </description>	  
+	    <param-name>org.icefaces.coalesceResources</param-name>
+	    <param-value>true</param-value>
+	  </context-param>
+
+	<!-- Ticket-id: 22145
+	     Responsible: ABA
+	 Pre-loading fileEntry component resources in order to ensure proper component execution in cases 
+	 where the component is not present on the initial page load, but is later added to the page 
+	 dynamically via a partial-page-update
+	  -->
+   <context-param>
+        <param-name>org.icefaces.mandatoryResourceConfiguration</param-name>
+        <param-value>all</param-value>
+    </context-param>
+    
+
+	<context-param>
+		<param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+		<param-value>false</param-value>
+	</context-param> 
+
+	<context-param>
+		<description>
+			Set this flag to true, if you want the JavaServer Faces Reference
+			Implementation to validate the XML in
+			your faces-config.xml resources
+			against the DTD. Default value is false.
+        </description>
+		<param-name>com.sun.faces.validateXml</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>com.icesoft.faces.debugDOMUpdate</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+   <context-param>
+		<param-name>org.icefaces.ace.theme</param-name>
+		<param-value>none</param-value>
+   </context-param>
+
+	<!-- Performance tuning High -->
+	<!-- http://jira.icesoft.org/browse/ICE-7737?page=com.atlassian.jira.plugin.system.issuetabpanels:all-tabpanel -->
+	
+	<context-param>
+		<param-name>org.icefaces.fastBusyIndicator</param-name>
+		<param-value>true</param-value>
+	</context-param>
+    		
+    <context-param>
+        <param-name>org.icefaces.compressDOM</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    	
+  	<context-param>
+	  	<param-name>com.icesoft.faces.optimizedJSListenerCleanup</param-name>
+	   	<param-value>true</param-value>
+  	</context-param>	
+	<context-param>
+	     <param-name>com.sun.faces.responseBufferSize</param-name>
+	     <param-value>500000</param-value>
+	</context-param> 
+    <context-param>
+            <param-name>com.sun.faces.externalizeJavaScript</param-name>
+            <param-value>true</param-value>
+    </context-param>	 	
+	
+	<context-param>
+		<description>Only applicable if state saving method is "server" (= default).
+			If true (default) the state will be
+			serialized to a byte stream before it
+			is written to the session.
+			If false the state will not be serialized to a byte
+			stream.</description>
+		<param-name>com.sun.faces.serializeServerState</param-name>
+		<param-value>${prop.application.web.faces.serializeServerState}</param-value>
+	</context-param>
+	<!-- Performance tuning High -->
+	<context-param>
+		<description>Only applicable if state saving method is "server" (= default) and if
+			com.sun.faces.serializeServerState is true (= default)
+			If true (default) the serialized state will be
+			compressed before it
+			is written to the session. If false the state will not be compressed.</description>
+		<param-name>com.sun.faces.compressViewState</param-name>
+		<param-value>${prop.application.web.faces.compressViewState}</param-value>
+	</context-param>
+
+	<!-- Performance tuning High -->
+	<context-param>
+		<param-name>com.sun.faces.numberOfViewsInSession</param-name>
+		<param-value>${prop.application.web.faces.numberOfViewsInSession}</param-value>
+	</context-param>
+	<!-- Performance tuning High -->
+	<context-param>
+		<param-name>com.sun.faces.numberOfLogicalViews</param-name>
+		<param-value>${prop.application.web.faces.numberOfLogicalViews}</param-value>
+	</context-param>
+    <context-param>
+        <param-name>facelets.RECREATE_VALUE_EXPRESSION_ON_BUILD_BEFORE_RESTORE</param-name>
+        <param-value>${prop.application.web.facelets.RECREATE_VALUE_EXPRESSION_ON_BUILD_BEFORE_RESTORE}</param-value>
+    </context-param>
+
+  <context-param>
+    <param-name>vwg.vw.km.faces.JUNCTION_NAME</param-name>
+    <param-value>${prop.application.web.junction_name}</param-value>
+  </context-param>
+
+
+	<context-param>
+		<description>To allow multiple windows for a single application.</description>
+		<param-name>com.icesoft.faces.concurrentDOMViews</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Turn on/off application-wide synchronous or asynchronous updates.</description>		
+		<param-name>com.icesoft.faces.synchronousUpdate</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.icesoft.faces.uploadMaxFileSize</param-name>
+		<param-value>20971520</param-value>
+	</context-param>
+
+	<context-param>
+			<param-name>com.icesoft.faces.heartbeatInterval</param-name>
+			<param-value>50000</param-value>
+	</context-param>
+	<context-param>
+			<param-name>com.icesoft.faces.heartbeatTimeout</param-name>
+	 		<param-value>30000</param-value>
+	</context-param>
+	<context-param>
+	 		<param-name>com.icesoft.faces.heartbeatRetries</param-name>
+	 		<param-value>15</param-value>
+	 </context-param>
+	 
+     <context-param> 
+  		<param-name>org.icefaces.sessionExpiredRedirectURI</param-name> 
+  		<param-value>${prop.application.web.external_logout}</param-value> 
+  	</context-param> 
+  	<context-param> 
+  		<param-name>org.icefaces.connectionLostRedirectURI</param-name> 
+  		<param-value>${prop.application.web.external_logout}</param-value>
+  	</context-param>	
+    
+    <context-param>
+        <param-name>org.icefaces.blockUIOnSubmit</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <!-- WARN: Cannot set header. Response already committed. on WAS8 -->
+    <context-param>
+        <param-name>com.sun.faces.resourceBufferSize</param-name>
+        <param-value>524288</param-value>
+    </context-param>  
+
+	<filter>
+		<filter-name>BaseFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter>
+		<filter-name>HeaderFilter</filter-name>
+		<filter-class>vwg.vw.km.presentation.client.filters.CompatibilityModeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>BaseFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>HeaderFilter</filter-name>
+		<url-pattern>*.jsf</url-pattern>
+	</filter-mapping>
+		
+	<listener>
+	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<listener>
+	    <listener-class>vwg.vw.km.presentation.client.listener.ActivSessionListener</listener-class>
+	</listener>
+	
+<!-- 	<listener> -->
+<!-- 			<listener-class>com.sun.faces.config.ConfigureListener</listener-class> -->
+<!-- 	</listener> -->
+
+
+	<!-- Faces Servlet -->
+	
+   <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+         <load-on-startup>1</load-on-startup>
+        <!-- Add the multi-part entry below to enable Servlet 3 servers to support ace:fileEntry -->
+        <multipart-config>
+            <max-file-size>52428800</max-file-size>
+            <max-request-size>52428800</max-request-size>
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    	
+  <servlet>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>vwg.vw.km.presentation.client.servlet.FileUploadServlet</servlet-class>
+    <!-- Add the multi-part entry below to enable Servlet 3 servers to support ace:fileEntry -->
+    <multipart-config>
+        <max-file-size>52428800</max-file-size>
+        <max-request-size>52428800</max-request-size>
+        <file-size-threshold>0</file-size-threshold>
+    </multipart-config>
+  </servlet>
+ 
+   <servlet>
+    <servlet-name>ImageShowServlet</servlet-name>
+    <servlet-class>vwg.vw.km.presentation.client.servlet.ImageShowServlet</servlet-class>
+  </servlet>
+    
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/uploadFile</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ImageShowServlet</servlet-name>
+    <url-pattern>/imageShow</url-pattern>
+  </servlet-mapping>
+	<!-- Extension mapping -->
+
+
+    <servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+	  	<url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/icefaces/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- Session timeout configuration -->
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<!-- Welcome files -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.html</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error.html</location>
+	</error-page>
+</web-app>
